@@ -1,3 +1,5 @@
+(function(){
+   'use:strict'
 angular
   .module('samarth') 
   .controller('navbarCtrl', [
@@ -18,6 +20,7 @@ angular
 	};
      
     }]);
+}();
   
 
 

@@ -1,14 +1,15 @@
 
-angular.module("samarth")
+angular
+    .module("samarth.jobPost",[])
     .config(function($stateProvider, $urlRouterProvider){
  
     $urlRouterProvider.otherwise('/');
      $stateProvider
-     .state('index.signin.postjob', {
-        url:'/jobpost',
+     .state('index.signin.jobPost', {
+        url:'/jobPost',
         views: {
             'content@': {
-                templateUrl: 'jobPost/template/postjob.html',
+                templateUrl: 'jobPost/template/jobPost.html',
                 
             }
         }
