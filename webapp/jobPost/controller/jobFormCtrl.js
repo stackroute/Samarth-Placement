@@ -12,7 +12,7 @@ function dialogController ($scope,$mdDialog)
                   scope: $scope,
                   fullscreen: true,        
                   preserveScope: true,           
-                  templateUrl: '../template/jobDescForm.html',
+                  templateUrl: 'jobPost/template/jobDescForm.html',
                   controller: function DialogController($scope, $mdDialog) {
                      $scope.closeDialog = function() {
                         $mdDialog.hide();
@@ -26,7 +26,7 @@ function dialogController ($scope,$mdDialog)
                   scope: $scope,
                   fullscreen: true,        
                   preserveScope: true,           
-                  templateUrl: '../template/criteriaForm.html',
+                  templateUrl: 'jobPost/template/criteriaForm.html',
                   controller: function DialogController($scope, $mdDialog) {
                      $scope.closeDialog = function() {
                         $mdDialog.hide();

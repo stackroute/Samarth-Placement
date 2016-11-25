@@ -3,7 +3,7 @@
   angular
   .module("samarth.jobPost")
   .component("criteria",{
-      templateUrl: '../template/criteria.html',
+      templateUrl: 'jobPost/template/criteria.html',
       bindings: { name: '=',
                    txt: '@'      
                 },
