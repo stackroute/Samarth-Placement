@@ -1,0 +1,82 @@
+ <form>
+ <div layout="column" layout-align="center center">
+  <div layout="row" layout-padding>
+  <p class="md-title"> Look for</p>
+   <span>
+    <md-input-container class="md-icon-float md-block" >
+    <input ng-model="job.title" type="text" placeholder="Title" ng-required="true">
+    </md-input-container>
+  </span>
+  </div>
+  <div layout="row" layout-padding>
+  <p class="md-title">Role</p>
+   <span>
+    <md-input-container class="md-icon-float md-block" >
+    <input ng-model="job.role" type="text" placeholder="Role" ng-required="true">
+    </md-input-container>
+  </span>
+  </div>
+  <div layout="row" layout-padding>
+  <p class="md-title">Place</p>
+   <span>
+    <md-input-container class="md-icon-float md-block" >
+    <input ng-model="job.jobLocation" type="text" placeholder="Location" ng-required="true">
+    </md-input-container>
+  </span>
+  </div>
+  <div layout="row" layout-padding>
+  <p class="md-title">Duties</p>
+   <span>
+    <md-input-container class="md-icon-float md-block" >
+    <input ng-model="job.duties" type="text" placeholder="Duties" ng-required="true">
+    </md-input-container>
+  </span>
+  </div>
+  <div layout="row" layout-padding>
+  <p class="md-title">Skills</p>
+   <span>
+    <md-input-container class="md-icon-float md-block" >
+    <input ng-model="job.skills" type="text" placeholder="Skills" ng-required="true">
+    </md-input-container>
+  </span>
+</div>
+<div layout="row" layout-padding>
+  <p class="md-title">Experience</p>
+   <span>
+    <md-input-container class="md-icon-float md-block" >
+    <input ng-model="job.experience" type="text" placeholder="Experience" ng-required="true">
+    </md-input-container>
+  </span>
+  </div>
+  <div layout="row" layout-padding>
+  <p class="md-title">Language</p>
+   <span>
+    <md-input-container class="md-icon-float md-block" >
+    <input ng-model="job.language" type="text" placeholder="Language" ng-required="true">
+    </md-input-container>
+  </span>
+  </div>
+  <div layout="row" layout-padding>
+  <p class="md-title">Job Opennings</p>
+   <span>
+    <md-input-container class="md-icon-float md-block" >
+    <input ng-model="job.openningsNo" type="text" placeholder="Job opennings" ng-required="true">
+    </md-input-container>
+  </span>
+  </div>
+  <div layout="row" layout-padding>
+  <p class="md-title">Close date</p>
+   <span>
+    <md-input-container class="md-icon-float md-block" >
+    <md-datepicker ng-model="job.closeDate" md-min-date="minDate" md-max-date="maxDate" placeholder="Close Date"></md-datepicker>
+    </md-input-container>
+  </span>
+  </div>
+  <div>
+   <md-button class="md-primary md-raised" ng-submit=""  flex=""  flex-gt-md="auto">
+    Save
+  </md-button>
+  </div>
+
+ </div>
+ </form>
