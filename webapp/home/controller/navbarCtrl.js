@@ -7,8 +7,3 @@ angular.module('samarth').controller('navbarCtrl', function($scope, $mdSidenav) 
 		$mdSidenav('left').close();
 	};
 });
-angular.module('samarth').config(function($mdThemingProvider) {
-    $mdThemingProvider.theme('default')
-      .primaryPalette('purple')
-      
-  });

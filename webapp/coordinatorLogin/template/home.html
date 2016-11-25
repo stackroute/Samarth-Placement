@@ -1,0 +1,57 @@
+<h1 style="text-align: center;">S A M A R T H</h1>
+<div layout= "row"  layout-align="center center " layout-padding  ng-cloak  flex>
+<md-content  md-whiteframe="6"  layout-margin="" flex="35">
+
+ <form  name="myForm"  >
+   <div  layout="row" layout-align="center">
+     <!--  <h1 >SAMARTH </h1> -->
+     <h2>Sign In</h2>
+   </div>
+
+   <md-input-container  class="md-block"  >
+    <md-icon>email</md-icon>
+
+    <input name="email" id="email" ng-model="user.emailAddress" placeholder="Email address" ng-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+    <div ng-messages="myForm.email.$error"  ng-show="myForm.email.$dirty || myForm.email.$touched">
+     <div ng-message="required">Email is required.</div>
+     <div ng-message="pattern"> Enter correct pattern</div>
+   </div>
+
+ </md-input-container>
+
+ <md-input-container  class="md-block"  >
+  <md-icon>https</md-icon>
+
+
+  <input name="password" type="password" id="password" ng-model="user.password" placeholder="Password" ng-required="true" minlength="5"> 
+  <div ng-messages="myForm.password.$error"  ng-show="myForm.password.$dirty || myForm.password.$touched">
+   <div ng-message="required">Password is required.</div>
+   <div ng-message="minlength">password must be more than 5 digits</div>
+ </div>
+
+</md-input-container>
+
+<div layout="row" layout-align="center" >
+ <p >{{errormsg}}</p>
+</div>
+<div layout="row" layout-align="center" >
+
+<md-button type="submit"   ng-click="signIn()"  class="md-raised md-primary" ui-sref="index.signin"> Sign in </md-button> 
+
+  <!-- <a ui-sref=".list" class="btn btn-primary">List</a> 
+  <a ui-sref="home" type="submit" class="btn btn-primary" > Sign in </a>  -->
+</div>
+<div layout="row" layout-padding layout-align="center">
+
+ <a ui-sref="index.createaccount" > Create new account </a>
+
+</div>
+
+
+</form>
+
+</md-content>
+
+</div>
+
+</body>

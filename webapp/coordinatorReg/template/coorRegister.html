@@ -1,0 +1,187 @@
+<!-- <!DOCTYPE html>
+<html ng-app="samarthPlacement">
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>practise</title>
+  <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+</head>
+
+<body layout="column" ng-controller="DemoBasicCtrl"> -->
+  <div layout=row flex>
+    
+    <div class="md-no-momentum" layout="column" layout-padding="" layout-align="center center" flex>
+      <md-content class="md-no-momentum" md-whiteframe="6" layout-margin="" layout-align="center center">
+        <h1>Coordinator Registration</h1><br>
+        <form name="myForm" ng-submit="clickSubmit(coordinator)">
+          <md-input-container class="md-block" >
+            <!-- Use floating label instead of placeholder -->
+            <label>Name</label>
+            <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name" ></md-icon>
+            <input ng-model="coordinator.name" name="Name" type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" ng-required="true">
+            <div ng-messages="myForm.Name.$error" ng-show="myForm.Name.$dirty || myForm.Name.$touched">
+              <div ng-message="pattern">only character and spaces allowed</div>
+              <div ng-message="md-maxlength">Length should not be more than 30 characters </div>
+            </div>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <md-icon md-svg-src="img/icons/ic_phone_24px.svg" class="phone"></md-icon>
+            <input ng-model="coordinator.phone" name="number" type="text" pattern="[0-9]{10,10}" md-maxlength="10" md-minlength="10" placeholder="Phone Number" ng-required="true">
+            <div ng-messages="myForm.number.$error" ng-show="myForm.number.$dirty || myForm.Name.$touched">
+              <div ng-message="pattern">10 digit number is allowed only </div>
+            </div>
+          </md-input-container>
+
+          <!-- radio -->
+          <md-radio-group ng-model="coordinator.gender" layout="row" ng-required="true" layout-padding="">
+            <md-radio-button value="Male">Male</md-radio-button>
+            <md-radio-button value="Female">Female</md-radio-button>
+          </md-radio-group><br>
+
+          <md-input-container class="md-block">
+            <!-- Use floating placeholder instead of label -->
+            <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+            <input ng-model="coordinator.email" type="email" placeholder="Email (required)" ng-required="true">
+          </md-input-container>
+
+          <!-- <md-input-container class="md-block" flex-gt-sm="">
+            <label>Profession</label>
+            <md-select ng-model="coordinator.proff" ng-required="true">
+              <md-option ng-repeat="prof in profession" ng-value="prof">
+                {{prof}}
+              </md-option>
+            </md-select><br>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>Role</label>
+            <md-select ng-model="coordinator.role" ng-required="true">
+              <md-option ng-repeat="role in roles" ng-value="role">
+                {{role}}
+              </md-option>
+            </md-select><br>
+          </md-input-container> -->
+
+<!-- 
+        <md-input-container class="md-block" flex-gt-sm="">
+          <label>Location</label>
+          <md-select ng-model="coordinator.locate" ng-required="true">
+              <md-option ng-repeat="locate in location" value="{{locate}}">
+                  {{locate}}
+              </md-option>
+          </md-select><br>
+        </md-input-container>
+      -->
+      <md-contact-chips ng-model="coordinator.profession" md-contacts="items" md-contact-name="items" md-require-match="true" md-highlight-flags="i" filter-selected="DemoBasicCtrl.filterSelected" placeholder="profession">
+
+        <md-autocomplete
+        md-selected-item="DemoBasicCtrl.selectedItem" 
+        md-search-text-change="DemoBasicCtrl.searchTextChange(DemoBasicCtrl.searchText)"
+        md-search-text="DemoBasicCtrl.searchText" 
+        md-selected-item-change="DemoBasicCtrl.selectedItemChange(item)" 
+        md-items="item in items | filter: DemoBasicCtrl.searchText" 
+        md-item-text="item"
+        md-min-length="0" 
+        placeholder="Profession" 
+        md-menu-class="autocomplete-custom-template">
+        <md-item-template>
+          <span md-highlight-text="DemoBasicCtrl.searchText" md-highlight-flags="^i">{{item}}</span>
+        </md-item-template>
+      </md-autocomplete>
+      </md-contact-chips>
+      <br>
+    
+
+        <md-autocomplete 
+        md-selected-item="DemoBasicCtrl.selectedItem" 
+        md-search-text-change="DemoBasicCtrl.searchTextChange(DemoBasicCtrl.searchText)"
+        md-search-text="DemoBasicCtrl.searchText" 
+        md-selected-item-change="DemoBasicCtrl.selectedItemChange(item)" 
+        md-items="item in items | filter: DemoBasicCtrl.searchText" 
+        md-item-text="item"
+        md-min-length="0" 
+        placeholder="Role" 
+        md-menu-class="autocomplete-custom-template">
+        <!-- <md-chips ng-model="DemoBasicCtrl.item" readonly="DemoBasicCtrl.readonly">
+          <md-chip-template>
+            <strong>{{item}}</strong>
+            <em>(fruit)</em>
+          </md-chip-template>
+        </md-chips> -->
+        <md-item-template>
+          <span md-highlight-text="DemoBasicCtrl.searchText" md-highlight-flags="^i">{{item}}</span>
+        </md-item-template>
+      </md-autocomplete>
+    <br>
+
+
+        <md-autocomplete 
+        md-selected-item="DemoBasicCtrl.selectedItem" 
+        md-search-text-change="DemoBasicCtrl.searchTextChange(DemoBasicCtrl.searchText)"
+        md-search-text="DemoBasicCtrl.searchText" 
+        md-selected-item-change="DemoBasicCtrl.selectedItemChange(item)" 
+        md-items="item in items | filter: DemoBasicCtrl.searchText" 
+        md-item-text="item"
+        md-min-length="0" 
+        placeholder="Language" 
+        md-menu-class="autocomplete-custom-template">
+        <!-- <md-chips ng-model="DemoBasicCtrl.item" readonly="DemoBasicCtrl.readonly">
+          <md-chip-template>
+            <strong>{{item}}</strong>
+            <em>(fruit)</em>
+          </md-chip-template>
+        </md-chips> -->
+        <md-item-template>
+          <span md-highlight-text="DemoBasicCtrl.searchText" md-highlight-flags="^i">{{item}}</span>
+        </md-item-template>
+      </md-autocomplete>
+    <br>
+<!--     
+    <md-checkbox ng-model="DemoBasicCtrl.simulateQuery">Simulate query for results?</md-checkbox>
+    <md-checkbox ng-model="DemoBasicCtrl.noCache">Disable caching of queries?</md-checkbox>
+    <md-checkbox ng-model="DemoBasicCtrl.isDisabled">Disable the input?</md-checkbox> -->
+   <!--  <md-content>
+
+      <md-autocomplete 
+      md-selected-item="DemoBasicCtrl.selectedItem" 
+      md-search-text-change="DemoBasicCtrl.searchTextChange(DemoBasicCtrl.searchText)"
+      md-search-text="DemoBasicCtrl.searchText" 
+      md-selected-item-change="DemoBasicCtrl.selectedItemChange(item)" 
+      md-items="item in items | filter: DemoBasicCtrl.searchText" 
+      md-item-text="item"
+      md-min-length="0" 
+      placeholder="Location" 
+      md-menu-class="autocomplete-custom-template">
+      <md-item-template>
+        <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item}}</span>
+      </md-item-template>
+    </md-autocomplete>-->
+  </md-content> 
+
+  <section layout="row" layout-padding="" layout-align="center">
+    <button type="submit" class="md-raised md-primary" ng-disabled="false" ui-sref="index.signin">&nbspRegister&nbsp</button>
+  </section>        
+</form>
+{{ coordinator || json}}
+</md-content>
+</div>
+</div>
+<!--
+</body>
+<!- - Angular Material Dependencies - ->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<!- - <script src="bower_components/angular-material-icons/angular-material-icons.js"></script> - - >
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<!- - Angular Material Javascript using GitCDN to load directly from `bower-material/master` - ->
+<script src="bower_components/angular-material/angular-material.js"></script>
+
+<script src="../bower_components/svg-assets-cache.js/svg-assets-cache.js"></script>
+<script src="script.js"></script>
+</html>
+-->
+
