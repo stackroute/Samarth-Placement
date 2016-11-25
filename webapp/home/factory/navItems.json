@@ -1,0 +1,33 @@
+[
+{
+	"icon":"dashboard",
+	"navTitle":"Dashboard",
+	"traverse":"index.signin.dashboard"
+},
+{
+	"icon":"search",
+	"navTitle":"Search Candidate",
+	"traverse":"index.signin.candidatesearch"
+},
+{
+	"icon":"person_add",
+	"navTitle":"Register Candidate",
+	"traverse":"index.signin.candidateReg"
+},
+{
+	"icon":"add box",
+	"navTitle":"Post Job",
+	"traverse":"index.signin.postjob"
+},
+{
+	"icon":"youtube_searched_for_black",
+	"navTitle":"Search Job",
+	"traverse":"index.signin.searchjob"
+},
+{
+	"icon":"person_pin",
+	"navTitle":"Employer Registration",
+	"traverse":"index.signin.empreg"
+}
+
+]
