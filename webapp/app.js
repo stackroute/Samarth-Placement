@@ -12,6 +12,6 @@ angular.module('samarth',
     .config(function($mdThemingProvider) {
 
     $mdThemingProvider.theme('default')
-      .primaryPalette('purple')
+      .primaryPalette('blue')
       
   });
