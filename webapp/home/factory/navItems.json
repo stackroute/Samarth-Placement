@@ -6,22 +6,22 @@
 },
 {
 	"icon":"search",
-	"navTitle":"Search Candidate",
+	"navTitle":"Candidate Search",
 	"traverse":"index.signin.candidatesearch"
 },
 {
 	"icon":"person_add",
-	"navTitle":"Register Candidate",
+	"navTitle":"Candidate Register ",
 	"traverse":"index.signin.candidateReg"
 },
 {
 	"icon":"add box",
-	"navTitle":"Post Job",
+	"navTitle":"Job Post",
 	"traverse":"index.signin.jobPost"
 },
 {
 	"icon":"youtube_searched_for_black",
-	"navTitle":"Search Job",
+	"navTitle":"Job Search",
 	"traverse":"index.signin.searchjob"
 },
 {

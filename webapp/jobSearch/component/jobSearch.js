@@ -1,7 +1,7 @@
 
 angular
 
-     .module('instantsearch')
+     .module('samarth.jobSearch')
 
 /*     angular.module('instantsearch',['ngMaterial','ui.router','ngMdIcons'])
 */

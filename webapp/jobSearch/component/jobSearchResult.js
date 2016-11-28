@@ -1,5 +1,5 @@
 angular
-    .module('instantsearch')
+    .module('samarth.jobSearch')
 
     .component("jobSearchResult",{
      	templateUrl:'../template/jobSearchResult.html',

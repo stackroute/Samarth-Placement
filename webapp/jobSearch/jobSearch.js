@@ -9,7 +9,7 @@ angular
         url:'/jobsearch',
         views: {
             'content@': {
-                templateUrl: 'jobSearch/template/searchjob.html',
+                templateUrl: 'jobSearch/template/jobSearchIndex.html',
                 
             }
         }

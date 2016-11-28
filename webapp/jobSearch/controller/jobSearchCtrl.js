@@ -1,6 +1,6 @@
 angular
 
-     .module('instantsearch')
+     .module('samarth.jobSearch')
 
      .controller('instantSearchCtrl', function($rootScope, $scope, $http){
       
