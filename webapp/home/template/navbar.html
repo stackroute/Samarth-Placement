@@ -8,7 +8,7 @@
       <h2>Coordinator</h2>
     </h3>
     <span flex></span>
-    <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="closeSideNavPanel()">
+    <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="vm.closeSideNavPanel()">
       <md-tooltip>Close Side Panel</md-tooltip>
       <md-icon class="md-default-theme" class="material-icons">&#xE5CD;</md-icon>
     </md-button>
@@ -17,8 +17,8 @@
 <md-content>
   <md-list>
 
-    <md-list-item ng-repeat="navItem in navItems">
-     <div class="md-button md-no-style" ui-sref="{{navItem.traverse}}" ng-click="closeSideNavPanel()">
+    <md-list-item ng-repeat="navItem in vm.navItems">
+     <div class="md-button md-no-style" ui-sref="{{navItem.traverse}}" ng-click="vm.closeSideNavPanel()">
        <md-icon class="material-icons" >{{navItem.icon}}</md-icon>
        <span layout-padding="">{{navItem.navTitle}}</span>
      </div>
@@ -80,7 +80,7 @@
 </md-sidenav>
 <md-toolbar >
   <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Side Panel" ng-click="openSideNavPanel()">
+    <md-button class="md-icon-button" aria-label="Side Panel" ng-click="vm.openSideNavPanel()">
       <md-tooltip>Side Panel</md-tooltip>
       <md-icon class="md-default-theme" class="material-icons">&#xE5D2;</md-icon>
     </md-button>

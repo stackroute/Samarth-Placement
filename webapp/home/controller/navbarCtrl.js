@@ -1,25 +1,33 @@
 (function(){
   'use:strict'
   angular
-  .module('samarth') 
-  .controller('navbarCtrl', [
-              "$scope",
+    .module("samarth") 
+    .controller('navbarCtrl', [
               "$http",
               "navFactory",
-              "$mdSidenav",function($scope,$http,navFactory,$mdSidenav) 
-                {
-        navFactory.getResult().then(function(response) {
-        $scope.navItems=response.data;
-         });
-        $scope.showMobileMainHeader = true;
-	      $scope.openSideNavPanel = function() {
-		    $mdSidenav('left').open();
-	      };
-	      $scope.closeSideNavPanel = function() {
-		    $mdSidenav('left').close();
-	      };
+              "$mdSidenav",navbarCtrl])
+    function navbarCtrl($http,navFactory,$mdSidenav) 
+    {
+       var vm=this;
+       var navItems={};
+       vm.openSideNavPanel=openSideNavPanel;
+       vm.closeSideNavPanel=closeSideNavPanel;
+       vm.getSidenav=getSidenav;
+       vm.getSidenav();
+       function getSidenav()
+       {
+        navFactory.getSidenav().then(function(response) {
+        vm.navItems=response.data;
+        });
+        }
+        function openSideNavPanel() {
+        $mdSidenav('left').open();
+        };
+        function closeSideNavPanel() {
+        $mdSidenav('left').close();
+        };
      
-    }])
+    }
 })();
   
 
