@@ -8,7 +8,9 @@ angular.module('samarth',
  'samarth.jobPost',
  'samarth.signUp',
  'samarth.candidateReg'
- ])
+ 'samarth.jobSearch'
+  ])
+
     .config(function($mdThemingProvider) {
 
     $mdThemingProvider.theme('default')

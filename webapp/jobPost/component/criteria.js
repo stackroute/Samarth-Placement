@@ -7,8 +7,15 @@
       bindings: { name: '=',
                    txt: '@'      
                 },
-                controller: function(){
-                 this.job = [{
+                controller: 'criteria',
+            })
+            .controller('criteria',criteria);
+            function criteria()
+                {
+                  var vm = this;
+                  vm.job = [];
+
+                  vm.job = [{
           title: "Need a fastrack Network Manager",
           role: "Senior Network Administrator",
           duties: "Pays employees by receiving and verifying expense reports and requests for advances; preparing checks."+
@@ -76,5 +83,4 @@
                           "Verifies vendor accounts by reconciling monthly statements and related transactions.",  
         }];
       }
-  })
 })();
