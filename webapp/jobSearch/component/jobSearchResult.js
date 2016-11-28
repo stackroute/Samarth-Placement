@@ -2,7 +2,7 @@ angular
     .module('samarth.jobSearch')
 
     .component("jobSearchResult",{
-     	templateUrl:'../template/jobSearchResult.html',
+     	templateUrl:'jobSearch/template/jobSearchResult.html',
      	bindings:{
      		/*name :"=",
      		txt:'@'*/
