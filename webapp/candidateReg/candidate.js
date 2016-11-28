@@ -1,5 +1,7 @@
-angular.module("samarth")
-    .config(function($stateProvider, $urlRouterProvider){
+angular.module('samarth.candidateReg', [])
+    .config(candidateRegConfig);
+
+    function candidateRegConfig($stateProvider, $urlRouterProvider){
  
     $urlRouterProvider.otherwise('/');
      $stateProvider
@@ -8,11 +10,10 @@ angular.module("samarth")
         views: {
             'content@': {
                 templateUrl: 'candidateReg/template/candidateRegistration.html',
-                factory:'httpServerFactory',
-                controller:'candidateRegistrationController'
-                
+                controller:'candidateRegCtrl',
+                controllerAs : 'vm'
             }
         }
  
     })
- });
+ }
