@@ -5,11 +5,13 @@ angular
  
     $urlRouterProvider.otherwise('/');
      $stateProvider
-     .state('index.signin.searchjob', {
+     .state('index.signin.jobSearch', {
         url:'/jobsearch',
         views: {
             'content@': {
                 templateUrl: 'jobSearch/template/jobSearchIndex.html',
+                // controller:'jobSearchCtrl',
+                // controllerAs: 'vm'
                 
             }
         }

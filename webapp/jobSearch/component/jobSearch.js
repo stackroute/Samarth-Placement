@@ -7,7 +7,8 @@ angular
 */
 /* creating component for job search*/
    .component("jobSearch",{
-   	templateUrl:'../template/jobSearch.html',
+   	templateUrl:'jobSearch/template/jobSearch.html',
+      controller:'jobSearchCtrl',
    	// bindings:{
    	// 	name :"=",
    	// 	txt:'@'
