@@ -2,10 +2,10 @@ angular
 
      .module('samarth.jobSearch')
 
-     .controller('instantSearchCtrl', function($rootScope, $scope, $http){
+     .controller('jobSearchCtrl', function($rootScope, $scope, $http){
       
 	 $scope.s=function(key){
-		 $http.get("data.json").then(function(response) {
+		 $http.get("jobSearch/newFolder/jobSearchData.json").then(function(response) {
     	/*console.log(response);*/
 			 var searchString=$scope.searchString;
 				console.log(searchString);

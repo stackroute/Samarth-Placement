@@ -1,5 +1,5 @@
 
-<div layout="row" layout-align="center center" ng-controller="instantSearchCtrl">
+<div layout="row" layout-align="center center">
          <md-content md-whiteframe="6" flex-offset="30" flex="60" >
 	            <md-input-container>
 
@@ -7,7 +7,7 @@
 	                <input type="text"  md-focus ng-model="searchString">
 	            </md-input-container>
 
-		         <md-button class="md-button" aria-label="search" ng-click="s(searchString)" ui-sref="index.signin.searchjob">
+		         <md-button class="md-button" aria-label="search" ng-click="s(searchString)" ui-sref="index.signin.jobSearch">
 		             <md-icon>search</md-icon>
 		         </md-button>
          </md-content>
@@ -17,6 +17,6 @@
           <h3>{{$ctrl.ankit}}</h3>-->
         </div>
    <div  >
-         <!-- <job-search-result $ctrl.value=result layout="column" flex-gt-xs="60"></job-search-result> --> -->
+         <!-- <job-search-result $ctrl.value=result layout="column" flex-gt-xs="60"></job-search-result> --> 
         <!-- <job-search-result  layout="column" flex-gt-xs="60"></job-search-result>  -->
    </div>

@@ -2,7 +2,7 @@
     'use strict';
 
 angular
-    .module("samarth.dashboard")
+    .module("samarth")
     .controller("dashboardCtrl",dashboardCtrl);
 
 function dashboardCtrl ()
