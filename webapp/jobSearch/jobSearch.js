@@ -1,5 +1,7 @@
-angular.module("samarth")
-    .config(function($stateProvider, $urlRouterProvider){
+angular
+     .module("samarth.jobSearch",[])
+     
+     .config(function($stateProvider, $urlRouterProvider){
  
     $urlRouterProvider.otherwise('/');
      $stateProvider
@@ -7,7 +9,7 @@ angular.module("samarth")
         url:'/jobsearch',
         views: {
             'content@': {
-                templateUrl: 'jobSearch/template/searchjob.html',
+                templateUrl: 'jobSearch/template/jobSearchIndex.html',
                 
             }
         }

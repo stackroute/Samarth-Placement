@@ -1,0 +1,34 @@
+ <form ng-submit="subCriteria()">
+ <div layout="column" layout-align="center center">
+  <div layout="row" layout-padding>
+  <p class="md-title">Qualification</p>
+   <span>
+    <md-input-container class="md-icon-float md-block" >
+    <input ng-model="job.qulification.name" type="text" placeholder="" ng-required="true">
+    </md-input-container>
+  </span>
+  </div>
+  <div layout="row" layout-padding>
+  <p class="md-title">Salary</p>
+   <span>
+    <md-input-container class="md-icon-float md-block" >
+    <input ng-model="job.renumeration" type="text" placeholder="Salary" ng-required="true">
+    </md-input-container>
+  </span>
+  </div>
+  <div layout="row" layout-padding>
+  <p class="md-title">Allowance</p>
+   <span>
+    <md-input-container class="md-icon-float md-block" >
+    <input ng-model="job.externalPerks" type="text" placeholder="Allowance & Renumeration" ng-required="true">
+    </md-input-container>
+  </span>
+  </div>
+<div>
+   <md-button class="md-primary md-raised" flex=""  flex-gt-md="auto">
+    Save
+  </md-button>
+  </div>
+ </div>
+ {{job || json}}
+ </form>

@@ -16,13 +16,21 @@
 </md-toolbar> 
 <md-content>
   <md-list>
-   <md-list-item>
+
+    <md-list-item ng-repeat="navItem in navItems">
+     <div class="md-button md-no-style" ui-sref="{{navItem.traverse}}" ng-click="closeSideNavPanel()">
+       <md-icon class="material-icons" >{{navItem.icon}}</md-icon>
+       <span layout-padding="">{{navItem.navTitle}}</span>
+     </div>
+    </md-list-item>
+
+   <!-- <md-list-item>
      <div class="md-button md-no-style" ui-sref="index.signin.dashboard" ng-click="closeSideNavPanel()">
        <md-icon class="material-icons" >dashboard </md-icon>
        <span layout-padding="">Dashboard</span>
      </div>
-   </md-list-item>
-   <md-list-item>
+   </md-list-item> -->
+   <!-- <md-list-item>
     <div class="md-button md-no-style" ui-sref="index.signin.candidatesearch" ng-click="closeSideNavPanel()">
       <div>
         <md-icon class="material-icons">search</md-icon>
@@ -60,7 +68,7 @@
           <span layout-padding="">Employer Registration</span>
         </div>
       </div>
-    </md-list-item>
+    </md-list-item> -->
     <!-- <md-divider></md-divider>
     <md-list-item>
      <div class="md-button md-no-style" ng-click="closeSideNavPanel()" ui-sref="index.aboutus">

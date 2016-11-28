@@ -1,7 +1,8 @@
 angular.module("samarth")
-    .config(function($stateProvider, $urlRouterProvider){
- 
-    $urlRouterProvider.otherwise('/');
+    .config(config);
+
+    function config($stateProvider, $urlRouterProvider){
+     $urlRouterProvider.otherwise('/');
      $stateProvider
      .state('index.signin',{
         url: '/samarthcoordinator',
@@ -13,9 +14,10 @@ angular.module("samarth")
             'content@': {
                 templateUrl: 'dashboard/template/dashboard.html',
                 controller:'dashboardCtrl'
+
             }
    
         }
         
-    })
- });
+    });
+ } 
