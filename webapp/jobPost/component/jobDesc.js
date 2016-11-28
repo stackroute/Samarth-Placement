@@ -11,7 +11,12 @@
   })
 .controller('jobDesc',jobDesc);
 function jobDesc(){
-  this.job = [{
+  var vm = this;
+
+  vm.job = [];
+  vm.newSkill = newSkill;
+
+  vm.job =[{
           title: "Need a fastrack Network Manager",
           role: "Senior Network Administrator",
           duties: "Pays employees by receiving and verifying expense reports and requests for advances; preparing checks."+
@@ -45,12 +50,13 @@ function jobDesc(){
                           "Maintains accounting ledgers by verifying and posting account transactions."+
                           "Verifies vendor accounts by reconciling monthly statements and related transactions.",
         }];
-        newSkill = function(chip) {
-      return {
-        name: chip,
-        expertise: 'unknown'
-      };
-    };
+
+        function newSkill(chip) {
+              return {
+                        name: chip,
+                        expertise: 'unknown'
+                      };
+           };
 }
 })();
 
