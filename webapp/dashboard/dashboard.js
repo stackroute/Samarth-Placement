@@ -1,5 +1,8 @@
-angular.module('samarth.dashboard',[ ])
-    .config(function($stateProvider, $urlRouterProvider){
+angular
+    .module('samarth.dashboard',[])
+    .config(config);
+
+    function config($stateProvider, $urlRouterProvider){
  
     $urlRouterProvider.otherwise('/');
      $stateProvider
@@ -8,10 +11,12 @@ angular.module('samarth.dashboard',[ ])
         views: {
             'content@': {
                 templateUrl: 'dashboard/template/dashboard.html',
-                controller:'dashboardCtrl'
+                controller:'dashboardCtrl',
+                controllerAs : 'vm'
                 
             }
         }
  
-    })
- });
+    });
+ }
+ 
