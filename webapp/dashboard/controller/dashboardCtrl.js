@@ -2,22 +2,16 @@
     'use strict';
 
 angular
-    .module("samarth")
+    .module("samarth.dashboard")
     .controller("dashboardCtrl",dashboardCtrl);
 
-function dashboardCtrl ()
+function dashboardCtrl(dashboardFactory)
 {
-  var vm = this;
-  vm.items = [];
-  vm.items =
-      [
-      {Name: "Medical",  id: "6",  },
-      {Name: "Engineering",  id: "6",  },
-      {Name: "Academics",  id: "6",  },
-      {Name: "Management",  id: "6",  },
-  ];
-
-   
+var vm=this;
+dashboardFactory.getResult().then(function(response)
+{
+vm.items=Objects.key(data.data);
+  });
   }
-  
+
 })();

@@ -1,4 +1,4 @@
-angular.module('samarth')
+angular.module('samarth.home',[])
     .config(config);
 
     function config($stateProvider, $urlRouterProvider){

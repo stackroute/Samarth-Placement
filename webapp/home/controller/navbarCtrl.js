@@ -1,7 +1,7 @@
 (function(){
   'use:strict'
   angular
-    .module("samarth") 
+    .module('samarth.home') 
     .controller('navbarCtrl', [
               "$http",
               "navFactory",
