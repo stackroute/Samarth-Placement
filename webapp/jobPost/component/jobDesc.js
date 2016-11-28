@@ -12,7 +12,6 @@
 .controller('jobDesc',jobDesc);
 function jobDesc(){
   var vm = this;
-
   vm.job = [];
   vm.newSkill = newSkill;
 

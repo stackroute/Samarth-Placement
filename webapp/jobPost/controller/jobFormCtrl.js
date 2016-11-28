@@ -2,8 +2,8 @@
    'use:strict'
    angular
 .module('samarth.jobPost')
-.controller('dialogController', dialogController);
-function dialogController ($scope,$mdDialog) 
+.controller('jobFormCtrl', jobFormCtrl);
+function jobFormCtrl($scope,$mdDialog) 
 { 
   $scope.status = '';
     $scope.showJobDesc = function(event) {
@@ -13,7 +13,7 @@ function dialogController ($scope,$mdDialog)
                   fullscreen: true,        
                   preserveScope: true,           
                   templateUrl: 'jobPost/template/jobDescForm.html',
-                  controller: function DialogController($scope, $mdDialog) {
+                  controller: function jobFormCtrl($scope, $mdDialog) {
                      $scope.closeDialog = function() {
                         $mdDialog.hide();
                      }
@@ -27,7 +27,7 @@ function dialogController ($scope,$mdDialog)
                   fullscreen: true,        
                   preserveScope: true,           
                   templateUrl: 'jobPost/template/criteriaForm.html',
-                  controller: function DialogController($scope, $mdDialog) {
+                  controller: function jobFormCtrl($scope, $mdDialog) {
                      $scope.closeDialog = function() {
                         $mdDialog.hide();
                      }

@@ -2,8 +2,8 @@
   'use:strict';
 angular
     .module("samarth.jobPost",[])
-    .config(config);
-    function config($stateProvider, $urlRouterProvider){
+    .config(jobPostconfig);
+    function jobPostconfig($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
      $stateProvider
      .state('index.signin.jobPost', {
