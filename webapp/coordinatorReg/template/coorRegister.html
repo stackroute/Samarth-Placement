@@ -33,7 +33,7 @@
             <md-icon>email</md-icon>
             <input ng-model="vm.coordinator.email" type="email" placeholder="Email (required)" ng-required="true">
           </md-input-container>
-          <md-input-container>
+          <md-input-container layout="column">
             <label>Profession</label>
             <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
               <md-select-header class="demo-select-header">
@@ -45,7 +45,7 @@
             </md-select>
           </md-input-container>
 
-          <md-input-container>
+          <md-input-container layout="column">
             <label>Role</label>
             <md-select ng-model="vm.coordinator.Role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
               <md-select-header class="demo-select-header">
