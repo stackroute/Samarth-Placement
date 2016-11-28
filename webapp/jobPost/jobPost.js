@@ -1,7 +1,9 @@
-
+(function(){
+  'use:strict';
 angular
     .module("samarth.jobPost",[])
-    .config(function($stateProvider, $urlRouterProvider){
+    .config(config);
+    function config($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
      $stateProvider
      .state('index.signin.jobPost', {
@@ -13,4 +15,5 @@ angular
         }
  
     })
- });
+ }
+ })();   
