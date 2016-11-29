@@ -1,4 +1,4 @@
-angular.module("samarth")
+angular.module('samarth.home',[])
     .config(config);
 
     function config($stateProvider, $urlRouterProvider){
@@ -9,11 +9,13 @@ angular.module("samarth")
         views: {
             'appbar@': {
                 templateUrl: 'home/template/navbar.html',
-                controller:'navbarCtrl'
+                controller:'navbarCtrl',
+                controllerAs : 'vm'
             },
             'content@': {
                 templateUrl: 'dashboard/template/dashboard.html',
-                controller:'dashboardCtrl'
+                controller:'dashboardCtrl',
+                controllerAs : 'vm'
 
             }
    

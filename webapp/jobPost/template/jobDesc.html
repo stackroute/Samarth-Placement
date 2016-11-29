@@ -6,29 +6,29 @@
  <p><span ><ng-md-icon icon="perm_identity" size="20"></span>
   &nbsp;{{$ctrl.job[0].title}} 
 </p>
-<p><span><span md-colors="{color:'primary'}"><ng-md-icon icon="work" size="20"></span>
+<p><span><span><ng-md-icon icon="work" size="20"></span>
   {{$ctrl.job[0].role}} 
 </p>
 <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Language</strong></span>
   {{$ctrl.job[0].language}}
 </p>
 <div layout="row" layout-align="center" layout-xs="column" layout-md="column">
- <p flex="20"><span md-colors="{color:'primary'}"><ng-md-icon icon="location_on" size="20"><md-tooltip>
+ <p flex="20"><span><ng-md-icon icon="location_on" size="20"><md-tooltip>
             Loaction
           </md-tooltip></ng-md-icon></span>
   {{$ctrl.job[0].jobLocation}}
 </p>
-<p flex="20"><span md-colors="{color:'primary'}" class="md-subhead"><ng-md-icon icon="event_busy" size="20"><md-tooltip>
+<p flex="20"><span><ng-md-icon icon="event_busy" size="20"><md-tooltip>
             Close date
           </md-tooltip></ng-md-icon></span>&nbsp;
   {{$ctrl.job[0].closeDate}}
 </p>
-<p flex="15"><span md-colors="{color:'primary'}" class="md-subhead"><ng-md-icon icon="history" size="20"><md-tooltip>
+<p flex="15"><span><ng-md-icon icon="history" size="20"><md-tooltip>
             Experience
           </md-tooltip></ng-md-icon></span>
   {{$ctrl.job[0].experience}}&nbsp;yrs
 </p>
-<p flex="20"><span md-colors="{color:'primary'}"><ng-md-icon icon="person_add" size="20"><md-tooltip>
+<p flex="20"><span><ng-md-icon icon="person_add" size="20"><md-tooltip>
             Job opennings
           </md-tooltip></ng-md-icon></span>&nbsp;
   {{$ctrl.job[0].openningsNo}}
@@ -49,7 +49,7 @@
     </p>
   </div>
   <md-card-actions layout="row" layout-align="end center">
-  <div id="dialogContainer" ng-controller="dialogController" ng-cloak>
+  <div ng-controller="jobFormCtrl" ng-cloak>
     <md-button class="md-primary md-raised" ng-click="showJobDesc($event)"  flex=""  flex-gt-md="auto">
     Edit
   </md-button>

@@ -1,32 +1,32 @@
-
-<div layout-sm="column" layout-md="row" layout-xs="column" layout-gt-md="column">
+<div  layout-align="center center">
+  <div layout-sm="column" layout-md="row" layout-xs="column" layout-gt-md="column" layout-align="center center" >
      <md-card layout-gt-md="row"  flex-gt-md="70" flex-xs="40"  layout-md="row" layout-xs="row"  ng-repeat="item in foo" class="md-whiteframe-2dp" >
       <md-card-title  class="item item-divider center-text">
         <md-card-title-text>
-        <h1 md-colors="{color: 'blue-A100', 'border-color': 'primary-600'}" >{{item}}</h1>
-        <span class="md-headline">{{item.role}}</span>
+        <h1 md-colors="{color: 'blue-A100', 'border-color': 'primary-600'}" >{{item.Title}}</h1>
+        <span class="md-headline"></span>
           <p>{{item.language}}</p>
        <div layout="row">
           <ng-md-icon icon="location_on" ></ng-md-icon>
          <p><ng-md-icon icon="event_busy" flex="20"></ng-md-icon>{{item.closeDate}}</p>
           <p><ng-md-icon icon="person_add" ></ng-md-icon>{{item.jobOpennings}}</p>
       </div>
-       <!-- <p>{{item.skills}}</p> -->
 
-       <!-- <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span><br>
-         <p>{{item[0].skills}}</p>
-        <md-chips class="custom-chips" ng-model="$ctrl.item[1].skills" md-transform-chip="ctrl.newSkill($chip)" md-removable="false">
+       <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span><br>
+         <p>{{item.skills}}</p>
+        <md-chips class="custom-chips" ng-model="{{item.skills}}" md-transform-chip="ctrl.newSkill($chip)" md-removable="false">
         <md-chip-template>
         <span>
          <strong>{{$chip.name}}</strong>
-         <em>({{$chip.expertise}})</em>
+         <em>{{$chip.expertise}}</em>
        </span>
        </md-chip-template>
              </md-chips>
-           </p> -->
+           </p>
         </md-card-title-text>
 
         </md-card-title>
 
     </md-card>
   </div>
+</div>

@@ -11,7 +11,7 @@
 },
 {
 	"icon":"person_add",
-	"navTitle":"Candidate Register ",
+	"navTitle":"Candidate Register",
 	"traverse":"index.signin.candidateReg"
 },
 {
@@ -22,7 +22,7 @@
 {
 	"icon":"youtube_searched_for_black",
 	"navTitle":"Job Search",
-	"traverse":"index.signin.searchjob"
+	"traverse":"index.signin.jobSearch"
 },
 {
 	"icon":"person_pin",

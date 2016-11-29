@@ -25,32 +25,31 @@ app.get('/createaccount/submit',function(req,res){
 	console.log("cdgsxhajs")
     res.send();
 });
-// var router = express.Router(); // get an instance of the express Router
 
+// var router = express.Router();
 
 // var mongoose   = require('mongoose');
-// mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o'); // connect to our database
+// mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o');
 
 // router.use(function(req, res, next) {
-//     // do logging
+//     
 //     console.log('Something is happening.');
-//     next(); // make sure we go to the next routes and don't stop here
+//     next();
 // });
-// // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+
 // router.get('/', function(req, res) {
 //     res.json({ message: 'hooray! welcome to our api!' });   
 // });
 
-// // more routes for our API will happen here
 // router.route('/bears')
 
-//     // create a bear (accessed at POST http://localhost:8080/api/bears)
+
 //     .post(function(req, res) {
         
-//         var bear = new Bear();      // create a new instance of the Bear model
-//         bear.name = req.body.name;  // set the bears name (comes from the request)
+//         var bear = new Bear();
+//         bear.name = req.body.name;
 
-//         // save the bear and check for errors
+
 //         bear.save(function(err) {
 //             if (err)
 //                 res.send(err);
@@ -59,10 +58,7 @@ app.get('/createaccount/submit',function(req,res){
 //         });
         
 //     });
-// // REGISTER OUR ROUTES -------------------------------
-// // all of our routes will be prefixed with /api
+
 // app.use('/api', router);
 
-// START THE SERVER
-// =============================================================================
 app.listen(port);

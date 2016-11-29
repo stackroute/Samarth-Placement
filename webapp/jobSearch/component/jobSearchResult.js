@@ -2,30 +2,31 @@ angular
     .module('samarth.jobSearch')
 
     .component("jobSearchResult",{
-     	templateUrl:'../template/jobSearchResult.html',
-     	bindings:{
-     		/*name :"=",
-     		txt:'@'*/
-           value:'='
-     	},
+        templateUrl:'jobSearch/template/jobSearchResult.html',
+        bindings:{
+          /*name :"=",
+          txt:'@'*/
+             value:'='
+        },
 
+        controller:function($scope)
+        {
+        $scope.$on('san', function(event, data)
+         {
 
-     	controller:function($scope)
-     	{
-      $scope.$on('san', function(event, data)
-       {
-        $scope.foo=data;
-        console.log("result1" + $scope.foo);
-        // console.log(foo.Title);
+          $scope.foo=data;
+          // for(int i=0;i)
 
-    //     newSkill = function(chip) {
-    //     return {
-    //     name: chip,
-    //     expertise: 'unknown'
-    //   };
-    // };
+          console.log("para" + $scope.foo);
+          // console.log(foo.Title);
 
-      });
-        }
+          newSkill = function(chip){
+          return {
+          name: chip,
+          expertise: 'unknown'
+           };
+          };
 
-   })
+         });
+          }
+       })
