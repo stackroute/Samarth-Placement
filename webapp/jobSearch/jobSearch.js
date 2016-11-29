@@ -10,9 +10,6 @@ angular
         views: {
             'content@': {
                 templateUrl: 'jobSearch/template/jobSearchIndex.html',
-                // controller:'jobSearchCtrl',
-                // controllerAs: 'vm'
-                
             }
         }
  

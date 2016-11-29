@@ -1,5 +1,5 @@
 (function(){
-  'use:strict'
+  'use strict'
   angular
     .module('samarth.home') 
     .controller('navbarCtrl', navbarCtrl);
@@ -7,10 +7,13 @@
     {
       var vm=this;
        var navItems={};
+
        vm.openSideNavPanel=openSideNavPanel;
        vm.closeSideNavPanel=closeSideNavPanel;
        vm.getSidenav=getSidenav;
+
        vm.getSidenav();
+       
        function getSidenav()
        {
         navFactory.getSidenav().then(function(response) {

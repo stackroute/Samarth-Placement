@@ -7,7 +7,8 @@ angular.module('samarth',
  'samarth.home',
  'samarth.dashboard',
  'samarth.jobPost',
- 'samarth.signUp',
+ 'samarth.jobSearch',
+ 'samarth.cordsignup'
  'samarth.candidateReg',
  'samarth.jobSearch'
   ])
