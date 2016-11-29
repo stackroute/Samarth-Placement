@@ -1,38 +1,23 @@
-angular
-.module('samarth.coordinatorlogin')
-.service('myService',myService);
-myService.$inject=['$http'];
+(function(){
+  'use strict'
+    angular
+      .module('samarth.coordinatorlogin')
+      .service('myService',myService);
+      myService.$inject=['$http'];
 
-function myService($http)
-{
+      function myService($http){
+        var obj={
+        auth :auth
+        };
+        return obj;
+        
+        function auth(){
+          var req = {};
+          req.url = '../json/maincontent.json';
+          req.method = 'GET';
+          return $http(req);
+        };
+      }
+})();
 
-var auth=function()
-{
-	// return $http.get("../json/maincontent.json");
-   return $http({
-    method : "GET",
-    url : "../json/maincontent.json"
-  });
 
-
-
-}
-var obj={
-	auth :auth
-};
-console.log(obj);
-return obj;
-}
-
-// {
-//   var obj={};
-//   obj.auth=function(){
-//    return $http({
-//     method : "GET",
-//     url : "maincontent.json"
-//   })
-// };
-
-// return obj;
-
-// }]);
