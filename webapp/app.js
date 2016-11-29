@@ -6,8 +6,9 @@ angular.module('samarth',
  'ngMessages',
  'samarth.dashboard',
  'samarth.jobPost',
- 'samarth.signUp'
- ])
+ 'samarth.jobSearch',
+ 'samarth.cordsignup'
+  ])
     .config(function($mdThemingProvider) {
 
     $mdThemingProvider.theme('default')
