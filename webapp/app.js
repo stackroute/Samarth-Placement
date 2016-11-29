@@ -1,14 +1,14 @@
-
 angular.module('samarth',
  ['ngMaterial',
  'ngMdIcons',
  'ui.router',
  'ngMessages',
  'samarth.home',
+ 'samarth.coordinatorlogin',
  'samarth.dashboard',
  'samarth.jobPost',
  'samarth.jobSearch',
- 'samarth.cordsignup'
+ 'samarth.cordsignup',
  'samarth.candidateReg',
  'samarth.jobSearch'
   ])
