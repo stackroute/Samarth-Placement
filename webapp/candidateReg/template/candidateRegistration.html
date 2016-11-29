@@ -10,7 +10,7 @@
         <md-input-container class="md-block">
           <label>Name</label>
           <md-icon aria-label="person">person</md-icon>
-          <input name="myname" ng-model="vm.candidate.name" type="text" minlength="5" md-maxlength="30" ng-required="true" 
+          <input name="myname" ng-model="vm.candidate.name" type="text" minlength="5" md-maxlength="30" ng-required="true"
           pattern="[a-zA-Z][a-zA-Z\s]+" md-autofocus>
           <div ng-messages="candidateForm.myname.$error" role="alert">
             <div ng-message="required">You should need to fill the name</div>
@@ -56,15 +56,15 @@
         </md-input-container>
         </div>
 
-        <md-autocomplete 
-        md-selected-item="vm.candidate.profession" 
+        <md-autocomplete
+        md-selected-item="vm.candidate.profession"
         md-search-text-change=""
-        md-search-text="professionInputText" 
-        md-selected-item-change="" 
-        md-items="item in vm.profession | filter: professionInputText" 
+        md-search-text="professionInputText"
+        md-selected-item-change=""
+        md-items="item in vm.profession | filter: professionInputText"
         md-item-text="item"
-        md-min-length="0" 
-        placeholder="Profession"  
+        md-min-length="0"
+        placeholder="Profession"
         md-menu-class="autocomplete-custom-template"
         ng-required="true">
           <md-item-template>
@@ -75,15 +75,15 @@
           </div>
         </md-autocomplete><br>
 
-      <md-autocomplete 
-      md-selected-item="vm.candidate.location" 
+      <md-autocomplete
+      md-selected-item="vm.candidate.location"
       md-search-text-change=""
-      md-search-text="locationInputText" 
-      md-selected-item-change="" 
-      md-items="item in vm.location | filter: locationInputText" 
+      md-search-text="locationInputText"
+      md-selected-item-change=""
+      md-items="item in vm.location | filter: locationInputText"
       md-item-text="item"
-      md-min-length="0" 
-      placeholder="Location" 
+      md-min-length="0"
+      placeholder="Location"
       md-menu-class="autocomplete-custom-template">
       <md-item-template>
         <span md-highlight-text="locationInputText" md-highlight-flags="^i">{{item}}</span>
@@ -100,15 +100,15 @@
     </p>
 
     <div layout>
-      <md-autocomplete 
-      md-selected-item="vm.lang" 
+      <md-autocomplete
+      md-selected-item="vm.lang"
       md-search-text-change=""
-      md-search-text="vm.languageInputText" 
-      md-selected-item-change="" 
-      md-items="item in vm.language | filter: languageInputText" 
+      md-search-text="vm.languageInputText"
+      md-selected-item-change=""
+      md-items="item in vm.language | filter: languageInputText"
       md-item-text="item"
-      md-min-length="0" 
-      placeholder="Languages" 
+      md-min-length="0"
+      placeholder="Languages"
       md-menu-class="autocomplete-custom-template"
       flex=95>
         <md-item-template>
