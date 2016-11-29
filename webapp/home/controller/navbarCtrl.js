@@ -1,14 +1,11 @@
 (function(){
   'use:strict'
   angular
-    .module("samarth") 
-    .controller('navbarCtrl', [
-              "$http",
-              "navFactory",
-              "$mdSidenav",navbarCtrl])
+    .module('samarth.home') 
+    .controller('navbarCtrl', navbarCtrl);
     function navbarCtrl($http,navFactory,$mdSidenav) 
     {
-       var vm=this;
+      var vm=this;
        var navItems={};
        vm.openSideNavPanel=openSideNavPanel;
        vm.closeSideNavPanel=closeSideNavPanel;

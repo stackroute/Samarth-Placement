@@ -11,7 +11,7 @@
 },
 {
 	"icon":"person_add",
-	"navTitle":"Candidate Register ",
+	"navTitle":"Candidate Register",
 	"traverse":"index.signin.candidateReg"
 },
 {

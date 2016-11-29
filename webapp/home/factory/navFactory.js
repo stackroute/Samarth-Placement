@@ -1,7 +1,7 @@
 (function(){
   'use:strict'
   angular
-    .module('samarth')
+    .module('samarth.home')
 	.factory('navFactory', navFactory);
 	function navFactory($http) {
 		  var factory = {getSidenav:getSidenav};
