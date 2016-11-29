@@ -3,7 +3,7 @@ angular
     .config(config);
 
     function config($stateProvider, $urlRouterProvider){
- 
+
     $urlRouterProvider.otherwise('/');
      $stateProvider
      .state('index.signin.dashboard', {
@@ -11,12 +11,11 @@ angular
         views: {
             'content@': {
                 templateUrl: 'dashboard/template/dashboard.html',
-                controller:'dashboardCtrl',
+                controller:  'dashboardCtrl',
                 controllerAs : 'vm'
-                
+
             }
         }
- 
+
     });
  }
- 

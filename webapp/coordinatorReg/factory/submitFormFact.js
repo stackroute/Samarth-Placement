@@ -7,10 +7,10 @@
 		    function submitFormFact($http) 
 		    {
 		    	var factory = {
-				submitForm :submitForm
+					submitForm :submitForm
 				};
 			    return factory;
-			    
+
 		    	function submitForm(data) {
 		    		var req = {};
 		    		req.url = '/createaccount/submit';

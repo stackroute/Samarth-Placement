@@ -1,99 +1,47 @@
-<div>
- <md-sidenav class="md-sidenav-left md-whiteframe-z2"
- md-component-id="left" flex>
- <md-toolbar layout="row">
-   <div class="md-toolbar-tools">
-    <h3>
-      SAMARTH-<br>
-      <h2>Coordinator</h2>
-    </h3>
-    <span flex></span>
-    <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="vm.closeSideNavPanel()">
-      <md-tooltip>Close Side Panel</md-tooltip>
-      <md-icon class="md-default-theme" class="material-icons">&#xE5CD;</md-icon>
-    </md-button>
+  <div>
+   <md-sidenav class="md-sidenav-left md-whiteframe-z2"
+   md-component-id="left" flex>
+   <md-toolbar layout="row">
+     <div class="md-toolbar-tools">
+      <h3>
+        SAMARTH-<br>
+        <h2>Coordinator</h2>
+      </h3>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="vm.closeSideNavPanel()">
+        <md-tooltip>Close Side Panel</md-tooltip>
+        <md-icon class="md-default-theme" class="material-icons">&#xE5CD;</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+   
+  <md-content>
+    <md-list>
+      <md-list-item ng-repeat="navItem in vm.navItems">
+       <div class="md-button md-no-style" ui-sref="{{navItem.traverse}}" ng-click="vm.closeSideNavPanel()">
+         <md-icon class="material-icons" >{{navItem.icon}}</md-icon>
+         <span layout-padding="">{{navItem.navTitle}}</span>
+       </div>
+      </md-list-item>
+     </md-list>
+  </md-sidenav>
+
+  <md-toolbar >
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" aria-label="Side Panel" ng-click="vm.openSideNavPanel()">
+        <md-tooltip>Side Panel</md-tooltip>
+        <md-icon class="md-default-theme" class="material-icons">&#xE5D2;</md-icon>
+      </md-button>
+      <h2>
+        <span>SAMARTH
+      </h2>
+      <div layout="row"  flex="" class="layout-align-end-center flex">
+       <div class="md-button" ng-click="logout()" ui-sref="logout"><span class="ng-scope">
+       <md-icon class="material-icons">exit_to_app</md-icon>
+  <strong>Logout</strong></span></div>
+      </div>
+      </div>
+  </md-toolbar>
   </div>
-</md-toolbar> 
-<md-content>
-  <md-list>
-
-    <md-list-item ng-repeat="navItem in vm.navItems">
-     <div class="md-button md-no-style" ui-sref="{{navItem.traverse}}" ng-click="vm.closeSideNavPanel()">
-       <md-icon class="material-icons" >{{navItem.icon}}</md-icon>
-       <span layout-padding="">{{navItem.navTitle}}</span>
-     </div>
-    </md-list-item>
-
-   <!-- <md-list-item>
-     <div class="md-button md-no-style" ui-sref="index.signin.dashboard" ng-click="closeSideNavPanel()">
-       <md-icon class="material-icons" >dashboard </md-icon>
-       <span layout-padding="">Dashboard</span>
-     </div>
-   </md-list-item> -->
-   <!-- <md-list-item>
-    <div class="md-button md-no-style" ui-sref="index.signin.candidatesearch" ng-click="closeSideNavPanel()">
-      <div>
-        <md-icon class="material-icons">search</md-icon>
-        <span layout-padding="">Search Candidate</span>
-      </div>
-    </div></md-list-item>
-    <md-list-item>
-      <div class="md-button md-no-style" ui-sref="index.signin.candidateReg" ng-click="closeSideNavPanel()">
-        <div>
-          <md-icon class="material-icons">person_add</md-icon>
-          <span layout-padding="">Register Candidate</span>
-        </div>
-      </div>
-    </md-list-item>
-    <md-list-item>
-      <div class="md-button md-no-style" ui-sref="index.signin.postjob" ng-click="closeSideNavPanel()">
-        <div>
-          <md-icon class="material-icons">add box</md-icon>
-          <span layout-padding="">Post Job</span>
-        </div>
-      </div>
-    </md-list-item>
-    <md-list-item>
-      <div class="md-button md-no-style" ui-sref="index.signin.searchjob" ng-click="closeSideNavPanel()">
-        <div>
-          <md-icon class="material-icons">youtube_searched_for_black</md-icon>
-          <span layout-padding="">Search Job</span>
-        </div>
-      </div>
-    </md-list-item>
-    <md-list-item>
-      <div class="md-button md-no-style" ui-sref="index.signin.empreg" ng-click="closeSideNavPanel()">
-        <div>
-          <md-icon class="material-icons">person_pin</md-icon>
-          <span layout-padding="">Employer Registration</span>
-        </div>
-      </div>
-    </md-list-item> -->
-    <!-- <md-divider></md-divider>
-    <md-list-item>
-     <div class="md-button md-no-style" ng-click="closeSideNavPanel()" ui-sref="index.aboutus">
-       <md-icon class="material-icons">dns</md-icon>
-        <span layout-padding="">About us</span>
-      </div>
-    </md-list-item> -->
-    </md-list>
-</md-sidenav>
-<md-toolbar >
-  <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Side Panel" ng-click="vm.openSideNavPanel()">
-      <md-tooltip>Side Panel</md-tooltip>
-      <md-icon class="md-default-theme" class="material-icons">&#xE5D2;</md-icon>
-    </md-button>
-    <h2>
-      <span>SAMARTH
-    </h2>
-    <div layout="row"  flex="" class="layout-align-end-center flex">
-     <div class="md-button" ng-click="logout()" ui-sref="logout"><span class="ng-scope">
-                                         <md-icon class="material-icons">exit_to_app</md-icon>
-<strong>Logout</strong></span></div>
-    </div>
-    </div>
-</md-toolbar>
-</div>
 
 

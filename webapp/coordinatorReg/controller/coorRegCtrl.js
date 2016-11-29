@@ -28,7 +28,6 @@
 						{
 							console.log("sdcx");
 						})
-
 					}
 				
 			    //insert a language to the selected language
