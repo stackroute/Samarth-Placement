@@ -1,21 +1,17 @@
-var express=require('express');
-var app = express();
-var path=require('path');
-var obj=require('./webapp/dashboard/data.js');
-var bodyParser=require('body-parser');
-
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
-var port=process.env.PORT||8080;
-app.use(express.static(path.join(__dirname,'webapp')))
-app.get('/', function (req, res) {
-      res.sendFile(path.resolve(__dirname,'./index.html'));
-});
-app.get('./dashboard/items',function()
+var express= require('express');
+var mongoose= require('mongoose');
+var dashboard = require('./child.js')
+mongoose.connect('mongodb://localhost/dashboard');
+var bodyParser= require('body-parser')
+var app= express();
+var db= mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function()
 {
-console.log(obj);
-res.send(obj);
-
+	console.log("you have connected successfully");
 });
 
-app.listen(port);
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+app.use('/dashboard', dashboard)
+app.listen(8080);

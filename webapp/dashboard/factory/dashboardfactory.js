@@ -3,7 +3,7 @@
   angular
     .module('samarth.dashboard')
 	.factory('dashboardFactory', dashboardFactory);
-	function dashboardFactory($http) {
+	  function dashboardFactory($http) {
 		  var factory = {};
 		  factory.getResult = function() {
 		  var req = {};
