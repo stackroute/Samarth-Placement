@@ -1,21 +1,21 @@
 (function() {
 	'use strict';
 		angular
-		.module('samarth.signUp',[
+		.module('samarth.cordsignup',[
 			'ngMaterial',
 			'ui.router',
 			'ngMessages'
 			])
-		.config(coorPageRoute);
+		.config(coorRegConfig);
 
-		function coorPageRoute($stateProvider){
+		function coorRegConfig($stateProvider){
 			$stateProvider
 			.state("index.createaccount",{
-				url:"/createaccount",
+				url:"createaccount",
 				views: {
 					'content@': {
 						templateUrl: 'coordinatorReg/template/coorRegister.html',
-						controller:"coorCtrl",
+						controller:"coorRegCtrl",
 						controllerAs:"vm"
 					}
 				}
@@ -26,4 +26,3 @@
 			      // })
 			  }
 		})();
-
