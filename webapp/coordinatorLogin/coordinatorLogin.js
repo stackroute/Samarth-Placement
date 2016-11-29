@@ -1,21 +1,27 @@
-angular.module("samarth")
-    .config(function($stateProvider, $urlRouterProvider){
- 
+angular.module("samarth.coordinatorlogin", [
+	'ngMaterial',
+	'ui.router',
+	'ngMessages'])
+   .config(config);
+function config($stateProvider, $urlRouterProvider)
+{
     $urlRouterProvider.otherwise('/');
-    $stateProvider
+     $stateProvider
     .state('index',{
         url: '/',
         views: {
             'appbar': {
-               
+
             },
             'content': {
-                templateUrl: 'coordinatorLogin/template/home.html'
+             templateUrl: 'coordinatorLogin/template/login.html',
+             controller:'signinCtrl' ,
+               controlleras:'vm'
             }
-   
+
         }
-        
+
     })
-     
-     
-  });
+
+ 
+}
