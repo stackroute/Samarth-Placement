@@ -13,19 +13,19 @@
         <md-icon class="md-default-theme" class="material-icons">&#xE5CD;</md-icon>
       </md-button>
     </div>
-  </md-toolbar> 
+  </md-toolbar>
+   
   <md-content>
     <md-list>
-
       <md-list-item ng-repeat="navItem in vm.navItems">
        <div class="md-button md-no-style" ui-sref="{{navItem.traverse}}" ng-click="vm.closeSideNavPanel()">
          <md-icon class="material-icons" >{{navItem.icon}}</md-icon>
          <span layout-padding="">{{navItem.navTitle}}</span>
        </div>
       </md-list-item>
-
      </md-list>
   </md-sidenav>
+
   <md-toolbar >
     <div class="md-toolbar-tools">
       <md-button class="md-icon-button" aria-label="Side Panel" ng-click="vm.openSideNavPanel()">
@@ -37,7 +37,7 @@
       </h2>
       <div layout="row"  flex="" class="layout-align-end-center flex">
        <div class="md-button" ng-click="logout()" ui-sref="logout"><span class="ng-scope">
-                                           <md-icon class="material-icons">exit_to_app</md-icon>
+       <md-icon class="material-icons">exit_to_app</md-icon>
   <strong>Logout</strong></span></div>
       </div>
       </div>
