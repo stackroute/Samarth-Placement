@@ -7,7 +7,8 @@
         bindings: { name: '=',
                      txt: '@'      
                   },
-                  controller: 'criteria',
+                  controller: 'criteriaCtrl',
+                  controllerAs : 'vm'
               })
               .controller('criteriaCtrl',criteriaCtrl);
               function criteriaCtrl(){
