@@ -10,7 +10,7 @@
              controller:'jobDesc',
         })
       .component('jobDesc',{
-      templateUrl: '../template/jobDesc.html',
+      templateUrl: 'jobPost/template/jobDesc.html',
       bindings: { name: '=',
                    txt: '@'      
                 },
