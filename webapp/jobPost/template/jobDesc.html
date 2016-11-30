@@ -3,54 +3,55 @@
 <h3 class="md-title" align="center"><strong>Job Details</strong></h3>
 <md-divider ></md-divider>
 <div>
- <p><span ><ng-md-icon icon="perm_identity" size="20"></span>
-  &nbsp;{{$ctrl.job[0].title}} 
+ <p><span><md-tooltip>Title</md-tooltip><ng-md-icon icon="perm_identity" size="20"></span>
+  &nbsp;{{vm.job.title}} 
 </p>
-<p><span><span><ng-md-icon icon="work" size="20"></span>
-  {{$ctrl.job[0].role}} 
+<p><span><md-tooltip>Role</md-tooltip><ng-md-icon icon="work" size="20"></span>
+  {{vm.job.role}} 
 </p>
 <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Language</strong></span>
-  {{$ctrl.job[0].language}}
+  {{vm.job.language}}
 </p>
 <div layout="row" layout-align="center" layout-xs="column" layout-md="column">
  <p flex="20"><span><ng-md-icon icon="location_on" size="20"><md-tooltip>
-            Loaction
+            Location
           </md-tooltip></ng-md-icon></span>
-  {{$ctrl.job[0].jobLocation}}
+  {{vm.job.location}}
 </p>
 <p flex="20"><span><ng-md-icon icon="event_busy" size="20"><md-tooltip>
             Close date
           </md-tooltip></ng-md-icon></span>&nbsp;
-  {{$ctrl.job[0].closeDate}}
+  {{vm.job.closeDate | date:'yyyy-MM-dd'}}
 </p>
 <p flex="15"><span><ng-md-icon icon="history" size="20"><md-tooltip>
             Experience
           </md-tooltip></ng-md-icon></span>
-  {{$ctrl.job[0].experience}}&nbsp;yrs
+  {{vm.job.experience}}&nbsp;yrs
 </p>
 <p flex="20"><span><ng-md-icon icon="person_add" size="20"><md-tooltip>
-            Job opennings
+            Job openings
           </md-tooltip></ng-md-icon></span>&nbsp;
-  {{$ctrl.job[0].openningsNo}}
+  {{vm.job.openingsNo}}
 </p>
 </div>
 <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span><br>
- <md-chips class="custom-chips" ng-model="$ctrl.job[0].skills" md-transform-chip="ctrl.newSkill($chip)" md-removable="false">
+ <md-chips class="custom-chips" ng-model="vm.job.skills" md-transform-chip="vm.newSkill($chip)" md-removable="false">
  <md-chip-template>
  <span>
   <strong>{{$chip.name}}</strong>
   <em>({{$chip.expertise}})</em>
+  <em>({{$chip.priority}})</em>
 </span>
 </md-chip-template>
       </md-chips>
-    </p>
+</p>    
     <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Duties</strong></span><br>
-      {{$ctrl.job[0].duties}}
+      {{vm.job.duties}}
     </p>
   </div>
   <md-card-actions layout="row" layout-align="end center">
-  <div ng-controller="jobFormCtrl" ng-cloak>
-    <md-button class="md-primary md-raised" ng-click="showJobDesc($event)"  flex=""  flex-gt-md="auto">
+  <div  ng-controller="dialogController" ng-cloak>
+    <md-button class="md-primary md-raised" ng-click="showJobDesc($event,vm)"  flex=""  flex-gt-md="auto">
     Edit
   </md-button>
 </div>

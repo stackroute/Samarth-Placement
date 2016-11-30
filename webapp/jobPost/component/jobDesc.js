@@ -9,57 +9,29 @@
                       },
              controller:'jobDesc',
         })
-      .controller('jobDesc',jobDesc);
-      function jobDesc(){
-        var vm = this;
-        vm.job = [];
-        vm.newSkill = newSkill;
+      .component('jobDesc',{
+      templateUrl: '../template/jobDesc.html',
+      bindings: { name: '=',
+                   txt: '@'      
+                },
+       controller:'jobDescCtrl',
+       controllerAs:'vm',
+       scope:true,
+       transclude:true,
+      })
+      .controller('jobDescCtrl',jobDescCtrl);
+      function jobDescCtrl(){
+            var vm=this;
+            vm.job={};
+            vm.job.skills={};
+            vm.newSkill=newSkill;
 
-        vm.job =[{
-                title: "Need a fastrack Network Manager",
-                role: "Senior Network Administrator",
-                duties: "Pays employees by receiving and verifying expense reports and requests for advances; preparing checks."+
-                        "Maintains accounting ledgers by verifying and posting account transactions."+
-                        "Verifies vendor accounts by reconciling monthly statements and related transactions."+
-                        "Maintains historical records by microfilming and filing documents."+
-                        "Disburses petty cash by recording entry; verifying documentation.",
-                skills: [{
-                  name:"angular",
-                  expertise:"Expert",
-                }, {
-                  name:"React",
-                  expertise:"Beginner",
-                }],
-                language:"English",
-                jobLocation:"Bangalore",
-                openningsNo:"3",
-                closeDate:"20-12-2012",
-                experience:"4",
-                qualification:[{
-                  name:"Graduate",
-                  score:"99",
-                  priority:"mandatory",
-                }, {
-                  name:"PostGraduate",
-                  score:"99",
-                  priority:"optional",
-                }],
-                renumeration:"24lakhs/anum",
-                externalPerks:"Pays employees by receiving and verifying expense reports and requests for advances; preparing checks."+
-                                "Maintains accounting ledgers by verifying and posting account transactions."+
-                                "Verifies vendor accounts by reconciling monthly statements and related transactions.",
-              }];
-
-              function newSkill(chip) {
-                    return {
-                              name: chip,
-                              expertise: 'unknown'
-                            };
-                 };
+            function newSkill(chip) {
+            return {
+                name: chip,
+                expertise: 'unknown',
+                priority:'unknown',
+            };
+          };
       }
-})();
-
-
-
-
-
+      })();
