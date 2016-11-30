@@ -1,0 +1,17 @@
+{
+  "name": "samarth-skillprofile",
+  "description": "Client for Samarth Platform, provides clientside interface for Job Aspirants",
+  "main": "app.js",
+  "authors": [
+    "kumaridevi <mkumaridevi11@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/stackroute/Samarth-Placement",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,4 +1,0 @@
-{
-	"Profession":["Medical","Engineering","Academics"]
-
-}

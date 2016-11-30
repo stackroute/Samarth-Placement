@@ -1,5 +1,5 @@
 angular
-    .module('samarth.jobSearch')
+    .module('samarth.jobSearch',[])
 	.controller('jobSearchCtrl', function($rootScope, $scope, $http) {
 			$scope.s=function(key){
 				

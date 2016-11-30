@@ -7,7 +7,7 @@
 		  var factory = {};
 		  factory.getResult = function() {
 		  var req = {};
-		  req.url = 'dashboard/factory/data.js';
+		  req.url = 'dashboard/factory/data.json';
 		  req.method = 'GET';
 		  return $http(req);
 	 	  };
