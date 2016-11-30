@@ -17,7 +17,7 @@ angular
           $scope.foo=data;
           // for(int i=0;i)
 
-          console.log("para" + $scope.foo);
+          // console.log("para" + $scope.foo);
           // console.log(foo.Title);
 
           newSkill = function(chip){

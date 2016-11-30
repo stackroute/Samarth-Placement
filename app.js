@@ -23,7 +23,6 @@ app.get('/createaccount',function(req,res){
 });
 
 app.get('/createaccount/submit',function(req,res){
-	console.log("cdgsxhajs")
     res.send();
 });
 
