@@ -3,13 +3,6 @@
    angular
       .module('samarth.jobPost')
       .component('jobDesc',{
-            templateUrl: 'jobPost/template/jobDesc.html',
-            bindings: { name: '=',
-                         txt: '@'      
-                      },
-             controller:'jobDesc',
-        })
-      .component('jobDesc',{
       templateUrl: 'jobPost/template/jobDesc.html',
       bindings: { name: '=',
                    txt: '@'      
