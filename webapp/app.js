@@ -4,7 +4,7 @@ angular.module('samarth',
  'ui.router',
  'ngMessages',
  'samarth.home',
- 'samarth.coordinatorlogin',
+ 'samarth.coordinatorLogin',
  'samarth.dashboard',
  'samarth.jobPost',
  'samarth.jobSearch',
@@ -12,10 +12,8 @@ angular.module('samarth',
  'samarth.candidateReg',
  'samarth.jobSearch'
   ])
-
-    .config(function($mdThemingProvider) {
-
-    $mdThemingProvider.theme('default')
-      .primaryPalette('blue')
-      
-  });
+  	.config(function($mdThemingProvider) {
+	    $mdThemingProvider.theme('default')
+	      .primaryPalette('blue')
+	      
+	  });

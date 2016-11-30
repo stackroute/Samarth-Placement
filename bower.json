@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "samarth-skillprofile",
   "description": "Client for Samarth Platform, provides clientside interface for Job Aspirants",
   "main": "app.js",
@@ -7,11 +8,35 @@
   ],
   "license": "ISC",
   "homepage": "https://github.com/stackroute/Samarth-Placement",
+=======
+  "name": "pp",
+  "description": "my first practise",
+  "main": "index.js",
+  "authors": [
+    "rishu <riteshgarg9999@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+>>>>>>> 1d4fd58009bbe56154c157f272692f5528ffbbfc
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
+<<<<<<< HEAD
   ]
+=======
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-animate": "^1.5.8",
+    "angular-aria": "^1.5.8",
+    "angular-material": "^1.1.1",
+    "angular-material-icons": "^0.7.1",
+    "angular-messages": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-ui-router": "^0.3.2"
+  }
+>>>>>>> 1d4fd58009bbe56154c157f272692f5528ffbbfc
 }

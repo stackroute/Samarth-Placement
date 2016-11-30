@@ -3,7 +3,7 @@ angular.module("samarth")
  
     $urlRouterProvider.otherwise('/');
      $stateProvider
-     .state('index.signin.candidatesearch', {
+     .state('index.home.candidatesearch', {
         url:'/candidatesearch',
         views: {
             'content@': {
