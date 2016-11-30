@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 8080;
 
 app.use(express.static(path.join(__dirname, 'webapp')))
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+app.use(express.static(path.join(__dirname, 'bower_components')))
+
 app.get('/',function(req,res){
 	res.sendFile(path.resolve(__dirname,'index.html'))
  //    res.send("hello");

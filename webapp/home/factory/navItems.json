@@ -2,32 +2,32 @@
 {
 	"icon":"dashboard",
 	"navTitle":"Dashboard",
-	"traverse":"index.signin.dashboard"
+	"traverse":"index.home.dashboard"
 },
 {
 	"icon":"search",
 	"navTitle":"Candidate Search",
-	"traverse":"index.signin.candidatesearch"
+	"traverse":"index.home.candidatesearch"
 },
 {
 	"icon":"person_add",
 	"navTitle":"Candidate Register",
-	"traverse":"index.signin.candidateReg"
+	"traverse":"index.home.candidateReg"
 },
 {
 	"icon":"add box",
 	"navTitle":"Job Post",
-	"traverse":"index.signin.jobPost"
+	"traverse":"index.home.jobPost"
 },
 {
 	"icon":"youtube_searched_for_black",
 	"navTitle":"Job Search",
-	"traverse":"index.signin.jobSearch"
+	"traverse":"index.home.jobSearch"
 },
 {
 	"icon":"person_pin",
 	"navTitle":"Employer Registration",
-	"traverse":"index.signin.empreg"
+	"traverse":"index.home.empreg"
 }
 
 ]

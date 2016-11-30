@@ -13,7 +13,7 @@
         
         function auth(){
           var req = {};
-          req.url = '../json/maincontent.json';
+          req.url = 'coordinatorLogin/json/maincontent.json';
           req.method = 'GET';
           return $http(req);
         };

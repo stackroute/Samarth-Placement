@@ -6,7 +6,7 @@ angular
 
     $urlRouterProvider.otherwise('/');
      $stateProvider
-     .state('index.signin.dashboard', {
+     .state('index.home.dashboard', {
         url:'/dashboard',
         views: {
             'content@': {
