@@ -11,6 +11,10 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
 
+app.onAppStart = function(addr) {
+	console.log("Samarth-Coordinator web app is now Running on port:", addr.port);
+}
+
 app.use(express.static(path.join(__dirname, 'webapp')))
 app.use(express.static(path.join(__dirname, 'bower_components')))
 
@@ -61,4 +65,6 @@ app.get('/createaccount/prof',function(req,res){
 
 // app.use('/api', router);
 
-app.listen(port);
+// app.listen(port);
+
+module.exports = app;
