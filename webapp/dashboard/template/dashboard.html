@@ -1,25 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <body>
-<div>
-<div layout="row" flex="100" ></div>
-<div layout="row" flex="100" layout-sm="column" layout-md="column" layout-xs="column" >
-  <md-card layout-gt-md="column"  flex-gt-md="40" flex-xs="30"   ng-repeat="item in vm.profession" class="md-whiteframe-2dp">
-  <md-card-title  class="item item-divider center-text">
-  <md-card-title-text>
-  <h1 md-colors="{color: 'blue-A100', 'border-color': 'primary-600'}" >{{item}}</h1>
-  </md-card-title-text>
-  </md-card-title>
-  <md-card-content layout-gt-md="column" layout-md="column" layout="row"  layout-align="space-between" >
-  <md-button class="md-icon-button" aria-label="Favorite"  ui-sref="home" >
-  <md-icon md-colors="{color: 'red-A100'}">favorite</md-icon>
-  </md-button>
-  <md-button class="md-icon-button" aria-label="people">
-  <md-icon  >people</md-icon>
-  </md-button>
-  <md-button class="md-icon-button" aria-label="description" class="md-raised md-primary" >
-  <md-icon  md-colors="{color: 'green-A100'}">description</md-icon>
-  </md-button>
-  </md-card-content>
-  </md-card>
-</div>
-</div>
+  <div layout-gt-md="row" layout-lg="row" layout-md="column" layout-lg-sm="column" layout-sm="column">
+    <md-card flex-gt-md="50" ng-repeat="item in vm.profession" class="md-whiteframe-2dp">
+      <md-card-title class="item item-divider center-text">
+        <md-card-title-text>
+          <h2 md-colors="{color: 'blue-A100'}">{{item}}</h2>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content layout="column" layout-gt-md="column" layout-align="space-between">
+        <md-button class="md-icon-button" aria-label="Favorite" ui-sref="home">
+          <md-icon md-colors="{color: 'red-A100'}">favorite</md-icon>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="people">
+          <md-icon md-colors="{color: 'blue-A100'}">people</md-icon>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="description" class="md-raised md-primary">
+          <md-icon md-colors="{color: 'green-A100'}">description</md-icon>
+        </md-button>
+      </md-card-content>
+    </md-card>
+  </div>
 </body>
+
+</html>

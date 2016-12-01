@@ -18,13 +18,13 @@ app.get('/',function(req,res){
 	res.sendFile(path.resolve(__dirname,'index.html'))
  //    res.send("hello");
 });
-app.get('/createaccount',function(req,res){
+app.get('/createaccount/prof',function(req,res){
     res.send(profobject);
 });
 
-app.get('/createaccount/submit',function(req,res){
-    res.send();
-});
+// app.get('/createaccount/submit',function(req,res){
+//     res.send();
+// });
 
 // var router = express.Router();
 

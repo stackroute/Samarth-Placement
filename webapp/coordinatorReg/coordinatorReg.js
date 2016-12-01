@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-		angular
+	angular
 		.module('samarth.cordsignup',[
 			'ngMaterial',
 			'ui.router',
@@ -20,9 +20,9 @@
 					}
 				}
 			});
-			      // .state("submitButton",{
-			      //   url:"/submitButton",
-			      //   template:"Registeration is done"
-			      // })
-			  }
-		})();
+	      // .state("submitButton",{
+	      //   url:"/submitButton",
+	      //   template:"Registeration is done"
+	      // })
+	    }
+})();
