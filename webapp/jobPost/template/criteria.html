@@ -4,16 +4,16 @@
 <md-divider ></md-divider>
   <div>
     <strong md-colors="{color:'primary'}">Qualification</strong><br>
-    <div layout="row" layout-align="center">
+    <div layout="row" layout-align="center" ng-repeat="qualification in vm.criteria.qualifications">
       <p flex="30" flex-xs="30"><span><ng-md-icon icon="stars" size="20"><md-tooltip>
             Course
-          </md-tooltip></span>&nbsp;{{vm.criteria.qualifications.name}}</p>
+          </md-tooltip></span>&nbsp;{{qualification.name}}</p>
       <p flex="30" flex-xs="30"><span><ng-md-icon icon="assignment" size="20"><md-tooltip>
             score
-          </md-tooltip></span>&nbsp;{{vm.criteria.qualifications.score}}</p>
+          </md-tooltip></span>&nbsp;{{qualification.score}}</p>
       <p><span><ng-md-icon icon="check_box" size="20"><md-tooltip>
             priority
-          </md-tooltip></span>&nbsp;{{vm.criteria.qualifications.priority}}</p>
+          </md-tooltip></span>&nbsp;{{qualification.priority}}</p>
     </div>
     <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Salary</strong></span><br>
       {{vm.criteria.renumeration}}
