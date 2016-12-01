@@ -1,27 +1,32 @@
 <md-card>
 <md-card-content>
-<h3 class="md-title" align="center"><strong>Education & Other details</strong></h3>
+<h3 class="md-title" align="center"><strong>Eligibility criteria & Other details</strong></h3>
 <md-divider ></md-divider>
   <div>
-    <strong md-colors="{color:'primary'}">Education</strong><br>
+    <strong md-colors="{color:'primary'}">Qualification</strong><br>
     <div layout="row" layout-align="center">
-      <p flex="30" flex-xs="30"><span><ng-md-icon icon="stars" size="20"></span>&nbsp;{{$ctrl.job[0].qualification[0].name}}</p>
-      <p flex="30" flex-xs="30"><span><ng-md-icon icon="assignment" size="20"></span>&nbsp;{{$ctrl.job[0].qualification[0].score}}</p>
-      <p><span><ng-md-icon icon="indeterminate_check_box" size="20"></span>&nbsp;{{$ctrl.job[0].qualification[0].priority}}</p>
+      <p flex="30" flex-xs="30"><span><ng-md-icon icon="stars" size="20"><md-tooltip>
+            Course
+          </md-tooltip></span>&nbsp;{{vm.criteria.qualifications.name}}</p>
+      <p flex="30" flex-xs="30"><span><ng-md-icon icon="assignment" size="20"><md-tooltip>
+            score
+          </md-tooltip></span>&nbsp;{{vm.criteria.qualifications.score}}</p>
+      <p><span><ng-md-icon icon="check_box" size="20"><md-tooltip>
+            priority
+          </md-tooltip></span>&nbsp;{{vm.criteria.qualifications.priority}}</p>
     </div>
     <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Salary</strong></span><br>
-      {{$ctrl.job[0].renumeration}}
+      {{vm.criteria.renumeration}}
     </p>
     <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Allowances & Incentives</strong></span><br>
-      {{$ctrl.job[0].externalPerks}}
+      {{vm.criteria.externalPerks || json}}
     </p>
   </div>
   <md-card-actions layout="row" layout-align="end center">
   <div id="dialogContainer" ng-controller="dialogController as ctrl" ng-cloak>
-    <md-button class="md-primary md-raised" ng-click="showQualification($event)"  flex=""  flex-gt-md="auto">
+    <md-button class="md-primary md-raised" ng-click="showQualification($event,vm)"  flex=""  flex-gt-md="auto">
     Edit
   </md-button>
-  {{job || json}}
   </div>
 </md-card-actions>
 </md-card-content>

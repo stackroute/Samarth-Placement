@@ -6,10 +6,10 @@ angular
 				$http.get("jobSearch/data/jobSearchData.json").then(function(response) {
 		    	/*console.log(response);*/
 					 var searchString=$scope.searchString;
-						console.log(searchString);
+						// console.log(searchString);
 		                $scope.result = response.data.Search;
 						  var arrayLength=$scope.result.length;
-							console.log(arrayLength);
+							// console.log(arrayLength);
 							var i=0;
 							var arrayspace=[];
 							for(i=0;i<arrayLength;i++)
@@ -17,7 +17,7 @@ angular
 						 	var title=$scope.result[i].Title;
 							if(title==searchString)
 							{
-		                    console.log(title);
+		                    // console.log(title);
 									//  var o=$scope.result[i].Title
 									//   arrayspace={"Title":o};
 									//
@@ -25,10 +25,10 @@ angular
 									// arrayspace[1]=$scope.push(result[i].language);
 									// var foo=$scope.arrayspace;
 							  $rootScope.$broadcast('san',arrayspace);
-							  console.log("kartik"+arrayspace);
+							  // console.log("kartik"+arrayspace);
 					        }
 							 else {
-							 	console.log("no");
+							 	// console.log("no");
 							 }
 						 }
 

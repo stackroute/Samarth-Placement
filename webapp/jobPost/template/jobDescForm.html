@@ -1,4 +1,6 @@
- <form>
+ <md-dialog>
+  <md-dialog-content>
+ <form ng-submit="submitDescData()">
  <div layout="column" layout-align="center center">
   <div layout="row" layout-padding>
   <p class="md-title"> Look for</p>
@@ -20,7 +22,7 @@
   <p class="md-title">Place</p>
    <span>
     <md-input-container class="md-icon-float md-block" >
-    <input ng-model="job.jobLocation" type="text" placeholder="Location" ng-required="true">
+    <input ng-model="job.location" type="text" placeholder="Location" ng-required="true">
     </md-input-container>
   </span>
   </div>
@@ -35,11 +37,37 @@
   <div layout="row" layout-padding>
   <p class="md-title">Skills</p>
    <span>
-    <md-input-container class="md-icon-float md-block" >
-    <input ng-model="job.skills" type="text" placeholder="Skills" ng-required="true">
+     <div layout="row" id="skills" data-ng-repeat="skill in skills">
+      <md-input-container class="md-icon-float md-block" >
+    <input ng-model="skill.name" type="text" placeholder="Skills" ng-required="true">
     </md-input-container>
+      <md-input-container>
+         <md-select ng-model="skill.expertise">
+              <md-option ng-repeat="value in expertise" value="{{value}}">
+                {{value}}
+              </md-option>
+            </md-select>
+      </md-input-container>
+       <md-input-container>
+         <md-select ng-model="skill.priority">
+              <md-option ng-repeat="value in priority" value="{{value}}">
+                {{value}}
+              </md-option>
+            </md-select> 
+      </md-input-container>
+    </div>
+    <md-button class="md-primary md-raised" ng-click="addInput()"  flex=""  flex-gt-md="auto">
+         ADD
+    </md-button>
   </span>
 </div>
+<!-- <div layout="row" layout-padding>
+  <p class="md-title">Skill Expertise</p>
+   <span>
+    <md-input-container class="md-icon-float md-block" >
+    </md-input-container>
+  </span>
+</div> -->
 <div layout="row" layout-padding>
   <p class="md-title">Experience</p>
    <span>
@@ -60,7 +88,7 @@
   <p class="md-title">Job Opennings</p>
    <span>
     <md-input-container class="md-icon-float md-block" >
-    <input ng-model="job.openningsNo" type="text" placeholder="Job opennings" ng-required="true">
+    <input ng-model="job.openingsNo" type="text" placeholder="Job openings" ng-required="true">
     </md-input-container>
   </span>
   </div>
@@ -73,10 +101,11 @@
   </span>
   </div>
   <div>
-   <md-button class="md-primary md-raised" ng-submit=""  flex=""  flex-gt-md="auto">
+   <md-button class="md-primary md-raised" type="submit"  flex=""  flex-gt-md="auto">
     Save
   </md-button>
   </div>
-
  </div>
  </form>
+  </md-dialog-content>
+ </md-dialog>  
