@@ -5,21 +5,24 @@
   <div layout="row" layout-padding>
   <p class="md-title">Qualification</p>
    <span>
-    <div layout="row">
+    <div layout="row" data-ng-repeat="qualification in qualifications">
       <md-input-container class="md-icon-float md-block" >
-        <input ng-model="criteria.qualifications.name" type="text" placeholder="Course Name" ng-required="true">
+        <input ng-model="qualification.name" type="text" placeholder="Course Name" ng-required="true">
       </md-input-container>
       <md-input-container>
-          <input ng-model="criteria.qualifications.score" type="text" placeholder="Score" ng-required="true">
+          <input ng-model="qualification.score" type="text" placeholder="Score" ng-required="true">
       </md-input-container>
        <md-input-container>
-         <md-select ng-model="criteria.qualifications.priority" placeholder="Priority">
+         <md-select ng-model="qualification.priority" placeholder="Priority">
               <md-option ng-repeat="value in priority" value="{{value}}">
                 {{value}}
               </md-option>
             </md-select>
       </md-input-container>
     </div>
+     <md-button class="md-primary md-raised" ng-click="addQual()"  flex=""  flex-gt-md="auto">
+         ADD
+    </md-button>
   </span>
   </div>
   <div layout="row" layout-padding>
