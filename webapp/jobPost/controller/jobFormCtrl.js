@@ -5,6 +5,7 @@
       .controller('dialogController', dialogController);
       function dialogController ($scope,$mdDialog) 
                {  $scope.skills=[{}];
+                  $scope.qualifications=[{}];
                   $scope.showJobDesc = function(event,jobCtrl) {
                   $mdDialog.show({
                   clickOutsideToClose: true,
@@ -28,9 +29,6 @@
                         
                         function addInput() {
                         $scope.skill={};
-                        $scope.skill.name = $scope.skill.name;
-                        $scope.skill.expertise = $scope.skill.expertise;
-                        $scope.skill.priority = $scope.skill.priority;
                         $scope.skills.push($scope.skill);
                       };
                     
@@ -58,8 +56,15 @@
                      $scope.priority = [
                                               "Mandatory",
                                               "Optional",
-                                          ];                   
+                                          ];      
+                     $scope.addQual=addQual;                            
                      $scope.submitCriteriaData=submitCriteriaData;
+
+                      function addQual(){
+                        $scope.qualification={};
+                        $scope.qualifications.push($scope.qualification);
+                      }
+                                 
                       function submitCriteriaData()
                      {
                         criteriaCtrl.criteria=$scope.criteria;

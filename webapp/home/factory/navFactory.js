@@ -8,7 +8,7 @@
 		return factory;
 		function getSidenav() {
 			var req = {};
-			req.url = 'home/factory/navItems.json';
+			req.url = '/sidenavbar';
 			req.method = 'GET';
 			return $http(req);
 		};
