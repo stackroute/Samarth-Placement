@@ -1,9 +1,9 @@
 angular
-  .module('samarth.jobSearch',)
+  .module('samarth.jobSearch')
   /*creating component for job search*/
   .component("jobSearch",{
    	templateUrl:'jobSearch/template/jobSearch.html',
-    controller:'jobSearchCtrl',
+    controller:'jobSearchCtrl'
    	/*bindings:{
    		name :"=",
    		txt:'@'
