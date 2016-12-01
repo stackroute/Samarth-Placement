@@ -5,7 +5,7 @@ angular.module('samarth.candidateReg', [])
  
     $urlRouterProvider.otherwise('/');
      $stateProvider
-     .state('index.signin.candidateReg', {
+     .state('index.home.candidateReg', {
         url:'/candidateregistration',
         views: {
             'content@': {

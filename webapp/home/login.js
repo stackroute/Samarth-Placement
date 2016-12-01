@@ -1,11 +1,11 @@
-angular.module('samarth')
+angular.module('samarth.home',[])
     .config(config);
 
     function config($stateProvider, $urlRouterProvider){
      $urlRouterProvider.otherwise('/');
      $stateProvider
-     .state('index.signin',{
-        url: '/samarthcoordinator',
+     .state('index.home',{
+        url: 'samarthcoordinator',
         views: {
             'appbar@': {
                 templateUrl: 'home/template/navbar.html',
@@ -20,6 +20,6 @@ angular.module('samarth')
             }
    
         }
-        
+    
     });
  } 

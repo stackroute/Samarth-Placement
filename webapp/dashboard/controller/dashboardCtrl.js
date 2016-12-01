@@ -1,23 +1,17 @@
-(function() {
-    'use strict';
+angular.module('samarth.dashboard')
+    .controller('dashboardCtrl',dashboardCtrl);
 
-angular
-    .module("samarth")
-    .controller("dashboardCtrl",dashboardCtrl);
-
-function dashboardCtrl ()
-{
-  var vm = this;
-  vm.items = [];
-  vm.items =
-      [
-      {Name: "Medical",  id: "6",  },
-      {Name: "Engineering",  id: "6",  },
-      {Name: "Academics",  id: "6",  },
-      {Name: "Management",  id: "6",  },
-  ];
-
-   
-  }
-  
-})();
+     function dashboardCtrl($http,dashboardFactory)
+    {
+      var vm = this;
+      vm.result = [];
+      vm.profession = [];
+      initialData();
+      //server request
+      function initialData(){
+      dashboardFactory.getResult().then(function(response) {
+      vm.result=response.data;
+      vm.profession= vm.result.Profession;
+       })
+      }
+    }

@@ -1,19 +1,19 @@
-
 angular.module('samarth',
  ['ngMaterial',
  'ngMdIcons',
  'ui.router',
  'ngMessages',
+ 'samarth.home',
+ 'samarth.coordinatorLogin',
  'samarth.dashboard',
  'samarth.jobPost',
- 'samarth.signUp',
+ 'samarth.jobSearch',
+ 'samarth.cordsignup',
  'samarth.candidateReg',
  'samarth.jobSearch'
   ])
-
-    .config(function($mdThemingProvider) {
-
-    $mdThemingProvider.theme('default')
-      .primaryPalette('blue')
-      
-  });
+  	.config(function($mdThemingProvider) {
+	    $mdThemingProvider.theme('default')
+	      .primaryPalette('blue')
+	      
+	  });

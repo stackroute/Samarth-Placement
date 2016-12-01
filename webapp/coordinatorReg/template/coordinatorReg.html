@@ -1,8 +1,8 @@
-<div layout=row flex>
+<div layout=row flex ng-controller="coorRegCtrl">
     <div class="md-no-momentum" layout="column" layout-padding="" layout-align="center center" flex>
       <md-content class="md-no-momentum" md-whiteframe="6" layout-margin="" layout-align="center center">
         <h1>Coordinator Registration</h1><br>
-        <form name="myForm" ng-submit="clickSubmit(coordinator)">
+        <form name="myForm" ng-submit="vm.clickSubmit()">
           <md-input-container class="md-block" >
             <!-- Use floating label instead of placeholder -->
             <label>Name</label>
@@ -33,7 +33,7 @@
             <md-icon>email</md-icon>
             <input ng-model="vm.coordinator.email" type="email" placeholder="Email (required)" ng-required="true">
           </md-input-container>
-          <md-input-container>
+          <md-input-container layout="column">
             <label>Profession</label>
             <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
               <md-select-header class="demo-select-header">
@@ -45,7 +45,7 @@
             </md-select>
           </md-input-container>
 
-          <md-input-container>
+          <md-input-container layout="column">
             <label>Role</label>
             <md-select ng-model="vm.coordinator.Role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
               <md-select-header class="demo-select-header">
@@ -57,16 +57,18 @@
             </md-select>
           </md-input-container>
 
-          <p ng-repeat="lan in selectedLanguage"><!-- language display #issue:repeated value in the language-->
-           {{lan+':'}}
-           <md-checkbox ng-model="vm.coordinator.language.speak[lan]">speak</md-checkbox>
-           <md-checkbox ng-model="vm.coordinator.language.read[lan]">read</md-checkbox>
-           <md-checkbox ng-model="vm.coordinator.language.write[lan]">write</md-checkbox>
-         </p>
+          <p ng-repeat="(key,lan) in vm.selectedLanguage"> <!-- language display #issue:repeated value in the language-->
+             <span layout>
+             <span flex="30">{{lan}}</span>
+             <md-checkbox ng-model="vm.coordinator.language.speak[lan]" flex="10">speak</md-checkbox>
+             <md-checkbox ng-model="vm.coordinator.language.read[lan]" flex="10">read</md-checkbox>
+             <md-checkbox ng-model="vm.coordinator.language.write[lan]" flex="10">write</md-checkbox>
+             </span>
+           </p>    
 
           <div layout>
           <md-autocomplete
-           md-selected-item="vm.coordinator.lang"
+           md-selected-item="vm.coordinator.language"
            md-search-text-change=""
            md-search-text="languageInputText"
            md-selected-item-change=""
@@ -81,7 +83,7 @@
              <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item}}</span>
            </md-item-template>
           </md-autocomplete >
-         <md-button class="md-icon-button md-primary" ng-click="insertLang();lang=''">
+         <md-button class="md-icon-button md-primary" ng-click="vm.insertLang();language=''">
            <md-icon>add</md-icon>
          </md-button>
           </div>
@@ -90,7 +92,6 @@
             <button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</button>
           </section>        
     </form>
-    {{ vm.coordinator || json}}
   </md-content>
 </div>
 </div>
