@@ -7,10 +7,10 @@ angular
     .state('index.home.jobSearch', {
        url:'/jobsearch',
        views: {
-         'content@': {
-            templateUrl: 'jobSearch/template/jobSearchIndex.html',
-            controller:'jobSearchCtrl'
-            }
-        }
-      })
+        'content@':{
+          templateUrl: 'jobSearch/template/jobSearchIndex.html',
+          controller:'jobSearchCtrl'
+          }
+       }
+    })
     });

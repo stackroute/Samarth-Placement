@@ -27,10 +27,10 @@ angular
 					$rootScope.$broadcast('san',arrayspace);
 					// console.log("kartik"+arrayspace);
 					}
-					else {
+					else{
 					// console.log("no");
 					}
-				 }
-				})
-		   }
-		});
+				}
+			})
+		  }
+	  });
