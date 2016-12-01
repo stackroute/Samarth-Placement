@@ -1,16 +1,17 @@
-(function(){
+(function() {
   'use strict'
   angular
     .module('samarth.dashboard')
-	.factory('dashboardFactory', dashboardFactory);
-	  function dashboardFactory($http) {
-		  var factory = {};
-		  factory.getResult = function() {
-		  var req = {};
-		  req.url = 'dashboard/factory/data.json';
-		  req.method = 'GET';
-		  return $http(req);
-	 	  };
-	 	  return factory;
-	}
+    .factory('dashboardFactory', dashboardFactory);
+
+    function dashboardFactory($http) {
+      var factory = {};
+      factory.getResult = function() {
+        var req = {};
+        req.url = 'dashboard/factory/data.json';
+        req.method = 'GET';
+        return $http(req);
+      };
+      return factory;
+    }
 })();

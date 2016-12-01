@@ -12,13 +12,9 @@
 		    return factory;
 	    	function profReq() {
 	    		var req = {};
-	    		req.url = '/createaccount';
+	    		req.url = '/createaccount/prof';
 	    		req.method = 'GET';
 	    		return $http(req);
 	    	};
    		}
 })();
-
-// streams,
-// highland,
-// supertest,

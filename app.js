@@ -12,6 +12,10 @@ app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
 
+app.onAppStart = function(addr) {
+	console.log("Samarth-Coordinator web app is now Running on port:", addr.port);
+}
+
 app.use(express.static(path.join(__dirname, 'webapp')))
 app.use(express.static(path.join(__dirname, 'bower_components')))
 
@@ -19,13 +23,13 @@ app.get('/',function(req,res){
 	res.sendFile(path.resolve(__dirname,'index.html'))
  //    res.send("hello");
 });
-app.get('/createaccount',function(req,res){
+app.get('/createaccount/prof',function(req,res){
     res.send(profobject);
 });
 
-app.get('/createaccount/submit',function(req,res){
-    res.send();
-});
+// app.get('/createaccount/submit',function(req,res){
+//     res.send();
+// });
 
 app.get('/sidenavbar', navItems);
 
@@ -64,4 +68,6 @@ app.get('/sidenavbar', navItems);
 
 // app.use('/api', router);
 
-app.listen(port);
+// app.listen(port);
+
+module.exports = app;
