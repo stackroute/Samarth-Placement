@@ -3,7 +3,7 @@ angular
 	.controller('jobSearchCtrl', function($rootScope, $scope, $http) {
 			$scope.s=function(key){
 				
-				$http.get("jobSearch/data/jobSearchData.json").then(function(response) {
+				$http.get("jobSearch/jobSearchData/jobSearchData.json").then(function(response) {
 		    	/*console.log(response);*/
 					 var searchString=$scope.searchString;
 						// console.log(searchString);
