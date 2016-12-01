@@ -1,7 +1,7 @@
 
 angular
 
-     .module('samarth.jobSearch')
+     .module('samarth.jobSearch',[])
 
 /*     angular.module('instantsearch',['ngMaterial','ui.router','ngMdIcons'])
  creating component for job search*/
