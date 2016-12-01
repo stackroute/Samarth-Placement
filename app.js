@@ -2,6 +2,7 @@ var express=require('express');
 var app=express();
 var path=require('path');
 var profobject=require('./webapp/coordinatorReg/json/prof.js');
+var navItems = require('./webserver/navigationLinks/navigateRouter.js');
 var bodyParser = require('body-parser');
 // var Bear     = require('./bear.js');
 // configure app to use bodyParser()
@@ -25,6 +26,8 @@ app.get('/createaccount',function(req,res){
 app.get('/createaccount/submit',function(req,res){
     res.send();
 });
+
+app.get('/sidenavbar', navItems);
 
 // var router = express.Router();
 
