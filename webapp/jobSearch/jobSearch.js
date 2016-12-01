@@ -7,7 +7,7 @@ angular
       url:'/jobsearch',
       views:{
         'content@': {
-          templateUrl: 'jobSearch/template/jobSearchIndex.html',
+          templateUrl: 'jobSearch/template/jobSearchIndex.html'
         }
       }
     })

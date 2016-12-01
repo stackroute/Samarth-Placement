@@ -3,7 +3,7 @@ angular
   .component("jobSearchResult",{
     templateUrl:'jobSearch/template/jobSearchResult.html',
     bindings:{
-          value:'='
+       value:'='
       },
     controller:function($scope){
       $scope.$on('san', function(event, data)
@@ -15,7 +15,6 @@ angular
         expertise: 'unknown'
           };
         };
-
       });
     }
   })

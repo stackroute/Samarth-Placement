@@ -3,7 +3,7 @@ angular
 	 .controller('jobSearchCtrl', function($rootScope, $scope, $http) {
 	  $scope.s=function(key){
 		$http.get("jobSearch/jobSearchData/jobSearchData.json").then(function(response) {
-			var searchString=$scope.searchString;
+    var searchString=$scope.searchString;
 			// console.log(searchString);
 			$scope.result = response.data.Search;
 			var arrayLength=$scope.result.length;
