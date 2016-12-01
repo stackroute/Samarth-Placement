@@ -1,3 +1,4 @@
+let proxy = require('http-proxy');
 var express=require('express');
 var app=express();
 var path=require('path');
@@ -10,6 +11,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
+
+let platformProxy = proxy.createProxyServer();
 
 app.onAppStart = function(addr) {
 	console.log("Samarth-Coordinator web app is now Running on port:", addr.port);
@@ -24,6 +27,20 @@ app.get('/',function(req,res){
 });
 app.get('/createaccount/prof',function(req,res){
     res.send(profobject);
+});
+
+app.use('/', function(req, res) {
+    let options = {
+        target: {
+            host: 'localhost',
+            port: 8081
+        }
+    };
+    platformProxy.web(req, res, options);
+});
+
+platformProxy.on('error', function(err, req, res) {
+    console.error('Error in proxy pass: ', err);
 });
 
 // app.get('/createaccount/submit',function(req,res){
