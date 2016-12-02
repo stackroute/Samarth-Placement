@@ -1,3 +1,4 @@
+
 (function() {
 	'use strict';
 	angular
@@ -19,4 +20,3 @@
 			};
 		}
 })();
-

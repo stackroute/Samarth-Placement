@@ -22,13 +22,14 @@ app.onAppStart = function(addr) {
 app.use(express.static(path.join(__dirname, 'webapp')))
 app.use(express.static(path.join(__dirname, 'bower_components')))
 
-app.get('/',function(req,res){
-	res.sendFile(path.resolve(__dirname,'index.html'))
- //    res.send("hello");
-});
+// app.get('/',function(req,res){
+// 	res.sendFile(path.resolve(__dirname,'index.html'))
+//  //    res.send("hello");
+// });
 // app.get('/createaccount/prof',function(req,res){
 //     res.send(profobject);
 // });
+app.use('/', navItems);
 
 app.use('/', function(req, res) {
 	let options = {
@@ -48,7 +49,7 @@ platformProxy.on('error', function(err, req, res) {
 //     res.send();
 // });
 
-app.get('/sidenavbar', navItems);
+// app.use('/sidenavbar', navItems);
 
 // var router = express.Router();
 

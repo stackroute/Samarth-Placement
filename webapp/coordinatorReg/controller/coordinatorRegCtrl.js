@@ -18,38 +18,37 @@
 					{
 						// vm.profession= Object.keys(data.data);
 						// vm.roles= Object.keys(data.data);
-						vm.items= Object.keys(data.data);
+						console.log(data.data);
+						vm.items= data.data;
 					})
 				}
 
-					function clickSubmit(coordinator)
+				function clickSubmit(coordinator)
+				{
+					submitFormFact.submitForm(coordinator).then(function(data) 
 					{
-						submitFormFact.submitForm(coordinator).then(function(data) 
-						{
-							console.log("sdcx");
-						})
-					}
-				
-			    //insert a language to the selected language
-			    
-				    function insertLang()
-				    {
-				    	console.log("sadfrcxs");
-				     	if(vm.coordinator.language!==null&&vm.coordinator.language!=="")
-				     	{
-				     		if(vm.selectedLanguage[vm.coordinator.language]==undefined)
-				     		{
-			       				vm.selectedLanguage[vm.coordinator.language]=vm.coordinator.language;//need to remove repeated value
-					       	}
-					       	else
-					       	{
-				     			console.log("sadfrcxs");
-					       		var index = vm.coordinator.language.indexOf(vm.selectedLanguage[vm.coordinator.language]);
+						console.log("sdcx");
+					})
+				}
+			
+		    //insert a language to the selected language
+		    
+		    function insertLang()
+		    {
+		    	console.log("sadfrcxs");
+		     	if(vm.coordinator.language!==null&&vm.coordinator.language!=="")
+		     	{
+		     		if(vm.selectedLanguage[vm.coordinator.language]==undefined)
+		     		{
+	       				vm.selectedLanguage[vm.coordinator.language]=vm.coordinator.language;//need to remove repeated value
+			       	}
+			       	else
+			       	{
+		     			console.log("sadfrcxs");
+			       		var index = vm.coordinator.language.indexOf(vm.selectedLanguage[vm.coordinator.language]);
 
-					       	}
-			       		}
-			   		}
-		   		
-
+			       	}
+	       		}
+	   		}
 	   }
 })();
