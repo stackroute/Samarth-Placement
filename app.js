@@ -49,7 +49,7 @@ platformProxy.on('error', function(err, req, res) {
 //     res.send();
 // });
 
-// app.use('/sidenavbar', navItems);
+
 
 // var router = express.Router();
 

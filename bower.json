@@ -22,6 +22,7 @@
     "angular-material-icons": "^0.7.1",
     "angular-messages": "^1.5.8",
     "angular-route": "^1.5.8",
-    "angular-ui-router": "^0.3.2"
+    "angular-ui-router": "^0.3.2",
+    "samarth-webcomponents": "https://github.com/stackroute/Samarth-WebComponents.git#dev-wave-11"
   }
 }

@@ -6,11 +6,9 @@ angular.module('samarth',
  'samarth.home',
  'samarth.coordinatorLogin',
  'samarth.dashboard',
- 'samarth.jobPost',
- 'samarth.jobSearch',
+ 'samarth-webcomponents',
  'samarth.cordsignup',
- 'samarth.candidateReg',
- 'samarth.jobSearch'
+ 'samarth.candidateReg'
   ])
   	.config(function($mdThemingProvider) {
 	    $mdThemingProvider.theme('default')
