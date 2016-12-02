@@ -16,7 +16,7 @@ var port = process.env.PORT || 8080;
 let platformProxy = proxy.createProxyServer();
 
 app.onAppStart = function(addr) {
-	console.log("Samarth-Coordinator web app is now Running on port:", addr.port);
+	console.log("Samarth-Placement web app is now Running on port:", addr.port);
 }
 
 app.use(express.static(path.join(__dirname, 'webapp')))
