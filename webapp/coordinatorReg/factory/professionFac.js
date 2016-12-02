@@ -12,7 +12,7 @@
 		    return factory;
 	    	function profReq() {
 	    		var req = {};
-	    		req.url = '/createaccount/prof';
+	    		req.url = '/candidate/profession';
 	    		req.method = 'GET';
 	    		return $http(req);
 	    	};

@@ -3,6 +3,7 @@ var express=require('express');
 var app=express();
 var path=require('path');
 var profobject=require('./webapp/coordinatorReg/json/prof.js');
+var navItems = require('./webserver/navbar/navigateRouter.js');
 var bodyParser = require('body-parser');
 // var Bear     = require('./bear.js');
 // configure app to use bodyParser()
@@ -25,27 +26,29 @@ app.get('/',function(req,res){
 	res.sendFile(path.resolve(__dirname,'index.html'))
  //    res.send("hello");
 });
-app.get('/createaccount/prof',function(req,res){
-    res.send(profobject);
-});
+// app.get('/createaccount/prof',function(req,res){
+//     res.send(profobject);
+// });
 
 app.use('/', function(req, res) {
-    let options = {
-        target: {
-            host: 'localhost',
-            port: 8081
-        }
-    };
-    platformProxy.web(req, res, options);
+	let options = {
+    target: {
+      host: 'localhost',
+      port: 8081
+    }
+  };
+  platformProxy.web(req, res, options);
 });
 
 platformProxy.on('error', function(err, req, res) {
-    console.error('Error in proxy pass: ', err);
+  console.error('Error in proxy pass: ', err);
 });
 
 // app.get('/createaccount/submit',function(req,res){
 //     res.send();
 // });
+
+app.get('/sidenavbar', navItems);
 
 // var router = express.Router();
 

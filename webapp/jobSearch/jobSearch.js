@@ -5,10 +5,11 @@ angular
     $stateProvider
     .state('index.home.jobSearch', {
       url:'/jobsearch',
-      views: {
+      views:{
         'content@': {
-          templateUrl: 'jobSearch/template/jobSearchIndex.html',
+          templateUrl: 'jobSearch/template/jobSearchIndex.html'
         }
       }
     })
   });
+

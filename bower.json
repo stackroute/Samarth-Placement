@@ -1,9 +1,11 @@
 {
-  "name": "samarth",
-  "description": "Placement",
+  "name": "pp",
+  "description": "my first practise",
   "main": "index.js",
-  "authors": "",
-  "license": "",
+  "authors": [
+    "samarth"
+  ],
+  "license": "ISC",
   "homepage": "",
   "ignore": [
     "**/.*",
