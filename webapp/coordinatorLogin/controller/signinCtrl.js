@@ -24,7 +24,7 @@
                 if(true)
                   {
                   testCounter++;
-                  $state.go('index.home.dashboard')
+                  $state.go('index.dashboard')
                   }
                     else if((email!=vm.user.emailAddress || password!=vm.user.password ) &&  response.data.length== dataCounter  && testCounter==0)
                     {
