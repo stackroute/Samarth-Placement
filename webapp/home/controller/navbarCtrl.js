@@ -3,11 +3,12 @@
   angular
     .module('samarth.home') 
     .controller('navbarCtrl', navbarCtrl);
-    function navbarCtrl($http,navFactory,$mdSidenav) 
+    function navbarCtrl($http,navFactory,$mdSidenav,$rootScope) 
     {
-      var vm=this;
+       var vm=this;
        var navItems={};
-
+       $rootScope.sideicon = false;
+       $rootScope.logout = false;
        vm.openSideNavPanel=openSideNavPanel;
        vm.closeSideNavPanel=closeSideNavPanel;
        vm.getSidenav=getSidenav;

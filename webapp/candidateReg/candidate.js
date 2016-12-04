@@ -5,7 +5,7 @@ angular
   function candidateRegConfig($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider
-    .state('index.home.candidateReg', {
+    .state('index.candidateReg', {
       url:'/candidateregistration',
       views: {
         'content@': {

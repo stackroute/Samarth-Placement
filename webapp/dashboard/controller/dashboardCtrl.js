@@ -1,8 +1,10 @@
 angular.module('samarth.dashboard')
     .controller('dashboardCtrl',dashboardCtrl);
 
-     function dashboardCtrl($http,dashboardFactory)
+     function dashboardCtrl($http,dashboardFactory,$rootScope)
     {
+      $rootScope.sideicon = true;
+      $rootScope.logout = true;
       var vm = this;
       vm.result = [];
       vm.profession = [];

@@ -3,7 +3,7 @@ angular
   .config(function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider
-    .state('index.home.candidatesearch', {
+    .state('index.candidatesearch', {
       url:'/candidatesearch',
       views: {
         'content@': {

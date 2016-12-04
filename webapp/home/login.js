@@ -7,11 +7,6 @@ angular.module('samarth.home',[])
      .state('index.home',{
         url: 'samarthcoordinator',
         views: {
-            'appbar@': {
-                templateUrl: 'home/template/navbar.html',
-                controller:'navbarCtrl',
-                controllerAs : 'vm'
-            },
             'content@': {
                 templateUrl: 'dashboard/template/dashboard.html',
                 controller:'dashboardCtrl',

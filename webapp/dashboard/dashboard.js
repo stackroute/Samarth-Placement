@@ -5,7 +5,7 @@ angular
 function config($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider
-        .state('index.home.dashboard', {
+        .state('index.dashboard', {
             url: '/dashboard',
             views: {
                 'content@': {
