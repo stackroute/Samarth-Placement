@@ -12,6 +12,9 @@ angular
     url: '/',
     views: {
       'appbar': {
+               templateUrl: 'home/template/navbar.html',
+                controller:'navbarCtrl',
+                controllerAs : 'vm'
       },
       'content': {
        templateUrl: 'coordinatorLogin/template/login.html',

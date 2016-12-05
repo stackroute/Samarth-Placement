@@ -2,31 +2,31 @@
 {
 	"icon":"dashboard",
 	"navTitle":"Dashboard",
-	"traverse":"index.home.dashboard"
+	"traverse":"index.dashboard"
 },
 {
 	"icon":"search",
 	"navTitle":"Candidate Search",
-	"traverse":"index.home.candidatesearch"
+	"traverse":"index.candidatesearch"
 },
 {
 	"icon":"person_add",
 	"navTitle":"Candidate Register",
-	"traverse":"index.home.candidateReg"
+	"traverse":"index.candidateReg"
 },
 {
 	"icon":"add box",
 	"navTitle":"Job Post",
-	"traverse":"index.home.jobPost"
+	"traverse":"index.jobPost"
 },
 {
 	"icon":"youtube_searched_for_black",
 	"navTitle":"Job Search",
-	"traverse":"index.home.jobSearch"
+	"traverse":"index.jobSearch"
 },
 {
 	"icon":"person_pin",
 	"navTitle":"Employer Registration",
-	"traverse":"index.home.empreg"
+	"traverse":"index.empreg"
 }
 ]
