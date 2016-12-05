@@ -1,5 +1,5 @@
  <!--form for the candidate starts-->
- <div>
+ <div layout="column">
    <form name="candidateForm" layout="column" layout-align="center center" layout-align="center" ng-submit="vm.formSubmit()" novalidate>
    <h1 align="center">Candidate Registration</h1>
     <md-card class="md-no-momentum" md-whiteframe="6" layout-margin="">
@@ -39,14 +39,14 @@
         </md-input-container>
 
         <div layout="row">
-        <md-input-container flex="35">
+        <md-input-container flex="55">
           <label>Date of Birth</label>
           <md-datepicker name="dateOfBirth" ng-model="vm.candidate.dob" ng-required="flase"></md-datepicker>
         </md-input-container>
 
         <!-- Gender radio -->
         <md-input-container >
-        <md-radio-group name="gender" ng-model="vm.candidate.gender" layout="row" ng-required="true" flex-offset="65">
+        <md-radio-group name="gender" ng-model="vm.candidate.gender" layout="row" ng-required="true" flex-offset="40">
           <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender</label>
           <md-radio-button value="Male"  flex="85">Male</md-radio-button>
           <md-radio-button value="Female" flex="85">Female</md-radio-button>
@@ -55,23 +55,23 @@
         </div>
 
         <md-autocomplete
-        md-selected-item="vm.candidate.profession"
-        md-search-text-change=""
-        md-search-text="professionInputText"
-        md-selected-item-change=""
-        md-items="item in vm.profession | filter: professionInputText"
-        md-item-text="item"
-        md-min-length="0"
-        placeholder="Profession"
-        md-menu-class="autocomplete-custom-template"
-        ng-required="true">
-          <md-item-template>
-            <span md-highlight-text="professionInputText" md-highlight-flags="^i">{{item}}</span>
-          </md-item-template>
-          <div ng-messages="professionInputText.$error" role="alert">
-            <div ng-message="required">You should need to fill the mobile no</div>
-          </div>
-        </md-autocomplete><br>
+       md-selected-item="vm.candidate.profession"
+       md-search-text-change=""
+       md-search-text="professionInputText"
+       md-selected-item-change=""
+       md-items="item in vm.profession | filter: professionInputText"
+       md-item-text="item"
+       md-min-length="0"
+       placeholder="Profession"
+       md-menu-class="autocomplete-custom-template"
+       ng-required="true">
+         <md-item-template>
+           <span md-highlight-text="professionInputText" md-highlight-flags="^i">{{item['professions']}}</span>
+         </md-item-template>
+         <div ng-messages="professionInputText.$error" role="alert">
+           <div ng-message="required">You should need to fill the mobile no</div>
+         </div>
+       </md-autocomplete><br>
 
       <md-autocomplete
       md-selected-item="vm.candidate.location"
@@ -89,11 +89,11 @@
     </md-autocomplete><br>
 
     <p ng-repeat="(key,lan) in vm.selectedLanguage"><!-- language display #issue:repeated value in the language-->
-      <span layout>
+      <span layout="row" flex>
       <span flex="30">{{lan}}</span>
-      <md-checkbox ng-model="vm.candidate.language.speak[lan]" flex="10">speak</md-checkbox>
-      <md-checkbox ng-model="vm.candidate.language.read[lan]" flex="10">read</md-checkbox>
-      <md-checkbox ng-model="vm.candidate.language.write[lan]" flex="10">write</md-checkbox>
+      <md-checkbox ng-model="vm.candidate.language.speak[lan]">Speak</md-checkbox>
+      <md-checkbox ng-model="vm.candidate.language.read[lan]">Read</md-checkbox>
+      <md-checkbox ng-model="vm.candidate.language.write[lan]">Write</md-checkbox>
       </span>
     </p>
 

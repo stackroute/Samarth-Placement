@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	angular
+		angular
 		.module('samarth.cordsignup',[
 			'ngMaterial',
 			'ui.router',

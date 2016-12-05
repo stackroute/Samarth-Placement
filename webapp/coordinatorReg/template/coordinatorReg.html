@@ -58,34 +58,34 @@
         </md-input-container>
 
         <p ng-repeat="(key,lan) in vm.selectedLanguage"> <!-- language display #issue:repeated value in the language-->
-         <span layout>
+         <span layout="row" flex>
            <span flex="30">{{lan}}</span>
-           <md-checkbox ng-model="vm.coordinator.language.speak[lan]" flex="10">speak</md-checkbox>
-           <md-checkbox ng-model="vm.coordinator.language.read[lan]" flex="10">read</md-checkbox>
-           <md-checkbox ng-model="vm.coordinator.language.write[lan]" flex="10">write</md-checkbox>
+           <md-checkbox ng-model="vm.coordinator.language.speak[lan]">Speak</md-checkbox>
+           <md-checkbox ng-model="vm.coordinator.language.read[lan]">Read</md-checkbox>
+           <md-checkbox ng-model="vm.coordinator.language.write[lan]">Write</md-checkbox>
          </span>
         </p>    
 
         <div layout>
           <md-autocomplete
-            md-selected-item="vm.coordinator.language"
-            md-search-text-change=""
-            md-search-text="languageInputText"
-            md-selected-item-change=""
-            md-items="item in vm.items | filter: languageInputText"
-            md-item-text="item"
-            md-min-length="0"
-            placeholder="Languages"
-            md-menu-class="autocomplete-custom-template"
-            ng-required="true"
-            flex=95>
-            <md-item-template>
+           md-selected-item="vm.coordinator.language"
+           md-search-text-change=""
+           md-search-text="languageInputText"
+           md-selected-item-change=""
+           md-items="item in vm.languages | filter: languageInputText"
+           md-item-text="item"
+           md-min-length="0"
+           placeholder="Languages"
+           md-menu-class="autocomplete-custom-template"
+           ng-required="true"
+           flex=95>
+           <md-item-template>
              <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item}}</span>
-            </md-item-template>
+           </md-item-template>
           </md-autocomplete >
-          <md-button class="md-icon-button md-primary" ng-click="vm.insertLang();language=''">
-            <md-icon>add</md-icon>
-          </md-button>
+         <md-button class="md-icon-button md-primary" ng-click="vm.insertLang();vm.coordinator.language=''">
+           <md-icon>add</md-icon>
+         </md-button>
         </div>
 
         <section layout="row" layout-padding="" layout-align="center">
