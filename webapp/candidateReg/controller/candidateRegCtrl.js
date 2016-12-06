@@ -2,7 +2,7 @@ angular
   .module('samarth.candidateReg')
   .controller('candidateRegCtrl',candidateRegCtrl);
 
-  function candidateRegCtrl($http,candidateRegFactory,$mdDialog,professionservice) 
+  function candidateRegCtrl($http,candidateRegFactory,languageFact,$mdDialog,professionservice,locationFact) 
   {
     var vm = this;
     vm.result = [];
@@ -20,15 +20,33 @@ angular
 
     initialData();
     setProfession();
+    languagesFact();
     //server request
     function initialData(){
      candidateRegFactory.initialData().then(function(response) {
        vm.result=response.data;
        //vm.profession=response.data; //vm.result.profession;
-       vm.location= vm.result.location;
-       vm.language= vm.result.language;
+       /*vm.location= vm.result.location;*/
+      /* vm.language= vm.result.language;*/
     })
-   };    
+   }; 
+
+   function languagesFact()
+    {
+      languageFact.languageReq().then(function(data) 
+      {
+        vm.language= data.data;
+      })
+    }
+
+    function locationFact()
+    {
+      locationFact.locationReq().then(function(data) 
+      {
+        vm.location= data.data;
+      })
+    }
+
    function setProfession(){
      professionservice.getProfession().then(function(profession){
        vm.profession=profession.data;

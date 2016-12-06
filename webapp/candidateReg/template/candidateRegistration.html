@@ -90,7 +90,7 @@
 
     <p ng-repeat="(key,lan) in vm.selectedLanguage"><!-- language display #issue:repeated value in the language-->
       <span layout="row" flex>
-      <span flex="30">{{lan}}</span>
+      <span flex="30">{{lan["language"]}}</span>
       <md-checkbox ng-model="vm.candidate.language.speak[lan]">Speak</md-checkbox>
       <md-checkbox ng-model="vm.candidate.language.read[lan]">Read</md-checkbox>
       <md-checkbox ng-model="vm.candidate.language.write[lan]">Write</md-checkbox>
@@ -104,13 +104,13 @@
       md-search-text="vm.languageInputText"
       md-selected-item-change=""
       md-items="item in vm.language | filter: languageInputText"
-      md-item-text="item"
+      md-item-text="item['language']"
       md-min-length="0"
       placeholder="Languages"
       md-menu-class="autocomplete-custom-template"
       flex=95>
         <md-item-template>
-          <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item}}</span>
+          <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item["language"]}}</span>
         </md-item-template>
       </md-autocomplete >
       <md-button class="md-icon-button md-primary" ng-click="vm.insertLang();vm.lang=''">
