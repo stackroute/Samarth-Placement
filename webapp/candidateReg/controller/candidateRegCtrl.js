@@ -17,10 +17,12 @@ angular
     vm.setProfession=setProfession;
     vm.insertLang = insertLang;
     vm.formSubmit = formSubmit;
+    vm.locationsFact = locationsFact;
 
     initialData();
     setProfession();
     languagesFact();
+    locationsFact();
     //server request
     function initialData(){
      candidateRegFactory.initialData().then(function(response) {
@@ -39,7 +41,7 @@ angular
       })
     }
 
-    function locationFact()
+    function locationsFact()
     {
       locationFact.locationReq().then(function(data) 
       {
@@ -57,14 +59,14 @@ angular
     function insertLang()
     {
 
-      if(vm.lang!==null&&vm.lang!==""){
-        if(vm.selectedLanguage[vm.lang]==undefined)
+      if(vm.lang['language']!==null&&vm.lang['language']!==""){
+        if(vm.selectedLanguage[vm.lang['language']]==undefined)
         {
-          vm.selectedLanguage[vm.lang]=vm.lang;//need to remove repeated value
+          vm.selectedLanguage[vm.lang['language']]=vm.lang['language'];
         }
         else
         {
-          var index = vm.language.indexOf(vm.selectedLanguage[vm.lang]);
+          var index = vm.language.indexOf(vm.selectedLanguage[vm.lang['language']]);
           
         }
         
