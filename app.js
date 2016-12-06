@@ -4,12 +4,12 @@ var app=express();
 var path=require('path');
 var profobject=require('./webapp/coordinatorReg/json/prof.js');
 var navItems = require('./webserver/navbar/navigateRouter.js');
-var bodyParser = require('body-parser');
+// var bodyParser = require('body-parser');
 // var Bear     = require('./bear.js');
 // configure app to use bodyParser()
 // this will let us get the data from a POST
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
 
