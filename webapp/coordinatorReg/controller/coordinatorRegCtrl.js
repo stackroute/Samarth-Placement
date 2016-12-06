@@ -3,13 +3,14 @@
 		angular
 			.module('samarth.cordsignup')
 			.controller('coorRegCtrl',coorRegCtrl);
-			coorRegCtrl.$inject=['professionFac','languageFact'];
+			coorRegCtrl.$inject=['professionFac','languageFact','roleFact'];
 			
-			function coorRegCtrl(professionFac,languageFact) 
+			function coorRegCtrl(professionFac,languageFact,roleFact) 
 			{
 				var vm=this;
 				var professionReq=professionReq();
 				var languagesFact=languagesFact();
+				var rolesFact=rolesFact();
 				vm.insertLang = insertLang;
 				vm.selectedLanguage={};
 				vm.clickSubmit=clickSubmit;
@@ -18,7 +19,16 @@
 				{
 					professionFac.profReq().then(function(data) 
 					{
+						console.log(data.professions);
 						vm.items= data.data;
+					})
+				}
+
+				function rolesFact()
+				{
+					roleFact.roleReq().then(function(data) 
+					{
+						vm.role= data.data;
 					})
 				}
 
@@ -26,7 +36,6 @@
 				{
 					languageFact.languageReq().then(function(data) 
 					{
-						console.log(data.data);
 						vm.languages= data.data;
 					})
 				}
@@ -42,16 +51,15 @@
 		    //insert a language to the selected language
 		    function insertLang()
 			    {
-			     	if(vm.coordinator.language!==null&&vm.coordinator.language!=="")
+			     	if(vm.coordinator.language["language"]!==null&&vm.coordinator.language["language"]!=="")
 			     	{
-			     		if(vm.selectedLanguage[vm.coordinator.language]==undefined)
+			     		if(vm.selectedLanguage[vm.coordinator.language["language"]]==undefined)
 			     		{
-		       				vm.selectedLanguage[vm.coordinator.language]=vm.coordinator.language;//need to remove repeated value
+		       				vm.selectedLanguage[vm.coordinator.language["language"]]=vm.coordinator.language["language"];//need to remove repeated value
 				       	}
 				       	else
 				       	{
-			     			console.log("sadfrcxs");
-				       		var index = vm.coordinator.language.indexOf(vm.selectedLanguage[vm.coordinator.language]);
+				       		var index = vm.coordinator.language["language"].indexOf(vm.selectedLanguage[vm.coordinator.language["language"]]);
 				       	}
 		       		}
 		   		}

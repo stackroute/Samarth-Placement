@@ -12,7 +12,7 @@
 		    return factory;
 	    	function profReq() {
 	    		var req = {};
-	    		req.url = '/candidate/profession';
+	    		req.url = '/coordinatorreg/profession';
 	    		req.method = 'GET';
 	    		return $http(req);
 	    	};

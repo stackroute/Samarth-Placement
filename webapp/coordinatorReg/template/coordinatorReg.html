@@ -41,7 +41,7 @@
                 <input ng-model="searchTerm" type="search" placeholder="Search for a Profession.." class="demo-header-searchbox md-text">
               </md-optgroup>
             </md-select-header>
-            <md-option ng-value="item" ng-repeat="item in vm.items | filter:searchTerm">{{item["professions"]}}</md-option>
+            <md-option ng-value="item" ng-repeat="item in vm.items.professions | filter:searchTerm">{{item["professions"]}}</md-option>
           </md-select>
         </md-input-container>
 
@@ -53,7 +53,7 @@
                 <input ng-model="searchTerm" type="search" placeholder="Search for a Role.." class="demo-header-searchbox md-text">
               </md-optgroup>
             </md-select-header>
-            <md-option ng-value="item" ng-repeat="item in vm.items | filter:searchTerm">{{item["professions"]}}</md-option>
+            <md-option ng-value="item" ng-repeat="item in vm.role | filter:searchTerm">{{item["role"]}}</md-option>
           </md-select>
         </md-input-container>
 
@@ -73,21 +73,21 @@
            md-search-text="languageInputText"
            md-selected-item-change=""
            md-items="item in vm.languages | filter: languageInputText"
-           md-item-text="item"
+           md-item-text="item.language"
            md-min-length="0"
            placeholder="Languages"
            md-menu-class="autocomplete-custom-template"
            ng-required="true"
            flex=95>
            <md-item-template>
-             <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item}}</span>
+             <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item["language"]}}</span>
            </md-item-template>
           </md-autocomplete >
          <md-button class="md-icon-button md-primary" ng-click="vm.insertLang();vm.coordinator.language=''">
            <md-icon>add</md-icon>
          </md-button>
         </div>
-
+        {{vm.coordinator || JSON}}
         <section layout="row" layout-padding="" layout-align="center">
           <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>
         </section>        

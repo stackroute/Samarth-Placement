@@ -2,18 +2,18 @@
 	'use strict';
 		angular
 			.module('samarth.cordsignup')
-			.factory('languageFact',languageFact);
+			.factory('roleFact',roleFact);
 
-			function languageFact($http) 
+			function roleFact($http) 
 			{
 				var factory = {
-					languageReq :languageReq
+					roleReq :roleReq
 				};
 				return factory;
 
-				function languageReq() {
+				function roleReq() {
 					var req = {};
-					req.url = '/coordinatorreg/language';
+					req.url = '/coordinatorreg/role';
 					req.method = 'GET';
 					return $http(req);
 				};
