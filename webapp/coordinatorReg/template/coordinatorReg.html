@@ -22,7 +22,7 @@
 
         <md-input-container class="md-block">
           <md-icon>phone</md-icon>
-          <input ng-model="vm.coordinator.mobile" name="number" type="text" pattern="[0-9]{10,10}" md-maxlength="10" md-minlength="10" placeholder="Mobile Number" ng-required="true">
+          <input ng-model="vm.coordinator.mobile" name="number" type="text" pattern="[0-9]{10,10}" md-maxlength="10" placeholder="Mobile Number" ng-required="true">
           <div ng-messages="myForm.number.$error" ng-show="myForm.number.$dirty || myForm.Name.$touched">
             <div ng-message="pattern">10 digit number is allowed only </div>
           </div>
@@ -55,7 +55,7 @@
           </md-select>
         </md-input-container>
 
-       <!--  <md-input-container layout="column">
+        <md-input-container layout="column">
           <label>Role</label>
           <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
             <md-select-header class="demo-select-header">
@@ -65,39 +65,37 @@
             </md-select-header>
             <md-option ng-value="item" ng-repeat="item in vm.role | filter:searchTerm">{{item}}</md-option>
           </md-select>
-        </md-input-container> -->
+        </md-input-container>
 
-       <!--  <p ng-repeat="(key,lan) in vm.selectedLanguage">
-         <span layout="row" flex>
-           <span flex="30">{{lan}}</span>
-           <md-checkbox ng-model="vm.coordinator.language.speak[lan]">Speak</md-checkbox>
-           <md-checkbox ng-model="vm.coordinator.language.read[lan]">Read</md-checkbox>
-           <md-checkbox ng-model="vm.coordinator.language.write[lan]">Write</md-checkbox>
-         </span>
+        <!-- <p ng-repeat="(key,lan) in vm.selectedLanguage">
+          <span layout="row" flex>
+            <span flex="30">{{lan}}</span>
+            <md-checkbox ng-model="vm.coordinator.language[lan].speak">Speak</md-checkbox>
+            <md-checkbox ng-model="vm.coordinator.language[lan].read">Read</md-checkbox>
+            <md-checkbox ng-model="vm.coordinator.language[lan].write">Write</md-checkbox>
+          </span>
         </p>    
-
         <div layout>
           <md-autocomplete
-           md-selected-item="vm.coordinator"
-           md-search-text-change=""
-           md-search-text="languageInputText"
-           md-selected-item-change=""
-           md-items="item in vm.languages | filter: languageInputText"
-           md-item-text="item.language"
-           md-min-length="0"
-           placeholder="Languages"
-           md-menu-class="autocomplete-custom-template"
-           ng-required="true"
-           flex=95>
+          md-selected-item="vm.lang"
+          md-search-text-change=""
+          md-search-text="vm.languageInputText"
+          md-selected-item-change=""
+          md-items="item in vm.language | filter: languageInputText"
+          md-item-text="item['language']"
+          md-min-length="0"
+          placeholder="Languages"
+          md-menu-class="autocomplete-custom-template"
+          flex=95>
            <md-item-template>
              <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item}}</span>
            </md-item-template>
           </md-autocomplete >
-         <md-button class="md-icon-button md-primary" ng-click="vm.insertLang()">
+          <md-button class="md-icon-button md-primary" ng-click="vm.insertLang();vm.lang=''">
            <md-icon>add</md-icon>
-         </md-button>
-        </div> -->
-        <!-- {{vm.coordinator || JSON}} -->
+          </md-button>
+        </div>
+        {{vm.coordinator || JSON}} -->
         <section layout="row" layout-padding="" layout-align="center">
           <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>
         </section>        

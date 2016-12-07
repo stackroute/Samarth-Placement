@@ -32,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'bower_components')))
 app.use('/', navItems);
 
 app.use('/', function(req, res) {
+	console.log('xawsac');
 	let options = {
     target: {
       host: 'localhost',
