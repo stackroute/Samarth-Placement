@@ -2,25 +2,23 @@
 	'use strict';
 		angular
 			.module('samarth.cordsignup')
-			.controller('coorRegCtrl',coorRegCtrl);
-			coorRegCtrl.$inject=['professionFac','languageFact','roleFact'];
+			.controller('coorRegCtrl', coorRegCtrl);
+			coorRegCtrl.$inject=['professionFac', 'languageFact', 'roleFact', 'submitFormFact'];
 			
-			function coorRegCtrl(professionFac,languageFact,roleFact) 
+			function coorRegCtrl(professionFac, languageFact, roleFact, submitFormFact)
 			{
 				var vm=this;
-				var professionReq=professionReq();
-				var languagesFact=languagesFact();
-				var rolesFact=rolesFact();
-				vm.insertLang = insertLang;
-				vm.selectedLanguage={};
-				vm.clickSubmit=clickSubmit;
 
 				function professionReq()
 				{
 					professionFac.profReq().then(function(data) 
 					{
-						console.log(data.professions);
-						vm.items= data.data;
+						var temp=[];
+						for( var i=0;i<data.data.length;i++)
+						{	
+							temp[i]= data.data[i].professions;
+						}
+						vm.items=temp;
 					})
 				}
 
@@ -28,7 +26,17 @@
 				{
 					roleFact.roleReq().then(function(data) 
 					{
-						vm.role= data.data;
+						var temp=[];
+						for(var i=0;i<data.data.length-1;i++)
+						{
+						// 	for(var j=i+1;j<data.data.length;j++)
+						// 	{
+						// 		if(data.data[i]==data.data[j])
+									
+						// 	}
+							temp[i]= data.data[i].role;
+						}
+						vm.role=temp;
 					})
 				}
 
@@ -36,7 +44,12 @@
 				{
 					languageFact.languageReq().then(function(data) 
 					{
-						vm.languages= data.data;
+						var temp=[];
+						for( var i=0;i<data.data.length;i++)
+						{	
+							temp[i]= data.data[i].language;
+						}
+						vm.languages=temp;
 					})
 				}
 
@@ -44,25 +57,31 @@
 				{
 					submitFormFact.submitForm(coordinator).then(function(data) 
 					{
-						console.log("sdcx");
+						console.log(data);
 					})
 				}
 			
 		    //insert a language to the selected language
 		    function insertLang()
-			    {
-			     	if(vm.coordinator.language["language"]!==null&&vm.coordinator.language["language"]!=="")
-			     	{
-			     		if(vm.selectedLanguage[vm.coordinator.language["language"]]==undefined)
-			     		{
-		       				vm.selectedLanguage[vm.coordinator.language["language"]]=vm.coordinator.language["language"];//need to remove repeated value
-				       	}
-				       	else
-				       	{
-				       		var index = vm.coordinator.language["language"].indexOf(vm.selectedLanguage[vm.coordinator.language["language"]]);
-				       	}
-		       		}
-		   		}
+		    {
+		     	if(vm.coordinator.language!==null&&vm.coordinator.language!=="")
+		     	{
+		     		if(vm.selectedLanguage[vm.coordinator.language]==="undefined")
+		     		{
+	       				vm.selectedLanguage[vm.coordinator.language]=vm.coordinator.language;
+			       	}
+			       	else
+			       	{
+			       		vm.coordinator.language.indexOf(vm.selectedLanguage[vm.coordinator.language]);
+			       	}
+	       		}
+	   		}
+				var professionReq=professionReq();
+				var languagesFact=languagesFact();
+				var rolesFact=rolesFact();
+				vm.insertLang = insertLang;
+				vm.selectedLanguage={};
+				vm.clickSubmit=clickSubmit;
 	   }
 })();
 

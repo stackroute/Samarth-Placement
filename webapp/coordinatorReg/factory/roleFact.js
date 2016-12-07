@@ -2,20 +2,20 @@
 	'use strict';
 		angular
 			.module('samarth.cordsignup')
-			.factory('roleFact',roleFact);
+			.factory('roleFact', roleFact);
 
 			function roleFact($http) 
 			{
-				var factory = {
+				let factory = {
 					roleReq :roleReq
 				};
 				return factory;
 
 				function roleReq() {
-					var req = {};
+					let req = {};
 					req.url = '/coordinatorreg/role';
 					req.method = 'GET';
 					return $http(req);
-				};
+				}
 			}
-})();
+}());

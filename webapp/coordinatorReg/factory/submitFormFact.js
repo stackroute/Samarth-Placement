@@ -1,22 +1,22 @@
-
 (function() {
 	'use strict';
 	angular
 		.module('samarth.cordsignup')
-		.factory('submitFormFact',submitFormFact);
+		.factory('submitFormFact', submitFormFact);
 
 		function submitFormFact($http) 
 		{
-			var factory = {
+			let factory = {
 				submitForm :submitForm
 			};
 			return factory;
 
-			function submitForm(data) {
-				var req = {};
-				req.url = '/createaccount/submit';
-				req.method = 'GET';
-				return $http(req,data);
-			};
+			function submitForm(datas) {
+				let req = {};
+				req.url = '/coordinatorregister/createcoordinator';
+				req.method = 'POST';
+				req.data=datas;
+				return $http(req);
+			}
 		}
-})();
+}());
