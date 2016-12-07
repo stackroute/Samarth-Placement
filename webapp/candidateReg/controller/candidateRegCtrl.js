@@ -2,7 +2,7 @@ angular
   .module('samarth.candidateReg')
   .controller('candidateRegCtrl',candidateRegCtrl);
 
-  function candidateRegCtrl($http,candidateRegFactory,$mdDialog,professionservice) 
+  function candidateRegCtrl($http,candidateRegFactory,languageFact,$mdDialog,professionservice,locationFact) 
   {
     var vm = this;
     vm.result = [];
@@ -17,18 +17,38 @@ angular
     vm.setProfession=setProfession;
     vm.insertLang = insertLang;
     vm.formSubmit = formSubmit;
+    vm.locationsFact = locationsFact;
 
     initialData();
     setProfession();
+    languagesFact();
+    locationsFact();
     //server request
     function initialData(){
      candidateRegFactory.initialData().then(function(response) {
        vm.result=response.data;
        //vm.profession=response.data; //vm.result.profession;
-       vm.location= vm.result.location;
-       vm.language= vm.result.language;
+       /*vm.location= vm.result.location;*/
+      /* vm.language= vm.result.language;*/
     })
-   };    
+   }; 
+
+   function languagesFact()
+    {
+      languageFact.languageReq().then(function(data) 
+      {
+        vm.language= data.data;
+      })
+    }
+
+    function locationsFact()
+    {
+      locationFact.locationReq().then(function(data) 
+      {
+        vm.location= data.data;
+      })
+    }
+
    function setProfession(){
      professionservice.getProfession().then(function(profession){
        vm.profession=profession.data;
@@ -39,14 +59,14 @@ angular
     function insertLang()
     {
 
-      if(vm.lang!==null&&vm.lang!==""){
-        if(vm.selectedLanguage[vm.lang]==undefined)
+      if(vm.lang['language']!==null&&vm.lang['language']!==""){
+        if(vm.selectedLanguage[vm.lang['language']]==undefined)
         {
-          vm.selectedLanguage[vm.lang]=vm.lang;//need to remove repeated value
+          vm.selectedLanguage[vm.lang['language']]=vm.lang['language'];
         }
         else
         {
-          var index = vm.language.indexOf(vm.selectedLanguage[vm.lang]);
+          var index = vm.language.indexOf(vm.selectedLanguage[vm.lang['language']]);
           
         }
         

@@ -1,8 +1,8 @@
  <!--form for the candidate starts-->
  <div layout="column">
-   <form name="candidateForm" layout="column" layout-align="center center" layout-align="center" ng-submit="vm.formSubmit()" novalidate>
+   <form name="candidateForm" layout="column" layout-align="center center" ng-submit="vm.formSubmit()" novalidate>
    <h1 align="center">Candidate Registration</h1>
-    <md-card class="md-no-momentum" md-whiteframe="6" layout-margin="">
+    <md-card class="md-no-momentum" md-whiteframe="6" layout-margin>
       <md-card-content>
         <!--name field-->
         <md-input-container class="md-block">
@@ -38,8 +38,8 @@
           </div>
         </md-input-container>
 
-        <div layout="row">
-        <md-input-container flex="55">
+        <div layout="column" layout-gt-md="row" layout-sm="column">
+        <md-input-container>
           <label>Date of Birth</label>
           <md-datepicker name="dateOfBirth" ng-model="vm.candidate.dob" ng-required="flase"></md-datepicker>
         </md-input-container>
@@ -60,7 +60,7 @@
        md-search-text="professionInputText"
        md-selected-item-change=""
        md-items="item in vm.profession | filter: professionInputText"
-       md-item-text="item"
+       md-item-text="item['professions']"
        md-min-length="0"
        placeholder="Profession"
        md-menu-class="autocomplete-custom-template"
@@ -79,12 +79,12 @@
       md-search-text="locationInputText"
       md-selected-item-change=""
       md-items="item in vm.location | filter: locationInputText"
-      md-item-text="item"
+      md-item-text="item['location']"
       md-min-length="0"
       placeholder="Location"
       md-menu-class="autocomplete-custom-template">
       <md-item-template>
-        <span md-highlight-text="locationInputText" md-highlight-flags="^i">{{item}}</span>
+        <span md-highlight-text="locationInputText" md-highlight-flags="^i">{{item["location"]}}</span>
       </md-item-template>
     </md-autocomplete><br>
 
@@ -104,19 +104,20 @@
       md-search-text="vm.languageInputText"
       md-selected-item-change=""
       md-items="item in vm.language | filter: languageInputText"
-      md-item-text="item"
+      md-item-text="item['language']"
       md-min-length="0"
       placeholder="Languages"
       md-menu-class="autocomplete-custom-template"
       flex=95>
         <md-item-template>
-          <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item}}</span>
+          <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item['language']}}</span>
         </md-item-template>
       </md-autocomplete >
       <md-button class="md-icon-button md-primary" ng-click="vm.insertLang();vm.lang=''">
         <md-icon>add</md-icon>
       </md-button>
     </div>
+    {{vm.candidate}}
 
   <section layout layout-padding="" layout-align="center center">
     <md-button type="submit" class="md-raised md-primary" ng-disabled=""> &nbsp;Register&nbsp;</md-button>
