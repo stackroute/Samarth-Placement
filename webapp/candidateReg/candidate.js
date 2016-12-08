@@ -1,8 +1,4 @@
-angular
-  .module('samarth.candidateReg', [])
-  .config(candidateRegConfig);
-
-  function candidateRegConfig($stateProvider, $urlRouterProvider){
+function candidateRegConfig($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider
     .state('index.candidateReg', {
@@ -16,3 +12,9 @@ angular
       }
     })
   }
+
+angular
+  .module('samarth.candidateReg', [])
+  .config(["$stateProvider", "$urlRouterProvider",candidateRegConfig]);
+
+  

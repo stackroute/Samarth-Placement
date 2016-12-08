@@ -10,10 +10,13 @@ angular
 		var service = {
 			initialData :initialData
 		};
-		return service;        function initialData() {
+		return service;        
+
+		function initialData(candidateData) {
 			var req = {};
-			req.url = 'candidateReg/factory/profession.json';
-			req.method = 'GET';
+			req.url = '/candidate';
+			req.method = 'POST';	
+			req.data=candidateData;
 			return $http(req);
 		};
 	}
