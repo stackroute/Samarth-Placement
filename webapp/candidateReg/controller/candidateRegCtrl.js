@@ -1,7 +1,7 @@
 function candidateRegCtrl(
   candidateRegFactory,
   languageFact,
-  //$mdDialog,
+  $mdDialog,
   professionservice,
   locationFact) 
   {
@@ -89,13 +89,14 @@ function candidateRegCtrl(
     candidateRegFactory.initialData(vm.candidate).then(function(response) 
     {
      vm.result=response.data;
-   })
-
-    //error occurs 
-    /*{
+     console.log(response.data+response.err)
+   },
+    function(err) 
+   {
+      console.log(err);
       var confirm = $mdDialog.confirm()
             .title('Sorry!')
-            .textContent('The form is not submited to the server.')
+            .textContent(err.data)
             .ariaLabel('server error')
             .ok('Report the incident!')
             .cancel('Ignore');
@@ -110,7 +111,7 @@ function candidateRegCtrl(
             vm.status = 'You decided to keep your debt.';
           }
         );
-      }*/
+      })
     }
 
     vm.languagesFact=languagesFact;
