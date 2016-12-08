@@ -23,6 +23,10 @@
     "angular-messages": "^1.5.8",
     "angular-route": "^1.5.8",
     "angular-ui-router": "^0.3.2",
-    "samarth-webcomponents": "https://github.com/stackroute/Samarth-WebComponents.git#dev-wave-11"
+    "samarth-webcomponents": "https://github.com/stackroute/Samarth-WebComponents.git#dev-wave-11",
+    "satellizer":"^0.15.5",
+    "angular-flash-alert":"^2.4.0",
+    "angular-local-storage":"^0.5.2"
+
   }
 }

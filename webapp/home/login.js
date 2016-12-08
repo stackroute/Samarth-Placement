@@ -1,13 +1,12 @@
-angular.module('samarth.home',[])
-    .config(config);
-
     function config($stateProvider, $urlRouterProvider){
      $urlRouterProvider.otherwise('/');
      $stateProvider
-     .state('index.home',{
+     .state('index.home', 
+     {
         url: 'samarthcoordinator',
         views: {
-            'content@': {
+            'content@': 
+            {
                 templateUrl: 'dashboard/template/dashboard.html',
                 controller:'dashboardCtrl',
                 controllerAs : 'vm'
@@ -18,3 +17,5 @@ angular.module('samarth.home',[])
     
     });
  } 
+ angular.module('samarth.home',[])
+    .config(config);
