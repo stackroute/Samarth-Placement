@@ -26,7 +26,7 @@
 },
 {
 	"icon":"person_pin",
-	"navTitle":"Employer Registration",
+	"navTitle":"JobProvider Registration",
 	"traverse":"index.empreg"
 }
 ]

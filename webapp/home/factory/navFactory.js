@@ -11,7 +11,7 @@
 			req.url = '/sidenavbar';
 			req.method = 'GET';
 			return $http(req);
-		};
+		}
 	}
 })();
 

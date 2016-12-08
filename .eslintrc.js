@@ -6,7 +6,7 @@ module.exports = {
     "es6": true
   },
 
-  "plugins": ["react", "angular"],
+  "plugins": ["angular"],
 
   "globals": {
     "describe": false,
