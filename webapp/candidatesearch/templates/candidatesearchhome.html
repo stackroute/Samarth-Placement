@@ -1,0 +1,11 @@
+<div layout="column" md-padding layout-align="center center">
+	<div layout-align = "center ">
+		<input name='search' type='text' size='40' ng-model="searchtext">
+		<md-button class="md-primary md-raised" ui-sref="index.candidatessearch.results" ng-click="search(searchtext)" aria-label="search">search</md-button>	
+	</div>
+	<div ng-if="results.length==null">Search candidates</div>
+	<div ng-if=results.length> Showing {{results.length}} Results</div>
+	<div ng-if= results.length==0>No results found..</div>
+</div>
+<div ui-view="results"></div>
+

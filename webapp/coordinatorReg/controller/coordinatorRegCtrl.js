@@ -10,14 +10,14 @@
 				roleFact, 
 				submitFormFact)
 			{
-				var vm=this;
+				let vm=this;
 
 				function professionReq()
 				{
 					professionFac.profReq().then(function(data) 
 					{
-						var temp=[];
-						for( var i=0;i<data.data.length;i++)
+						let temp=[];
+						for( let i=0;i<data.data.length;i+=1)
 						{	
 							temp[i]= data.data[i].professions;
 						}
@@ -30,22 +30,22 @@
 					roleFact.roleReq().then(function(data) 
 					{
 						// console.log(data.data)
-						var temp=[];
-						var k=0;
-						var count=0;
-						for(var i=0;i<data.data.length-1;i++)
+						let temp=[];
+						let k=0;
+						let count=0;
+						for(let i=0;i<data.data.length-1;i+=1)
 						{
-							for(var j=i+1;j<data.data.length;j++)
+							for(let j=i+1;j<data.data.length;j+=1)
 							{
-								if(data.data[i].role==data.data[j].role)
+								if(data.data[i].role===data.data[j].role)
 								{
 									count=1;
 								}
 							}
-							if(count==0)
+							if(count===0)
 							{
 								temp[k]= data.data[i].role;
-								k++;
+								k+=1;
 							}
 							count=0;
 						}
@@ -57,23 +57,26 @@
 				{
 					languageFact.languageReq().then(function(data) 
 					{
-						var temp=[];
-						var k=0;
-						var count=0;
-						for(var i=0;i<data.data.length-1;i++)
+						let temp=[];
+						let k=0;
+						let count=0;
+						for(let i=0;i<data.data.length-1;i+=1)
 						{
-							for(var j=i+1;j<data.data.length;j++)
+							for(let j=i+1;j<data.data.length;j+=1)
 							{
-								if(data.data[i].language.trim().toLowerCase()==data.data[j].language.trim().toLowerCase())
+								if(data.data[i].language.trim().toLowerCase()===
+																	data.data[j].language.trim().toLowerCase())
 								{
 									count=1;
 								}
 							}
-							if(count==0 && data.data[i].language.trim()!=='')
+							if(count===0 && data.data[i].language.trim()!=='')
 							{
 								temp[k]= data.data[i].language.trim().substring(0,1).toUpperCase()
-																			+data.data[i].language.trim().substring(1,data.data[i].language.length).toLowerCase();
-								k++;
+																			+data.data[i].language.trim().
+																			substring(1,data.data[i].language.length)
+																			.toLowerCase();
+								k+=1;
 							}
 							count=0;
 						}
@@ -94,13 +97,13 @@
 		    {      
 		    	if(vm.lang!==null&&vm.lang!=="")
 		    	{
-			    	if(vm.selectedLanguage[vm.lang]==undefined)
+			    	if(vm.selectedLanguage[vm.lang]===undefined)
 			    	{
 			    		vm.selectedLanguage[vm.lang]=vm.lang;
 			    	}
 			    	else
 			    	{
-			    		var index = vm.language.indexOf(vm.selectedLanguage[vm.lang]);
+			    		let index = vm.language.indexOf(vm.selectedLanguage[vm.lang]);
 			    	}
 			    }
 		  	}
@@ -115,3 +118,7 @@
 })();
 
 // candidate search 
+
+// tommorrow 3. by ammol
+// tomorrow 12 pm by ankit
+// tomorrow 

@@ -8,7 +8,9 @@ angular.module('samarth',
  'samarth.dashboard',
  'samarth-webcomponents',
  'samarth.cordsignup',
- 'samarth.candidateReg'
+ 'samarth.candidateReg',
+ 'simplePagination',
+ 'samarth.candidatesearch'
   ])
   	.config(function($mdThemingProvider) {
 	    $mdThemingProvider.theme('default')
