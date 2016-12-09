@@ -89,7 +89,9 @@ function candidateRegCtrl(
     candidateRegFactory.initialData(vm.candidate).then(function(response) 
     {
      vm.result=response.data;
-     console.log(response.data+response.err)
+     vm.status="Successfully registered the candidate"
+     vm.candidate={};
+     console.log(response.data);
    },
     function(err) 
    {
