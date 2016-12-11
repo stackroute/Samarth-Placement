@@ -12,12 +12,11 @@ var sampelCandidate={"dob": "2016-11-30T18:30:00.000Z",
   "profession":"Retail"
 }
 
-
 describe('API calls', function() {
 
   describe('Profession responce', function() {
     container = request(container_url);
-    it('should responce while calling', function(done) {
+    it('should response while calling', function(done) {
       container
         .get('/profession')
         .expect(200, done)
@@ -37,7 +36,7 @@ describe('Data updatation in Database', function() {
   describe('Candidate', function() {
     container = request(container_url);
 
-    it('should throw error for trying to register already registered id', function(done) {
+    it('should throw error for same register id which is already registered', function(done) {
       container
         .post('/')
         .type('form')
