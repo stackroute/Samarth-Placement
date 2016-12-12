@@ -1,0 +1,51 @@
+.my-personalinfocard {
+    font-size: 16px;
+}
+
+.md-title {
+    padding: 0px;
+}
+
+#savebutton {
+    color: #0098b4;
+}
+
+.pointCursor {
+    cursor: pointer;
+}
+
+.email {
+    padding-left: 15px;
+}
+
+.vertical-divider {
+    border-right-width: 5px;
+    height: 100%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#horizontal-divider {
+    border-top-width: 1px;
+    border-right-width: 1px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.icons {
+    padding-right: 5px;
+    font-size: 18px;
+    /*padding-left: 5px;*/
+}
+
+.comp-padding {
+    padding-bottom: 10px;
+}
+
+.align_data {
+    text-align: center;
+}
+
+.top-padding {
+    padding-top: 10px;
+}

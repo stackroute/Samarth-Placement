@@ -16,6 +16,8 @@ angular.module('samarth',
  'ngStorage'
  
   ])
+
+	
   	.config(function($mdThemingProvider) {
 	    $mdThemingProvider.theme('default')
 	      .primaryPalette('blue')

@@ -1,0 +1,43 @@
+<md-dialog aria-label="Mango (Fruit)">
+  <form ng-cloak class="nlui-conv-form">
+
+    <md-toolbar style='background-color: #f3efef; color: #747475;'>
+      <div class="md-toolbar-tools">
+        <h2>{{header}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button md-accent" ng-click="cancel()">
+          <md-icon>close</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+  
+    <md-dialog-content>
+      <div class="md-dialog-content">
+
+        <p class="">
+          I have done 
+          <textarea rows="1" cols="8" ng-model="Titleofeducation" class='nlui-inline-input'></textarea> 
+          in 
+          <textarea rows="1" cols="4" type="text" ng-model="Completionyear" class='nlui-inline-input'></textarea>
+          with marks 
+          <textarea rows="1" cols="4" type="text" ng-model="Percentage" class='nlui-inline-input'></textarea>
+          from 
+          <textarea rows="1" cols="15" type="text" ng-model="Name" class='nlui-inline-input'></textarea>
+          located at 
+          <textarea rows="1" cols="10" type="text" ng-model="Location" class='nlui-inline-input'></textarea>
+          of 
+          <textarea rows="1" cols="20" type="text" ng-model="Affiliation" class='nlui-inline-input'></textarea>
+        </p>
+       
+      </div>
+    </md-dialog-content>
+  
+    <md-dialog-actions layout="row" layout-align="center center">
+      <md-button class="md-raised md-primary" ng-click="hide()">SAVE
+         
+      </md-button>
+    </md-dialog-actions>
+  
+  </form>
+</md-dialog>
