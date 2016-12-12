@@ -1,4 +1,4 @@
-let proxy = require('http-proxy');
+var proxy = require('http-proxy');
 var express=require('express');
 var app=express();
 var path=require('path');
@@ -13,7 +13,7 @@ var navItems = require('./webserver/navbar/navigateRouter.js');
 
 var port = process.env.PORT || 8080;
 
-let platformProxy = proxy.createProxyServer();
+var platformProxy = proxy.createProxyServer();
 
 app.onAppStart = function(addr) {
 	console.log("Samarth-Placement web app is now Running on port:", addr.port);
@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'bower_components')))
 app.use('/', navItems);
 
 app.use('/', function(req, res) {
-	let options = {
+	var options = {
     target: {
       host: 'localhost',
       port: 8081
@@ -89,3 +89,12 @@ platformProxy.on('error', function(err, req, res) {
 // app.listen(port);
 
 module.exports = app;
+
+// var bodyParser = require('body-parser');
+// var Bear     = require('./bear.js');
+// configure app to use bodyParser()
+// this will let us get the data from a POST
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+
+

@@ -1,0 +1,141 @@
+#coverpagecontainer {
+    margin-top: 10px;
+}
+
+#coverpagecontent {
+    margin-top: 0px;
+}
+
+#content {
+    margin-top: 30px;
+    width: 100%;
+    margin: auto;
+    line-height: 1;
+}
+
+#totalcardarea md-card {
+    background-color: transparent;
+}
+
+#totalcardarea md-card-content {
+    padding: 0px;
+}
+
+#headline {
+    font-size: 25;
+}
+
+
+}
+#totalcardarea md-card-content div {
+    padding: 2px;
+}
+#totalcardarea md-card-content p {
+    margin: 0px;
+}
+#totalcardarea {
+    padding: 0px;
+}
+#blankarea {
+    height: 2px;
+}
+#avatar {
+    height: 60px;
+    width: 56px;
+}
+#professionimage {
+    padding-top: 10px;
+    height: 30px;
+    width: 30px;
+}
+#section4 {
+    padding-left: 10px;
+}
+#skillcardtoolbar {
+    margin: 0px;
+}
+.detail {
+    font-size: 25px;
+}
+.detail1 {
+    font-size: 18px;
+}
+#headerage {
+    font-size: 16px;
+}
+.age {
+    font-size: 14px;
+}
+#header1 {
+    margin-bottom: 5px;
+}
+.profilePicWrapper {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    /* msie */
+}
+
+
+.pic_circle_default {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    /* background: #E1E1BB; */
+    /*background:#E0C8F7;*/
+    
+    background: #A1BAB7;
+    /*background: #72E9FF;*/
+    
+    text-align: center;
+    font-size: 14px;
+}
+.pic_circle_small {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    /* background: #E1E1BB; */
+    /*background:#E0C8F7;*/
+    background: #A1BAB7;
+    /*background: #72E9FF;*/
+    text-align: center;
+   
+}
+
+
+.content_small{
+font-size: 12px;
+position: 'relative',
+    width: '350px',
+    padding:2px;
+}
+.content_default{
+font-size: 14px;
+position: 'relative',
+    width: '700px',
+}
+.material-icons.md-18 {
+    font-size: 20px;
+}
+.material-icons.md-10 {
+    font-size: 18px;
+}
+
+
+.material-icons.md-18 {
+    font-size: 18px;
+}
+.material-icons.md-24 {
+
+    font-size: 24px;
+}
+.space {
+    padding-left: 10px;
+}
+.details2 {
+    font-size: 22px;
+}
+
+.details3{
+    font-size: 16px;
+}
+

@@ -2,20 +2,21 @@
 	'use strict';
 		angular
 			.module('samarth.cordsignup')
-			.factory('languageFact',languageFact);
+			.factory('languageFact', languageFact);
 
 			function languageFact($http) 
 			{
-				var factory = {
+				let factory = {
 					languageReq :languageReq
 				};
 				return factory;
 
 				function languageReq() {
-					var req = {};
+					let req = {};
 					req.url = '/coordinatorreg/language';
 					req.method = 'GET';
 					return $http(req);
-				};
+				}
 			}
-})();
+}());
+
