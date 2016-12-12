@@ -6,11 +6,12 @@ function candidateRegCtrl(
   locationFact) 
   {
     let vm = this;
+    let lanIter = 0;
     vm.result = [];
     vm.profession = [];
     vm.location = [];
     vm.language = [];
-    vm.selectedLanguage={};
+    vm.selectedLanguage=[lanIter];
     vm.lang='';
     vm.status = '';
 
@@ -69,19 +70,8 @@ function candidateRegCtrl(
   //insert a language to the selected language
   function insertLang()
   {
-
-    if(vm.lang.language!==null&&vm.lang.language!==""){
-      if(vm.selectedLanguage[vm.lang.language]===undefined)
-      {
-        vm.selectedLanguage[vm.lang.language]=vm.lang.language;
-      }
-      /*else
-      {
-        let index = vm.language.indexOf(vm.selectedLanguage[vm.lang.language]);
-        
-      }*/
-      
-    }
+    lanIter++;
+    vm.selectedLanguage.push(lanIter);
   }
   //submiting the form
   function formSubmit()

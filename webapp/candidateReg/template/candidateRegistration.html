@@ -1,44 +1,43 @@
  <!--form for the candidate starts-->
- <div layout="column">
-   <form name="candidateForm" layout="column" layout-align="center center" ng-submit="vm.formSubmit()">
-   <h1 align="center">Candidate Registration</h1>
-    <md-card class="md-no-momentum" md-whiteframe="6" layout-margin>
-      <md-card-content>
-        <!--name field-->
-        <md-input-container class="md-block">
-          <label>Name</label>
-          <md-icon aria-label="person">person</md-icon>
-          <input name="myname" ng-model="vm.candidate.name" type="text" minlength="5" md-maxlength="30" ng-required="true"
-          pattern="[a-zA-Z][a-zA-Z\s]+" md-autofocus>
-          <div ng-messages="candidateForm.myname.$error" role="alert">
-            <div ng-message="required">You should need to fill the name</div>
-            <div ng-message="pattern">characters or spaces after the character only allowed</div>
-            <div ng-message="minlength">Your field is too short</div>
-            <div ng-message="md-maxlength">Your field is too long</div>
-          </div>
-        </md-input-container>
+ <div layout="column" layout-align="center center" >
+    <p calss=".md-subhead" align="center">Candidate Registration</p>
+   <div class="md-no-momentum" md-whiteframe="6" layout-margin >
+     <form name="candidateForm" ng-submit="vm.formSubmit()">
+      <!--name field-->
+      <md-input-container class="md-block">
+        <label>Name</label>
+        <md-icon aria-label="person">person</md-icon>
+        <input name="myname" ng-model="vm.candidate.name" type="text" minlength="5" md-maxlength="30" ng-required="true"
+        pattern="[a-zA-Z][a-zA-Z\s]+" md-autofocus>
+        <div ng-messages="candidateForm.myname.$error" role="alert">
+          <div ng-message="required">You should need to fill the name</div>
+          <div ng-message="pattern">characters or spaces after the character only allowed</div>
+          <div ng-message="minlength">Your field is too short</div>
+          <div ng-message="md-maxlength">Your field is too long</div>
+        </div>
+      </md-input-container>
 
-        <!-- Mobile NO field -->
-        <md-input-container class="md-block">
-          <md-icon aria-label="Phone">phone</md-icon>
-          <label>Mobile No</label>
-          <input name="mobile" ng-model="vm.candidate.mobile" type="text" pattern="[0-9]{10}" md-maxlength="10" ng-required="true">
-          <div ng-messages="candidateForm.mobile.$error" role="alert">
-            <div ng-message="required">You should need to fill the mobile no</div>
-            <div ng-message="pattern">The value should have only 10 digits number</div>
-          </div>
-        </md-input-container>
+      <!-- Mobile NO field -->
+      <md-input-container class="md-block">
+        <md-icon aria-label="Phone">phone</md-icon>
+        <label>Mobile No</label>
+        <input name="mobile" ng-model="vm.candidate.mobile" type="text" pattern="[0-9]{10}" md-maxlength="10" ng-required="true">
+        <div ng-messages="candidateForm.mobile.$error" role="alert">
+          <div ng-message="required">You should need to fill the mobile no</div>
+          <div ng-message="pattern">The value should have only 10 digits number</div>
+        </div>
+      </md-input-container>
 
-        <md-input-container class="md-block">
-          <label>Email Id</label>
-          <md-icon aria-label="email">email</md-icon>
-          <input name="emailId" ng-model="vm.candidate.email" type="email" ng-required="false">
-          <div ng-messages="candidateForm.emailId.$error" ng-show="candidateForm.emailId.$dirty || candidateForm.emailId.$touched" role="alert">
-            <div ng-message="type">You should need to fill the mobile no</div>
-          </div>
-        </md-input-container>
+      <md-input-container class="md-block">
+        <label>Email Id</label>
+        <md-icon aria-label="email">email</md-icon>
+        <input name="emailId" ng-model="vm.candidate.email" type="email" ng-required="false">
+        <div ng-messages="candidateForm.emailId.$error" ng-show="candidateForm.emailId.$dirty || candidateForm.emailId.$touched" role="alert">
+          <div ng-message="type">You should need to fill the mobile no</div>
+        </div>
+      </md-input-container>
 
-        <div layout="column" layout-gt-md="row" layout-sm="column">
+      <div layout="column" layout-gt-md="row" layout-sm="column">
         <md-input-container>
           <label>Date of Birth</label>
           <md-datepicker name="dateOfBirth" ng-model="vm.candidate.dob" ng-required="flase"></md-datepicker>
@@ -46,83 +45,93 @@
 
         <!-- Gender radio -->
         <md-input-container >
-        <md-radio-group name="gender" ng-model="vm.candidate.gender" layout="row" ng-required="true" flex-offset="40">
-          <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender</label>
-          <md-radio-button value="Male"  flex="85">Male</md-radio-button>
-          <md-radio-button value="Female" flex="85">Female</md-radio-button>
-        </md-radio-group>
+          <md-radio-group name="gender" ng-model="vm.candidate.gender" layout="row" ng-required="true" flex-offset="40">
+            <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender</label>
+            <md-radio-button value="Male"  flex="85">Male</md-radio-button>
+            <md-radio-button value="Female" flex="85">Female</md-radio-button>
+          </md-radio-group>
         </md-input-container>
-        </div>
+      </div>
 
-        <md-autocomplete
-       md-selected-item="vm.candidate.profession"
-       md-search-text-change=""
-       md-search-text="professionInputText"
-       md-selected-item-change=""
-       md-items="item in vm.profession | filter: professionInputText"
-       md-item-text="item"
-       md-min-length="0"
-       placeholder="Profession"
-       md-menu-class="autocomplete-custom-template"
-       ng-required="true">
-         <md-item-template>
-           <span md-highlight-text="professionInputText" md-highlight-flags="^i">{{item}}</span>
-         </md-item-template>
-         <div ng-messages="professionInputText.$error" role="alert">
-           <div ng-message="required">You should need to fill the mobile no</div>
-         </div>
-       </md-autocomplete><br>
-
+      <div layout="column">
       <md-autocomplete
-      md-selected-item="vm.candidate.location"
+      md-selected-item="vm.candidate.profession"
       md-search-text-change=""
-      md-search-text="locationInputText"
+      md-search-text="professionInputText"
       md-selected-item-change=""
-      md-items="item in vm.location | filter: locationInputText"
+      md-items="item in vm.profession | filter: professionInputText"
       md-item-text="item"
       md-min-length="0"
-      placeholder="Location"
-      md-menu-class="autocomplete-custom-template">
-      <md-item-template>
-        <span md-highlight-text="locationInputText" md-highlight-flags="^i">{{item}}</span>
-      </md-item-template>
-    </md-autocomplete><br>
-
-    <p ng-repeat="(key,lan) in vm.selectedLanguage"><!-- language display #issue:repeated value in the language-->
-      <span layout="row" flex>
-      <span flex="30">{{lan}}</span>
-      <md-checkbox ng-model="vm.candidate.language[lan].speak">Speak</md-checkbox>
-      <md-checkbox ng-model="vm.candidate.language[lan].read">Read</md-checkbox>
-      <md-checkbox ng-model="vm.candidate.language[lan].write">Write</md-checkbox>
-      </span>
-    </p>
-
-    <div layout>
-      <md-autocomplete
-      md-selected-item="vm.lang"
-      md-search-text-change=""
-      md-search-text="vm.languageInputText"
-      md-selected-item-change=""
-      md-items="item in vm.language | filter: languageInputText"
-      md-item-text="item['language']"
-      md-min-length="0"
-      placeholder="Languages"
+      md-floating-label="Profession"
       md-menu-class="autocomplete-custom-template"
-      flex=95>
-        <md-item-template>
-          <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item['language']}}</span>
-        </md-item-template>
-      </md-autocomplete >
-      <md-button class="md-icon-button md-primary" ng-click="vm.insertLang();vm.lang=''">
-        <md-icon>add</md-icon>
-      </md-button>
-    </div>
+      ng-required="true">
+      <md-item-template>
+       <span md-highlight-text="professionInputText" md-highlight-flags="^i">{{item}}</span>
+     </md-item-template>
+     <div ng-messages="professionInputText.$error" role="alert">
+       <div ng-message="required">You should need to fill the mobile no</div>
+     </div>
+   </md-autocomplete><br>
 
-  <section layout layout-padding="" layout-align="center center">
-    <md-button type="submit" class="md-raised md-primary" ng-disabled=""> &nbsp;Register&nbsp;</md-button>
-  </section>
-  <p >{{vm.status}}</p>
-  </md-card-content>
-  </md-card>
+   <md-autocomplete
+   md-selected-item="vm.candidate.location"
+   md-search-text-change=""
+   md-search-text="locationInputText"
+   md-selected-item-change=""
+   md-items="item in vm.location | filter: locationInputText"
+   md-item-text="item"
+   md-min-length="0"
+   md-floating-label="Location"
+   md-menu-class="autocomplete-custom-template">
+   <md-item-template>
+    <span md-highlight-text="locationInputText" md-highlight-flags="^i">{{item}}</span>
+  </md-item-template>
+</md-autocomplete><br>
+
+<!-- <p ng-repeat="lan in vm.selectedLanguage"><!-- language display #issue:repeated value in the language
+  <span layout="row" flex>
+    <span flex="30">{{lan}}</span>
+    <md-checkbox ng-model="vm.candidate.language[lan].speak">Speak</md-checkbox>
+    <md-checkbox ng-model="vm.candidate.language[lan].read">Read</md-checkbox>
+    <md-checkbox ng-model="vm.candidate.language[lan].write">Write</md-checkbox>
+  </span>
+</p> -->
+
+<div layout ng-repeat="iteration in vm.selectedLanguage">
+  <md-autocomplete
+  ng-model="vm.candidate.language[iteration]"
+  md-selected-item=""
+  md-search-text-change=""
+  md-search-text="vm.languageInputText[iteration]"
+  md-selected-item-change=""
+  md-items="item in vm.language | filter: languageInputText"
+  md-item-text="item['language']"
+  md-min-length="0"
+  md-menu-class="autocomplete-custom-template"
+  md-floating-label="Languages">
+  <md-item-template>
+    <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item['language']}}</span>
+  </md-item-template>
+</md-autocomplete >
+
+<div><p>
+    <md-checkbox ng-model="vm.candidate.language[iteration].speak">Speak</md-checkbox>
+    <md-checkbox ng-model="vm.candidate.language[iteration].read">Read</md-checkbox>
+    <md-checkbox ng-model="vm.candidate.language[iteration].write">Write</md-checkbox><p>
+</div>
+</div>
+<div layout>
+<span flex></span>
+<md-button  class="md-fab md-mini" ng-click="vm.insertLang()">
+  <md-icon>add</md-icon>
+</md-button> 
+</div>
+</div>
+<section layout layout-padding="" layout-align="center center">
+  <md-button type="submit" class="md-raised md-primary" ng-disabled=""> &nbsp;Register&nbsp;</md-button>
+</section>
+<div>
+<p >{{vm.status}}</p>
+</div>
 </form>
 </div>
