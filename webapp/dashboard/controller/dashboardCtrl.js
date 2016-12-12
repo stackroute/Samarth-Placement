@@ -5,7 +5,6 @@ angular.module('samarth.dashboard')
     // console.log("Start");
       circlesGetService.getCircle()
           .then(function(response) {
-            // console.log($auth.getPayload());
               $scope.profiling = response.data;
               //   $log.info(profiling);
               console.log(response.data);

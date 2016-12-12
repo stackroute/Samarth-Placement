@@ -1,0 +1,54 @@
+<md-card layout="column" layout-xs="column" layout-sm="column" layout-md="column" flex>
+    <md-card-header ng-show="$ctrl.showheader" hide-gt-sm md-colors="::{background: 'primary-700'}">
+        <md-card-header-text>
+            <span class="md-title">{{$ctrl.languagedata.educationheader}}</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content layout="row" layout-xs="column" layout-wrap class="cardsContent" class="cardsContent">
+        <div flex="30" flex-xs="100" ng-repeat="eduDetail in $ctrl.eduDetails|limitTo: $ctrl.limitval" class="md-whiteframe-1dp" layout-margin>
+            <div align="center">
+                <span class="md-title"> 
+                    <md-icon>{{eduDetail.institute.type}}</md-icon> 
+                    {{eduDetail.title}}
+                </span>
+            </div>
+            <md-divider></md-divider>
+            <div layout="row" layout-wrap id="data">
+                <span><md-icon>schedule</md-icon>{{eduDetail.batch}}</span>
+                <span class="batch"><md-icon>stars</md-icon>{{eduDetail.outcome.result}} {{eduDetail.outcome.unit}}</span>
+                <br>
+                <span flex="100" class="changeEducationClientFont">
+                        <md-icon>work</md-icon>
+                        {{eduDetail.institute.name}}</span>
+                <br>
+                <span>
+                            <md-icon>account_balance</md-icon>
+                            {{eduDetail.institute.affiliation}}
+                          </span>
+                <span class="changeEducationLocationFont">
+                                <md-icon>room</md-icon>
+                                {{eduDetail.institute.location}}
+                    </span>
+                <div layout="row" flex="90"></div>
+                <a flex="10" class="pointCursor" flex="10" ng-click="$ctrl.showAdvanced($event,'Edit Education',eduDetail)" title="Click to Edit">
+                    <md-icon class="material-icons md-18">mode_edit</md-icon>
+                </a>
+            </div>
+        </div>
+    </md-card-content>
+    <div layout="row" flex-offset="90" flex-offset-xs="75" layout-align="center center">
+        <a ng-model="$ctrl.collapsed" ng-hide="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed ;$ctrl.increaseLimit()" class="pointCursor">
+            {{$ctrl.languagedata.more}}
+            <md-icon class="material-icons" ng-hide="$ctrl.collapsed">expand_more</md-icon>
+        </a>
+        <a ng-model="$ctrl.collapsed" ng-show="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed;$ctrl.decreaseLimit()" class="pointCursor ">
+            {{$ctrl.languagedata.less}}
+            <md-icon class="material-icons " ng-show="$ctrl.collapsed ">expand_less</md-icon>
+        </a>
+    </div>
+    <md-card-actions layout="row" layout-align="end end" layout-margin>
+        <div ng-transclude="verify">
+        </div>
+        <md-button class="md-raised" id="addbutton" ng-click="$ctrl.showAdvanced($event,'Add Education','')">{{$ctrl.languagedata.addeducation}}</md-button>
+    </md-card-actions>
+</md-card>

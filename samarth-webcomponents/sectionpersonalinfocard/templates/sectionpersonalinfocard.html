@@ -1,0 +1,128 @@
+<md-card flex>
+    <md-card-header ng-show="$ctrl.showheader" hide-gt-sm md-colors="::{background: 'primary-700'}">
+        <md-card-header-text layout="row">
+            <div class="md-headline">{{$ctrl.languagedata.personalinfoheader}}</div>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+        <div layout-gt-xs="column" layout-xs="column" class="top-padding">
+            <div layout="row" class="email">
+                <div>
+                    <md-icon class="icons">email</md-icon>
+                </div>
+                <div>{{$ctrl.personalInfo.email}}</div>
+            </div>
+            <div layout-xs="column" layout-gt-xs="row" layout-padding flex flex-xs="100">
+                <div layout="row" flex-gt-xs="100" flex-xs="100" layout-xs="column">
+                    <div layout-xs="column" layout="column" flex-xs="100" flex-gt-xs="25">
+                        <div layout="row" flex>
+                            <div>
+                                <md-icon class="icons">call</md-icon>
+                            </div>
+                            <div> {{$ctrl.personalInfo.contact}}</div>
+                        </div>
+                    </div>
+                    <md-divider id="horizontal-divider" hide-gt-xs show-xs></md-divider>
+                    <md-divider hide-xs show-gt-xs class="vertical-divider"></md-divider>
+                    <div layout="column" flex-xs="100" flex-gt-xs="25">
+                        <div layout="row" class="comp-padding" layout-wrap>
+                            <div>
+                                <md-icon class="icons">place</md-icon>
+                            </div>
+                            <div>{{$ctrl.personalInfo.location }}</div>
+                        </div>
+                        <div layout="row" flex class="comp-padding">
+                            <div>
+                                <md-icon class="icons">home</md-icon>
+                            </div>
+                            <div layout="column">
+                                <div layout-align="start start">
+                                    {{$ctrl.personalInfo.address}}
+                                </div>
+                                <div> {{$ctrl.personalInfo.pincode}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <md-divider hide-xs show-gt-xs class="vertical-divider"></md-divider>
+                    <md-divider hide-gt-xs show-xs id="horizontal-divider"></md-divider>
+                    <div layout="column" flex-xs="100" flex-gt-xs="25">
+                        <div layout="column" flex>
+                            <div class="md-subhead" hide-xs>
+                                <div layout="row">
+                                    <div>
+                                        <md-icon class="icons">cake</md-icon>
+                                    </div>
+                                    <div>
+                                        {{$ctrl.personalInfo.dob|date:'MMM dd,yyyy'}}
+                                    </div>
+                                </div>
+                                <div layout="row">
+                                    <div>
+                                        <md-icon class="icons">person</md-icon>
+                                    </div>
+                                    <div>
+                                        {{$ctrl.personalInfo.gender}}
+                                    </div>
+                                </div>
+                                <div layout="row">
+                                    <div>
+                                        <md-icon class="icons">wc</md-icon>
+                                    </div>
+                                    <div>
+                                        {{$ctrl.personalInfo.maritialstatus}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md-subhead" hide-gt-xs>
+                                <div layout="row">
+                                    <div>
+                                        <md-icon class="icons">cake</md-icon>
+                                    </div>
+                                    <div>
+                                        {{$ctrl.personalInfo.dob|date:'MMM dd,yyyy'}}
+                                    </div>
+                                </div>
+                                <div layout="row">
+                                    <div>
+                                        <md-icon class="icons">person</md-icon>
+                                    </div>
+                                    <div>
+                                        {{$ctrl.personalInfo.gender}}
+                                    </div>
+                                </div>
+                                <div layout="row">
+                                    <div>
+                                        <md-icon class="icons">wc</md-icon>
+                                    </div>
+                                    <div>
+                                        {{$ctrl.personalInfo.maritialstatus}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <md-divider hide-xs show-gt-xs class="vertical-divider"></md-divider>
+                    <md-divider id="horizontal-divider" hide-gt-xs show-xs></md-divider>
+                    <div layout="column" flex-xs="100" flex-gt-xs="25">
+                        <div layout="row">
+                            <div>
+                                <md-icon class="icons">language</md-icon>
+                            </div>
+                            <div>{{$ctrl.personalInfo.mothertongue}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </md-card-content>
+    <md-card-actions layout="row" flex layout-align="end">
+        <md-footer layout="row">
+            <div ng-transclude="verify">
+            </div>
+            <a class="pointCursor" ng-click="$ctrl.showAdvanced($event,$ctrl.personalInfo,'Edit Info')" title="Click to Edit">
+                <md-icon class="">mode_edit</md-icon>
+            </a>
+        </md-footer>
+    </md-card-actions>
+</md-card>

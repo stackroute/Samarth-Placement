@@ -1,0 +1,140 @@
+#data md-icon {
+    font-size: 17px;
+}
+
+#addbutton {
+    color: #0098b4;
+}
+
+.batch {
+    margin-left: 8px;
+}
+
+.changeEducationLocationFont {
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+.changeEducationClientFont {
+    font-size: 16px;
+}
+
+#conversationDialogtoolbar {
+    background: #0098b4;
+}
+
+#conversationDialogcontent {
+    font-size: 1.25em;
+    color: grey;
+    line-height: 1.5;
+    word-break: normal;
+}
+
+#conversationDialogActionButton {
+    font-size: 26px;
+    color: grey;
+    background: #f1eded;
+}
+
+#fwdicon {
+    background: #d9d9d9;
+    margin: 0px;
+    padding: 0px;
+    height: 34px;
+    font-size: 35px;
+}
+
+#fwdicon:focus {
+    outline: none;
+}
+
+#educardcontent:focus {
+    outline: none;
+}
+
+#educardcontent {
+    cursor: pointer;
+}
+
+#savebtnicon {
+    font-size: 1.5em;
+}
+
+#convosavebtn {
+    width: 20%;
+    height: 50px;
+    font-size: .8em;
+}
+
+.nlui-conv-form {
+    font-size: 2.5em;
+    line-height: 1.5;
+    color: #a2a2a2;
+}
+
+.nlui-inline-input {
+    display: inline-block;
+    border-style: none;
+    border-bottom: 1px dashed #000000;
+    color: #0000ff;
+}
+
+.nlui-conv-form textarea:focus {
+    outline: none;
+    resize: all;
+}
+
+
+/*-----educonvoNEW styles-------*/
+
+#input1:focus {
+    outline: none;
+}
+
+#btntxt {
+    background-color: #e0e0e0;
+    padding: 5px;
+    height: 48px;
+}
+
+#btntxt a {
+    text-decoration: none;
+    font-size: 2em;
+    color: #0098b4;
+    cursor: pointer;
+}
+
+#input1 {
+    border-bottom: 1px dashed #0098b4;
+    color: #0098b4;
+}
+
+#btn {
+    background-color: #cac8c8;
+    padding: 4px;
+}
+
+#btn:focus {
+    outline: none;
+}
+
+#btn #icon {
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+md-dialog {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+#input1:hover {
+    color: black;
+}
+
+#datepicker {
+    margin-bottom: 35px;
+}

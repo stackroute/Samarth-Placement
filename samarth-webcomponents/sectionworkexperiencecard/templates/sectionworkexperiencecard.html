@@ -1,0 +1,68 @@
+<md-card layout="column" layout-xs="column" layout-sm="column" layout-md="column" flex>
+    <md-card-header ng-show="$ctrl.showheader" hide-gt-sm md-colors="::{background: 'primary-700'}">
+        <md-card-header-text layout="row">
+            <div flex="90" class="md-headline">{{$ctrl.languagedata.workexpheader}}</div>
+            <div flex="10">({{$ctrl.totalworkexperience}})</div>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content layout="row" layout-xs="column" layout-wrap class="cardsContent" layout-fill>
+        <div flex="30" class="md-whiteframe-1dp" flex-xs="100" ng-repeat="value in $ctrl.workexperiences | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" layout-margin>
+            <div layout="row" layout-align="center center">
+                <span class="designation">
+                    <md-icon class="material-icons md-18">work</md-icon>
+                    {{value.designation}}
+                </span>
+
+            </div>
+             <md-divider></md-divider>
+            <div layout="row" layout-align="start center">
+                <div layout-gt-xs="column" layout-xs="row">
+                    <span class="client"><md-icon class="material-icons md-18">business_center</md-icon>{{value.workplace}}</span>
+                </div>
+                <div layout-gt-xs="column" layout-xs="row">
+                    <span><md-icon class="material-icons md-18">place</md-icon>{{value.Location}}</span>
+                </div>
+            </div>
+            <div layout="row" layout-align="start center">
+                <div layout-gt-xs="column" layout-xs="row">
+                    <span class="duration"><md-icon class="material-icons md-18">date_range</md-icon>{{value.duration.from|date:'dd-MM-yyyy'}}</span>
+                </div>
+                <div layout-gt-xs="column" layout-xs="row">
+                    <span><md-icon class="material-icons md-24">trending_flat</md-icon></span>
+                </div>
+                <div layout-gt-xs="column" layout-xs="row">
+                    <span class="padding duration">{{value.duration.to|date:'dd-MM-yyyy'}}</span>
+                </div>
+            </div>
+            <div layout="row" ng-repeat="skill in value.skills" flex-xs="100" layout-align="start center" flex>
+                <div flex="90">
+                    <span ng-repeat="skill in value.skills">
+                    <md-chips>
+                     <md-chip md-colors="::{background: 'grey-300'}">
+                       {{skill}}
+                    </md-chip>
+                  </md-chips>
+                </span>
+                </div>
+                <a class="pointCursor" flex="10" ng-click="$ctrl.showAdvanced($event,'Edit work',value)" title="Click to Edit">
+                    <md-icon class="material-icons md-18">mode_edit</md-icon>
+                </a>
+            </div>
+        </div>
+    </md-card-content>
+    <div layout="row" flex-offset="90" flex-offset-xs="75" layout-align="center center">
+        <a ng-model="$ctrl.collapsed" ng-hide="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed ;$ctrl.increaseLimit()" class="pointCursor">
+        {{$ctrl.languagedata.more}}
+        <md-icon class="material-icons md-14" ng-hide="$ctrl.collapsed">expand_more</md-icon>
+    </a>
+        <a ng-model="$ctrl.collapsed" ng-show="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed;$ctrl.decreaseLimit()" class="pointCursor ">
+        {{$ctrl.languagedata.less}}
+        <md-icon class="material-icons" ng-show="$ctrl.collapsed ">expand_less</md-icon>
+    </a>
+    </div>
+    <md-card-actions layout="row " layout-align="end end">
+        <div ng-transclude="verify"></div>
+        <md-button class="md-raised" id="addbutton" ng-click="$ctrl.showAdvanced($event, 'Add Workexperience', '') ">{{$ctrl.languagedata.addworkexp}}
+        </md-button>
+    </md-card-actions>
+</md-card>

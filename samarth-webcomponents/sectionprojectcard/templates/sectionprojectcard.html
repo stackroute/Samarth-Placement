@@ -1,0 +1,72 @@
+<md-card layout="column" layout-xs="column" layout-sm="column" layout-md="column" flex>
+    <md-card-header class="projectTitle" ng-show="$ctrl.showheader" hide-gt-sm md-colors="::{background: 'primary-700'}">
+        <md-card-header-text layout="row">
+            <div class="md-headline" flex="90">{{$ctrl.languagedata.projectheader}}</div>
+            <div flex="5">({{$ctrl.profile.length}})</div>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content layout="row" layout-xs="column" layout-wrap class="cardsContent" layout-fill>
+        <div flex="30" class="md-whiteframe-1dp" flex-xs="100" ng-repeat="project in $ctrl.profile | limitTo: $ctrl.limitval" ng-model="$ctrl.limitval" class="decreasemdIconFont" layout-margin>
+            <div layout="row" layout-align="center center">
+                <span class="md-title">
+               
+                 {{project.name}}
+             </span>
+            </div>
+            <md-divider></md-divider>
+            <div layout-align="start center">
+                <span class="changeProjectDurationFont">
+                 <md-icon class="material-icons md-18">schedule</md-icon>
+                 {{project.duration.durationInMonths}}
+             </span>
+                <!-- Rupee icon -->
+                <span>&#8377;
+                 {{project.income}}</span>
+            </div>
+            <div layout-align="start center">
+                <span class="changeProjectClientFont">
+                     <md-icon class="material-icons md-18">work</md-icon>
+                     {{project.workplace}}
+                 </span>
+                <span class="changeProjectLocationFont">
+                     <md-icon class="material-icons md-18">location_on</md-icon>
+                     {{project.location}}
+                 </span>
+            </div>
+            <div layout="row" ng-repeat="skill in project.skills" flex-xs="100" layout-align="start center" flex>
+                <div flex="90">
+                    <span ng-repeat="(skillname,skill) in project.skills">
+                         
+                            <md-chips>
+                                <md-chip md-colors="::{background: 'grey-300'}">
+                                
+                                 {{skill}}
+                                </md-chip>
+                            </md-chips>
+                     </span>
+                </div>
+                <a flex="10" ng-click="$ctrl.showAdvanced($event,'Edit Project',project)" title="Click to Edit">
+                    <md-icon class="editIcon">mode_edit</md-icon>
+                </a>
+            </div>
+        </div>
+    </md-card-content>
+    <div layout="row" flex-offset="90" flex-offset-xs="75" layout-align="center center">
+        <a ng-model="$ctrl.collapsed" ng-hide="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed ;$ctrl.increaseLimit()" class="pointCursor">
+            {{$ctrl.languagedata.more}}
+             <md-icon class="material-icons" ng-hide="$ctrl.collapsed">keyboard_arrow_down</md-icon>
+         </a>
+        <a ng-model="$ctrl.collapsed" ng-show="$ctrl.collapsed" ng-click="$ctrl.collapsed=!$ctrl.collapsed;$ctrl.decreaseLimit()" class="pointCursor">
+            {{$ctrl.languagedata.less}}
+             <md-icon class="material-icons " ng-show="$ctrl.collapsed ">keyboard_arrow_up</md-icon>
+         </a>
+    </div>
+    <md-card-actions layout="row " layout-align="end center ">
+        <div ng-transclude="verify ">
+        </div>
+        <md-button class="md-raised " id="addbutton " ng-click="$ctrl.showAdvanced($event, 'Add Project', '') ">
+            {{$ctrl.languagedata.addworkexp}}
+        </md-button>
+    </md-card-actions>
+</md-card>
+</div>

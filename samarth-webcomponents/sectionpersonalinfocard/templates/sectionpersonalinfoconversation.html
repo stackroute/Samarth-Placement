@@ -1,0 +1,69 @@
+<md-dialog>
+    <form name="personalForm" ng-cloak required>
+        <md-toolbar id="conversationDialogtoolbar">
+            <div class="md-toolbar-tools">
+                <h1 id="headingtext">{{header}}</h1>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon id="headingtext">close</md-icon>.
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content layout="column">
+            <div id="conversationDialogcontent" layout-padding layout-wrap>
+                I am
+                <md-input-container>
+                    <label>Name</label>
+                    <input ng-model="personalObject.name" id='input1' name="name" required>
+                    <div ng-messages="personalForm.name.$error" role="alert">
+                        <div ng-message="required">Please Enter Your Name</div>
+                    </div>
+                </md-input-container>
+                and I live in
+                <md-input-container>
+                    <label>Current Location</label>
+                    <input ng-model="personalObject.location" id='input1'>
+                </md-input-container>. I was born on
+                <md-input-container>
+                    <label>DOB (mm/dd/yyyy)</label>
+                    <input ng-model="personalObject.dob" id='input1' formatted-date format="small" />
+                </md-input-container>
+                .
+                <br> My marital status is
+                <md-input-container>
+                    <label>Marital Status</label>
+                    <input ng-model="personalObject.maritialstatus" id='input1'>
+                </md-input-container>
+                and gender is
+                <md-input-container>
+                    <label>Gender</label>
+                    <input ng-model="personalObject.gender" id='input1'>
+                </md-input-container>
+                .I communicate in
+                <md-input-container>
+                    <label>Language</label>
+                    <input ng-model="personalObject.mothertongue" id='input1'>
+                </md-input-container>
+                and you can drop me a mail at
+                <md-input-container>
+                    <label>Email-id</label>
+                    <input ng-model="personalObject.email" id='input1' required type="email">
+                </md-input-container>
+                . My permanent address is
+                <md-input-container>
+                    <label>Address</label>
+                    <input ng-model="personalObject.address" id='input1'>
+                </md-input-container>, with pincode
+                <md-input-container>
+                    <label>Pincode</label>
+                    <input ng-model="personalObject.pincode" id='input1'>
+                </md-input-container>
+            </div>
+            <div flex layout="row" layout-align="center center">
+                <md-button class="md-raised" id="savebutton" ng-disabled="personalForm.$invalid" ng-click="save(personalObject,header)" contenteditable="false">
+                    Save
+                </md-button>
+            </div>
+        </md-dialog-content>
+    </form>
+</md-dialog>
