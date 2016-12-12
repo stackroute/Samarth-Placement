@@ -39,7 +39,7 @@ var signin = function(email, pwd, callback, unauthCB) {
 
             
 
-            authCoordinator.getCandidateAuthToken(user).then(
+            authCoordinator.getCoordinatorAuthToken(user).then(
 
                 function(details) {
                     
