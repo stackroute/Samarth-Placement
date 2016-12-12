@@ -1,3 +1,4 @@
+
 (function() {
 	'use strict';
 		angular
@@ -89,6 +90,17 @@
 					submitFormFact.submitForm(coordinator).then(function(data) 
 					{
 						console.log(data.status);
+						// if(data.status ==='200')
+						// {
+						// 	$mdDialog.confirm()
+		    //         .title('Sorry!')
+		    //         .textContent("dcsedd")
+		    //         .ariaLabel('server error')
+		    //         .ok('Report the incident!')
+		    //         .cancel('Ignore');
+
+						// 	$state.go('index.dashboard') 
+						// }
 					})
 				}
 			
