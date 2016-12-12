@@ -9,7 +9,7 @@ var sampelCandidate={"dob": "2016-11-30T18:30:00.000Z",
   "location": "Bangalore",
   "name": "hariprasath",
   "mobile": "5555578955",
-  "profession":"Retail"
+  "profession":"retail"
 }
 
 

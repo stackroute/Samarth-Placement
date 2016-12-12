@@ -18,15 +18,15 @@ angular.module('samarth.candidatesearch',[])
                         // "footer": {
                         //     templateUrl: 'home/templates/footer.html',
                         // }
+                    },
+                    resolve:{
+                        circleDomain:['$stateParams',function($stateParams){
+                            return $stateParams.circleDomain;
+                        }],
+                        circleName:['$stateParams',function($stateParams){
+                            return $stateParams.circleName;
+                        }]
                     }
-                    // resolve:{
-                    //     circleDomain:['$stateParams',function($stateParams){
-                    //         return $stateParams.circleDomain;
-                    //     }],
-                    //     circleName:['$stateParams',function($stateParams){
-                    //         return $stateParams.circleName;
-                    //     }]
-                    // }
                 })
         .state('index.candidatesearch.results', {
             url: 'searchlist',

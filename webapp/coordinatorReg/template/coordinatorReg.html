@@ -68,7 +68,7 @@
           </md-select>
         </md-input-container>
 
-        <!-- <p ng-repeat="(key,lan) in vm.selectedLanguage">
+        <p ng-repeat="(key,lan) in vm.selectedLanguage">
           <span layout="row" flex>
             <span flex="30">{{lan}}</span>
             <md-checkbox ng-model="vm.coordinator.language[lan].speak">Speak</md-checkbox>
@@ -96,7 +96,7 @@
            <md-icon>add</md-icon>
           </md-button>
         </div>
-        {{vm.coordinator || JSON}} -->
+        {{vm.coordinator || JSON}}
         <section layout="row" layout-padding="" layout-align="center">
           <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>
         </section>        

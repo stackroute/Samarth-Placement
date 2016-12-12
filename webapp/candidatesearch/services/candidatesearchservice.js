@@ -53,12 +53,13 @@ angular.module('samarth.candidatesearch').service('parseservice', ['$http',
             return $http({
                 method: 'get',
                 url: '/skillcard/allcandidates',
-            }).then(function success(response) {
+            })/*.then(function success(response) {
                 console.log("all candidates service", response.data);
                 return response.data.results;
             }, function error(err) {
                 console.log(err);
-            });
+            })*/
+            ;
         }
 
     }

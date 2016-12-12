@@ -1,31 +1,23 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-  <div layout-gt-md="row" layout-lg="row" layout-md="column" layout-lg-sm="column" layout-sm="column">
-    <md-card flex-gt-md="50" ng-repeat="item in vm.profession" class="md-whiteframe-2dp">
-      <md-card-title class="item item-divider center-text">
-        <md-card-title-text>
-          <h2 md-colors="{color: 'blue-A100'}">{{item}}</h2>
-        </md-card-title-text>
-      </md-card-title>
-      <md-card-content layout="column" layout-gt-md="column" layout-align="space-between">
-        <md-button class="md-icon-button" aria-label="Favorite" ui-sref="home">
-          <md-icon md-colors="{color: 'red-A100'}">favorite</md-icon>
-        </md-button>
-        <md-button class="md-icon-button" aria-label="people">
-          <md-icon md-colors="{color: 'blue-A100'}">people</md-icon>
-        </md-button>
-        <md-button class="md-icon-button" aria-label="description" class="md-raised md-primary">
-          <md-icon md-colors="{color: 'green-A100'}">description</md-icon>
-        </md-button>
-      </md-card-content>
-    </md-card>
+<div flex-xs="100" flex-gt-xs="100">
+  <div layout="row" layout-xs="column" flex>
+      <div ng-repeat="prof in profiling" flex-xs=" 25 " flex-gt-xs="25 ">
+          <!-- <my-circle data='prof'></my-circle> -->
+          <md-card class="card transparent" md-colors="{background: '{{gerColler(prof.name)}}'}">
+    <md-card-header>
+        <md-card-header-text>
+            <span class="md-title ">{{prof.name | uppercase}}</span>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content>
+        <span class="md-subhead ">{{prof.rCount}}</span>
+        <span class="md-subhead ">{{prof.domain}}</span>
+    </md-card-content>
+    <md-divider></md-divider>
+    <md-card-actions layout="row" layout-sm="column">
+        <md-button ui-sref="index.searchjob({circleName:'{{prof.name}}',circleDomain:'{{prof.domain}}'})">Jobs</md-button>
+        <md-button ui-sref="index.candidatessearch({circleName:'{{prof.name}}',circleDomain:'{{prof.domain}}'})">Candidates</md-button>
+    </md-card-actions>
+</md-card>
+      </div>
   </div>
-</body>
-
-</html>
+</div>

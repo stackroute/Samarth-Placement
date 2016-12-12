@@ -88,7 +88,7 @@
 				{
 					submitFormFact.submitForm(coordinator).then(function(data) 
 					{
-						console.log(data);
+						console.log(data.status);
 					})
 				}
 			

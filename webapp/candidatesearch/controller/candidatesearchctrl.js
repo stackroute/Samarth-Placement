@@ -7,7 +7,7 @@ angular.module('samarth.candidatesearch')
         'Pagination',
         '$stateParams',
         '$state',
-        function($scope, $parse, allcandidateservice, candidateservice, parseservice, Pagination, $stateParams, $state) {
+        function($scope, $parse, candidateservice, allcandidateservice,  parseservice, Pagination, $stateParams, $state) {
             // console.log("Values state : "+$stateParams.circleName+$stateParams.circleDomain);
             $scope.openMenu = function($mdOpenMenu, ev) {
                 $mdOpenMenu(ev);
@@ -16,11 +16,11 @@ angular.module('samarth.candidatesearch')
 
             $scope.pagination = Pagination.getNew(4);
             allcandidateservice.allcandidates().then(function(response) {
-                $scope.results = response;
+                $scope.results = response.data.results;
                 //console.log("all candidates ctrl",$scope.results[0].candidateid);
                 
                 $scope.pagination.numPages = Math.ceil($scope.results.length / $scope.pagination.perPage);
-                $state.go('index.candidatessearch.results');
+                $state.go('index.candidatesearch.results');
             }, function(err) {
                 
                 $scope.message = err;
@@ -36,7 +36,7 @@ angular.module('samarth.candidatesearch')
                         $scope.results = candidates;
                         console.log("from ctrl", $scope.results);
                         $scope.pagination.numPages = Math.ceil($scope.results.length / $scope.pagination.perPage);
-                        $state.go('index.candidatessearch.results');
+                        $state.go('index.candidatesearch.results');
                     }, function(err) {
                         $scope.message = err;
                     })
