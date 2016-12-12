@@ -2,7 +2,7 @@ function candidateRegConfig($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise('/');
     $stateProvider
     .state('index.candidateReg', {
-      url:'candidateregistration',
+      url:'/candidateregistration',
       views: {
         'content@': {
           templateUrl: 'candidateReg/template/candidateRegistration.html',

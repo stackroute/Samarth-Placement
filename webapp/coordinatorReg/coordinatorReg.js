@@ -11,7 +11,7 @@
 		function coorRegConfig($stateProvider){
 			$stateProvider
 			.state("index.createaccount",{
-				url:"createaccount",
+				url:"/createaccount",
 				views: {
 					'content@': {
 						templateUrl: 'coordinatorReg/template/coordinatorReg.html',
