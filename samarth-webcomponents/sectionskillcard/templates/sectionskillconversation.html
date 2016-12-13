@@ -1,0 +1,54 @@
+<md-dialog>
+    <form name="skillForm" ng-cloak>
+        <md-toolbar id="conversationDialogtoolbar">
+            <div class="md-toolbar-tools">
+                <h2 id="headingtext">{{header}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon id="headingtext">close</md-icon>.
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content layout="column">
+            <div id="conversationDialogcontent" layout-padding layout-wrap>
+                I am skilled at
+                <md-input-container>
+                    <label>Skill Name</label>
+                    <input ng-model="skillObject.skillname" id="input1" name="skill" required>
+                    <div ng-messages="skillForm.skill.$error" role="alert">
+                        <div ng-message="required">Please Enter Your Skills</div>
+                    </div>
+                </md-input-container>
+                having Experience of
+                <md-input-container id="datepicker">
+                    <md-select ng-model="skillObject.experience">
+                        <md-option ng-repeat="year in exp" ng-value="year">
+                            {{year}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                years with Expertise level
+                <md-input-container id="datepicker">
+                    <md-select ng-model="skillObject.expertise">
+                        <md-option ng-repeat="expertise in ['Beginner','Skilled','Proficient','Expert']" ng-value="expertise">
+                            {{expertise}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+                <!--  For displaing this was used, seemed not so relevent after reviews hence remvoed 
+                        <md-input-container>
+                        <md-select ng-model="skillObject.category" required>
+                            <md-option ng-repeat="category in ['Primary','Secondary']" ng-value="category">
+                                {{category}}
+                            </md-option>
+                        </md-select>
+                        </md-input-container> -->
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row" layout-align="center center">
+            <md-button class="md-raised" id="savebutton" contenteditable="false" ng-disabled="skillForm.$invalid" ng-click="save(skillObject,header)">
+                Save
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

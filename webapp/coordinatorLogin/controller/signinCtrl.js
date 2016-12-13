@@ -3,36 +3,51 @@
     angular
       .module('samarth.coordinatorLogin')
       .controller('signinCtrl',signinCtrl);
-      signinCtrl.$inject=['myService','$state'];
- 
-      function signinCtrl(myService,$state){
-        var vm =this;
-        vm.user={};
-        vm.signIn=signIn;
-        vm.errormsg="";
+       signinCtrl.$inject=['$state','$auth','Flash','$rootScope'];
+      function signinCtrl($state,$auth,Flash,$rootScope){
+        console.log("first");
+          if($auth.isAuthenticated())
+    {
+      
 
-        function signIn(){
-          myService.auth().then(function(response) {
-            var dataCounter =0;
-            var testCounter=0;
-       
-            response.data.map(function(data){
-              var email=data.email;
-              dataCounter++;
-              var password=data.password;
-                // if(email==vm.user.emailAddress && password==vm.user.password)
-                if(true)
-                  {
-                  testCounter++;
-                  $state.go('index.dashboard')
-                  }
-                    else if((email!=vm.user.emailAddress || password!=vm.user.password ) &&  response.data.length== dataCounter  && testCounter==0)
-                    {
-                     vm.errormsg=" Login failed ! email or password is not correct"
-                     $state.go('index') 
-                     }
-                   });
-          });
-        }
-        }
+      $state.go('index.dashboard');
+   
+}
+        
+        var vm =this;
+        vm.login=login;
+        function login(){
+            $auth.login({
+            email: vm.user.email, // username of the user entered in the login form
+            pwd: vm.user.pwd // username of the user entered in the login form
+        }).then(function(res) {
+            $auth.setToken(res.token);
+            $state.go('index.dashboard'); // redirects to a mentioned state if successfull
+
+        }).catch(function(res) {
+            vm.err = 'Login Failed ! UserName or Password doesnot match .';
+            let message = 'Login Failed ! UserName or Password doesnot match .';
+            Flash.create('danger', message);
+  
+        }); 
+
+      }
+       }
 })();
+angular.module("samarth")
+   .controller("initialCtrl", ['$scope',
+       '$state',
+       function($scope, $state) {
+      
+         $state.go('index');
+           
+       }
+   ]);
+   angular.module("samarth")
+    .controller("rootCtrl", ['$scope',
+        '$state',
+        function($scope, $state) {
+          $state.go('index.home');
+        }
+    ]); 
+

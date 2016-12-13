@@ -1,0 +1,34 @@
+<md-card class="card" layout="column">
+    <md-card-header ng-show="$ctrl.showheader" hide-gt-sm md-colors="::{background: 'primary-700'}">
+        <md-card-header-text layout="row">
+            <div class="md-headline" flex="90">{{$ctrl.languagedata.skillheader}}</div>
+            <div flex="10">({{$ctrl.total}})</div>
+        </md-card-header-text>
+    </md-card-header>
+    <md-card-content layout="row" layout-align="center center" class="items" layout-wrap>
+        <div ng-repeat="value in $ctrl.primary | limitTo: $ctrl.limitval">
+            <md-chips>
+                <md-chip ng-click="$ctrl.showAdvanced($event,value,'Edit Skill')" title="{{value.experience}} yrs" md-colors="::{background: 'grey-300'}" style="cursor:pointer;">
+                {{value.skillname | capitalize}}
+                </md-chip>
+            </md-chips>
+        </div>
+    </md-card-content>
+    <div layout="row" flex-offset="90" flex-offset-xs="75" layout-align="center center">
+        <a class="md-icon-button" ng-click="$ctrl.decreaseLimit()" ng-disabled="$ctrl.limitval<=12" ng-hide="$ctrl.limitval<=12">
+             {{$ctrl.languagedata.less}}
+                <md-icon class="material-icons">keyboard_arrow_up</md-icon>
+            </a>
+        <a class="md-icon-button" ng-click="$ctrl.increaseLimit()" ng-disabled="$ctrl.limitval>=$ctrl.primary.length" ng-hide="$ctrl.limitval>=$ctrl.primary.length">
+            {{$ctrl.languagedata.more}}
+                <md-icon class="material-icons">keyboard_arrow_down</md-icon>
+            </a>
+    </div>
+    <md-card-actions layout="row" layout-align="end end">
+        <div ng-transclude="verify">
+        </div>
+        <md-button class="md-raised" id="addbutton" ng-click="$ctrl.showAdvanced($event,'','Add Skill')">
+            {{$ctrl.languagedata.addskill}}
+        </md-button>
+    </md-card-actions>
+</md-card>

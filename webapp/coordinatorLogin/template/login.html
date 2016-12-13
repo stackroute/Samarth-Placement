@@ -13,7 +13,7 @@
     <md-input-container  class="md-block"  >
      <md-icon>email</md-icon>
 
-     <input name="email" id="email" ng-model="vm.user.emailAddress" placeholder="Email address" ng-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+     <input name="email" id="email" ng-model="vm.user.email" placeholder="Email address" ng-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
      <div ng-messages="myForm.email.$error"  ng-show="myForm.email.$dirty || myForm.email.$touched">
       <div ng-message="required">Email is required.</div>
       <div ng-message="pattern"> Enter correct pattern</div>
@@ -25,7 +25,7 @@
    <md-icon>https</md-icon>
 
 
-   <input name="password" type="password" id="password" ng-model="vm.user.password" placeholder="Password" ng-required="true" minlength="5"> 
+   <input name="password" type="password" id="password" ng-model="vm.user.pwd" placeholder="Password" ng-required="true" minlength="5"> 
    <div ng-messages="myForm.password.$error"  ng-show="myForm.password.$dirty || myForm.password.$touched">
     <div ng-message="required">Password is required.</div>
     <div ng-message="minlength">password must be more than 5 digits</div>
@@ -33,18 +33,19 @@
 
 </md-input-container>
 
-<div layout="row" layout-align="center" >
-  <p >{{log.errormsg}}</p>
+<div layout="row" layout-align="center" style="color:red">
+
+  <p >{{vm.err}}</p>
 </div>
 <div layout="row" layout-align="center" >
- <md-button type="submit" ui-sref="index.home"  ng-click="vm.signIn()"  class="md-raised md-primary" > Sign in </md-button> 
+ <md-button type="submit"  ng-click="vm.login()"  class="md-raised md-primary" > Sign in </md-button> 
  
    <!-- <a ui-sref=".list" class="btn btn-primary">List</a> 
    <a ui-sref="home" type="submit" class="btn btn-primary" > Sign in </a>  -->
  </div>
  <div layout="row" layout-padding layout-align="center">
 
-  <a ui-sref="index.createaccount" > Create new account </a>
+  <a ui-sref="index.createaccount" > Register coordinator </a>
 
 </div>
 
