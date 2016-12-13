@@ -1,19 +1,19 @@
-let jwt = require('jsonwebtoken');
-let UserModel = require('./users');
-let authCoordinator = require('./authcoordinator');
+var jwt = require('jsonwebtoken');
+var UserModel = require('./coordinatoruserschema');
+var authCoordinator = require('./authcoordinator');
 var mongoose = require('mongoose');
-var coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
+// var coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
 
 var signin = function(email, pwd, callback, unauthCB) {
 
-    coordinatoruser.findOne({
+    UserModel.findOne({
             email: email
         },
 
 
         function(err, user) {
             if (err) {
-
+               
                 console.error("Database error in finding user, error: ", err);
                 callback({
                     error: "Failed to process request, please try later..!"
@@ -22,7 +22,7 @@ var signin = function(email, pwd, callback, unauthCB) {
             }
 
             if (!user) {
-
+                 
                 console.error('User ', email, ' not found..!');
                 unauthCB({
                     error: "Invalid credentials...!"
@@ -31,6 +31,7 @@ var signin = function(email, pwd, callback, unauthCB) {
             }
 
             if (!user.validPassword(pwd)) {
+
                 unauthCB({
                     error: "Invalid credentials...!"
                 });

@@ -3,7 +3,7 @@ angular.module('samarth.dashboard')
 
    function dashboardCtrl($scope, $mdDialog, $log, circlesGetService,$rootScope,$auth,$location,$state) {
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState) {
-               console.log("kumari");
+               // console.log("kumari");
                 //if user is already traversing to index stage, ignore this check
                 //Here ignore all those states, which need not have authentication 
                 if (toState.name == 'index') {

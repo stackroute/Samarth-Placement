@@ -5,14 +5,11 @@
       .controller('signinCtrl',signinCtrl);
        signinCtrl.$inject=['$state','$auth','Flash','$rootScope'];
       function signinCtrl($state,$auth,Flash,$rootScope){
-        console.log("first");
+        
           if($auth.isAuthenticated())
-    {
-      
-
-      $state.go('index.dashboard');
-   
-}
+         {
+         $state.go('index.dashboard');
+         }
         
         var vm =this;
         vm.login=login;
@@ -25,9 +22,9 @@
             $state.go('index.dashboard'); // redirects to a mentioned state if successfull
 
         }).catch(function(res) {
-            vm.err = 'Login Failed ! UserName or Password doesnot match .';
-            let message = 'Login Failed ! UserName or Password doesnot match .';
-            Flash.create('danger', message);
+            vm.err = 'Invalid credentials ';
+            // let message = 'Login Failed ! UserName or Password doesnot match .';
+            // Flash.create('danger', message);
   
         }); 
 
