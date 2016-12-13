@@ -34,7 +34,6 @@ app.use('/', authRoutes);
 app.use('/', navItems);
 
 app.use('/', function(req, res) {
-  console.log(Making a call to the proxy server);
 	let options = {
     target: {
       host: 'localhost',
