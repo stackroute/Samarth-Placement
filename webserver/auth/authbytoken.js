@@ -5,13 +5,11 @@ var mongoose = require('mongoose');
 var coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
 
 var signin = function(email, pwd, callback, unauthCB) {
-
     coordinatoruser.findOne({
             email: email
         },
 
-
-        function(err, user) {
+       function(err, user) {
             if (err) {
 
                 console.error("Database error in finding user, error: ", err);
