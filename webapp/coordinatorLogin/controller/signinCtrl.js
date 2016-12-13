@@ -8,33 +8,12 @@
         console.log("first");
           if($auth.isAuthenticated())
     {
-      /*console.log("nav");
-            $rootScope.$on('$stateChangeStart','$location', function(event, toState, toParams, fromState,$location) {
-                console.log("kumari");
-                //if user is already traversing to index stage, ignore this check
-                //Here ignore all those states, which need not have authentication 
-                if (toState.name == 'index') {
-                    //index state does not need prior authentication
-                    $location.path('/home/dashboard');
-                    console.log("sdggdfgfdhgf");
-                }
-
-                });*/
+      
 
       $state.go('index.dashboard');
    
 }
-        /*$rootScope.$on('$stateChangeStart','$location', function(event, toState, toParams, fromState,$location) {
-                console.log("kumari");
-                //if user is already traversing to index stage, ignore this check
-                //Here ignore all those states, which need not have authentication 
-                if (toState.name == 'index') {
-                    //index state does not need prior authentication
-                    $location.path('/home/dashboard');
-                    console.log("sdggdfgfdhgf");
-                }
-
-                });*/
+        
         var vm =this;
         vm.login=login;
         function login(){
@@ -55,3 +34,20 @@
       }
        }
 })();
+angular.module("samarth")
+   .controller("initialCtrl", ['$scope',
+       '$state',
+       function($scope, $state) {
+      
+         $state.go('index');
+           
+       }
+   ]);
+   angular.module("samarth")
+    .controller("rootCtrl", ['$scope',
+        '$state',
+        function($scope, $state) {
+          $state.go('index.home');
+        }
+    ]); 
+
