@@ -12,11 +12,11 @@ let mongoose = require('mongoose');
 let cookieParser = require('cookie-parser');
 
 mongoose.connect('mongodb://localhost:27017/samarthplatformdb');
-var bodyParser = require('body-parser');
+// var bodyParser = require('body-parser');
 
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
 var port = process.env.PORT || 8080;
 

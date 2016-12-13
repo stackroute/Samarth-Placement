@@ -5,14 +5,9 @@
 	"traverse":"index.dashboard"
 },
 {
-	"icon":"search",
-	"navTitle":"Candidate Search",
-	"traverse":"index.candidatesearch"
-},
-{
-	"icon":"person_add",
-	"navTitle":"Candidate Register",
-	"traverse":"index.candidateReg"
+	"icon":"person_pin",
+	"navTitle":"JobProvider Registration",
+	"traverse":"index.empreg"
 },
 {
 	"icon":"add box",
@@ -25,8 +20,14 @@
 	"traverse":"index.jobSearch"
 },
 {
-	"icon":"person_pin",
-	"navTitle":"JobProvider Registration",
-	"traverse":"index.empreg"
+	"icon":"person_add",
+	"navTitle":"Candidate Register",
+	"traverse":"index.candidateReg"
+},
+
+{
+	"icon":"search",
+	"navTitle":"Candidate Search",
+	"traverse":"index.candidatesearch"
 }
 ]

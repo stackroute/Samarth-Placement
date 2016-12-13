@@ -1,6 +1,3 @@
-
-
-
 var mongoose = require('mongoose');
 var bCrypt = require('bcrypt-nodejs');
 
@@ -14,7 +11,6 @@ var login = mongoose.Schema({
     },
     password: { type: String, required: true },
     role: { type: String, required: true }
-    //functionality: [{ type: String, required: true }]
 });
 
 login.virtual('pwd')
@@ -25,7 +21,6 @@ login.virtual('pwd')
     .get(function() {
         return this._pwd;
     });
-
 
 // generating a hash
 login.methods.generateHash = function(password) {

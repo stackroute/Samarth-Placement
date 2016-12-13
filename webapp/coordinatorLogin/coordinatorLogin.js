@@ -10,9 +10,7 @@ angular
      /*$authProvider.signupUrl = '/signup';*/
     $authProvider.httpInterceptor=true;
   }
-
-
-  function config($stateProvider/*,$urlRouterProvider*/){
+  function config($stateProvider){
      let skipIfLoggedIn = ['$q', '$auth', '$location', function($q, $auth, $location) {
                 let deferred = $q.defer();
                if ($auth.isAuthenticated()) {
@@ -26,7 +24,6 @@ angular
                 }
                 return deferred.promise;
             }];   
-            /*$urlRouterProvider.otherwise('/home');*/ 
    $stateProvider
   .state('index.home',{
     url: '',
