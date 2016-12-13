@@ -1,16 +1,19 @@
 angular.module('samarth')
-    .config(config);
+   .config(config);
 
-    function config($stateProvider){
-      
-      $stateProvider
-     .state('initialState', {
-            url: '',
-            views: {
-                'content': {
-                    controller: 'initialCtrl'
-                }
-            }
-        });
- 
- } 
+   function config($stateProvider){
+     
+     $stateProvider
+    .state('initialState', {
+           url: '',
+           views: {
+               'content': {
+                   controller: 'initialCtrl'
+
+               }
+           }
+       });
+
+}
+
+   

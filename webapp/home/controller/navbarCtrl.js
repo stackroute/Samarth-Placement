@@ -5,27 +5,14 @@
     .controller('navbarCtrl', navbarCtrl);
     function navbarCtrl($http,navFactory,$mdSidenav,$rootScope,$state,$auth) 
     {
-          
-      
+     
       if($auth.isAuthenticated())
     {
-      /*console.log("nav");
-            $rootScope.$on('$stateChangeStart','$location', function(event, toState, toParams, fromState,$location) {
-                console.log("kumari");
-                //if user is already traversing to index stage, ignore this check
-                //Here ignore all those states, which need not have authentication 
-                if (toState.name == 'index') {
-                    //index state does not need prior authentication
-                    $location.path('/home/dashboard');
-                    console.log("sdggdfgfdhgf");
-                }
-
-                });*/
+      
 
       $state.go('index.dashboard');
    
 }
-     
        var vm=this;
        var navItems={};
        $rootScope.sideicon = false;

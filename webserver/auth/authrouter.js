@@ -10,7 +10,7 @@ var urlEncodedParser = bodyParser.urlencoded({
 
 
 
-apiRoutes.post('/signin', function(req, res) {
+apiRoutes.post('/signin', jsonBodyParser, urlEncodedParser, function(req, res) {
 
     if (!req.body.email || !req.body.pwd) {
 

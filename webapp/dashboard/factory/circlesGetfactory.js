@@ -2,7 +2,7 @@
   'use strict'
   angular
     .module('samarth-webcomponents')
-    .service('circlesGetService', function($http) {
+    .service('circlesGetService', function($http, $rootScope) {
       var objcircle = {};
       // var userdata = $window.localStorage["member-user"];
       // console.log(userdata);
@@ -13,7 +13,7 @@
         // console.log($rootScope.user);
           // var userdata = signinfactory.getUser();
           // console.log($auth.getpayload());
-          return $http.get('/circle/promit.2014@gmail.com')
+          return $http.get('/circle/'+ $rootScope.user.email)
               .then(function(res) {
                   console.log("got circles data");
                   console.log(res);

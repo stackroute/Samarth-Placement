@@ -15,8 +15,8 @@
           </div>
         </md-input-container>
         <!-- radio -->
-        <md-radio-group ng-model="vm.coordinator.gender" layout="row" ng-required="true" layout-padding="">
-          <label>Gender:</label>
+        <md-radio-group name="gender" ng-model="vm.coordinator.gender" layout="row" ng-required="true">
+           <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender&nbsp;&nbsp;</label>
           <md-radio-button value="Male">Male</md-radio-button>
           <md-radio-button value="Female">Female</md-radio-button>
         </md-radio-group>
@@ -68,15 +68,15 @@
           </md-select>
         </md-input-container>
 
-        <p ng-repeat="(key,lan) in vm.selectedLanguage">
+       <!--  <p ng-repeat="(key,lan) in vm.selectedLanguage">
           <span layout="row" flex>
             <span flex="30">{{lan}}</span>
             <md-checkbox ng-model="vm.coordinator.language[lan].speak">Speak</md-checkbox>
             <md-checkbox ng-model="vm.coordinator.language[lan].read">Read</md-checkbox>
             <md-checkbox ng-model="vm.coordinator.language[lan].write">Write</md-checkbox>
           </span>
-        </p>    
-        <div layout>
+        </p>    --> 
+        <!-- <div layout="row">
           <md-autocomplete
           md-selected-item="vm.lang"
           md-search-text-change=""
@@ -87,15 +87,55 @@
           md-min-length="0"
           placeholder="Languages"
           md-menu-class="autocomplete-custom-template"
-          flex=95>
+          flex=40>
            <md-item-template>
              <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item}}</span>
            </md-item-template>
           </md-autocomplete >
-          <md-button class="md-icon-button md-primary" ng-click="vm.insertLang();vm.lang=''">
-           <md-icon>add</md-icon>
-          </md-button>
+          <div>
+            <md-checkbox ng-model="vm.coordinator.language[lan].speak">Speak</md-checkbox>
+            <md-checkbox ng-model="vm.coordinator.language[lan].read">Read</md-checkbox>
+            <md-checkbox ng-model="vm.coordinator.language[lan].write">Write</md-checkbox>
+            <md-button  class="md-fab md-mini" ng-click="vm.insertLang()">
+          </div>
         </div>
+          <div layout layout-align="center center">
+            Click To Add More Languages
+            <md-button class="md-fab md-mini" ng-click="vm.insertLang()">
+              <md-icon>add</md-icon>
+            </md-button> 
+          </div> -->
+
+          <div layout ng-repeat="iteration in vm.selectedLanguage">
+            <md-autocomplete
+            ng-model="vm.candidate.language[iteration]"
+            md-selected-item=""
+            md-search-text-change=""
+            md-search-text="vm.languageInputText[iteration]"
+            md-selected-item-change=""
+            md-items="item in vm.language | filter: languageInputText"
+            md-item-text="item['language']"
+            md-min-length="0"
+            md-menu-class="autocomplete-custom-template"
+            md-floating-label="Languages">
+            <md-item-template>
+              <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item['language']}}</span>
+            </md-item-template>
+          </md-autocomplete >
+
+          <div><p>
+            <md-checkbox ng-model="vm.candidate.language[iteration].speak">Speak</md-checkbox>
+            <md-checkbox ng-model="vm.candidate.language[iteration].read">Read</md-checkbox>
+            <md-checkbox ng-model="vm.candidate.language[iteration].write">Write</md-checkbox><p>
+          </div>
+        </div>
+        <div layout>
+          <span flex></span>
+          <md-button  class="md-fab md-mini" ng-click="vm.insertLang()">
+            <md-icon>add</md-icon>
+          </md-button> 
+        </div>
+
         {{vm.coordinator || JSON}}
         <section layout="row" layout-padding="" layout-align="center">
           <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>

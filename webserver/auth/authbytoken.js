@@ -38,7 +38,6 @@ var signin = function(email, pwd, callback, unauthCB) {
             }
 
             
-           
 
             authCoordinator.getCoordinatorAuthToken(user).then(
                 function(details) {

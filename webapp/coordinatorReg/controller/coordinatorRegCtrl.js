@@ -87,6 +87,12 @@
 
 				function clickSubmit(coordinator)
 				{
+					var temp=[];
+					temp.name=vm.lang;
+					temp.speak=vm.coordinator.language[lan].speak;
+					temp.read=vm.coordinator.language[lan].read;
+					temp.write=vm.coordinator.language[lan].speak;
+
 					submitFormFact.submitForm(coordinator).then(function(data) 
 					{
 						console.log(data.status);
@@ -107,17 +113,8 @@
 		    //insert a language to the selected language
 		    function insertLang()
 		    {      
-		    	if(vm.lang!==null&&vm.lang!=="")
-		    	{
-			    	if(vm.selectedLanguage[vm.lang]===undefined)
-			    	{
-			    		vm.selectedLanguage[vm.lang]=vm.lang;
-			    	}
-			    	else
-			    	{
-			    		let index = vm.language.indexOf(vm.selectedLanguage[vm.lang]);
-			    	}
-			    }
+		    	lanIter++;
+		    	vm.selectedLanguage.push(lanIter);
 		  	}
 
 				var professionReq=professionReq();
