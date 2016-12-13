@@ -9,11 +9,19 @@
 // describe('checking API calling',function(){
 // 	describe(' checking job profile', function(){
 		
+<<<<<<< HEAD
 // 		it("we should get the response while calling",function(done) {
 // 			console.log(container_url);
 //       container
 //         .get('/getJobs')
 //         .expect(200, done)
+=======
+		it("we should get the response while calling",function(done) {
+			//console.log(container_url);
+      container
+        .get('/getJobs')
+        .expect(200, done)
+>>>>>>> a2ac911398f7b3bf3661ad64d55c7e7d530f9893
 
 //     });
 // 	});

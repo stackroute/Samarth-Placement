@@ -1,19 +1,16 @@
-var jwt = require('jsonwebtoken');
-var UserModel = require('./coordinatoruserschema');
-var authCoordinator = require('./authcoordinator');
+let jwt = require('jsonwebtoken');
+let UserModel = require('./users');
+let authCoordinator = require('./authcoordinator');
 var mongoose = require('mongoose');
-// var coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
+var coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
 
 var signin = function(email, pwd, callback, unauthCB) {
-
-    UserModel.findOne({
+    console.log("Email being searched: ", email);
+    coordinatoruser.findOne({
             email: email
         },
-
-
         function(err, user) {
             if (err) {
-               
                 console.error("Database error in finding user, error: ", err);
                 callback({
                     error: "Failed to process request, please try later..!"
@@ -21,8 +18,9 @@ var signin = function(email, pwd, callback, unauthCB) {
                 return;
             }
 
+            console.log("User signing in is: ", user);
+
             if (!user) {
-                 
                 console.error('User ', email, ' not found..!');
                 unauthCB({
                     error: "Invalid credentials...!"
@@ -30,21 +28,19 @@ var signin = function(email, pwd, callback, unauthCB) {
                 return;
             }
 
-            if (!user.validPassword(pwd)) {
+            console.log("Validing user password: ", pwd, " vs ", user.password);
 
+            if (!user.validPassword(pwd)) {
                 unauthCB({
                     error: "Invalid credentials...!"
                 });
                 return;
             }
-
-            
+              console.log("User signing in is: ", user);
 
             authCoordinator.getCoordinatorAuthToken(user).then(
-
                 function(details) {
-                    
-               
+                
                     var sessionUser = {
                         "email": user.email,
                         "cid": details.coordinator.coordinatorId,

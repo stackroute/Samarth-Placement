@@ -1,10 +1,10 @@
-var request = require('request');
+let request = require('request');
 
 // @TODO take this from config
-var platformURL = 'localhost:8081';
+let platformURL = 'localhost:8081';
 
 
-var getCoordinatorAuthToken = function(user) {
+let getCoordinatorAuthToken = function(user) {
     return new Promise(function(resolve, reject) {
         let options = {
             method: 'POST',
