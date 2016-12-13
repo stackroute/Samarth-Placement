@@ -1,6 +1,6 @@
 let jwt = require('jsonwebtoken');
 let UserModel = require('./users');
-let authCoordinator = require('./authCoordinator');
+let authCoordinator = require('./authcoordinator');
 var mongoose = require('mongoose');
 var coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
 
@@ -40,7 +40,7 @@ var signin = function(email, pwd, callback, unauthCB) {
             
            
 
-            authCoordinator.getCandidateAuthToken(user).then(
+            authCoordinator.getCoordinatorAuthToken(user).then(
                 function(details) {
                     
                
