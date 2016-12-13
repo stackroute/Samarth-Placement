@@ -30,9 +30,11 @@
         </md-input-container>
 
         <md-input-container class="md-block">
-          <!-- Use floating placeholder instead of label -->
-          <md-icon>email</md-icon>
-          <input ng-model="vm.coordinator.email" type="email" placeholder="Email (required)" ng-required="true">
+          <md-icon aria-label="email">email</md-icon>
+          <input name="emailId" ng-model="vm.coordinator.email" type="email" placeholder="Email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b" ng-required="true">
+          <div ng-messages="myForm.emailId.$error" ng-show="myForm.emailId.$dirty || myForm.emailId.$touched">
+            <div ng-message="pattern">Format for email:- abc@xyz.com </div>
+            </div>
         </md-input-container>
 
         <md-input-container  class="md-block"  >
@@ -48,9 +50,9 @@
           <label>Profession</label>
           <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
             <md-select-header class="demo-select-header">
-              <md-optgroup label="Profession">
+              <!-- <md-optgroup label="Profession">
                 <input ng-model="searchTerm" type="search" placeholder="Search for a Profession.." class="demo-header-searchbox md-text">
-              </md-optgroup>
+              </md-optgroup> -->
             </md-select-header>
             <md-option ng-value="item" ng-repeat="item in vm.items | filter:searchTerm">{{item}}</md-option>
           </md-select>
@@ -60,9 +62,9 @@
           <label>Role</label>
           <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
             <md-select-header class="demo-select-header">
-              <md-optgroup label="Role">
+             <!--  <md-optgroup label="Role">
                 <input ng-model="searchTerm" type="search" placeholder="Search for a Role.." class="demo-header-searchbox md-text">
-              </md-optgroup>
+              </md-optgroup> -->
             </md-select-header>
             <md-option ng-value="item" ng-repeat="item in vm.role | filter:searchTerm">{{item}}</md-option>
           </md-select>
@@ -108,39 +110,40 @@
 
           <div layout ng-repeat="iteration in vm.selectedLanguage">
             <md-autocomplete
-            ng-model="vm.candidate.language[iteration]"
+            ng-model="vm.coordinater.language[iteration]"
             md-selected-item=""
             md-search-text-change=""
             md-search-text="vm.languageInputText[iteration]"
             md-selected-item-change=""
             md-items="item in vm.language | filter: languageInputText"
-            md-item-text="item['language']"
+            md-item-text="item"
             md-min-length="0"
             md-menu-class="autocomplete-custom-template"
             md-floating-label="Languages">
-            <md-item-template>
-              <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item['language']}}</span>
-            </md-item-template>
-          </md-autocomplete >
-
-          <div><p>
-            <md-checkbox ng-model="vm.candidate.language[iteration].speak">Speak</md-checkbox>
-            <md-checkbox ng-model="vm.candidate.language[iteration].read">Read</md-checkbox>
-            <md-checkbox ng-model="vm.candidate.language[iteration].write">Write</md-checkbox><p>
+              <md-item-template>
+                <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item}}</span>
+              </md-item-template>
+            </md-autocomplete >
+            <div><p>
+              <md-checkbox ng-model="vm.coordinater.language[iteration].speak">Speak</md-checkbox>
+              <md-checkbox ng-model="vm.coordinater.language[iteration].read">Read</md-checkbox>
+              <md-checkbox ng-model="vm.coordinater.language[iteration].write">Write</md-checkbox><p>
+            </div>
           </div>
-        </div>
+
         <div layout>
           <span flex></span>
           <md-button  class="md-fab md-mini" ng-click="vm.insertLang()">
             <md-icon>add</md-icon>
           </md-button> 
         </div>
-
         {{vm.coordinator || JSON}}
         <section layout="row" layout-padding="" layout-align="center">
           <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>
-          
-         </section>     
+        </section>
+        <div>
+          <p ng-model="status" style="color:red">{{vm.status}}</p>
+        </div>
         </form>
         <div layout="row" layout-align="center">
         Already a user:

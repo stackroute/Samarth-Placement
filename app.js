@@ -1,19 +1,23 @@
 let proxy = require('http-proxy');
-var express=require('express');
-var app=express();
-var path=require('path');
-var profobject=require('./webapp/coordinatorReg/json/prof.js');
-var navItems = require('./webserver/navbar/navigateRouter.js');
-
-let authRoutes = require('./webserver/auth/authrouter');
-let authByToken = require('./webserver/auth/authbytoken');
+let express=require('express');
+let path=require('path');
+let morgan = require('morgan');
 
 let mongoose = require('mongoose');
 let cookieParser = require('cookie-parser');
 
-mongoose.connect('mongodb://localhost:27017/samarthplatformdb');
+let profobject=require('./webapp/coordinatorReg/json/prof.js');
+let navItems = require('./webserver/navbar/navigateRouter.js');
 
-var port = process.env.PORT || 8080;
+let authRoutes = require('./webserver/auth/authrouter');
+let authByToken = require('./webserver/auth/authbytoken');
+
+mongoose.connect('mongodb://localhost:27017/samarthplatformdb');
+mongoose.set('debug', true);
+
+let app=express();
+
+let port = process.env.PORT || 8080;
 
 let platformProxy = proxy.createProxyServer();
 
@@ -22,7 +26,7 @@ app.onAppStart = function(addr) {
 }
 
 app.use(cookieParser());
-
+app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'webapp')))
 app.use(express.static(path.join(__dirname, 'bower_components')))
 
@@ -30,7 +34,7 @@ app.use('/', authRoutes);
 app.use('/', navItems);
 
 app.use('/', function(req, res) {
-	console.log("fda");
+  console.log(Making a call to the proxy server);
 	let options = {
     target: {
       host: 'localhost',

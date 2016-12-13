@@ -10,7 +10,7 @@
       //gets the circle from neo4j and mongo
       objcircle.getCircle = function() {
         // $rootScope.user=$auth.getpayload();
-        // console.log($rootScope.user);
+        // console.log("getting a circle"$rootScope.user.email);
           // var userdata = signinfactory.getUser();
           // console.log($auth.getpayload());
           return $http.get('/circle/'+ $rootScope.user.email)
