@@ -17,7 +17,7 @@
    
   <md-content>
     <md-list>
-      <md-list-item ng-repeat="navItem in vm.navItems">
+      <md-list-item ng-repeat="navItem in vm.navItems.sidenavmenuitems track by $index"">
        <div class="md-button md-no-style" ui-sref="{{navItem.traverse}}" ng-click="vm.closeSideNavPanel()">
          <md-icon class="material-icons" >{{navItem.icon}}</md-icon>
          <span layout-padding="">{{navItem.navTitle}}</span>
