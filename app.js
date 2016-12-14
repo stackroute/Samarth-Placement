@@ -14,7 +14,7 @@ let authRoutes = require('./webserver/auth/authrouter');
 let authByToken = require('./webserver/auth/authbytoken');
   
 function createApp() {
-	const app = express();
+  const app = express();
 
   return app;
 }
@@ -59,6 +59,10 @@ function setupMongooseConnections() {
 
 
 function setupRestRoutes(app) {
+  app.onAppStart = function(addr) {
+  console.error('Samarth-Placement web app is now Running on port:', addr.port);
+  };
+
   app.use('/', authRoutes);
   app.use('/', navItems);
   app.use('/', function(req, res) {
@@ -91,9 +95,7 @@ module.exports = function() {
   app = setupMiddlewares(app);
 
   app = setupRestRoutes(app);
-  app.onAppStart = function(addr) {
-    console.error('Samarth-Candidateprofile web app is now Running on port:', addr.port);
-};
+
   setupMongooseConnections();
 
   return app;
