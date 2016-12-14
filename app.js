@@ -35,6 +35,7 @@ app.use('/', authRoutes);
 app.use('/', navItems);
 
 app.use('/', function(req, res) {
+
 	let options = {
     target: {
       host: 'localhost',
@@ -42,6 +43,7 @@ app.use('/', function(req, res) {
     }
   };
   platformProxy.web(req, res, options);
+
 });
 
 platformProxy.on('error', function(err, req, res) {

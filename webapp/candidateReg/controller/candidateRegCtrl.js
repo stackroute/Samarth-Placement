@@ -96,11 +96,11 @@ function candidateRegCtrl(
         $mdDialog.show(confirm)
         .then(function() 
           {
-            vm.status = 'You decided to get rid of your debt.';
+            vm.status = '';
           }, 
           function() 
           {
-            vm.status = 'You decided to keep your debt.';
+            vm.status = '';
           }
         );
       })

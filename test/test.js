@@ -31,9 +31,9 @@ describe('API calls', function() {
   });
 });
 
-describe('Data updatation in Database', function() {
+describe('Candidate registration in Database', function() {
 
-  describe('Candidate', function() {
+  describe('Candidate registration with exiting data', function() {
     container = request(container_url);
 
     it('should throw error for same register id which is already registered', function(done) {
