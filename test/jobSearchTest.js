@@ -3,7 +3,7 @@ var request = require('supertest');
 
 var host_url = 'http://localhost:8081'
 
-container=request(host_url);
+container=request(host_url+'/jobProfile/');
 
 describe('JobSearch test cases',function(){
 describe('checking API calling',function(){
@@ -14,6 +14,7 @@ describe('checking API calling',function(){
       container
         .get('/getJobs')
         .expect(200, done)
+        //.expect(500,done)
 
     });
 	});
