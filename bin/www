@@ -4,16 +4,16 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('../app')();
+var config = require('../webserver/config');
 var debug = require('debug')('dataDisplayApp:server');
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
-
 var port = normalizePort(process.env.PORT || '8080');
-app.set('port', port);
+/*app.set('port', port);*/
 
 /**
  * Create HTTP server.
