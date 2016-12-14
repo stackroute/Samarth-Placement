@@ -15,7 +15,7 @@
 				views: {
 					'content@': {
 						templateUrl: 'coordinatorReg/template/coordinatorReg.html',
-						controller:"coorRegCtrl",
+						controller:"coordinatorRegCtrl",
 						controllerAs:"vm"
 					}
 				}

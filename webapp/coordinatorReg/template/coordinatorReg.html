@@ -1,20 +1,17 @@
-
-<div layout=row flex>
+<div layout flex>
   <div class="md-no-momentum" layout="column" layout-padding="" layout-align="center center" flex>
     <md-content class="md-no-momentum" md-whiteframe="6" layout-margin="" layout-align="center center">
       <h1>Coordinator Registration</h1><br>
       <form name="myForm" ng-submit="vm.clickSubmit(vm.coordinator)">
-        <md-input-container class="md-block" >
-          <!-- Use floating label instead of placeholder -->
+        <md-input-container class="md-block">
           <label>Name</label>
           <md-icon>person</md-icon>
-          <input ng-model="vm.coordinator.name" name="name" type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" ng-required="true">
+          <input ng-model="vm.coordinator.name" name="name" type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" ng-required="true" />
           <div ng-messages="myForm.Name.$error" ng-show="myForm.Name.$dirty || myForm.Name.$touched">
             <div ng-message="pattern">only character and spaces allowed</div>
             <div ng-message="md-maxlength">Length should not be more than 30 characters</div>
           </div>
         </md-input-container>
-        <!-- radio -->
         <md-radio-group name="gender" ng-model="vm.coordinator.gender" layout="row" ng-required="true">
            <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender&nbsp;&nbsp;</label>
           <md-radio-button value="Male">Male</md-radio-button>
@@ -23,7 +20,7 @@
 
         <md-input-container class="md-block">
           <md-icon>phone</md-icon>
-          <input ng-model="vm.coordinator.mobile" name="number" type="text" pattern="[0-9]{10,10}" md-maxlength="10" placeholder="Mobile Number" ng-required="true">
+          <input ng-model="vm.coordinator.mobile" name="number" type="text" pattern="[0-9]{10,10}" md-maxlength="10" placeholder="Mobile Number" ng-required="true" />
           <div ng-messages="myForm.number.$error" ng-show="myForm.number.$dirty || myForm.Name.$touched">
             <div ng-message="pattern">10 digit number is allowed only </div>
           </div>
@@ -31,7 +28,7 @@
 
         <md-input-container class="md-block">
           <md-icon aria-label="email">email</md-icon>
-          <input name="emailId" ng-model="vm.coordinator.email" type="email" placeholder="Email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b" ng-required="true">
+          <input name="emailId" ng-model="vm.coordinator.email" type="email" placeholder="Email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b" ng-required="true" />
           <div ng-messages="myForm.emailId.$error" ng-show="myForm.emailId.$dirty || myForm.emailId.$touched">
             <div ng-message="pattern">Format for email:- abc@xyz.com </div>
             </div>
@@ -39,7 +36,7 @@
 
         <md-input-container  class="md-block"  >
           <md-icon>https</md-icon>
-          <input name="password" type="password" id="password" ng-model="vm.coordinator.pwd" placeholder="Password" ng-required="true" minlength="5"> 
+          <input name="password" type="password" id="password" ng-model="vm.coordinator.pwd" placeholder="Password" ng-required="true" minlength="5" /> 
           <div ng-messages="myForm.password.$error"  ng-show="myForm.password.$dirty || myForm.password.$touched">
             <div ng-message="required">Password is required.</div>
             <div ng-message="minlength">password must be more than 5 digits</div>
@@ -50,9 +47,6 @@
           <label>Profession</label>
           <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
             <md-select-header class="demo-select-header">
-              <!-- <md-optgroup label="Profession">
-                <input ng-model="searchTerm" type="search" placeholder="Search for a Profession.." class="demo-header-searchbox md-text">
-              </md-optgroup> -->
             </md-select-header>
             <md-option ng-value="item" ng-repeat="item in vm.items | filter:searchTerm">{{item}}</md-option>
           </md-select>
@@ -62,9 +56,6 @@
           <label>Role</label>
           <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
             <md-select-header class="demo-select-header">
-             <!--  <md-optgroup label="Role">
-                <input ng-model="searchTerm" type="search" placeholder="Search for a Role.." class="demo-header-searchbox md-text">
-              </md-optgroup> -->
             </md-select-header>
             <md-option ng-value="item" ng-repeat="item in vm.role | filter:searchTerm">{{item}}</md-option>
           </md-select>
@@ -108,7 +99,7 @@
             </md-button> 
           </div> -->
 
-          <div layout ng-repeat="iteration in vm.selectedLanguage">
+          <!-- <div layout ng-repeat="iteration in vm.selectedLanguage">
             <md-autocomplete
             ng-model="vm.coordinater.language[iteration]"
             md-selected-item=""
@@ -137,15 +128,16 @@
             <md-icon>add</md-icon>
           </md-button> 
         </div>
-        {{vm.coordinator || JSON}}   
+        {{vm.coordinator || JSON}} -->
+
+        <div layout="row" layout-align="center" style="color:red;">
+          <p>{{vm.err}}</p>
+        </div>
 
         <section layout="row" layout-padding="" layout-align="center">
           <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>
-                 </section>     
+        </section>
 
-        <div>
-          <p ng-model="status" style="color:red">{{vm.status}}</p>
-        </div>
         </form>
         <div layout="row" layout-align="center">
         Already a user:
