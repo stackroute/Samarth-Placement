@@ -4,11 +4,11 @@
    <md-toolbar layout="row">
      <div class="md-toolbar-tools">
       <h3>
-        SAMARTH-<br>
+        SAMARTH-</h3>
         <h2>Placement</h2>
-      </h3>
+      
       <span flex></span>
-      <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="vm.closeSideNavPanel()">
+      <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="closeSideNavPanel()">
         <md-tooltip>Close Side Panel</md-tooltip>
         <md-icon class="md-default-theme" class="material-icons">&#xE5CD;</md-icon>
       </md-button>
@@ -17,17 +17,18 @@
    
   <md-content>
     <md-list>
-      <md-list-item ng-repeat="navItem in vm.navItems.sidenavmenuitems track by $index"">
-       <div class="md-button md-no-style" ui-sref="{{navItem.traverse}}" ng-click="vm.closeSideNavPanel()">
-         <md-icon class="material-icons" >{{navItem.icon}}</md-icon>
-         <span layout-padding="">{{navItem.navTitle}}</span>
+      <md-list-item ng-repeat="navItem in navItems.sidenavmenuitems track by $index">
+       <div class="md-button md-no-style" ui-sref="{{navItem['traverse']}}" ng-click="closeSideNavPanel()">
+         <md-icon class="material-icons" >{{navItem["icon"]}}</md-icon>
+         <span layout-padding="">{{navItem["navTitle"]}}</span>
        </div>
       </md-list-item>
      </md-list>
+     </md-content>
   </md-sidenav>
   <md-toolbar >
     <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Side Panel" ng-show="sideicon" ng-click="vm.openSideNavPanel()">
+      <md-button class="md-icon-button" aria-label="Side Panel" ng-show="sideicon" ng-click="openSideNavPanel()">
         <md-tooltip>Side Panel</md-tooltip>
         <md-icon class="md-default-theme" class="material-icons">&#xE5D2;</md-icon>
       </md-button>
@@ -35,7 +36,7 @@
         <span>SAMARTH
       </h2>
       <div layout="row"  flex="" class="layout-align-end-center flex">
-       <div class="md-button" ng-click="vm.logout()" ng-show="logout"><span class="ng-scope">
+       <div class="md-button" ng-click="logout()" ng-show="logout"><span class="ng-scope">
        <md-icon class="material-icons">exit_to_app</md-icon>
   <strong>Logout</strong></span></div>
       </div>
