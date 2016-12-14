@@ -4,9 +4,9 @@ var host_url = 'http://localhost:8081'
 container=request(host_url+'/jobProfile/');
 describe('JobSearch test cases',function(){
 describe('checking API calling',function(){
-	describe(' checking job profile', function(){
-		it("we should get the response while calling",function(done) {
-	    container
+    describe(' checking job profile', function(){
+        it("we should get the response while calling",function(done) {
+        container
         .get('/getJobs')
         .expect(200, done)
     });
@@ -21,15 +21,15 @@ describe('checking API calling',function(){
         .expect(msg, done);
     });
     it("we making call to wrong api and checking status for 404 status",function(done) {
-			container
+            container
         .get('/getJob')
         .expect(404,done)
     });
-	});
+    });
 });
 describe('Duration ', function(){
-	describe('something slow',function(){
-		this.slow(10000);
+    describe('something slow',function(){
+        this.slow(10000);
 
   it('should take less tha 301ms time for me....', function(done) {
     setTimeout(done, 250);
@@ -37,4 +37,3 @@ describe('Duration ', function(){
 });
 });
 });
- 

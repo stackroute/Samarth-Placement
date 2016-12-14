@@ -1,10 +1,25 @@
 let jwt = require('jsonwebtoken');
 let UserModel = require('./users');
 let authCoordinator = require('./authcoordinator');
-var mongoose = require('mongoose');
-var coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
+let mongoose = require('mongoose');
+let coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
 
-var signin = function(email, pwd, callback, unauthCB) {
+let generateJWTToken = function(user, cb) {
+    let payload = user;
+    let secretOrPrivateKey = 'SAMARTH-WEBAPP-SECRET';
+    let options = {
+        algorithm: "HS256",
+        expiresIn: 36000,
+        issuer: user.email
+    };
+
+    jwt.sign(payload, secretOrPrivateKey, options, function(err, jwtToken) {
+        console.log("Sending token ", user, jwtToken);
+        cb(err, user, jwtToken);
+    });
+}
+
+let signin = function(email, pwd, callback, unauthCB) {
     console.log("Email being searched: ", email);
     coordinatoruser.findOne({
             email: email
@@ -36,10 +51,12 @@ var signin = function(email, pwd, callback, unauthCB) {
                 });
                 return;
             }
+              console.log("User signing in is: ", user);
 
             authCoordinator.getCoordinatorAuthToken(user).then(
                 function(details) {
-                    var sessionUser = {
+                
+                    let sessionUser = {
                         "email": user.email,
                         "cid": details.coordinator.coordinatorId,
                         "name": details.coordinator.coordinatorName,
@@ -59,24 +76,6 @@ var signin = function(email, pwd, callback, unauthCB) {
             );           
         }); 
 }; 
-
-var generateJWTToken = function(user, cb) {
-    var payload = user;
-    var secretOrPrivateKey = 'SAMARTH-WEBAPP-SECRET';
-    var options = {
-        algorithm: "HS256",
-        expiresIn: 36000,
-        issuer: user.email
-    };
-
-    jwt.sign(payload, secretOrPrivateKey, options, function(err, jwtToken) {
-        console.log("Sending token ", user, jwtToken);
-        cb(err, user, jwtToken);
-    });
-}
-
 module.exports = {
     "signin": signin
 };
-
-
