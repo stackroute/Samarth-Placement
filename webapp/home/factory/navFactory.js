@@ -1,17 +1,15 @@
-(function(){
-  'use strict'
-  angular
-    .module('samarth.home')
-	.factory('navFactory', navFactory);
-	function navFactory($http) {
-		var factory = {getSidenav:getSidenav};
-		return factory;
-		function getSidenav() {
-			var req = {};
-			req.url = '/sidenavbar';
-			req.method = 'GET';
-			return $http(req);
-		}
-	}
-})();
+	angular.module('samarth.home')
+    .factory('navFactory', ['$http', function($http) {
+        let req = {};
+        req.getSidenav = function() {
+                return $http.get('/sidenavbar')
+                .then(function(res) {
+                    return res;
+                }, function(error) {
+                    return error;
+                });
+                };
+       return req;
+    }]);
+
 
