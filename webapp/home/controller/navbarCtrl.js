@@ -5,14 +5,6 @@
     .controller('navbarCtrl', navbarCtrl);
     function navbarCtrl($http,navFactory,$mdSidenav,$rootScope,$state,$auth) 
     {
-     
-      if($auth.isAuthenticated())
-    {
-      
-
-      $state.go('index.dashboard');
-   
-}
        var vm=this;
        var navItems={};
        $rootScope.sideicon = false;

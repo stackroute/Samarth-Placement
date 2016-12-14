@@ -1,17 +1,14 @@
-let router = require('express').Router();
 let authByToken = require('./authbytoken');
-var UserModel = require("./users");
 let bodyParser = require('body-parser');
-var apiRoutes = require('express').Router();
-var jsonBodyParser = bodyParser.json();
-var urlEncodedParser = bodyParser.urlencoded({
+let apiRoutes = require('express').Router();
+let jsonBodyParser = bodyParser.json();
+let urlEncodedParser = bodyParser.urlencoded({
     extended: false
 });
-
 apiRoutes.post('/signin', jsonBodyParser, urlEncodedParser, function(req, res) {
 
     if (!req.body.email || !req.body.pwd) {        
-        res.json({
+        res.status(401).json({
             error: "Please try with valid credentials..!"
         });
         return;
@@ -29,14 +26,13 @@ apiRoutes.post('/signin', jsonBodyParser, urlEncodedParser, function(req, res) {
                 }
 
                 if (!jwtToken) {
-                    console.error("Empty token generated...!");
                     return res.status(403).json({
                         error: "Internal error in processing request, please retry later..!"
                     });
-                } else {
+                } 
                     user['token'] = jwtToken;
                     return res.status(200).json(user);
-                }
+                
             },
             function(err) {
                 console.log("Signin failed with error : ", err);
