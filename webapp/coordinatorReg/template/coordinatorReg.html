@@ -46,8 +46,6 @@
         <md-input-container layout="column">
           <label>Profession</label>
           <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
-            <md-select-header class="demo-select-header">
-            </md-select-header>
             <md-option ng-value="item" ng-repeat="item in vm.items | filter:searchTerm">{{item}}</md-option>
           </md-select>
         </md-input-container>
@@ -55,8 +53,6 @@
         <md-input-container layout="column">
           <label>Role</label>
           <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
-            <md-select-header class="demo-select-header">
-            </md-select-header>
             <md-option ng-value="item" ng-repeat="item in vm.role | filter:searchTerm">{{item}}</md-option>
           </md-select>
         </md-input-container>
