@@ -22,7 +22,7 @@ let port = process.env.PORT || 8080;
 let platformProxy = proxy.createProxyServer();
 
 app.onAppStart = function(addr) {
-	console.log("Samarth-Placement web app is now Running on port:", addr.port);
+  console.log("Samarth-Placement web app is now Running on port:", addr.port);
 }
 
 app.use(cookieParser());
@@ -34,13 +34,15 @@ app.use('/', authRoutes);
 app.use('/', navItems);
 
 app.use('/', function(req, res) {
-	let options = {
+
+  let options = {
     target: {
       host: 'localhost',
       port: 8081
     }
   };
   platformProxy.web(req, res, options);
+
 });
 
 platformProxy.on('error', function(err, req, res) {

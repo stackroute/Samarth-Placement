@@ -15,6 +15,7 @@ angular.module('samarth',
  'satellizer',
  'ngStorage',
  'simplePagination',
+ 'samarth.jobSearch',
  'samarth.candidatesearch'
   ])
 
