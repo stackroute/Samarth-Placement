@@ -1,5 +1,10 @@
 angular.module('samarth.home')
-.controller('navbarCtrl', function($scope, 
+.controller('navbarCtrl', ['$scope',
+  '$mdSidenav',
+  'navFactory',
+  '$state',
+  '$rootScope',
+  '$auth',function($scope, 
   $mdSidenav,
   navFactory,
   $state,
@@ -23,4 +28,4 @@ angular.module('samarth.home')
        $state.go('index');
        $auth.removeToken();
      }
-});
+}]);
