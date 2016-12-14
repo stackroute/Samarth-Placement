@@ -11,6 +11,7 @@ var login = mongoose.Schema({
     },
     password: { type: String, required: true },
     role: { type: String, required: true }
+    //functionality: [{ type: String, required: true }]
 });
 
 login.virtual('pwd')
@@ -29,9 +30,9 @@ login.methods.generateHash = function(password) {
 
 // checking if password is valid
 login.methods.validPassword = function(password) {
+    console.log("Validating password: ", password, " - vs - ", this.password);
     return bCrypt.compareSync(password, this.password);
 };
-
 
 module.exports = {
     "login": login

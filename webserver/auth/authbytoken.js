@@ -5,13 +5,12 @@ var mongoose = require('mongoose');
 var coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
 
 var signin = function(email, pwd, callback, unauthCB) {
+    console.log("Email being searched: ", email);
     coordinatoruser.findOne({
             email: email
         },
-
-       function(err, user) {
+        function(err, user) {
             if (err) {
-
                 console.error("Database error in finding user, error: ", err);
                 callback({
                     error: "Failed to process request, please try later..!"
@@ -19,14 +18,17 @@ var signin = function(email, pwd, callback, unauthCB) {
                 return;
             }
 
-            if (!user) {
+            console.log("User signing in is: ", user);
 
+            if (!user) {
                 console.error('User ', email, ' not found..!');
                 unauthCB({
                     error: "Invalid credentials...!"
                 }, null);
                 return;
             }
+
+            console.log("Validing user password: ", pwd, " vs ", user.password);
 
             if (!user.validPassword(pwd)) {
                 unauthCB({
@@ -35,13 +37,8 @@ var signin = function(email, pwd, callback, unauthCB) {
                 return;
             }
 
-            
-
             authCoordinator.getCoordinatorAuthToken(user).then(
-
                 function(details) {
-                    
-               
                     var sessionUser = {
                         "email": user.email,
                         "cid": details.coordinator.coordinatorId,

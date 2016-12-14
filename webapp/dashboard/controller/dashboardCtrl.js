@@ -9,6 +9,7 @@ angular.module('samarth.dashboard')
                 if (toState.name == 'index') {
                     //index state does not need prior authentication
                     $location.path('/home/dashboard');
+                    console.log("sdggdfgfdhgf");
                 }
                 });
                
@@ -18,6 +19,7 @@ angular.module('samarth.dashboard')
             if ($auth.isAuthenticated()) {
                $rootScope.sideicon = true;
                $rootScope.logout = true;
+               console.log("hyhy");
             
            } else {
                $rootScope.logout = false;
@@ -30,6 +32,8 @@ angular.module('samarth.dashboard')
           .then(function(response) {
               $scope.profiling = response.data;
              
+              console.log(response.data);
+
           }, function(err) {
               
           });

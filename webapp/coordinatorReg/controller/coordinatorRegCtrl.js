@@ -1,3 +1,4 @@
+
 (function() {
 	'use strict';
 		angular
@@ -11,6 +12,7 @@
 				submitFormFact)
 			{
 				let vm=this;
+				let lanIter = 0;
 
 				function professionReq()
 				{
@@ -86,33 +88,42 @@
 
 				function clickSubmit(coordinator)
 				{
+					// var temp=[];
+					// temp.name=vm.lang;
+					// temp.speak=vm.coordinator.language[lan].speak;
+					// temp.read=vm.coordinator.language[lan].read;
+					// temp.write=vm.coordinator.language[lan].speak;
 					submitFormFact.submitForm(coordinator).then(function(data) 
 					{
-						console.log(data.status);
-					})
+						if(data.status == '200')
+						{
+							vm.status="data";
+							$state.go('index.dashboard');
+						}
+						else
+						{
+							vm.status="Not able to update. Please try again";
+						}
+					}),
+					function(err) 
+   				{
+   					vm.status=err;
+   				}
 				}
 			
 		    //insert a language to the selected language
-		    function insertLang()
-		    {      
-		    	if(vm.lang!==null&&vm.lang!=="")
-		    	{
-			    	if(vm.selectedLanguage[vm.lang]===undefined)
-			    	{
-			    		vm.selectedLanguage[vm.lang]=vm.lang;
-			    	}
-			    	else
-			    	{
-			    		let index = vm.language.indexOf(vm.selectedLanguage[vm.lang]);
-			    	}
-			    }
-		  	}
+		   //  function insertLang()
+		   //  {
+		   //  	if((vm.coordinater.language[iteration]==='')||)
+		   //  	lanIter++;
+		   //  	vm.selectedLanguage.push(lanIter);
+		  	// }
 
 				var professionReq=professionReq();
 				var languagesFact=languagesFact();
 				var rolesFact=rolesFact();
-				vm.insertLang = insertLang;
-				vm.selectedLanguage={};
+				// vm.insertLang = insertLang;
+				// vm.selectedLanguage=[0];
 				vm.clickSubmit=clickSubmit;
 	   }
 })();
