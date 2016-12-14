@@ -1,4 +1,6 @@
-[
+{
+	"role": "coordinator",
+   "sidenavmenuitems":[
 {
 	"icon":"dashboard",
 	"navTitle":"Dashboard",
@@ -30,3 +32,4 @@
 	"traverse":"index.empreg"
 }
 ]
+      }
