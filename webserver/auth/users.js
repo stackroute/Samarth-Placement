@@ -1,6 +1,3 @@
-
-
-
 var mongoose = require('mongoose');
 var bCrypt = require('bcrypt-nodejs');
 
@@ -26,7 +23,6 @@ login.virtual('pwd')
         return this._pwd;
     });
 
-
 // generating a hash
 login.methods.generateHash = function(password) {
     return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
@@ -34,9 +30,9 @@ login.methods.generateHash = function(password) {
 
 // checking if password is valid
 login.methods.validPassword = function(password) {
+    console.log("Validating password: ", password, " - vs - ", this.password);
     return bCrypt.compareSync(password, this.password);
 };
-
 
 module.exports = {
     "login": login

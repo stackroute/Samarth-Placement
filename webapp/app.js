@@ -13,8 +13,9 @@ angular.module('samarth',
  'ngFlash',
  'LocalStorageModule',
  'satellizer',
- 'ngStorage'
- 
+ 'ngStorage',
+ 'simplePagination',
+ 'samarth.candidatesearch'
   ])
 
 	

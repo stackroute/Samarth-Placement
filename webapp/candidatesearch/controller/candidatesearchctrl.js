@@ -7,13 +7,14 @@ angular.module('samarth.candidatesearch')
         'Pagination',
         '$stateParams',
         '$state',
-        function($scope, $parse, candidateservice, allcandidateservice,  parseservice, Pagination, $stateParams, $state) {
+        '$rootScope',
+        function($scope, $parse, candidateservice, allcandidateservice, parseservice, Pagination, $stateParams, $state, $rootScope) {
             // console.log("Values state : "+$stateParams.circleName+$stateParams.circleDomain);
             $scope.openMenu = function($mdOpenMenu, ev) {
                 $mdOpenMenu(ev);
             }
-
-
+            // $rootScope.user=$auth.getPayload();
+            console.log($rootScope.user);
             $scope.pagination = Pagination.getNew(4);
             allcandidateservice.allcandidates().then(function(response) {
                 $scope.results = response.data.results;
