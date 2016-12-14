@@ -1,15 +1,15 @@
-
 (function() {
 	'use strict';
 		angular
 			.module('samarth.cordsignup')
 			.controller('coorRegCtrl', coorRegCtrl);
-			coorRegCtrl.$inject=['professionFac', 'languageFact', 'roleFact', 'submitFormFact'];
+			coorRegCtrl.$inject=['professionFac', 'languageFact', 'roleFact', 'submitFormFact', '$state'];
 			
 			function coorRegCtrl(professionFac, 
 				languageFact, 
 				roleFact, 
-				submitFormFact)
+				submitFormFact,
+				$state)
 			{
 				let vm=this;
 				let lanIter = 0;
@@ -88,36 +88,28 @@
 
 				function clickSubmit(coordinator)
 				{
-					// var temp=[];
-					// temp.name=vm.lang;
-					// temp.speak=vm.coordinator.language[lan].speak;
-					// temp.read=vm.coordinator.language[lan].read;
-					// temp.write=vm.coordinator.language[lan].speak;
-					submitFormFact.submitForm(coordinator).then(function(data) 
+					submitFormFact.submitForm(coordinator).then(function success(response)
 					{
-						if(data.status == '200')
-						{
-							vm.status="data";
-							$state.go('index.dashboard');
-						}
-						else
-						{
-							vm.status="Not able to update. Please try again";
-						}
-					}),
-					function(err) 
-   				{
-   					vm.status=err;
-   				}
+							$state.go('index.home');
+					},
+					function error(error) 
+					{
+            vm.err=error.data.error;
+          });
 				}
 			
 		    //insert a language to the selected language
-		   //  function insertLang()
-		   //  {
-		   //  	if((vm.coordinater.language[iteration]==='')||)
-		   //  	lanIter++;
-		   //  	vm.selectedLanguage.push(lanIter);
-		  	// }
+		    // function insertLang()
+		    // {
+		    // 	var temp=[];
+		    // 	temp.name=vm.lang;
+		    // 	temp.speak=vm.coordinator.language[lan].speak;
+		    // 	temp.read=vm.coordinator.language[lan].read;
+		    // 	temp.write=vm.coordinator.language[lan].speak;
+		    // 	if((vm.coordinater.language[iteration]===''))
+		    // 		lanIter++;
+		    // 	vm.selectedLanguage.push(lanIter);
+		    // }
 
 				var professionReq=professionReq();
 				var languagesFact=languagesFact();

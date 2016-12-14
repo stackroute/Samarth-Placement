@@ -1,4 +1,3 @@
-
 <div layout=row flex>
   <div class="md-no-momentum" layout="column" layout-padding="" layout-align="center center" flex>
     <md-content class="md-no-momentum" md-whiteframe="6" layout-margin="" layout-align="center center">
@@ -138,12 +137,15 @@
           </md-button> 
         </div>
         {{vm.coordinator || JSON}}
+
+        <div layout="row" layout-align="center" style="color:red;">
+          <p>{{vm.err}}</p>
+        </div>
+
         <section layout="row" layout-padding="" layout-align="center">
           <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>
         </section>
-        <div>
-          <p ng-model="status" style="color:red">{{vm.status}}</p>
-        </div>
+
         </form>
         <div layout="row" layout-align="center">
         Already a user:
