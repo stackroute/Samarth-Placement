@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Samarth-Coordinator</title>
+    <title>Samarth-Placement</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="./angular-material/angular-material.css"/>
     <link href="./angular-material-icons/angular-material-icons.css" rel="stylesheet">
@@ -10,6 +10,7 @@
 <body ng-app="samarth">
   <div ui-view="appbar"></div>
   <div ui-view="content"></div>
+  <div ui-view ="results"></div>
 </body>
       <script type="text/javascript" src="./angular/angular.js"></script>
       <script type="text/javascript" src="./angular-animate/angular-animate.min.js"></script>
@@ -19,6 +20,7 @@
       <script type="text/javascript" src="./angular-ui-router/release/angular-ui-router.min.js">
       </script>
       <script type="text/javascript" src="./angular-material-icons/angular-material-icons.js"></script>
+      
       <script src="./satellizer/dist/satellizer.js"></script>
        <script src="./ngstorage/ngStorage.js"></script>
        <script src="./angular-local-storage/dist/angular-local-storage.js"></script>
@@ -49,7 +51,7 @@
 
       <script src="./samarth-webcomponents/jobproviderreg/jobprovider.js"></script>
       <script src="./samarth-webcomponents/jobproviderreg/factory/jobProviderFactory.js"></script>
-      <!-- <script src="./samarth-webcomponents/jobproviderreg/component/jobProvider.js"></script> -->
+      <script src="./samarth-webcomponents/jobproviderreg/component/jobProvider.js"></script>
       <!-- <script src="./samarth-webcomponents/jobproviderreg/controller/jobProviderCtrl.js"></script> -->
 
 
@@ -72,13 +74,11 @@
       <script type="text/javascript" src="candidatesearch/candidatesearch.js"></script>
       <script type="text/javascript" src="candidatesearch/controller/candidatesearchctrl.js"></script>
       <script type="text/javascript" src="candidatesearch/services/candidatesearchservice.js"></script>
+<!--       <script src="./samarth-webcomponents/jobSearch/component/jobSearch.js"></script>
+ -->
+         <script src="./jobSearch/jobSearch.js"></script>
+<!--  --> <script src="./jobSearch/factory/jobSearchFactory.js"></script>
 
-      <script src="./samarth-webcomponents/jobSearch/jobSearch.js"></script>
-      <script src="./samarth-webcomponents/jobSearch/component/jobSearch.js"></script>
-      <script src="./samarth-webcomponents/jobSearch/factory/jobSearchFactory.js"></script>
-
-      <script src="./samarth-webcomponents/jobSearch/controller/jobSearchCtrl.js"></script>
-      <script src="./samarth-webcomponents/jobSearch/component/jobSearchResult.js"></script>
-
-
-</html>
+        <script src="./jobSearch/controller/jobSearchCtrl.js"></script>
+<!--       <script src="./samarth-webcomponents/jobSearch/component/jobSearchResult.js"></script>
+ --></html>
