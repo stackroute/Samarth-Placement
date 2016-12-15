@@ -17,6 +17,7 @@ angular.module('samarth.jobSearch')
            }*/
         $scope.searchJob = function(searchText) {
         	  //var arr=key.split(/[ ,]+/);
+        	  console.log("hello from ctrl");
             jobSearchFactory.searchJobDetails()
                 .then(function successCallbackfun(response) {
                         $scope.result = response.data;
