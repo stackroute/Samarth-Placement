@@ -46,7 +46,11 @@ angular
 (function(){
   'use strict'
 angular.module('samarth.jobSearch')
-    .controller('jobSearchCtrl', ['$scope','$stateParams', 'Pagination','jobSearchFactory', function($scope, $stateParams, Pagination,jobSearchFactory) {
+    .controller('jobSearchCtrl', ['$scope',
+    	'$stateParams',
+    	'Pagination',
+    	'jobSearchFactory',
+    	 function($scope, $stateParams, Pagination,jobSearchFactory) {
         
 
        /* var searchQueryStr = $stateParams.searchstr;
