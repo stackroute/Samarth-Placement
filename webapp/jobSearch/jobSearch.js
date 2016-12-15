@@ -16,7 +16,7 @@ angular
                     },
                 })
                 .state('index.jobSearch.results', {
-                    url: '/jobslist/:searchText?=searchText',
+                    url: '/jobslist/:searchText?',
                     views: {
                         "results": {
                             templateUrl: './jobSearch/template/jobSearchResult.html',
