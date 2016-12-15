@@ -25,9 +25,4 @@ angular.module('samarth.home',[])
     
     });
  
- }
- 
-
-
-   
- 
+ } 
