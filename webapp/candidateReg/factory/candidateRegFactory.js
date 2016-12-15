@@ -1,16 +1,11 @@
 angular
 	.module('samarth.candidateReg')
-	.factory('candidateRegFactory', candidateRegFactory)
-	.factory('professionservice',professionservice)
-	.factory('languageFact',languageFact)
-	.factory('locationFact',locationFact)
-	
-
-	function candidateRegFactory($http) {
+	.factory('candidateRegFactory', 
+		function($http) {
 		var service = {
 			initialData :initialData
 		};
-		return service;        
+		return service;      
 
 		function initialData(candidateData) {
 			var req = {};
@@ -19,8 +14,9 @@ angular
 			req.data=candidateData;
 			return $http(req);
 		};
-	}
-	function professionservice($http) {
+	})
+	.factory('professionservice',
+		function($http) {
 		var professionData = {
 			getProfession:getProfession
 		};
@@ -31,8 +27,9 @@ angular
 			req.method = 'GET';
 			return $http(req)
 		};
-	}
-	function languageFact($http) 
+	})
+	.factory('languageFact',
+		function($http) 
 	{
 		var factory = {
 			languageReq :languageReq
@@ -45,8 +42,9 @@ angular
 			req.method = 'GET';
 			return $http(req);
 		};
-	}
-	function locationFact($http) 
+	})
+	.factory('locationFact',
+		function locationFact($http) 
 	{
 		var factory = {
 			locationReq :locationReq
@@ -59,4 +57,10 @@ angular
 			req.method = 'GET';
 			return $http(req);
 		};
-	}
+	})
+	
+
+	
+	
+	
+	

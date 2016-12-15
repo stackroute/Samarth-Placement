@@ -15,14 +15,12 @@ let authByToken = require('./webserver/auth/authbytoken');
   
 function createApp() {
   const app = express();
-
   return app;
 }
 
 function setupStaticRoutes(app) {
   app.use(express.static(path.join(__dirname, 'webapp')));
 	app.use(express.static(path.join(__dirname, 'bower_components')));
-
   return app;
 }
 
