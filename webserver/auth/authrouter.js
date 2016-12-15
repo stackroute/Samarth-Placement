@@ -1,4 +1,5 @@
 let authByToken = require('./authbytoken');
+const logger = require('./../../applogger');
 let bodyParser = require('body-parser');
 let apiRoutes = require('express').Router();
 let jsonBodyParser = bodyParser.json();
@@ -19,7 +20,7 @@ apiRoutes.post('/signin', jsonBodyParser, urlEncodedParser, function(req, res) {
         authByToken.signin(req.body.email, req.body.pwd,
             function(err, user, jwtToken) {
                 if (err) {
-                    console.log("Called back with error  : ", err);
+                    logger.log("Called back with error  : ", err);
                     return res.status(500).json({
                         error: "Internal error in processing request, please retry later..!"
                     });
@@ -35,11 +36,11 @@ apiRoutes.post('/signin', jsonBodyParser, urlEncodedParser, function(req, res) {
                 
             },
             function(err) {
-                console.log("Signin failed with error : ", err);
+                logger.log("Signin failed with error : ", err);
                 return res.status(403).json(err);
             });
     } catch (err) {
-        console.log("Caught error: ", err);
+        logger.log("Caught error: ", err);
         return res.status(500).json({
             error: "Internal error in processing request, please retry later..!"
         });

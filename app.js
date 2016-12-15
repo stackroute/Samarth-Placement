@@ -5,7 +5,7 @@ const path=require('path');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
-const logger = require('./webserver/config/appconfig.js');
+const logger = require('./applogger');
 //including environment value using config
 const config = require('./webserver/config/');
 let navItems = require('./webserver/navbar/navigateRouter.js');
@@ -34,16 +34,16 @@ function setupMongooseConnections() {
   mongoose.connect(config.MONGO_URL);
 
   mongoose.connection.on('connected', function() {
-   /* logger.debug('Mongoose is now connected to ', config.MONGO_URL);*/
+  logger.debug('Mongoose is now connected to ', config.MONGO_URL);
   });
 
   mongoose.connection.on('error', function(err) {
-/*    logger.error('Error in Mongoose connection: ', err);
-*/  });
+   logger.error('Error in Mongoose connection: ', err);
+ });
 
   mongoose.connection.on('disconnected', function() {
-/*    logger.debug('Mongoose is now disconnected..!');
-*/  });
+    logger.debug('Mongoose is now disconnected..!');
+  });
 
   process.on('SIGINT', function() {
     mongoose.connection.close(function() {

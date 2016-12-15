@@ -1,5 +1,7 @@
 let mongoose = require('mongoose');
 let bCrypt = require('bcrypt-nodejs');
+const logger = require('./../../applogger');
+
 
 let login = mongoose.Schema({
     email: {
@@ -30,7 +32,7 @@ login.methods.generateHash = function(password) {
 
 // checking if password is valid
 login.methods.validPassword = function(password) {
-    console.log("Validating password: ", password, " - vs - ", this.password);
+    logger.log("Validating password: ", password, " - vs - ", this.password);
     return bCrypt.compareSync(password, this.password);
 };
 

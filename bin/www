@@ -8,6 +8,8 @@ var app = require('../app')();
 var config = require('../webserver/config');
 var debug = require('debug')('dataDisplayApp:server');
 var http = require('http');
+const logger = require('./../applogger');
+
 
 /**
  * Get port from environment and store in Express.
