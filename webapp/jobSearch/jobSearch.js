@@ -11,7 +11,7 @@ angular
                   views: {
                         "content@": {
                             templateUrl: './jobSearch/template/jobSearch.html',
-                            controller: 'jobSearchCtrl'
+                            /*controller: 'jobSearchCtrl'*/
                         }
                     },
                 })
@@ -20,6 +20,7 @@ angular
                     views: {
                         "results": {
                             templateUrl: './jobSearch/template/jobSearchResult.html',
+                            //templateUrl: './samarth-webcomponents/jobSearch/template/jobSearchResult.html',
                             controller: 'jobSearchCtrl'
                         }
                     },
