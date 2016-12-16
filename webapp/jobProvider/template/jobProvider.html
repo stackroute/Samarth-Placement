@@ -1,0 +1,15 @@
+    <div flex-xs="100" flex-gt-xs="100">
+    <div layout="row" layout-xs="column">
+        <div ng-repeat="prof in profiling |startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-md="40">
+            <job-provider data='prof'></job-provider>
+        </div>
+    </div>
+    <div layout class="md-padding" flex>
+        <div layout layout-align="start start" flex="50">
+            <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
+        </div>
+        <div layout layout-align="end end" flex="50">
+            <md-button class="md-raised md-primary" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages">Next</md-button>
+        </div>
+    </div>
+</div>
