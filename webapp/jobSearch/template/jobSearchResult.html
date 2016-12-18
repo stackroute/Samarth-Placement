@@ -1,4 +1,10 @@
- <div layout layout-align="center center" >
+<div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding" flex-gt-sm flex-sm>
+    <div ng-repeat="data in result | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-xs flex-gt-xs='50' flex-gt-sm='50' flex-gt-sm='50' >
+    <job-card data="data"></job-card>
+  </div>
+</div>
+
+ <!-- <div layout layout-align="center center" >
   <div layout-sm="column" layout-md="column" layout-xs="column" layout-gt-md="column" layout-align="center center" >
      <md-card class="md-whiteframe-8dp" layout-gt-md="row"  flex-gt-md="70" flex-xs="40"  layout-md="row" layout-xs="row"  ng-repeat="item in result" class="md-whiteframe-2dp" >
       <md-card-title  class="item item-divider center-text">
@@ -55,38 +61,44 @@
      </md-card-title>
     </md-card>
   </div>
-</div>
- 
-<!-- <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
-    <div ng-repeat="x in result | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-sm="50" flex-sm="100">
-        <my-skillcard candidateid="x.candidateid">
-            <badges>
-                <verification-badge candidateid="x.candidateid">
-                </verification-badge>
-            </badges>
-            <cardactions>
-                <md-menu>
-                    <md-button aria-label="open" class="md-icon-button" ng-click=openMenu($mdOpenMenu,$event)>
-                        <md-icon class="material-icons">more horiz</md-icon>
-                    </md-button>
-                    <md-menu-content width="4">
-                        <md-menu-item>
-                            <md-button ui-sref="verifyprofile({candidateid:x.candidateid})">
-                                View profile
-                            </md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                            <md-button>
-                                Show Similar profiles
-                            </md-button>
-                        </md-menu-item>
-                    </md-menu-content>
-                </md-menu>
-            </cardactions>
-        </my-skillcard>
-    </div>
 </div> -->
-<!-- <div layout class="md-padding" flex>
+ 
+<!-- <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding" layout-align="center center">
+    <div ng-repeat="job in jobs | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" class="md-padding" flex-gt-sm="50" flex-sm="100">
+        <job-card data='{"jobID":job.jobID,"employerID":job.employer.employerID}'>
+            <md-menu>
+                <md-button aria-label="open" class="md-icon-button" ng-click=openMenu($mdOpenMenu,$event)>
+                    <md-icon class="material-icons">more horiz</md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    </menu-content>
+                    <md-menu-item>
+                        <md-button ui-sref="index.jobProfileView({jobID:'{{job.jobID}}',employerID:'{{job.employer.employerID}}'})">
+                            View profile
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>
+                            Verify profile
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>
+                            Show Similar profiles
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>
+                            Add to Circles
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </job-card>
+    </div>
+ 
+</div>
+<div layout class="md-padding" flex>
     <div layout layout-align="start start" flex="50">
         <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
     </div>
