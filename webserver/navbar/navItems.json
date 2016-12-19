@@ -30,6 +30,12 @@
 	"icon":"person_pin",
 	"navTitle":"JobProvider Registration",
 	"traverse":"index.empreg"
+},
+
+{
+	"icon":"person_pin",
+	"navTitle":"JobProvider",
+	"traverse":"index.emp"
 }
 ]
       }
