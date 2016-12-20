@@ -39,11 +39,11 @@
           <input name="password" type="password" id="password" ng-model="vm.coordinator.pwd" placeholder="Password" ng-required="true" minlength="5" /> 
           <div ng-messages="myForm.password.$error"  ng-show="myForm.password.$dirty || myForm.password.$touched">
             <div ng-message="required">Password is required.</div>
-            <div ng-message="minlength">password must be more than 5 digits</div>
+            <div ng-message="minlength">Password must be more than 5 digits</div>
           </div>
         </md-input-container>
 
-<!--         <md-input-container layout="column">
+        <md-input-container layout="column">
           <label>Profession</label>
           <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
             <md-option ng-value="item" ng-repeat="item in vm.items | filter:searchTerm">{{item}}</md-option>
@@ -53,7 +53,7 @@
         <md-input-container layout="column">
           <label>Role</label>
           <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
-            <md-option ng-value="item" ng-repeat="item in vm.role | filter:searchTerm">{{item}}</md-option>
+            <md-option ng-value="vm.role">{{vm.role}}</md-option>
           </md-select>
         </md-input-container>
 
@@ -94,44 +94,56 @@
               <md-icon>add</md-icon>
             </md-button> 
           </div> -->
-
-          <!-- <div layout ng-repeat="iteration in vm.selectedLanguage">
+          <div layout data-ng-repeat="iteration in vm.selectedLanguage">
             <md-autocomplete
-            ng-model="vm.coordinater.language[iteration]"
-            md-selected-item=""
+            md-selected-item="vm.lang[iteration]"
             md-search-text-change=""
-            md-search-text="vm.languageInputText[iteration]"
+            md-search-text="languageInputText"
             md-selected-item-change=""
             md-items="item in vm.language | filter: languageInputText"
             md-item-text="item"
             md-min-length="0"
             md-menu-class="autocomplete-custom-template"
-            md-floating-label="Languages">
+            md-floating-label="Languages"
+            ng-required=true>
               <md-item-template>
                 <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item}}</span>
               </md-item-template>
             </md-autocomplete >
-            <div><p>
-              <md-checkbox ng-model="vm.coordinater.language[iteration].speak">Speak</md-checkbox>
-              <md-checkbox ng-model="vm.coordinater.language[iteration].read">Read</md-checkbox>
-              <md-checkbox ng-model="vm.coordinater.language[iteration].write">Write</md-checkbox><p>
+            <div>
+              <p>
+                <md-checkbox ng-model="vm.tempLanguage[iteration].speak">Speak</md-checkbox>
+                <md-checkbox ng-model="vm.tempLanguage[iteration].read">Read</md-checkbox>
+                <md-checkbox ng-model="vm.tempLanguage[iteration].write">Write</md-checkbox>
+              </p>
             </div>
           </div>
-
+          <div layout="row" layout-align="center" style="color:red;">
+            <p>{{vm.msg}}</p>
+          </div>
         <div layout>
           <span flex></span>
           <md-button  class="md-fab md-mini" ng-click="vm.insertLang()">
+            <md-tooltip>
+              Add a new language
+            </md-tooltip>
             <md-icon>add</md-icon>
+          </md-button>
+          <md-button  class="md-fab md-mini" ng-click="vm.removeLang()">
+            <md-tooltip>
+              Remove a language
+            </md-tooltip>
+            <md-icon>remove</md-icon>
           </md-button> 
         </div>
-        {{vm.coordinator || JSON}} -->
-
-        <div layout="row" layout-align="center" style="color:red;">
+        {{vm.coordinator || JSON}}
+        <!-- {{vm.coordinator || JSON}} -->
+       <!--  <div layout="row" layout-align="center" style="color:red;">
           <p>{{vm.err}}</p>
-        </div>
+        </div> -->
 
         <section layout="row" layout-padding="" layout-align="center">
-          <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>
+          <md-button type="submit" class="md-raised md-primary">&nbspRegister&nbsp</md-button>
         </section>
 
         </form>
@@ -141,4 +153,4 @@
       </div>
     </md-content>
   </div>
-</div>
+</div

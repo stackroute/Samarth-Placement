@@ -7,6 +7,7 @@ angular.module('samarth',
  'samarth.home',
  'samarth.coordinatorLogin',
  'samarth.dashboard',
+ 'samarth.candidatesearch',
  'samarth-webcomponents',
  'samarth.cordsignup',
  'samarth.candidateReg',
@@ -15,8 +16,7 @@ angular.module('samarth',
  'satellizer',
  'ngStorage',
  'simplePagination',
- 'samarth.jobSearch',
- 'samarth.candidatesearch'
+ 'samarth.jobSearch'
   ])
 
 	

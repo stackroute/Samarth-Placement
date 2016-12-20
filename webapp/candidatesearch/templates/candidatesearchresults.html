@@ -1,11 +1,15 @@
 <!-- <span>Showing {{results.length}} results</span> -->
 <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
-    <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-sm="50" flex-sm="100">
+    <!-- <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-sm="50" flex-sm="100"> -->
+
+    <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">
         <my-skillcard candidateid="x.candidateid" picsize="small" contentsize="small">
+            <!-- {{$candidateid||json}} -->
             <badges>
                 <verification-badge candidateid="x.candidateid">
                 </verification-badge>
             </badges>
+
             <cardactions>
                 <md-menu>
                     <md-button aria-label="open" class="md-icon-button" ng-click=openMenu($mdOpenMenu,$event)>
@@ -26,7 +30,7 @@
                 </md-menu>
             </cardactions>
         </my-skillcard>
-    </div>
+   <!--  </div> -->
 </div>
 <div layout class="md-padding" flex>
     <div layout layout-align="start start" flex="50">
