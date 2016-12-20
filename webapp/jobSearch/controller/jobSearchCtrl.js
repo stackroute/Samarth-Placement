@@ -19,6 +19,7 @@ angular.module('samarth.jobSearch')
           jobSearchFactory.searchJobDetails()
               .then(function successCallbackfun(response) {
                  $scope.result = response.data;
+                 
                  console.log($scope.result);
                  $scope.pagination = Pagination.getNew(4);
                  $scope.pagination.numPages = Math.ceil(response.data.length / $scope.pagination.perPage);
