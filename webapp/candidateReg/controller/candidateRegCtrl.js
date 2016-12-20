@@ -16,6 +16,9 @@ function candidateRegCtrl(
     vm.status = '';
 
 
+
+
+
   //server request
 
   function languagesFact()
