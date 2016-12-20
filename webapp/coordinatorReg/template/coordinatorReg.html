@@ -1,70 +1,91 @@
-<div layout flex>
-  <div class="md-no-momentum" layout="column" layout-padding="" layout-align="center center" flex>
-    <md-content class="md-no-momentum" md-whiteframe="6" layout-margin="" layout-align="center center">
-      <h1>Coordinator Registration</h1><br>
-      <form name="myForm" ng-submit="vm.clickSubmit(vm.coordinator)">
-        <md-input-container class="md-block">
-          <label>Name</label>
-          <md-icon>person</md-icon>
-          <input ng-model="vm.coordinator.name" name="name" type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" ng-required="true" />
-          <div ng-messages="myForm.Name.$error" ng-show="myForm.Name.$dirty || myForm.Name.$touched">
-            <div ng-message="pattern">only character and spaces allowed</div>
-            <div ng-message="md-maxlength">Length should not be more than 30 characters</div>
-          </div>
-        </md-input-container>
-        <md-radio-group name="gender" ng-model="vm.coordinator.gender" layout="row" ng-required="true">
-           <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender&nbsp;&nbsp;</label>
-          <md-radio-button value="Male">Male</md-radio-button>
-          <md-radio-button value="Female">Female</md-radio-button>
-        </md-radio-group>
+<center>
+<div layout="column" flex-gt-md="35" >
+  <h1 calss=".md-subhead" align="center" md-colors="{background: 'indigo-100'}">Candidate Registration</h1>
+  <div  md-whiteframe="6"  layout="column" >
+      <div layout="row" layout-align="center center" md-colors="{background: 'grey-200'}" md-whiteframe="1"></div>
+        <form name="myForm" ng-submit="vm.clickSubmit(vm.coordinator)"  >
+            <md-input-container class="md-block">
+                <label>Enter your full name</label>
+                <md-icon md-colors="{color: 'blue-400'}">perm_identity</md-icon>
+                <input ng-model="vm.coordinator.name" name="name" type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" ng-required="true" />
+                <div ng-messages="myForm.Name.$error" ng-show="myForm.Name.$dirty || myForm.Name.$touched">
+                    <div ng-message="pattern">only character and spaces allowed</div>
+                    <div ng-message="md-maxlength">Length should not be more than 30 characters</div>
+                </div>
+            </md-input-container>
+            <md-radio-group name="gender" ng-model="vm.coordinator.gender" layout="row" ng-required="true">
+                <label><md-icon md-colors="{color: 'pink-400'}">wc</md-icon>&nbsp;&nbsp;Gender&nbsp;&nbsp;</label>
+                <md-radio-button value="Male">Male</md-radio-button>
+                <md-radio-button value="Female">Female</md-radio-button>
+            </md-radio-group>
 
-        <md-input-container class="md-block">
-          <md-icon>phone</md-icon>
-          <input ng-model="vm.coordinator.mobile" name="number" type="text" pattern="[0-9]{10,10}" md-maxlength="10" placeholder="Mobile Number" ng-required="true" />
-          <div ng-messages="myForm.number.$error" ng-show="myForm.number.$dirty || myForm.Name.$touched">
-            <div ng-message="pattern">10 digit number is allowed only </div>
-          </div>
-        </md-input-container>
+            <md-input-container class="md-block" >
+                <md-icon md-colors="{color: 'indigo-400'}">phone</md-icon>
+                <input ng-model="vm.coordinator.mobile" name="number" type="text" pattern="[0-9]{10,10}" md-maxlength="10" placeholder="Mobile Number" ng-required="true" />
+                <div ng-messages="myForm.number.$error" ng-show="myForm.number.$dirty || myForm.Name.$touched">
+                    <div ng-message="pattern">10 digit number is allowed only </div>
+                </div>
+            </md-input-container>
 
-        <md-input-container class="md-block">
-          <md-icon aria-label="email">email</md-icon>
-          <input name="emailId" ng-model="vm.coordinator.email" type="email" placeholder="Email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b" ng-required="true" />
-          <div ng-messages="myForm.emailId.$error" ng-show="myForm.emailId.$dirty || myForm.emailId.$touched">
-            <div ng-message="pattern">Format for email:- abc@xyz.com </div>
+            <md-input-container class="md-block">
+                <md-icon aria-label="email" md-colors="{color: 'red-400'}">email</md-icon>
+                <input name="emailId" ng-model="vm.coordinator.email" type="email" placeholder="Email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b"
+                    ng-required="true" />
+                <div ng-messages="myForm.emailId.$error" ng-show="myForm.emailId.$dirty || myForm.emailId.$touched">
+                    <div ng-message="pattern">Format for email:- abc@xyz.com </div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-icon md-colors="{color: 'green-700'}">https</md-icon>
+                <input name="password" type="password" id="password" ng-model="vm.coordinator.pwd" placeholder="Password" ng-required="true" minlength="5" />
+                <div ng-messages="myForm.password.$error" ng-show="myForm.password.$dirty || myForm.password.$touched">
+                    <div ng-message="required">Password is required.</div>
+                    <div ng-message="minlength">password must be more than 5 digits</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container layout="column"  >
+              <md-icon md-colors="{color: 'yellow-400'}">layers</md-icon>
+                <label>Profession</label>
+                <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
+                    <md-option ng-value="item" ng-repeat="item in vm.items | filter:searchTerm">{{item}}</md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container layout="column">
+              <md-icon md-colors="{color: 'blue-700'}">school</md-icon>
+                <label>Role</label>
+                <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
+                    <md-option ng-value="item" ng-repeat="item in vm.role | filter:searchTerm">{{item}}</md-option>
+                </md-select>
+            </md-input-container>
+
+            <div layout="row" layout-align="center" style="color:red;">
+                <p>{{vm.err}}</p>
             </div>
-        </md-input-container>
 
-        <md-input-container  class="md-block"  >
-          <md-icon>https</md-icon>
-          <input name="password" type="password" id="password" ng-model="vm.coordinator.pwd" placeholder="Password" ng-required="true" minlength="5" /> 
-          <div ng-messages="myForm.password.$error"  ng-show="myForm.password.$dirty || myForm.password.$touched">
-            <div ng-message="required">Password is required.</div>
-            <div ng-message="minlength">Password must be more than 5 digits</div>
-          </div>
-        </md-input-container>
+            <section layout="row" layout-padding="" layout-align="center">
+                <md-button type="submit" class="md-raised md-primary" ng-disabled="false">&nbspRegister&nbsp</md-button>
+            </section>
 
-        <md-input-container layout="column">
-          <label>Profession</label>
-          <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
-            <md-option ng-value="item" ng-repeat="item in vm.items | filter:searchTerm">{{item}}</md-option>
-          </md-select>
-        </md-input-container>
+        </form>
+        <div layout="row" layout-align="center">
+            Already a user:
+            <a ui-sref="index">Signin?</a>
+        </div>
+  </div>
+    <div>
+</center>
 
-        <md-input-container layout="column">
-          <label>Role</label>
-          <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
-            <md-option ng-value="vm.role">{{vm.role}}</md-option>
-          </md-select>
-        </md-input-container>
-
-       <!--  <p ng-repeat="(key,lan) in vm.selectedLanguage">
+        <!--  <p ng-repeat="(key,lan) in vm.selectedLanguage">
           <span layout="row" flex>
             <span flex="30">{{lan}}</span>
             <md-checkbox ng-model="vm.coordinator.language[lan].speak">Speak</md-checkbox>
             <md-checkbox ng-model="vm.coordinator.language[lan].read">Read</md-checkbox>
             <md-checkbox ng-model="vm.coordinator.language[lan].write">Write</md-checkbox>
           </span>
-        </p>    --> 
+        </p>    -->
         <!-- <div layout="row">
           <md-autocomplete
           md-selected-item="vm.lang"
@@ -92,65 +113,36 @@
             Click To Add More Languages
             <md-button class="md-fab md-mini" ng-click="vm.insertLang()">
               <md-icon>add</md-icon>
-            </md-button> 
+            </md-button>
           </div> -->
-          <div layout data-ng-repeat="iteration in vm.selectedLanguage">
+
+        <!-- <div layout ng-repeat="iteration in vm.selectedLanguage">
             <md-autocomplete
-            md-selected-item="vm.lang[iteration]"
+            ng-model="vm.coordinater.language[iteration]"
+            md-selected-item=""
             md-search-text-change=""
-            md-search-text="languageInputText"
+            md-search-text="vm.languageInputText[iteration]"
             md-selected-item-change=""
             md-items="item in vm.language | filter: languageInputText"
             md-item-text="item"
             md-min-length="0"
             md-menu-class="autocomplete-custom-template"
-            md-floating-label="Languages"
-            ng-required=true>
+            md-floating-label="Languages">
               <md-item-template>
                 <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item}}</span>
               </md-item-template>
             </md-autocomplete >
-            <div>
-              <p>
-                <md-checkbox ng-model="vm.tempLanguage[iteration].speak">Speak</md-checkbox>
-                <md-checkbox ng-model="vm.tempLanguage[iteration].read">Read</md-checkbox>
-                <md-checkbox ng-model="vm.tempLanguage[iteration].write">Write</md-checkbox>
-              </p>
+            <div><p>
+              <md-checkbox ng-model="vm.coordinater.language[iteration].speak">Speak</md-checkbox>
+              <md-checkbox ng-model="vm.coordinater.language[iteration].read">Read</md-checkbox>
+              <md-checkbox ng-model="vm.coordinater.language[iteration].write">Write</md-checkbox><p>
             </div>
           </div>
-          <div layout="row" layout-align="center" style="color:red;">
-            <p>{{vm.msg}}</p>
-          </div>
+
         <div layout>
           <span flex></span>
           <md-button  class="md-fab md-mini" ng-click="vm.insertLang()">
-            <md-tooltip>
-              Add a new language
-            </md-tooltip>
             <md-icon>add</md-icon>
           </md-button>
-          <md-button  class="md-fab md-mini" ng-click="vm.removeLang()">
-            <md-tooltip>
-              Remove a language
-            </md-tooltip>
-            <md-icon>remove</md-icon>
-          </md-button> 
         </div>
-        {{vm.coordinator || JSON}}
-        <!-- {{vm.coordinator || JSON}} -->
-       <!--  <div layout="row" layout-align="center" style="color:red;">
-          <p>{{vm.err}}</p>
-        </div> -->
-
-        <section layout="row" layout-padding="" layout-align="center">
-          <md-button type="submit" class="md-raised md-primary">&nbspRegister&nbsp</md-button>
-        </section>
-
-        </form>
-        <div layout="row" layout-align="center">
-        Already a user:
-      <a ui-sref="index">Signin?</a>
-      </div>
-    </md-content>
-  </div>
-</div
+        {{vm.coordinator || JSON}} -->
