@@ -1,4 +1,4 @@
-<div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding" flex-gt-sm flex-sm>
+<div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding"  flex-sm>
     <div ng-repeat="data in result | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-xs flex-gt-xs='50' flex-gt-sm='50' flex-gt-sm='50' >
     <job-card data="data"></job-card>
   </div>
@@ -13,14 +13,14 @@
         <span><md-tooltip>Title</md-tooltip><ng-md-icon icon="perm_identity" size="20"></span>
            {{item.title}}</h1>
         <p><span><md-tooltip>Role</md-tooltip><ng-md-icon icon="work" size="20"></span>
-           {{item.role}} 
+           {{item.role}}
         </p>
         <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Language </strong></span>
           {{item.language[0].name}}
           </p>
        <div layout-gt-md="row" layout-xs="column" layout-md="row" layout-sm="column" flex-xs="10">
          <p ><span><ng-md-icon icon="location_on" size="20"><md-tooltip>Location</md-tooltip></ng-md-icon>
-            <span>{{item.location}}</span></span> 
+            <span>{{item.location}}</span></span>
          </p>
          <p ><span><ng-md-icon icon="event_busy" size="20"><md-tooltip>Closing Date For the Job</md-tooltip>
                             </ng-md-icon>
@@ -30,7 +30,7 @@
             Job opennings
           </md-tooltip></ng-md-icon></span>
                 {{item.openings}}
-         </p>  
+         </p>
        </div>
        <p><span md-colors="{color:'primary'}" class="md-subhead"><strong>Skills</strong></span><br>
          <p>{{item.skills.name}}</p>
@@ -62,7 +62,7 @@
     </md-card>
   </div>
 </div> -->
- 
+
 <!-- <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding" layout-align="center center">
     <div ng-repeat="job in jobs | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" class="md-padding" flex-gt-sm="50" flex-sm="100">
         <job-card data='{"jobID":job.jobID,"employerID":job.employer.employerID}'>
@@ -96,7 +96,7 @@
             </md-menu>
         </job-card>
     </div>
- 
+
 </div>
 <div layout class="md-padding" flex>
     <div layout layout-align="start start" flex="50">
@@ -107,4 +107,3 @@
     </div>
 </div> -->
 <!-- <a ui-sref="index.jobSearch">Back To Job Search</a> -->
-
