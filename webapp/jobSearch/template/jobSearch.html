@@ -1,32 +1,11 @@
-<!-- <div layout="row" layout-align="center" layout-margin="" >
-  <input type="text" name="searchBox" md-focus ng-model="searchString"  placeholder="Search Jobs" class="md-block">
-	 <span>
-	  <md-button class="md-raised md-primary" aria-label="search" ng-click="searchfun(searchString)" >
-	  <md-icon>search</md-icon>
-	  </md-button>
-	</span>
-</div> 
-<job-search-result result ="result" layout="column"></job-search-result> -->
-<!--  <md-button class="md-raised md-primary" aria-label="search"  ui-sref="index.jobsearchresult({searchstr:'{{searchString}}'})">	<md-icon>search</md-icon>
+<!-- <job-search-result result ="result" layout="column"></job-search-result> -->
+ <!--  <md-button class="md-raised md-primary" aria-label="search"  ui-sref="index.jobsearchresult({searchstr:'{{searchString}}'})">	<md-icon>search</md-icon>
 	  </md-button> -->
-	  
-<div layout="row" layout-align="center" layout-margin="">
-    <input type="text" name="searchBox" size="30px" md-focus ng-model="searchText" class="md-block">
+<div layout="row" layout-align="center" layout-margin=""  >
+    <input type="text" name="searchBox" size="30px" layout-xs="size=24px;" md-focus ng-model="searchText" class="md-block">
     <md-button class="md-raised md-primary" ui-sref="index.jobSearch.results({searchText:searchText})" ng-click="searchJob(searchText)" >Find Jobs</md-button>
 </div>
 <div class="md-padding md-display-2" layout layout-align="center center" style="font-size:32;">
      {{message}}
 </div>
-<!-- <div class="md-padding md-display-2" layout layout-align="center center" style="font-size:32;">
-      <div ng-if="result.length==undefined">Search Jobs</div>
-      <div ng-if="result.length" > Showing {{result.length}} Results for Job Search </div>
-	   <div ng-if= "result.length==0">No results found..</div> 
-</div> -->
 <div ui-view="results"></div>
-
-
-        
-
-
-        
-

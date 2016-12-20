@@ -16,12 +16,13 @@ angular.module('samarth',
  'satellizer',
  'ngStorage',
  'simplePagination',
- 'samarth.jobSearch'
+ 'samarth.jobSearch',
+ 'samarth.candidatesearch',
+ 'samarth.jobProvider'
   ])
 
-	
   	.config(function($mdThemingProvider) {
 	    $mdThemingProvider.theme('default')
 	      .primaryPalette('blue')
-	      
+
 	  });
