@@ -7,15 +7,18 @@
 				'roleFact',
 				'submitFormFact',
 				'$state',
+				'$timeout',
 				function(languageFact,
 				professionFac,
 				roleFact,
 				submitFormFact,
-				$state)
+				$state,
+				$timeout)
 			{
 				let vm = this;
-				vm.selectedLanguage=[0];
+				vm.selectedLanguage = [0];
 				let lanIter = 0;
+				let arr=[];
 
 				function professionReq()
 				{
@@ -68,11 +71,11 @@
 						// }
 						// console.log("fgh");
 						// console.log(temps);
+						console.log(data.data);
 						vm.language = ["hindi","english","punjabi"];
 					});
 				}
 
-				var arr=[];
 				function clickSubmit(coordinator)
 				{
 					try
@@ -83,7 +86,9 @@
 						{ console.log("entered for loop");
 							if(vm.tempLanguage[lanIter].speak === false && vm.tempLanguage[lanIter].read === false && vm.tempLanguage[lanIter].write === false)
 							{
+								vm.hide=false;
 								vm.msg='Please fill the language details';
+								$timeout(function () { vm.hide = true; }, 3000);
 								break;
 							}
 							else
@@ -130,18 +135,24 @@
 							console.log(coordinator);
 							submitFormFact.submitForm(coordinator).then(function success(response)
 							{
-								console.log("successfully registered");
+								vm.hide=false; 
+								vm.msg="successfully registered";
+								$timeout(function () { vm.hide = true; }, 3000);
 								$state.go('index.home');
 							},
 							function error(error)
 							{
+								vm.hide=false; 
 								vm.msg = error.data.error;
+								$timeout(function () { vm.hide = true; }, 3000);
 							});
 						}
 					}
 					catch(e)
 					{
+						vm.hide=false; 
 						vm.msg="please fill all the details";
+						$timeout(function () { vm.hide = true; }, 3000);
 					}
 				};
 				// insert a language to the selected language
@@ -153,9 +164,10 @@
 
 				function removeLang()
 				{
-					if(lanIter>0)
+					if(lanIter >= 0)
 					lanIter--;
 					vm.selectedLanguage.pop();
+					console.log(lanIter);
 				};
 
 				professionReq();

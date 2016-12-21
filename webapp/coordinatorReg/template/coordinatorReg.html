@@ -1,6 +1,6 @@
 <div layout flex>
   <div class="md-no-momentum" layout="column" layout-padding="" layout-align="center center" flex>
-    <md-content class="md-no-momentum" md-whiteframe="6" layout-margin="" layout-align="center center">
+    <div class="md-no-momentum" md-whiteframe="6" layout-margin="" layout-align="center center">
       <h1>Coordinator Registration</h1><br>
       <form name="myForm" ng-submit="vm.clickSubmit(vm.coordinator)">
         <md-input-container class="md-block">
@@ -118,7 +118,7 @@
               </p>
             </div>
           </div>
-          <div layout="row" layout-align="center" style="color:red;">
+          <div layout="row" layout-align="center" ng-hide="vm.hide" style="color:red;">
             <p>{{vm.msg}}</p>
           </div>
         <div layout>
@@ -151,6 +151,6 @@
         Already a user:
       <a ui-sref="index">Signin?</a>
       </div>
-    </md-content>
+    </div>
   </div>
 </div
