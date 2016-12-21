@@ -10,8 +10,8 @@ angular
             url:'/jobsearch/:circleName?/:circleDomain?',
             views: {
               "content@": {
-                  templateUrl: './jobSearch/template/jobSearch.html',
-                  controller: 'jobSearchCtrl'
+                templateUrl: './jobSearch/template/jobSearch.html',
+                controller: 'jobSearchCtrl'
                }
             },
             resolve: {
@@ -27,11 +27,11 @@ angular
             url: '/jobslist/:searchText?',
               views: {
                 "results": {
-                    templateUrl: './jobSearch/template/jobSearchResult.html',
-                    /*controller: 'jobSearchCtrl'*/
+                   templateUrl: './jobSearch/template/jobSearchResult.html',
+                   controller: 'jobSearchCtrl'
                   }
               },
-            })
+           })
         }
     ]);
-  })();
+})();
