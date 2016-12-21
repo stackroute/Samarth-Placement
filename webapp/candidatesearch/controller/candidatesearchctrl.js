@@ -41,6 +41,25 @@ angular.module('samarth.candidatesearch')
                     })
             }
 
+            console.log($stateParams.circleName);
+            if($stateParams.circleName !== null)
+            {
+                function s(text) {
+
+                //var arr = text.split(/[ ,]+/);
+                // if($stateParams.circleName && $stateParams.circleDomain){
+                //  arr.push($stateParams.circleName);  
+                // }
+                parseservice.parsetext(text).then(function(results) {
+                    $scope.results = results;
+                    $scope.pagination.numPages = Math.ceil(results.length / $scope.pagination.perPage);
+                }, function err(err) {
+                    $scope.message = err;
+                });
+            }
+            $state.go('index.candidatesearch.results');
+            s($stateParams.circleName);
+            }
 
             $scope.search = function(text) {
 

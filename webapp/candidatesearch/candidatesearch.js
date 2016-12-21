@@ -6,6 +6,10 @@ angular
       $stateProvider
       .state('index.candidatesearch', {
         url: 'candidatessearch/:circleDomain?circleName',
+        params:{
+          circleName:null,
+          circleDomain:null
+        },
         views: {
           "content@": {
             templateUrl: 'candidatesearch/templates/candidatesearchhome.html',
