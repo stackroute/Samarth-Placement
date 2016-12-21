@@ -23,6 +23,9 @@ angular
       })
       .state('index.candidatesearch.results', {
         url: 'searchlist',
+        params:{
+            jobname:null
+        },
         views: {
           'results': {
             templateUrl: 'candidatesearch/templates/candidatesearchresults.html',
