@@ -36,7 +36,7 @@
 
         <md-input-container  class="md-block"  >
           <md-icon>https</md-icon>
-          <input name="password" type="password" id="password" ng-model="vm.coordinator.pwd" placeholder="Password" ng-required="true" minlength="5" /> 
+          <input name="password" type="password" id="password" ng-model="vm.coordinator.pwd" placeholder="Password" ng-required="true" minlength="5" />
           <div ng-messages="myForm.password.$error"  ng-show="myForm.password.$dirty || myForm.password.$touched">
             <div ng-message="required">Password is required.</div>
             <div ng-message="minlength">Password must be more than 5 digits</div>
@@ -64,7 +64,7 @@
             <md-checkbox ng-model="vm.coordinator.language[lan].read">Read</md-checkbox>
             <md-checkbox ng-model="vm.coordinator.language[lan].write">Write</md-checkbox>
           </span>
-        </p>    --> 
+        </p>    -->
         <!-- <div layout="row">
           <md-autocomplete
           md-selected-item="vm.lang"
@@ -92,7 +92,7 @@
             Click To Add More Languages
             <md-button class="md-fab md-mini" ng-click="vm.insertLang()">
               <md-icon>add</md-icon>
-            </md-button> 
+            </md-button>
           </div> -->
           <div layout data-ng-repeat="iteration in vm.selectedLanguage">
             <md-autocomplete
@@ -134,7 +134,7 @@
               Remove a language
             </md-tooltip>
             <md-icon>remove</md-icon>
-          </md-button> 
+          </md-button>
         </div>
         <!-- {{vm.coordinator || JSON}} -->
        <!--  <div layout="row" layout-align="center" style="color:red;">

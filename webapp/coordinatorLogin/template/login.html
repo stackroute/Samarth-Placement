@@ -1,6 +1,8 @@
 <!-- <div layout="column">
   <md-toolbar layout-align="center center">S A M A R T H</md-toolbar>
   </div> -->
+
+  <div >
 <div layout= "row"  layout-align="center center " layout-padding   ng-cloak  flex>
  <md-content  md-whiteframe="6"  layout-margin="" flex="35">
 
@@ -19,13 +21,13 @@
       <div ng-message="pattern"> Enter correct pattern</div>
     </div>
 
-  </md-input-container> 
+  </md-input-container>
 
   <md-input-container  class="md-block"  >
    <md-icon>https</md-icon>
 
 
-   <input name="password" type="password" id="password" ng-model="vm.user.pwd" placeholder="Password" ng-required="true" minlength="5"> 
+   <input name="password" type="password" id="password" ng-model="vm.user.pwd" placeholder="Password" ng-required="true" minlength="5">
    <div ng-messages="myForm.password.$error"  ng-show="myForm.password.$dirty || myForm.password.$touched">
     <div ng-message="required">Password is required.</div>
     <div ng-message="minlength">password must be more than 5 digits</div>
@@ -38,9 +40,9 @@
   <p >{{vm.err}}</p>
 </div>
 <div layout="row" layout-align="center" >
- <md-button type="submit"  ng-click="vm.login()"  class="md-raised md-primary" > Sign in </md-button> 
- 
-   <!-- <a ui-sref=".list" class="btn btn-primary">List</a> 
+ <md-button type="submit"  ng-click="vm.login()"  class="md-raised md-primary" > Sign in </md-button>
+
+   <!-- <a ui-sref=".list" class="btn btn-primary">List</a>
    <a ui-sref="home" type="submit" class="btn btn-primary" > Sign in </a>  -->
  </div>
  <div layout="row" layout-padding layout-align="center">
@@ -55,5 +57,5 @@
 </md-content>
 
 </div>
-
-
+</body>
+</html>
