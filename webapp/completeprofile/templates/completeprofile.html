@@ -1,0 +1,49 @@
+<div layout="row" layout-wrap>
+    <div flex="80" layout-padding>
+        <div class="md-display-2">{{candidatename}}</div>
+        <div class="md-padding">
+            <div class="md-title">{{profession}}</div>
+        </div>
+    </div>
+    <div layout="row" flex="20" class="md-padding">
+        <verification-badge candidateid="id">
+        </verification-badge>
+    </div>
+</div>
+<div layout="row" layout-xs="column">
+    <md-link hide-sm hide-xs class=" md-no-ink fulllink " style="color:green;margin-left: 80% " ng-click="showDialog(ev) ">Verification Details</md-link>
+    <md-link hide-gt-sm class=" md-no-ink fulllink" style="color:green;margin-left: 30% "  ng-click="showDialog(ev) ">Verification Details</md-link>
+</div>
+<div layout="row" layout-xs="column " layout-sm="column " class="md-padding" layout-wrap layout-align="center center">
+
+<my-skillcard candidateid="id " flex="75">
+            <cardactions></cardactions>
+            <badges></badges>
+        </my-skillcard>
+
+    <my-personalinfocard candidateid="id " flex="75">
+        <verify>
+            <md-button style=" color:green " ng-click="showAdvanced($event, 'Personal_Information') ">Verify</md-button>
+        </verify>
+    </my-personalinfocard>
+    <mysection-skill-card candidateid="id " flex="75">
+        <verify>
+            <md-button style="color:green " ng-click="showAdvanced($event, 'Skills') ">Verify</md-button>
+            </verify>
+    </mysection-skill-card>
+    <my-educationcard candidateid="id " flex="75">
+        <verify>
+            <md-button style="color:green " ng-click="showAdvanced($event, 'Qualification') ">Verify</md-button>
+        </verify>
+    </my-educationcard>
+    <my-projectsectioncard candidateid="id " flex="75">
+        <verify>
+            <md-button style="color:green " ng-click="showAdvanced($event, 'Project') ">Verify</md-button>
+        </verify>
+    </my-projectsectioncard>
+    <my-workexperiencecard candidateid="id " flex="75">
+        <verify>
+            <md-button style="color:green " ng-click="showAdvanced($event, 'Work_History') ">Verify</md-button>
+        </verify>
+    </my-workexperiencecard>
+</div>

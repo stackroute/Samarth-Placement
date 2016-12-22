@@ -8,12 +8,14 @@
 				'submitFormFact',
 				'$state',
 				'$timeout',
+				'$mdDialog',
 				function(languageFact,
 				professionFac,
 				roleFact,
 				submitFormFact,
 				$state,
-				$timeout)
+				$timeout,
+				$mdDialog)
 			{
 				let vm = this;
 				vm.selectedLanguage = [0];
@@ -135,10 +137,11 @@
 							console.log(coordinator);
 							submitFormFact.submitForm(coordinator).then(function success(response)
 							{
+								console.log("submitted successfully");
 								vm.hide=false; 
 								vm.msg="successfully registered";
 								$timeout(function () { vm.hide = true; }, 3000);
-								$state.go('index.home');
+								vm.showAlert();
 							},
 							function error(error)
 							{
@@ -169,6 +172,24 @@
 					vm.selectedLanguage.pop();
 					console.log(lanIter);
 				};
+
+				vm.showAlert = function(ev) 
+		    {
+		      // Appending dialog to document.body to cover sidenav in docs app
+		      // Modal dialogs should fully cover application
+		      // to prevent interaction outside of dialog
+		      $mdDialog.show(
+		        $mdDialog.alert()
+		        .parent(angular.element(document.querySelector('#popupContainer')))
+		        .clickOutsideToClose(true)
+		        // .title('Message')
+		        .textContent('Coordinator successfully registered')
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Got it!')
+		        .targetEvent(ev)
+		      );
+		      $state.go('index.home');
+		    };
 
 				professionReq();
 				languagesFact();
