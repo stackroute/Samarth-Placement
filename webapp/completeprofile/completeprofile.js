@@ -2,7 +2,7 @@ angular.module('samarth.completeprofile',[])
     .config(['$stateProvider', '$urlRouterProvider',
         function($stateProvider, $urlRouterProvider, $stateParams) {
             $stateProvider
-                .state('verifyprofile', {
+                .state('index.verifyprofile', {
                     url: '/verifyprofile/:candidateid',
                     views: {
                         // "appbar": {

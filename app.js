@@ -13,6 +13,8 @@ let navItems = require('./webserver/navbar/navigateRouter.js');
 let authRoutes = require('./webserver/auth/authrouter');
 let authByToken = require('./webserver/auth/authbytoken');
   
+let resourcebundle = require('./webserver/resourcebundle/resourcebundlerouter.js');
+  
 function createApp() {
   const app = express();
   return app;
@@ -60,11 +62,10 @@ function setupRestRoutes(app) {
   app.onAppStart = function(addr) {
   console.error('Samarth-Placement web app is now Running on port:', addr.port);
   };
-
   app.use('/', authRoutes);
   app.use('/', navItems);
+  app.use('/resource', resourcebundle);
   app.use('/', function(req, res) {
-
     let options = {
       target: {
         host: 'localhost',

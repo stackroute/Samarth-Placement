@@ -3,6 +3,7 @@ const logger = require('./../../applogger');
 let bodyParser = require('body-parser');
 let apiRoutes = require('express').Router();
 let jsonBodyParser = bodyParser.json();
+let coordinatorprocessor = require('./coordinatorprocessor');
 let urlEncodedParser = bodyParser.urlencoded({
     extended: false
 });
@@ -46,6 +47,18 @@ apiRoutes.post('/signin', jsonBodyParser, urlEncodedParser, function(req, res) {
         });
     }
 }); 
+
+apiRoutes.post('/insertdata', jsonBodyParser, urlEncodedParser, function(req, res) {    coordinatorprocessor.insertCoordinator(req.body,
+                   function(err, user) {
+                       if (err) {
+                           // return res.status(500).json({
+                           error: 'Internal error in processing request, please retry later..!';
+                       }                        return res.status(200).json(user);
+                   },
+                   function(err) {
+                       return res.status(403).json(err);
+                   }); // insertCoordinator ends
+});
 
 module.exports = apiRoutes;
 
