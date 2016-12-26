@@ -7,7 +7,12 @@ angular.module('samarth.completeprofile')
         // console.log($scope.id);
 
         //get the verification status from the api.
-
+        // let lang="sectionEnglish";
+        // candidateprofileservice.getResourceBundle(lang).then(function(response){
+        //     $scope.langResourceBundle = response.data;
+        // },function(err){
+        //     console.log(err);
+        // });
 
         candidateprofileservice.getverificationdata($scope.id)
             .then(function(response) {

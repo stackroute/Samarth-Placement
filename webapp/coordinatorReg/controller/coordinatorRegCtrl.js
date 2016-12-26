@@ -6,6 +6,7 @@
 				'professionFac',
 				'roleFact',
 				'submitFormFact',
+				'authDataFac',
 				'$state',
 				'$timeout',
 				'$mdDialog',
@@ -13,6 +14,7 @@
 				professionFac,
 				roleFact,
 				submitFormFact,
+				authDataFac,
 				$state,
 				$timeout,
 				$mdDialog)
@@ -135,20 +137,27 @@
 							}
 							coordinator.language=arr;
 							console.log(coordinator);
-							submitFormFact.submitForm(coordinator).then(function success(response)
-							{
-								console.log("submitted successfully");
-								vm.hide=false; 
-								vm.msg="successfully registered";
-								$timeout(function () { vm.hide = true; }, 3000);
-								vm.showAlert();
+							authDataFac.authDataReq(coordinator).then(function success(response)
+            	{
+								submitFormFact.submitForm(coordinator).then(function success(response)
+								{
+									console.log("submitted successfully");
+									vm.hide=false; 
+									vm.msg="successfully registered";
+									$timeout(function () { vm.hide = true; }, 3000);
+									vm.showAlert();
+								},
+								function error(error)
+								{
+									vm.hide=false; 
+									vm.msg = error.data.error;
+									$timeout(function () { vm.hide = true; }, 3000);
+								});
 							},
 							function error(error)
-							{
-								vm.hide=false; 
-								vm.msg = error.data.error;
-								$timeout(function () { vm.hide = true; }, 3000);
-							});
+                    {
+                        vm.msg = error.data.error;
+                    });
 						}
 					}
 					catch(e)
