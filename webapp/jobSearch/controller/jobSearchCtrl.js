@@ -24,7 +24,7 @@ angular.module('samarth.jobSearch')
              profs+=response.data[i].name+"-";
            }
             console.log("circles arrray "+profs);
-         }, 
+         },
          function(err) {
             console.log("circles array "+err);
          });
@@ -41,7 +41,8 @@ angular.module('samarth.jobSearch')
                 $scope.pagination.numPages = Math.ceil(response.data.length / $scope.pagination.perPage);
                 $scope.message = "";
                 if (response.data.length == 0) {
-                  $scope.message = "No Result Found ! Enter Text to Get Jobs";
+                  $scope.message = "No Result Found for "+" "+"'"+ searchText+"'"+" "+"! Try more general keywords. ";
+
                 }
                 else{
                   $scope.message="Showing " + response.data.length + " Results for Job Search";
