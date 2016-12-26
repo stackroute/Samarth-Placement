@@ -1,9 +1,13 @@
  <!--form for the candidate starts-->
- <div layout="column" layout-align="center center" >
-    <p calss=".md-subhead" align="center">Candidate Registration</p>
-   <div class="md-no-momentum" md-whiteframe="6" layout-margin >
-     <form name="candidateForm" ng-submit="vm.formSubmit()">
+   <div layout="row" layout-align="center center"  layout-margin layout-padding >
+
+     <form name="candidateForm" ng-submit="vm.formSubmit()"  flex-sm="66" flex-md="66"  class="md-whiteframe-4dp">
+
+
       <!--name field-->
+      <div layout="row" layout-align="center center">
+                  <h3 md-title md-colors="{color: 'blue-A700'}">JOB PROVIDER</h3>
+              </div>
       <md-input-container class="md-block">
         <label>Name</label>
         <md-icon aria-label="person">person</md-icon>
@@ -124,7 +128,7 @@
 <span flex></span>
 <md-button  class="md-fab md-mini" ng-click="vm.insertLang()">
   <md-icon>add</md-icon>
-</md-button> 
+</md-button>
 </div>
 </div>
 <section layout layout-padding="" layout-align="center center">
