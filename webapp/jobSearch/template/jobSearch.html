@@ -1,13 +1,17 @@
-<!-- <job-search-result result ="result" layout="column"></job-search-result> -->
- <!--  <md-button class="md-raised md-primary" aria-label="search"  ui-sref="index.jobsearchresult({searchstr:'{{searchString}}'})">	<md-icon>search</md-icon>
-	  </md-button> -->
-<div layout="row" layout-align="center" layout-margin="">
-  <div layout="row" class="md-whiteframe-5dp" layout-padding  md-colors="{background: 'blue-700'}">
+<div layout="column" layout-gt-xs="row" layout-align="center" layout-margin="">
+  <div layout="row" class="md-whiteframe-2dp" layout-padding  md-colors="{background: 'blue-700'}">
     <input type="text" name="searchBox" size="70px" layout-xs="size=24px;" md-focus ng-model="searchText" class="md-block" placeholder="Search Jobs">
-    <md-button class="md-raised md-primary" ui-sref="index.jobSearch.results({searchText:searchText})" >Search</md-button>
+    <md-button class="md-raised md-primary" ui-sref="index.jobSearch.results({searchText:searchText})">Search</md-button>
+ </div>
 </div>
-</div>
-<div class="md-padding md-display-2" layout layout-align="center center" style="font-size:32;">
-     {{message}}
-</div>
+<!--  //<div class="md-padding md-display-2" layout layout-align="center center" style="font-size:26;">{{message}}</div>-->
 <div ui-view="results"></div>
+
+
+<!-- <div layout="column" layout-gt-xs="row" layout-align="center" layout-margin="" >
+    <input type="text" name="searchBox" size="70px" layout-xs="size=20px;" md-focus ng-model="searchText" class="md-block">
+    
+    <md-button class="md-raised md-primary" ui-sref="index.jobSearch.results({searchText:searchText})"><md-icon> search </md-icon>Find Jobs </md-button>
+</div>
+<div ui-view="results"></div> -->
+
