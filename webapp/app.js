@@ -18,7 +18,8 @@ angular.module('samarth',
  'ngStorage',
  'simplePagination',
  'samarth.jobSearch',
- 'samarth.jobProvider'
+ 'samarth.jobProvider',
+ 'samarth.placementProcess'
   ])
 
   	.config(function($mdThemingProvider) {
