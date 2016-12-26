@@ -3,18 +3,21 @@
     <!-- <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-sm="50" flex-sm="100"> -->
 
     <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">
-        <my-skillcard candidateid="x.candidateid" picsize="small" contentsize="small">
+        <my-skillcard candidateid="x.candidates" picsize="small" contentsize="small">
             <!-- {{$candidateid||json}} -->
             <badges>
-                <verification-badge candidateid="x.candidateid">
+                <verification-badge candidateid="x.candidates">
                 </verification-badge>
             </badges>
             <buttons>
-                <md-button ui-sref="verifyprofile({candidateid:x.candidateid})" class="md-raised md-primary">
-                        view Details
+                <md-button ui-sref="verifyprofile({candidateid:x.candidates})">
+                        View profile
                 </md-button>
-                <md-button class="md-raised md-primary" ui-sref="index.jobPlacement({profession:prof,candidateid:x.candidateid})">
-                        Suggest
+                <md-button ui-sref="" class="md-raised md-primary">
+                        Accept
+                </md-button>
+                <md-button class="md-raised md-primary" ui-sref="">
+                        Reject
                 </md-button>
             </buttons>
             <cardactions>
@@ -24,8 +27,14 @@
                     </md-button>
                     <md-menu-content width="4">
                         <md-menu-item>
-                            <md-button ui-sref="verifyprofile({candidateid:x.candidateid})">
+                            <md-button ui-sref="verifyprofile({candidateid:x.candidates})">
                                 View profile
+                            </md-button>
+                            <md-button >
+                                Accept
+                            </md-button>
+                            <md-button >
+                                Reject
                             </md-button>
                         </md-menu-item>
                         <md-menu-item>

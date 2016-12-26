@@ -26,7 +26,8 @@
 			.state("index.candidatePlacement",{
 				url:"/candidatePlacement/:profession?",
 				params:{
-					profession:null
+					profession:null,
+					jobcode:null
 				},
 				views: {
 					'content@': {
@@ -39,7 +40,8 @@
 			.state("index.jobPlacement",{
 				url:"/jobPlacement/:profession",
 				params:{
-					profession:null
+					profession:null,
+					candidateid:null
 				},
 				views: {
 					'content@': {
@@ -57,6 +59,30 @@
 					'content@': {
 						templateUrl:'./placementProcess/template/candidate.html',
 						controller:"candidatePlacementCtrl"
+					}
+				}
+			})
+			.state("index.appliedCandidate",{
+				url:"/appliedCandidate/",
+				params:{
+					jobcode:null
+				},
+				views: {
+					'content@': {
+						templateUrl:'./placementProcess/template/appliedCandidate.html',
+						controller:"appliedCandidateCtrl"
+					}
+				}
+			})
+			.state("index.appliedJob",{
+				url:"/appliedJob/",
+				params:{
+					
+				},
+				views: {
+					'content@': {
+						templateUrl:'./placementProcess/template/appliedJob.html',
+						controller:""
 					}
 				}
 			})
