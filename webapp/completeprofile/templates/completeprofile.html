@@ -15,12 +15,16 @@
     <md-link hide-gt-sm class=" md-no-ink fulllink" style="color:green;margin-left: 30% "  ng-click="showDialog(ev) ">Verification Details</md-link>
 </div>
 <div layout="row" layout-xs="column " layout-sm="column " class="md-padding" layout-wrap layout-align="center center">
-
-<my-skillcard candidateid="id " flex="75">
-            <cardactions></cardactions>
-            <badges></badges>
+<my-skillcard candidateid="id" flex="75">
+            <badges>
+            </badges>
             <buttons>
             </buttons>
+            <cardactions>
+                <md-button ui-sref="">
+                        Applied Jobs
+                </md-button>
+            </cardactions>
         </my-skillcard>
 
     <my-personalinfocard candidateid="id " flex="75">

@@ -5,7 +5,7 @@
       <buttons>
         <md-button class="md-raised md-primary" aria-label="view Details" ui-sref="index.jobPost({'key':1,'key1':data.jb})">View Details </md-button>
         <span>
-        <md-button class="md-raised md-primary" aria-label="applyJobs">Apply</md-button></span>
+        <md-button class="md-raised md-primary" aria-label="applyJobs" ng-click="apply(data.jb.jobcode)">Apply</md-button></span>
       </buttons>
     </job-card>
    </div>
