@@ -1,40 +1,43 @@
-angular.module('samarth.completeprofile',[])
-    .config(['$stateProvider', '$urlRouterProvider',
-        function($stateProvider, $urlRouterProvider, $stateParams) {
-            $stateProvider
-                .state('index.verifyprofile', {
-                    url: '/verifyprofile/:candidateid',
-                    views: {
-                        // "appbar": {
-                        //     templateUrl: 'home/templates/appbar.html',
-                        //     controller: 'appbarctrl'
-                        // },
-                        "content@": {
-                            templateUrl: 'completeprofile/templates/completeprofile.html',
-                            controller: 'completeprofileCtrl'
-                        }
-                        // "footer": {
-                        //     templateUrl: 'home/templates/footer.html',
-                        // }
-                    }
-                })
-                .state('back', {
-                    url: '/viewprofile',
-                    views: {
-                        // "appbar": {
-                        //     templateUrl: 'home/templates/appbar.html',
-                        //     controller: 'appbarctrl'
-                        // },
-                        "content@": {
-                            templateUrl: '../candidatesearch/templates/candidatesearchhome.html',
-                            controller: 'candidatesearchctrl'
-                        },
+angular
+.module('samarth.completeprofile',[])
+.config(config);
+ 
+function config($stateProvider) {
+  let loginRequired = ['$q','$location', '$auth', function($q, $location, $auth) {
+  let deferred = $q.defer();
+  if ($auth.isAuthenticated()) {
+    deferred.resolve();
+  }
+  else {
+    $location.path('/home');
+  }
+  return deferred.promise;
+  }];
 
-                        // "footer": {
-                        //     templateUrl: 'home/templates/footer.html',
-                        // }
-                    }
-                });
-
+  $stateProvider
+  .state('index.verifyprofile', {
+    url: '/verifyprofile/:candidateid',
+    views: {
+      "content@": {
+        templateUrl: 'completeprofile/templates/completeprofile.html',
+        controller: 'completeprofileCtrl',
+        resolve: {
+          loginRequired: loginRequired
         }
-    ]);
+      }
+    }
+  })
+  .state('back', {
+    url: '/viewprofile',
+    views: {
+      "content@": {
+        templateUrl: '../candidatesearch/templates/candidatesearchhome.html',
+        controller: 'candidatesearchctrl',
+        resolve: {
+          loginRequired: loginRequired
+        }
+      },
+    }
+  });
+
+}

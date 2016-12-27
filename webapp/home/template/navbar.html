@@ -30,12 +30,27 @@
       </md-button>
 
          SAMARTH-PLACEMENT
+         <span flex></span>
 
-      <div layout="row"  flex="" class="layout-align-end-center flex">
-       <div class="md-button" ng-click="vm.logout()" ng-show="logout"><span class="ng-scope">
-       <md-icon class="material-icons">exit_to_app</md-icon>
-  <strong>Logout</strong></span></div>
+      <div>
+       <!-- <div class="md-button" ng-click="vm.logout()" ng-show="logout"><span class="ng-scope"> -->
+                  <md-menu layout="row">
+                    <md-button aria-label="open" ng-click=openMenu($mdOpenMenu,$event) layout="row">
+                        <md-icon class="material-icons">supervisor_account</md-icon>&nbsp;&nbsp;&nbsp;&nbsp;{{message | uppercase}}
+                    </md-button>
+                    <md-menu-content width="3">
+                        <md-menu-item>
+                            <md-button ng-click="vm.logout()">
+                             <md-icon>exit_to_app</md-icon>  Logout
+                            </md-button>
+                        </md-menu-item>
+                        </md-menu-content>
+                        </md-menu>
+       
+ 
       </div>
       </div>
   </md-toolbar>
   </div>
+
+ 

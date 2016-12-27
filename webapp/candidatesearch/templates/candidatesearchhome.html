@@ -1,8 +1,8 @@
 <div layout="column" md-padding layout-align="center center">
 	<div layout-align = "center " layout-margin>
-		<div layout="row" class="md-whiteframe-5dp" layout-padding  md-colors="{background: 'blue-700'}">
+		<div layout="row" class="md-whiteframe-5dp" layout-padding  md-colors="{background: 'grey-400'}">
 		<input name='search' type='text' size='80' ng-model="searchtext"  placeholder="Search Candidate">
-		<md-button class="md-primary md-raised" ui-sref="index.candidatesearch.results" ng-click="search(searchtext)" aria-label="search">search</md-button>
+		<md-button class="md-primary md-raised" ui-sref="index.candidatesearch.results" ng-click="search(searchtext)" aria-label="search"><md-icon>search</md-icon></md-button>
 </div>
 	</div>
 	<div ng-if="results.length==null">Search candidates</div>
