@@ -13,13 +13,70 @@ angular
    }
    return obj;
 }])
-  .factory("candidatePlacementFactory", ['$http',function($http) {
+  .factory("applyFactory", ['$http',function($http) {
    var obj = {};
-   obj.searchCandidates = function(profs){
-        console.log("it is calling the searchJobs")
+   obj.applyJob = function(cid,jobcode){
+        console.log("it is calling the applyJobs")
+       return $http({
+       method : 'POST',
+       url : '/placementprocess/apply/',
+       data:{
+        candidateid:cid,
+        jobcode:jobcode
+       }
+       })
+   }
+   return obj;
+}])
+  .factory("appliedCandidateFactory", ['$http',function($http) {
+   var obj = {};
+   obj.appliedCandidates = function(jobcode){
+        console.log("it is calling the appliedCandidates")
        return $http({
        method : 'GET',
-       url : ''+profs
+       url : 'placementprocess/appliedCandidates/'+jobcode
+       })
+   }
+   return obj;
+}])
+
+  .factory("appliedJobFactory", ['$http',function($http) {
+   var obj = {};
+   obj.appliedJobs = function(candidateid){
+        console.log("it is calling the appliedjobs")
+       return $http({
+       method : 'GET',
+       url : 'placementprocess/appliedJobs/'+candidateid
+       })
+   }
+   return obj;
+}])
+  .factory("acceptFactory", ['$http',function($http) {
+   var obj = {};
+   obj.accept = function(cid,jobcode){
+        console.log("it is calling the acceptjobs"+jobcode+cid)
+       return $http({
+       method : 'POST',
+       url : '/placementprocess/offer',
+       data:{
+        candidateid:cid,
+        jobcode:jobcode
+       }
+       })
+   }
+   return obj;
+}])
+  .factory("rejectFactory", ['$http',function($http) {
+   var obj = {};
+   obj.reject = function(cid,jobcode){
+        console.log("it is calling the appliedjobs")
+       return $http({
+       method : 'POST',
+       url : '/placementprocess/reject',
+       data:{
+        candidateid:cid,
+        jobcode:jobcode
+       }
        })
    }
    return obj;

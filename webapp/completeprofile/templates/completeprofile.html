@@ -15,12 +15,22 @@
     <md-link hide-gt-sm class=" md-no-ink fulllink" style="color:green;margin-left: 30% "  ng-click="showDialog(ev) ">Verification Details</md-link>
 </div>
 <div layout="row" layout-xs="column " layout-sm="column " class="md-padding" layout-wrap layout-align="center center">
-
-<my-skillcard candidateid="id " flex="75">
-            <cardactions></cardactions>
-            <badges></badges>
+<my-skillcard candidateid="id" flex="75">
+            <badges>
+            </badges>
             <buttons>
+                <md-button ui-sref="index.verifyprofile({candidateid:x.candidateid})" class="md-raised md-primary">
+                        View Details
+                </md-button>
+                <md-button class="md-raised md-primary" ui-sref="index.jobPlacement({profession:prof,candidateid:x.candidateid})">
+                        Suggest
+                </md-button>
             </buttons>
+            <cardactions>
+                <md-button class="md-raised md-primary" ui-sref="index.appliedJob({candidateid:id})">
+                        Applied Jobs
+                </md-button>
+            </cardactions>
         </my-skillcard>
 
     <my-personalinfocard candidateid="id " flex="75" languagedata="langResourceBundle">

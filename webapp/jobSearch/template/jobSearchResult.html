@@ -1,11 +1,13 @@
-<div layout-gt-sm="row" layout-sm="column" layout="column" layout-align="center center" layout-wrap class="md-padding" flex-gt-sm flex-sm>
-    <div ng-repeat="data in result | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-xs flex-gt-xs='50' flex-gt-sm='30' flex-gt-md='30' >
+<div class="md-padding md-display-2" layout layout-align="center center" style="font-size:24px;">{{message}}</div>     
+<div layout-gt-sm="row" layout-sm="column" layout="column" layout-align="center center" layout-wrap class="md-padding" flex-gt-sm flex-sm flex-xs>
+  
+    <div ng-repeat="data in result | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-xs flex-sm='50' flex-gt-sm='30' flex-gt-md='30' >
 
     <job-card data="data">
        <buttons>
         <md-button class="md-raised md-primary" aria-label="view Details" ui-sref="index.jobPost({'key':1,'key1':data.jb})">View Details </md-button>
         <span>
-        <md-button class="md-raised md-primary" aria-label="applyJobs" ui-sref="index.candidatePlacement">Suggest</md-button></span>
+        <md-button class="md-raised md-primary" aria-label="applyJobs" ui-sref="index.candidatePlacement({profession:'Retail',jobcode:data.jb.jobcode})">Suggest</md-button></span>
       </buttons>
     </job-card>
    </div>
