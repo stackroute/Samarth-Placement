@@ -1,10 +1,13 @@
+<div layout="row" layout-xs="column" md-colors="{background: 'indigo-100'}" layout-align="center center" class=" md-display-2" style="font-size:20;">
+ Showing {{result.length}} Jobs for  {{result[0].jb.profession[0]}}
+</div>
 <div layout-gt-sm="row" layout-sm="column" layout="column" layout-align="center center" layout-wrap class="md-padding" flex-gt-sm flex-sm>
     <div ng-repeat="data in result | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-xs flex-gt-xs='50' flex-gt-sm='30' flex-gt-md='30' >
 
     <job-card data="data">
       <buttons>
         <md-button aria-label="view Details" ui-sref="index.jobPost({'key':1,'key1':data.jb})">
-          <md-icon class="material-icons">contacts</md-icon>view
+          <md-icon class="material-icons">contacts</md-icon>
         </md-button>
         <md-button aria-label="applyJobs" ui-sref="index.candidatePlacement({profession:data.jb.profession[0],jobcode:data.jb.jobcode})">
           <md-icon class="material-icons">call_made</md-icon>

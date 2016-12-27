@@ -3,7 +3,6 @@
   angular
   .module('samarth.jobSearch',[])
   .config(config);
-
   function config($stateProvider) {
     let loginRequired = ['$q','$location', '$auth', function($q, $location, $auth) {
       let deferred = $q.defer();
@@ -25,6 +24,7 @@
           resolve: {
             loginRequired: loginRequired
           }
+
         }
       }
     })
@@ -96,6 +96,3 @@
 //         });
 //     }
 // })();
-
-
-
