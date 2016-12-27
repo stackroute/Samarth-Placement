@@ -8,33 +8,28 @@
 },
 {
 	"icon":"search",
-	"navTitle":"Candidate Search",
+	"navTitle":"Candidate search",
 	"traverse":"index.candidatesearch"
 },
 {
 	"icon":"person_add",
-	"navTitle":"Candidate Register",
+	"navTitle":"Candidate register",
 	"traverse":"index.candidateReg"
 },
 {
 	"icon":"add box",
-	"navTitle":"Job Post",
+	"navTitle":"Job post",
 	"traverse":"index.jobPost"
 },
 {
 	"icon":"youtube_searched_for_black",
-	"navTitle":"Job Search",
+	"navTitle":"Job search",
 	"traverse":"index.jobSearch"
-},
-{
-	"icon":"person_pin",
-	"navTitle":"JobProvider Registration",
-	"traverse":"index.empreg"
 },
 
 {
 	"icon":"person_pin",
-	"navTitle":"JobProvider",
+	"navTitle":"Jobprovider",
 	"traverse":"index.emp"
 }
 ]
