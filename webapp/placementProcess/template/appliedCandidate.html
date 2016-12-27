@@ -10,13 +10,13 @@
                 </verification-badge>
             </badges>
             <buttons>
-                <md-button ui-sref="verifyprofile({candidateid:x.candidates})">
+                <md-button class="md-raised md-primary" ui-sref="index.verifyprofile({candidateid:x.candidates})">
                         View profile
                 </md-button>
-                <md-button ui-sref="" class="md-raised md-primary">
+                <md-button class="md-raised md-primary" ng-click="accept(x.candidates)">
                         Accept
                 </md-button>
-                <md-button class="md-raised md-primary" ui-sref="">
+                <md-button class="md-raised md-primary" ng-click="reject(x.candidates)">
                         Reject
                 </md-button>
             </buttons>

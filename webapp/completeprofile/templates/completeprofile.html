@@ -19,9 +19,15 @@
             <badges>
             </badges>
             <buttons>
+                <md-button ui-sref="index.verifyprofile({candidateid:x.candidateid})" class="md-raised md-primary">
+                        View Details
+                </md-button>
+                <md-button class="md-raised md-primary" ui-sref="index.jobPlacement({profession:prof,candidateid:x.candidateid})">
+                        Suggest
+                </md-button>
             </buttons>
             <cardactions>
-                <md-button ui-sref="">
+                <md-button class="md-raised md-primary" ui-sref="index.appliedJob({candidateid:id})">
                         Applied Jobs
                 </md-button>
             </cardactions>

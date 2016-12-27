@@ -77,12 +77,12 @@
 			.state("index.appliedJob",{
 				url:"/appliedJob/",
 				params:{
-					
+					candidateid:null
 				},
 				views: {
 					'content@': {
 						templateUrl:'./placementProcess/template/appliedJob.html',
-						controller:""
+						controller:"appliedJobCtrl"
 					}
 				}
 			})
