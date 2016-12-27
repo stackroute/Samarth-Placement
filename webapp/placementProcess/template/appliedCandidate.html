@@ -1,5 +1,5 @@
 <div layout="row" layout-xs="column" md-colors="{background: 'indigo-100'}" layout-align="center center" class=" md-display-2" style="font-size:20;">
- Showing {{results.length}} Candidates applied the job
+    Showing {{results.length}} Candidates applied the job
 </div>
 <!-- <span>Showing {{results.length}} results</span> -->
 <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
@@ -12,16 +12,27 @@
                 <verification-badge candidateid="x.candidates">
                 </verification-badge>
             </badges>
-            <buttons>
-                <md-button ui-sref="index.verifyprofile({candidateid:x.candidates})">
-                        <md-icon class="material-icons">contacts</md-icon>View
-                </md-button>
-                <md-button ng-click="accept(x.candidates)">
-                        Accept
-                </md-button>
-                <md-button ng-click="reject(x.candidates)">
-                        Reject
-                </md-button>
+            <buttons layout="row">
+              <div>
+                <md-tooltip>
+                    View Details
+                </md-tooltip>
+                <md-icon class="material-icons" ui-sref="index.verifyprofile({candidateid:x.candidates})" layout-padding>contacts</md-icon>
+              </div>
+              <div>
+                <md-tooltip>
+                    Accept
+                </md-tooltip>
+                <md-icon class="material-icons" ng-click="accept(x.candidates)" layout-padding>thumb_up</md-icon>
+              </div>
+              <div>
+                <md-tooltip>
+                    Reject
+                </md-tooltip>
+
+                <md-icon class="material-icons" ng-click="reject(x.candidates)" layout-padding>thumb_down</md-icon>
+              </div>
+
             </buttons>
             <cardactions>
                 <md-menu>
@@ -43,13 +54,13 @@
                 </md-menu>
             </cardactions>
         </my-skillcard>
-   <!--  </div> -->
-</div>
-<div layout class="md-padding" flex>
-    <div layout layout-align="start start" flex="50">
-        <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
+        <!--  </div> -->
     </div>
-    <div layout layout-align="end end" flex="50">
-        <md-button class="md-raised md-primary" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages">Next</md-button>
+    <div layout class="md-padding" flex>
+        <div layout layout-align="start start" flex="50">
+            <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
+        </div>
+        <div layout layout-align="end end" flex="50">
+            <md-button class="md-raised md-primary" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages">Next</md-button>
+        </div>
     </div>
-</div>
