@@ -13,7 +13,7 @@
                 <md-button ui-sref="index.verifyprofile({candidateid:'{{x.candidateid}}'})" class="md-raised md-primary">
                         view Details
                 </md-button>
-                <md-button class="md-raised md-primary" ng-click="apply(x.candidateid)">
+                <md-button class="md-raised md-primary" ng-click="apply(x.candidateid);showAlert($event)">
                         Apply
                 </md-button>
             </buttons>
