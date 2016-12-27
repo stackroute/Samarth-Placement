@@ -7,9 +7,19 @@
 			'ngMessages'
 			])
 
-		.config(placementProcessConfig)
+		.config(config);
+      function config($stateProvider) {
+      let loginRequired = ['$q','$location', '$auth', function($q, $location, $auth) {
+      let deferred = $q.defer();
+      if ($auth.isAuthenticated()) {
+        deferred.resolve();
+      }
+      else {
+        $location.path('/home');
+      }
+      return deferred.promise;
+    }];
 
-		function placementProcessConfig($stateProvider){
 			$stateProvider
 			.state("index.job",{
 				url:"/job/:profession",
@@ -19,7 +29,10 @@
 				views: {
 					'content@': {
 						templateUrl:'./placementProcess/template/job.html',
-						controller:"jobCtrl"
+						controller:"jobCtrl",
+						resolve: {
+            	loginRequired: loginRequired
+            }
 					}
 				}
 			})
@@ -32,7 +45,10 @@
 				views: {
 					'content@': {
 						templateUrl:'./placementProcess/template/candidatePlacement.html',
-						controller:"candidatePlacementCtrl"
+						controller:"candidatePlacementCtrl",
+						resolve: {
+            	loginRequired: loginRequired
+            }
 					}
 				}
 			})
@@ -46,7 +62,10 @@
 				views: {
 					'content@': {
 						templateUrl:'./placementProcess/template/jobPlacement.html',
-						controller:"jobCtrl"
+						controller:"jobCtrl",
+						resolve: {
+            	loginRequired: loginRequired
+            }
 					}
 				}
 			})
@@ -58,7 +77,10 @@
 				views: {
 					'content@': {
 						templateUrl:'./placementProcess/template/candidate.html',
-						controller:"candidatePlacementCtrl"
+						controller:"candidatePlacementCtrl",
+						resolve: {
+            	loginRequired: loginRequired
+            }
 					}
 				}
 			})
@@ -70,7 +92,10 @@
 				views: {
 					'content@': {
 						templateUrl:'./placementProcess/template/appliedCandidate.html',
-						controller:"appliedCandidateCtrl"
+						controller:"appliedCandidateCtrl",
+						resolve: {
+            	loginRequired: loginRequired
+            }
 					}
 				}
 			})
@@ -82,7 +107,10 @@
 				views: {
 					'content@': {
 						templateUrl:'./placementProcess/template/appliedJob.html',
-						controller:"appliedJobCtrl"
+						controller:"appliedJobCtrl",
+						resolve: {
+            	loginRequired: loginRequired
+            }
 					}
 				}
 			})

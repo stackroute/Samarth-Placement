@@ -87,7 +87,8 @@ var i=0;
    'candiPlacement',
    'circlesGetService',
    'applyFactory',
-   function($scope, $stateParams, Pagination,candiPlacement,circlesGetService,applyFactory) {
+   '$mdDialog',
+   function($scope, $stateParams, Pagination,candiPlacement,circlesGetService,applyFactory,$mdDialog) {
     $scope.prof=$stateParams.profession;
     candiPlacement.parsetext($stateParams.profession).then(function(results) {
       $scope.results = results;

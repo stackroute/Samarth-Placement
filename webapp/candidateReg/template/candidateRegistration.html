@@ -1,13 +1,11 @@
  <!--form for the candidate starts-->
-   <div layout="row" layout-align="center center"  layout-margin layout-padding >
-
-     <form name="candidateForm" ng-submit="vm.formSubmit()"  flex-sm="66" flex-md="66"  class="md-whiteframe-4dp">
-
-
+ <div layout="column" flex-gt-lg="50" flex-offset-gt-lg="25" flex-lg="50" flex-offset-lg="25" flex-md="50" flex-offset-md="25" flex-sm="90" flex-offset-sm="5" flex-xs>
+   <div class="md-no-momentum" md-whiteframe="6" layout-margin layout-padding>
+    <form name="candidateForm" ng-submit="vm.formSubmit()">
       <!--name field-->
       <div layout="row" layout-align="center center">
-                  <h3 md-title md-colors="{color: 'blue-A700'}">REGISTER CANDIDATE </h3>
-              </div>
+        <h3 md-title md-colors="{color: 'blue-A700'}">REGISTER CANDIDATE </h3>
+      </div>
       <md-input-container class="md-block">
         <label>Name</label>
         <md-icon aria-label="person">person</md-icon>
@@ -58,84 +56,75 @@
       </div>
 
       <div layout="column">
-      <md-autocomplete
-      md-selected-item="vm.candidate.profession"
-      md-search-text-change=""
-      md-search-text="professionInputText"
-      md-selected-item-change=""
-      md-items="item in vm.profession | filter: professionInputText"
-      md-item-text="item"
-      md-min-length="0"
-      md-floating-label="Profession"
-      md-menu-class="autocomplete-custom-template"
-      ng-required="true">
-      <md-item-template>
-       <span md-highlight-text="professionInputText" md-highlight-flags="^i">{{item}}</span>
-     </md-item-template>
-     <div ng-messages="professionInputText.$error" role="alert">
-       <div ng-message="required">You should need to select the profession</div>
-     </div>
-   </md-autocomplete><br>
+        <md-autocomplete
+        md-selected-item="vm.candidate.profession"
+        md-search-text-change=""
+        md-search-text="professionInputText"
+        md-selected-item-change=""
+        md-items="item in vm.profession | filter: professionInputText"
+        md-item-text="item"
+        md-min-length="0"
+        md-floating-label="Profession"
+        md-menu-class="autocomplete-custom-template"
+        ng-required="true">
+        <md-item-template>
+         <span md-highlight-text="professionInputText" md-highlight-flags="^i">{{item}}</span>
+       </md-item-template>
+       <div ng-messages="professionInputText.$error" role="alert">
+         <div ng-message="required">You should need to select the profession</div>
+       </div>
+     </md-autocomplete><br>
 
-   <md-autocomplete
-   md-selected-item="vm.candidate.location"
-   md-search-text-change=""
-   md-search-text="locationInputText"
-   md-selected-item-change=""
-   md-items="item in vm.location | filter: locationInputText"
-   md-item-text="item"
-   md-min-length="0"
-   md-floating-label="Location"
-   md-menu-class="autocomplete-custom-template">
-   <md-item-template>
-    <span md-highlight-text="locationInputText" md-highlight-flags="^i">{{item}}</span>
-  </md-item-template>
-</md-autocomplete><br>
+     <md-autocomplete
+     md-selected-item="vm.candidate.location"
+     md-search-text-change=""
+     md-search-text="locationInputText"
+     md-selected-item-change=""
+     md-items="item in vm.location | filter: locationInputText"
+     md-item-text="item"
+     md-min-length="0"
+     md-floating-label="Location"
+     md-menu-class="autocomplete-custom-template">
+     <md-item-template>
+      <span md-highlight-text="locationInputText" md-highlight-flags="^i">{{item}}</span>
+    </md-item-template>
+  </md-autocomplete><br>
 
-<!-- <p ng-repeat="lan in vm.selectedLanguage"><! language display #issue:repeated value in the language
-  <span layout="row" flex>
-    <span flex="30">{{lan}}</span>
-    <md-checkbox ng-model="vm.candidate.language[lan].speak">Speak</md-checkbox>
-    <md-checkbox ng-model="vm.candidate.language[lan].read">Read</md-checkbox>
-    <md-checkbox ng-model="vm.candidate.language[lan].write">Write</md-checkbox>
-  </span>
-</p> -->
+  <div layout ng-repeat="iteration in vm.selectedLanguage">
+    <md-autocomplete
+    ng-model="vm.candidate.language[iteration]"
+    md-selected-item=""
+    md-search-text-change=""
+    md-search-text="vm.languageInputText[iteration]"
+    md-selected-item-change=""
+    md-items="item in vm.language | filter: languageInputText"
+    md-item-text="item['language']"
+    md-min-length="0"
+    md-menu-class="autocomplete-custom-template"
+    md-floating-label="Languages">
+    <md-item-template>
+      <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item['language']}}</span>
+    </md-item-template>
+  </md-autocomplete >
 
-<div layout ng-repeat="iteration in vm.selectedLanguage">
-  <md-autocomplete
-  ng-model="vm.candidate.language[iteration]"
-  md-selected-item=""
-  md-search-text-change=""
-  md-search-text="vm.languageInputText[iteration]"
-  md-selected-item-change=""
-  md-items="item in vm.language | filter: languageInputText"
-  md-item-text="item['language']"
-  md-min-length="0"
-  md-menu-class="autocomplete-custom-template"
-  md-floating-label="Languages">
-  <md-item-template>
-    <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item['language']}}</span>
-  </md-item-template>
-</md-autocomplete >
-
-<div><p>
+  <div><p>
     <md-checkbox ng-model="vm.candidate.language[iteration].speak">Speak</md-checkbox>
     <md-checkbox ng-model="vm.candidate.language[iteration].read">Read</md-checkbox>
     <md-checkbox ng-model="vm.candidate.language[iteration].write">Write</md-checkbox><p>
-</div>
+  </div>
 </div>
 <div layout>
-<span flex></span>
-<md-button  class="md-fab md-mini" ng-click="vm.insertLang()">
-  <md-icon>add</md-icon>
-</md-button>
+  <span flex></span>
+  <md-button  class="md-fab md-mini" ng-click="vm.insertLang()">
+    <md-icon>add</md-icon>
+  </md-button>
 </div>
 </div>
 <section layout layout-padding="" layout-align="center center">
   <md-button type="submit" class="md-raised md-primary" ng-disabled=""> &nbsp;Register&nbsp;</md-button>
 </section>
 <div>
-<p >{{vm.status}}</p>
+  <p >{{vm.status}}</p>
 </div>
 </form>
 </div>
