@@ -3,18 +3,18 @@
 </div>
 <div flex-xs="100" flex-gt-xs="100" layout-margin>
     <div layout="row" layout-xs="column">
-        <div layout="row">
-            <ng-md-icon icon="keyboard_arrow_left" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0" md-colors="{color: 'blue-500'}"></ng-md-icon>
-        </div>
-        <div ng-repeat="prof in profiling |startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-md="80">
+        <div ng-repeat="prof in profiling |startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-md="80" >
             <job-provider data='prof' layout-align="center center"></job-provider>
         </div>
-        <div layout="row">
-            <ng-md-icon icon="keyboard_arrow_right" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages" md-colors="{color: 'blue-500'}"></ng-md-icon>
-        </div>
+    </div>
+    <div layout="row" layout-align="start end ">
+              <div layout="row" layout-align="start end "  >
+                  <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
+              </div>
+              <div layout layout-align="start start " >
+                  <md-button class="md-raised md-primary" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages">Next</md-button>
+              </div>
     </div>
 </div>
 <div layout="row">
-
-
 </div>
