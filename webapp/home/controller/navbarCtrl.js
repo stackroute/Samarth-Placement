@@ -3,7 +3,7 @@
   angular
     .module('samarth.home') 
     .controller('navbarCtrl', navbarCtrl);
-    function navbarCtrl($http,navFactory,$mdSidenav,$rootScope,$state,$auth) 
+    function navbarCtrl($http,navFactory,$mdSidenav,$rootScope,$state,$auth,$scope) 
     {
           
       
@@ -25,17 +25,25 @@
       $state.go('index.dashboard');
    
 }
-     
+     $scope.message="";
+               $rootScope.user=$auth.getPayload();
+               console.log($rootScope.user);
+               $scope.message=$rootScope.user.name;
+               console.log($scope.message);
        var vm=this;
        var navItems={};
        $rootScope.sideicon = false;
        $rootScope.logout = false;
        vm.openSideNavPanel=openSideNavPanel;
+       
        vm.closeSideNavPanel=closeSideNavPanel;
        vm.getSidenav=getSidenav;
        vm.logout=logout;
        vm.getSidenav();
-       
+        $scope.openMenu = function($mdOpenMenu, ev) {
+                $mdOpenMenu(ev);
+            }
+
        function getSidenav()
        {
         navFactory.getSidenav().then(function(response) {
@@ -45,6 +53,7 @@
         function openSideNavPanel() {
         $mdSidenav('left').open();
         };
+       
         function closeSideNavPanel() {
         $mdSidenav('left').close();
         };
