@@ -20,10 +20,8 @@ angular
               views: {
                 "results": {
                    templateUrl: './jobSearch/template/jobSearchResult.html',
-                   controller: 'jobSearchCtrl',
-                   resolve: {
-                   loginRequired: loginRequired
-                   }
+                   controller: 'jobSearchCtrl'
+
                 }
               }
               // params: {
@@ -85,6 +83,3 @@ angular
 //         });
 //     }
 // })();
-
-
-
