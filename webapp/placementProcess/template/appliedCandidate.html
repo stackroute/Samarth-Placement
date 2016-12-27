@@ -10,13 +10,13 @@
                 </verification-badge>
             </badges>
             <buttons>
-                <md-button class="md-raised md-primary" ui-sref="index.verifyprofile({candidateid:x.candidates})">
+                <md-button ui-sref="index.verifyprofile({candidateid:x.candidates})">
                         <md-icon class="material-icons">contacts</md-icon>View
                 </md-button>
-                <md-button class="md-raised md-primary" ng-click="accept(x.candidates)">
+                <md-button ng-click="accept(x.candidates)">
                         Accept
                 </md-button>
-                <md-button class="md-raised md-primary" ng-click="reject(x.candidates)">
+                <md-button ng-click="reject(x.candidates)">
                         Reject
                 </md-button>
             </buttons>
@@ -27,14 +27,8 @@
                     </md-button>
                     <md-menu-content width="4">
                         <md-menu-item>
-                            <md-button ui-sref="verifyprofile({candidateid:x.candidates})">
+                            <md-button ui-sref="index.verifyprofile({candidateid:x.candidateid})">
                                 View profile
-                            </md-button>
-                            <md-button >
-                                Accept
-                            </md-button>
-                            <md-button >
-                                Reject
                             </md-button>
                         </md-menu-item>
                         <md-menu-item>

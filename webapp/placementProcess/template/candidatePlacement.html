@@ -10,10 +10,10 @@
                 </verification-badge>
             </badges>
             <buttons>
-                <md-button ui-sref="index.verifyprofile({candidateid:'{{x.candidateid}}'})" class="md-raised md-primary">
+                <md-button ui-sref="index.verifyprofile({candidateid:'{{x.candidateid}}'})">
                   <md-icon class="material-icons">contacts</md-icon>view
                 </md-button>
-                <md-button class="md-raised md-primary" ng-click="apply(x.candidateid)">
+                <md-button ng-click="apply(x.candidateid)">
                   <md-icon class="material-icons">done</md-icon>Apply
                 </md-button>
             </buttons>
@@ -24,7 +24,7 @@
                     </md-button>
                     <md-menu-content width="4">
                         <md-menu-item>
-                            <md-button ui-sref="verifyprofile({candidateid:x.candidateid})">
+                            <md-button ui-sref="index.verifyprofile({candidateid:x.candidateid})">
                                 View profile
                             </md-button>
                         </md-menu-item>
