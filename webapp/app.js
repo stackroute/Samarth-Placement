@@ -26,4 +26,7 @@ angular.module('samarth',
 	    $mdThemingProvider.theme('default')
 	      .primaryPalette('indigo')
 
-	  });
+	  })
+.config(['$locationProvider', function($locationProvider) {
+ $locationProvider.hashPrefix('');
+}]);
