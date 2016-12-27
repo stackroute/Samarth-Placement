@@ -73,20 +73,22 @@ angular.module('samarth.jobSearch')
 //      'circlesGetService',
 //      '$state',
 //   function($scope, $stateParams, Pagination,jobSearchFactory,circlesGetService,$state) {
-//      var profs="";
+//       $scope.subheader="Discover opportunities and connect people who can help you to get jobs!";
+//       var profs="";
 //      circlesGetService.getCircle()
-//       .then(function(response) {
-//           $scope.profiling = response.data;
-//           for(var i=0;i<response.data.length;i++){
-//             profs+=response.data[i].name+"-";
-//           }
+//         .then(function(response) {
+//            $scope.profiling = response.data;
+//            for(var i=0;i<response.data.length;i++){
+//              profs+=response.data[i].name+"-";
+//            }
 //             console.log("circles arrray "+profs);
-//         }, 
-//         function(err) {
+//          },
+//          function(err) {
 //             console.log("circles array "+err);
-//         });
+//          });
+     
 //       console.log("searchText params value after checking  "+ $stateParams.searchText);
-//       console.log("getting profession value from dashboardctrl " + profs);
+//       // console.log("getting profession value from dashboardctrl " + profs);
 
 //       if (($stateParams.searchText !== undefined) && ($stateParams.searchText !== '')) {
 //         // console.log('inside searchJobs')
@@ -113,7 +115,7 @@ angular.module('samarth.jobSearch')
 //              $scope.message="Showing " + response.data.length + " Results for "+profs+" Profession in Job Search";
 
 //              // $state.go('candidate.jobSearch.results', result);
-//              $state.go('candidate.jobSearch.results', {'obj':'result'});
+//              $state.go('index.jobSearch.results', {'obj':'result'});
 
 //              }
 //            })
@@ -122,7 +124,7 @@ angular.module('samarth.jobSearch')
 //             $scope.message = "Some Error Occured "+err;
 //           });
 //         };
-   
+    
 //         function searchJob(searchText) {
 //          //var arr=key.split(/[ ,]+/);
 //          console.log("params inside fun searchJob " + searchText);
