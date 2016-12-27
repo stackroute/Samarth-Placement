@@ -1,5 +1,17 @@
-function candidateRegConfig($stateProvider, $urlRouterProvider){
-    $urlRouterProvider.otherwise('/');
+angular
+  .module('samarth.candidateReg',[])
+  .config(config);
+    function config($stateProvider) {
+      let loginRequired = ['$q','$location', '$auth', function($q, $location, $auth) {
+      let deferred = $q.defer();
+      if ($auth.isAuthenticated()) {
+        deferred.resolve();
+      } 
+      else {
+        $location.path('/home');
+      }
+      return deferred.promise;
+    }];
     $stateProvider
     .state('index.candidateReg', {
       url:'/candidateregistration',
@@ -7,14 +19,11 @@ function candidateRegConfig($stateProvider, $urlRouterProvider){
         'content@': {
           templateUrl: 'candidateReg/template/candidateRegistration.html',
           controller:'candidateRegCtrl',
-          controllerAs : 'vm'
+          controllerAs : 'vm',
+          resolve: {
+            loginRequired: loginRequired
+          }
         }
       }
-    })
-  }
-
-angular
-  .module('samarth.candidateReg', [])
-  .config(["$stateProvider", "$urlRouterProvider",candidateRegConfig]);
-
-  
+  });
+}
