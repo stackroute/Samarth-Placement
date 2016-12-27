@@ -7,13 +7,15 @@ angular.module('samarth.jobSearch')
      'jobSearchFactory',
      'circlesGetService',
      function($scope, $stateParams, Pagination,jobSearchFactory,circlesGetService) {
+      $scope.subheader="Discover opportunities and connect people who can help you to get jobs!";
+
        console.log("Inside JobSearch Ctrl before indexing");
       if ($stateParams.searchText !== undefined ) {
             $scope.searchJob($stateParams.searchText);
         }
-        else{
-            // $scope.message = "Enter Text To Search For Jobs";
-        }
+        // else{
+        //     // $scope.message = "Enter Text To Search For Jobs";
+        // }
       console.log("params value after checking "+ $stateParams.searchText);
 
      var profs="";
