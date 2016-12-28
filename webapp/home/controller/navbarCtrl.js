@@ -25,7 +25,7 @@
       $state.go('index.dashboard');
    
 }
-     $scope.message="";
+               $scope.message="";
                $rootScope.user=$auth.getPayload();
                console.log($rootScope.user);
                $scope.message=$rootScope.user.name;
