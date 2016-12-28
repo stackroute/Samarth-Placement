@@ -3,7 +3,7 @@ angular.module('samarth.dashboard')
 
 function dashboardCtrl($scope, $mdDialog, $log, circlesGetService,$rootScope,$auth,$location,$state,$window) {
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState,$scope) {
-    
+
     if (toState.name == 'index') {
                     //index state does not need prior authentication
                     $location.path('/home/dashboard');
@@ -11,17 +11,17 @@ function dashboardCtrl($scope, $mdDialog, $log, circlesGetService,$rootScope,$au
                   }
                 });
   console.log("testing");console.log($rootScope.flag);
-  
+
   $rootScope.message="";
   $rootScope.user=$auth.getPayload();
   console.log($rootScope.user);
-  $rootScope.message=$rootScope.user.name;
+  $rootScope.message=" "+$rootScope.user.name+" ";
 
 
   if ($auth.isAuthenticated()) {
    $rootScope.sideicon = true;
    $rootScope.logout = true;
-   
+
  } else {
    $rootScope.logout = false;
    $rootScope.sideicon = false;
