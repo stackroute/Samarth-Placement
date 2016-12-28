@@ -42,8 +42,13 @@ angular.module('samarth.jobSearch')
                 $scope.pagination = Pagination.getNew(6);
                 $scope.pagination.numPages = Math.ceil(response.data.length / $scope.pagination.perPage);
                 $scope.message = "";
+                $scope.message1="";
+                  $scope.message2="";
+
                 if (response.data.length == 0) {
-                  $scope.message = "No Result Found for "+" "+"'"+ searchText+"'"+" "+"! Try more general keywords. ";
+                  $scope.message = "No Result Found for "+" "+"'";
+                  $scope.message1 =searchText
+                  $scope.message2="'"+" "+"! Try more general keywords. ";
 
                 }
                 else{
