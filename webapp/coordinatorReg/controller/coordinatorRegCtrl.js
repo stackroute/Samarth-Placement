@@ -6,15 +6,23 @@
 				'professionFac',
 				'roleFact',
 				'submitFormFact',
+				'authDataFac',
 				'$state',
+				'$timeout',
+				'$mdDialog',
 				function(languageFact,
 				professionFac,
 				roleFact,
 				submitFormFact,
-				$state)
+				authDataFac,
+				$state,
+				$timeout,
+				$mdDialog)
 			{
 				let vm = this;
-				// let lanIter = 0;
+				vm.selectedLanguage = [0];
+				let lanIter = 0;
+				let arr=[];
 
 				function professionReq()
 				{
@@ -33,27 +41,7 @@
 				{
 					roleFact.roleReq().then(function(data)
 					{
-						// console.log(data.data)
-						let temp = [];
-						let k = 0;
-						let count = 0;
-						for(let i = 0; i < data.data.length - 1; i = i + 1)
-						{
-							for(let j = i + 1; j < data.data.length; j = j + 1)
-							{
-								if(data.data[i].role === data.data[j].role)
-								{
-									count = 1;
-								}
-							}
-							if(count === 0)
-							{
-								temp[k] = data.data[i].role;
-								k = k + 1;
-							}
-							count = 0;
-						}
-						vm.role = temp;
+						vm.role = data.data.role;
 					});
 				}
 
@@ -61,69 +49,163 @@
 				{
 					languageFact.languageReq().then(function(data)
 					{
-						let temp = [];
-						let k = 0;
-						let count = 0;
-						for(let i = 0; i < data.data.length - 1; i = i + 1)
-						{
-							for(let j = i + 1; j < data.data.length; j = j + 1)
-							{
-								if(data.data[i].language.trim().toLowerCase() ===
-																	data.data[j].language.trim().toLowerCase())
-								{
-									count = 1;
-								}
-							}
-							if(count === 0 && data.data[i].language.trim() !== '')
-							{
-								temp[k] = data.data[i].language.trim().substring(0, 1).toUpperCase()
-																			+ data.data[i].language.trim().
-																			substring(1, data.data[i].language.length)
-																			.toLowerCase();
-								k = k + 1;
-							}
-							count = 0;
-						}
-						vm.language = temp;
+						// console.log(data);
+						// let temps = [];
+						// let k = 0;
+						// let count = 0;
+						// for(let i = 0; i < data.data.length - 1; i = i + 1)
+						// {
+						// 	for(let j = i + 1; j < data.data.length; j = j + 1)
+						// 	{
+						// 		if(data.data[i].language.trim().toLowerCase() ===
+						// 											data.data[j].language.trim().toLowerCase())
+						// 		{
+						// 			count = 1;
+						// 		}
+						// 	}
+						// 	if(count === 0 && data.data[i].language.trim() !== '')
+						// 	{
+						// 		temps[k] = data.data[i].language.trim().substring(0, 1).toUpperCase()
+						// 													+ data.data[i].language.trim().
+						// 													substring(1, data.data[i].language.length)
+						// 													.toLowerCase();
+						// 		k = k + 1;
+						// 	}
+						// 	count = 0;
+						// }
+						// console.log("fgh");
+						// console.log(temps);
+						console.log(data.data);
+						vm.language = ["hindi","english","punjabi"];
 					});
 				}
 
 				function clickSubmit(coordinator)
 				{
-					submitFormFact.submitForm(coordinator).then(function success(response)
+					try
 					{
-							$state.go('index.home');
-					},
-					function error(error)
-				{
-					vm.err = error.data.error;
-				});
-				}
+						console.log("entered submit function");
+						let count = 0;
+						for(var i = 0; i <= lanIter; i = i + 1)
+						{ console.log("entered for loop");
+							if(vm.tempLanguage[lanIter].speak === false && vm.tempLanguage[lanIter].read === false && vm.tempLanguage[lanIter].write === false)
+							{
+								vm.hide=false;
+								vm.msg='Please fill the language details';
+								$timeout(function () { vm.hide = true; }, 3000);
+								break;
+							}
+							else
+							{
+								count++;
+							}
+						}
+						if(count === lanIter + 1)
+						{
+							for(var i = 0; i <= lanIter; i = i + 1)
+							{
+								var temp={};
+								console.log(vm.lang[i]);
+								temp.name=vm.lang[i];
+								if(vm.tempLanguage[i].speak === undefined)
+								{
+									temp.speak = false;
+								}
+								else
+								{
+									temp.speak=vm.tempLanguage[i].speak;
+								}
+								if(vm.tempLanguage[i].read === undefined)
+								{
+									temp.read = false;
+								}
+								else
+								{
+									temp.read=vm.tempLanguage[i].read;
+								}
+								if(vm.tempLanguage[i].write === undefined)
+								{
+									temp.write = false;
+								}
+								else
+								{
+									temp.write=vm.tempLanguage[i].write;
+								}
+								// console.log(temp);
+								arr.push(temp);
+								// console.log(arr);
+							}
+							coordinator.language=arr;
+							console.log(coordinator);
+							authDataFac.authDataReq(coordinator).then(function success(response)
+            	{
+								submitFormFact.submitForm(coordinator).then(function success(response)
+								{
+									console.log("submitted successfully");
+									vm.hide=false; 
+									vm.msg="successfully registered";
+									$timeout(function () { vm.hide = true; }, 3000);
+									vm.showAlert();
+								},
+								function error(error)
+								{
+									vm.hide=false; 
+									vm.msg = error.data.error;
+									$timeout(function () { vm.hide = true; }, 3000);
+								});
+							},
+							function error(error)
+                    {
+                        vm.msg = error.data.error;
+                    });
+						}
+					}
+					catch(e)
+					{
+						vm.hide=false; 
+						vm.msg="please fill all the details";
+						$timeout(function () { vm.hide = true; }, 3000);
+					}
+				};
 				// insert a language to the selected language
-				// function insertLang()
-				// {
-				// 	var temp=[];
-				// 	temp.name=vm.lang;
-				// 	temp.speak=vm.coordinator.language[lan].speak;
-				// 	temp.read=vm.coordinator.language[lan].read;
-				// 	temp.write=vm.coordinator.language[lan].speak;
-				// 	if((vm.coordinater.language[iteration]===''))
-				// 		lanIter++;
-				// 	vm.selectedLanguage.push(lanIter);
-				// }
+				function insertLang()
+				{
+					lanIter++;
+					vm.selectedLanguage.push(lanIter);
+				};
 
-				// vm.insertLang = insertLang;
-				// vm.selectedLanguage=[0];
+				function removeLang()
+				{
+					if(lanIter >= 0)
+					lanIter--;
+					vm.selectedLanguage.pop();
+					console.log(lanIter);
+				};
+
+				vm.showAlert = function(ev) 
+		    {
+		      // Appending dialog to document.body to cover sidenav in docs app
+		      // Modal dialogs should fully cover application
+		      // to prevent interaction outside of dialog
+		      $mdDialog.show(
+		        $mdDialog.alert()
+		        .parent(angular.element(document.querySelector('#popupContainer')))
+		        .clickOutsideToClose(true)
+		        // .title('Message')
+		        .textContent('Coordinator successfully registered')
+		        .ariaLabel('Alert Dialog Demo')
+		        .ok('Got it!')
+		        .targetEvent(ev)
+		      );
+		      $state.go('index.home');
+		    };
+
 				professionReq();
 				languagesFact();
 				rolesFact();
+				vm.insertLang = insertLang;
+				vm.removeLang = removeLang;
 				vm.clickSubmit = clickSubmit;
 			}
 			]);
 }());
-
-// candidate search
-
-// tommorrow 3. by ammol
-// tomorrow 12 pm by ankit
-// tomorrow

@@ -1,0 +1,131 @@
+<md-dialog style="width:500px; height:500px">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2 layout-align="center center">Verification</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon aria-label="Close dialog">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <div>
+            <!--Make as a component-->
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text layout-align="row">
+                        <div flex="90" class="md-headline">{{candidatename}}</div>
+                    </md-card-title-text>
+                    <verification-badge candidateid="id">
+                    </verification-badge>
+                    <!-- <div class="md-caption">
+                    Last Verified:
+                    <time am-time-ago="updated_on"></time>
+                </div> -->
+                </md-card-title>
+                <div>
+                    <md-card-content>
+                        <md-table-container>
+                            <table md-table class="tableclass">
+                                <!--  <tr md-row> -->
+                                <!-- <div>
+                                    <td flex="10" class="md-title">Criteria</td>
+                                </div> -->
+                                <!-- <div>
+                                    <td flex layout-padding class="md-title">Remarks</td>
+                                    <td flex layout-padding class="md-title">Ratings</td>
+                                </div> -->
+                                <!--  </tr> -->
+                                <tr md-row>
+                                    <div>
+                                        <td flex="40">Personal Information</td>
+                                    </div>
+                                    <div>
+                                        <!-- <td flex layout-padding>{{perrem}}</td> -->
+                                        <td layout-padding flex-offset="10">
+                                            <md-slider ng-model="perval" aria-label="Disabled 1" flex md-discrete ng-disabled="true" ng-readonly="readonly" min="0" max="5"></md-slider>
+                                        </td>
+                                        <td flex layout-padding>{{perval}}</td>
+                                    </div>
+                                </tr>
+                                <tr md-row>
+                                    <div>
+                                        <td flex="40">Skills</td>
+                                    </div>
+                                    <div>
+                                        <!--  <td flex layout-padding>{{sklrem}}</td> -->
+                                        <td layout-padding flex-offset="10">
+                                            <md-slider ng-model="sklval" aria-label="Disabled 1" flex md-discrete ng-disabled="true" ng-readonly="readonly" min="0" max="5"></md-slider>
+                                        </td>
+                                        <td flex layout-padding>{{sklval}}</td>
+                                    </div>
+                                </tr>
+                                <tr md-row>
+                                    <div>
+                                        <td flex="40">Qualification</td>
+                                    </div>
+                                    <div>
+                                        <!--  <td flex layout-padding>{{qulrem}}</td> -->
+                                        <td layout-padding flex-offset="10">
+                                            <md-slider ng-model="qulval" aria-label="Disabled 1" flex md-discrete ng-disabled="true" ng-readonly="readonly" min="0" max="5"></md-slider>
+                                        </td>
+                                        <td flex layout-padding>{{qulval}}</td>
+                                    </div>
+                                </tr>
+                                <tr md-row>
+                                    <div>
+                                        <td flex="40">Project</td>
+                                    </div>
+                                    <div>
+                                        <!--   <td flex layout-padding>{{pjctrem}}</td> -->
+                                        <td layout-padding flex-offset="10">
+                                            <md-slider ng-model="pjctval" aria-label="Disabled 1" flex md-discrete ng-disabled="true" ng-readonly="readonly" min="0" max="5"></md-slider>
+                                        </td>
+                                        <td flex layout-padding>{{pjctval}}</td>
+                                    </div>
+                                </tr>
+                                <tr md-row>
+                                    <div>
+                                        <td flex="40">Work History</td>
+                                    </div>
+                                    <div>
+                                        <!--  <td flex layout-padding>{{wrkrem}}</td> -->
+                                        <td layout-padding>
+                                            <md-slider ng-model="wrkval" aria-label="Disabled 1" flex md-discrete ng-disabled="true" ng-readonly="readonly" min="0" max="5"></md-slider>
+                                        </td>
+                                        <td flex layout-padding>{{wrkval}}</td>
+                                    </div>
+                                </tr>
+                            </table>
+                        </md-table-container>
+                    </md-card-content>
+                </div>
+            </md-card>
+        </div>
+        <div layout="column">
+            <h4 layout-align="center center" layout-padding flex-offset="10">Comments</h4>
+            <ul>
+                <li>
+                    {{perrem}}</li>
+                <li> {{sklrem}}</li>
+                <li> {{qulrem}}</li>
+                <li> {{pjctrem}}</li>
+                <li> {{wrkrem}}</li>
+            </ul>
+        </div>
+    </md-dialog-content>
+    <!--  <label>
+            <md-input-container>
+                <textarea md-maxlength="20" rows="2" md-select-on-focus ng-model="comments"></textarea>
+            </md-input-container>
+        </label> -->
+    <!--  <span flex></span> -->
+    <!--  <md-button ng-click="cancel()">
+            Cancel
+        </md-button> -->
+    <md-dialog-actions layout="row">
+        <md-button ng-click="cancel()">
+            OK
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

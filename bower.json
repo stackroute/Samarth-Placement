@@ -29,6 +29,5 @@
     "ngstorage": "^0.3.11",
     "samarth-webcomponents": "https://github.com/stackroute/Samarth-WebComponents.git#dev-wave-11",
     "ng-simplePagination": "^1.0.3"
-
   }
 }

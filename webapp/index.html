@@ -6,10 +6,23 @@
     <link href="./angular-material-icons/angular-material-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Carrois+Gothic|Playfair+Display+SC" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" type="text/css" href="samarth-webcomponents/jobcard/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="samarth-webcomponents/skillcard/css/skillcard.css">
+    <link rel="stylesheet" type="text/css" href="completeprofile/css/style.css">
+     <link rel="stylesheet" href="samarth-webcomponents/sectionprojectcard/css/sectionprojectcard.css">
+    <link rel="stylesheet" href="samarth-webcomponents/sectionseducationcard/css/sectionseducationcard.css">
+    <link rel="stylesheet" href="samarth-webcomponents/sectionskillcard/css/sectionskillcard.css">
+    <link rel="stylesheet" href="samarth-webcomponents/sectionworkexperiencecard/css/workexpriencecard.css">
+    <link rel="stylesheet" href="samarth-webcomponents/sectionpersonalinfocard/css/sectionpersonalinfocard.css">
+    <link rel="stylesheet" href="samarth-webcomponents/verificationbadge/css/style.css">
+    <link rel="stylesheet" href="samarth-webcomponents/sectionjobpreferencescard/css/sectionjobpreferencescard.css">
+
 </head>
 <body ng-app="samarth">
   <div ui-view="appbar"></div>
-  <div ui-view="content"></div>
+  <div ui-view="content" flex></div>
   <div ui-view ="results"></div>
 </body>
       <script type="text/javascript" src="./angular/angular.js"></script>
@@ -20,19 +33,17 @@
       <script type="text/javascript" src="./angular-ui-router/release/angular-ui-router.min.js">
       </script>
       <script type="text/javascript" src="./angular-material-icons/angular-material-icons.js"></script>
-      
+
       <script src="./satellizer/dist/satellizer.js"></script>
-       <script src="./ngstorage/ngStorage.js"></script>
-       <script src="./angular-local-storage/dist/angular-local-storage.js"></script>
-       <script src="./angular-flash-alert/dist/angular-flash.min.js"></script>
+      <script src="./ngstorage/ngStorage.js"></script>
+      <script src="./angular-local-storage/dist/angular-local-storage.js"></script>
+      <script src="./angular-flash-alert/dist/angular-flash.min.js"></script>
       <script type="text/javascript" src="./ng-simplePagination/simplePagination.js"></script>
       <script type="text/javascript" src="./samarth-webcomponents/samarth-webcomponents.js"></script>
 
-       <script type="text/javascript" src="app.js"></script>
-      <script type="text/javascript" src="home/controller/initialCtrl.js"></script>
-        <script type="text/javascript" src="home/controller/rootCtrl.js"></script>
-         <script type="text/javascript" src="home/root.js"></script> 
-     
+      <script type="text/javascript" src="app.js"></script>
+      <script type="text/javascript" src="home/root.js"></script>
+
       <script type="text/javascript" src="coordinatorLogin/coordinatorLogin.js"></script>
       <script type="text/javascript" src="coordinatorLogin/controller/signinCtrl.js"></script>
 
@@ -40,29 +51,47 @@
       <script type="text/javascript" src="home/controller/navbarCtrl.js"></script>
       <script type="text/javascript" src="home/factory/navFactory.js"></script>
 
+      <script type="text/javascript" src="coordinatorReg/coordinatorReg.js"></script>
+      <script type="text/javascript" src="coordinatorReg/controller/coordinatorRegCtrl.js"></script>
+      <script type="text/javascript" src="coordinatorReg/factory/authData.js"></script>
+      <script type="text/javascript" src="coordinatorReg/factory/professionFac.js"></script>
+      <script type="text/javascript" src="coordinatorReg/factory/languageFact.js"></script>
+      <script type="text/javascript" src="coordinatorReg/factory/roleFact.js"></script>
+      <script type="text/javascript" src="coordinatorReg/factory/submitFormFact.js"></script>
+
       <script type="text/javascript" src="dashboard/dashboard.js"></script>
       <script type="text/javascript" src="dashboard/factory/circlesGetfactory.js"></script>
       <script type="text/javascript" src="dashboard/controller/dashboardCtrl.js"></script>
       <script type="text/javascript" src="./samarth-webcomponents/circle/circleCtrl.js"></script>
+      <script type="text/javascript" src="./samarth-webcomponents/skillcard/skillcard.js"></script>
+      <script type="text/javascript" src="./samarth-webcomponents/skillcard/services/blob.js"></script>
+      <script type="text/javascript" src="./samarth-webcomponents/skillcard/services/skillcardservice.js"></script>
 
       <script type="text/javascript" src="candidateReg/candidate.js"></script>
       <script type="text/javascript" src="candidateReg/controller/candidateRegCtrl.js"></script>
       <script type="text/javascript" src="candidateReg/factory/candidateRegFactory.js"></script>
 
+      <script src="./placementProcess/placement.js"></script>
+      <script src="./placementProcess/factory/jobFactory.js"></script>
+      <script src="./placementProcess/controller/placementProcessCtrl.js"></script>
 
       <script src="./samarth-webcomponents/jobproviderreg/jobprovider.js"></script>
       <script src="./samarth-webcomponents/jobproviderreg/factory/jobProviderFactory.js"></script>
       <script src="./samarth-webcomponents/jobproviderreg/component/jobProvider.js"></script>
       <!-- <script src="./samarth-webcomponents/jobproviderreg/controller/jobProviderCtrl.js"></script> -->
 
-
-
-      <script type="text/javascript" src="coordinatorReg/coordinatorReg.js"></script>
+     <!--  <script type="text/javascript" src="coordinatorReg/coordinatorReg.js"></script>
       <script type="text/javascript" src="coordinatorReg/controller/coordinatorRegCtrl.js"></script>
       <script type="text/javascript" src="coordinatorReg/factory/professionFac.js"></script>
       <script type="text/javascript" src="coordinatorReg/factory/languageFact.js"></script>
       <script type="text/javascript" src="coordinatorReg/factory/roleFact.js"></script>
-      <script type="text/javascript" src="coordinatorReg/factory/submitFormFact.js"></script>
+      <script type="text/javascript" src="coordinatorReg/factory/submitFormFact.js"></scrip -->
+
+
+      <script type="text/javascript" src="jobProvider/jobProvider.js"></script>
+      <script type="text/javascript" src="jobProvider/factory/jobProviderFactory.js"></script>
+      <script type="text/javascript" src="jobProvider/controller/jobProviderCtrl.js"></script>
+      <script type="text/javascript" src="./samarth-webcomponents/jobprovidercard/jobprovidercard.js"></script>
 
       <script src="./samarth-webcomponents/jobPost/jobPost.js"></script>
       <script src="./samarth-webcomponents/jobPost/factory/jobProviderFactory.js"></script>
@@ -75,11 +104,35 @@
       <script type="text/javascript" src="candidatesearch/candidatesearch.js"></script>
       <script type="text/javascript" src="candidatesearch/controller/candidatesearchctrl.js"></script>
       <script type="text/javascript" src="candidatesearch/services/candidatesearchservice.js"></script>
-<!--       <script src="./samarth-webcomponents/jobSearch/component/jobSearch.js"></script>
- -->
-         <script src="./jobSearch/jobSearch.js"></script>
-<!--  --> <script src="./jobSearch/factory/jobSearchFactory.js"></script>
 
-        <script src="./jobSearch/controller/jobSearchCtrl.js"></script>
-<!--       <script src="./samarth-webcomponents/jobSearch/component/jobSearchResult.js"></script>
- --></html>
+
+      <script type="text/javascript" src="completeprofile/completeprofile.js"></script>
+      <script type="text/javascript" src="completeprofile/controller/completeprofileCtrl.js"></script>
+      <script type="text/javascript" src="completeprofile/services/candidateprofileservice.js"></script>
+
+      <script type="text/javascript" src="samarth-webcomponents/sectionpersonalinfocard/sectionpersonalinfocard.js"></script>
+      <script type="text/javascript" src="samarth-webcomponents/sectionpersonalinfocard/services/sectionpersonalinfoservice.js"></script>
+
+      <script type="text/javascript" src="samarth-webcomponents/sectionseducationcard/sectionseducationcard.js"></script>
+      <script type="text/javascript" src="samarth-webcomponents/sectionseducationcard/services/sectioneducationservice.js"></script>
+      <script type="text/javascript" src="samarth-webcomponents/sectionskillcard/sectionskillcard.js"></script>
+      <script type="text/javascript" src="samarth-webcomponents/sectionskillcard/services/sectionskillservices.js"></script>
+      <script type="text/javascript" src="samarth-webcomponents/sectionprojectcard/sectionprojectcard.js"></script>
+      <script type="text/javascript" src="samarth-webcomponents/sectionprojectcard/services/sectionprojectservice.js"></script>
+      <script type="text/javascript" src="samarth-webcomponents/sectionworkexperiencecard/sectionworkexperiencecard.js"></script>
+      <script type="text/javascript" src="samarth-webcomponents/sectionworkexperiencecard/service/sectionworkexperience.js"></script>
+      <script type="text/javascript" src="samarth-webcomponents/verificationbadge/services/verificationbadgeservice.js"></script>
+      <script type="text/javascript" src="samarth-webcomponents/verificationbadge/verificationbadge.js"></script>
+      <script type="text/javascript" src="samarth-webcomponents/sectionjobpreferencescard/sectionjobpreferencescard.js"></script>
+      <script type="text/javascript" src="samarth-webcomponents/sectionjobpreferencescard/services/sectionjobpreferencesservice.js"></script>
+
+
+      <script type="text/javascript" src="./samarth-webcomponents/jobcard/services/blob.js"></script>
+      <script type="text/javascript" src="./samarth-webcomponents/jobcard/jobcard.js"></script>
+      <script type="text/javascript" src="./samarth-webcomponents/jobcard/services/jobcardservices.js"></script>
+      <script src="./jobSearch/jobSearch.js"></script>
+      <script src="./jobSearch/factory/jobSearchFactory.js"></script>
+      <script src="./jobSearch/controller/jobSearchCtrl.js"></script>
+
+
+</html>
