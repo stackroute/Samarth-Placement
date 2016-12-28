@@ -31,6 +31,12 @@
 	"icon":"person_pin",
 	"navTitle":"Jobprovider",
 	"traverse":"index.emp"
+},
+
+{
+	"icon":"local_library",
+	"navTitle":"Aboutus",
+	"traverse":"index.aboutus"
 }
 ]
       }

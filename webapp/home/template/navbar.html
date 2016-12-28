@@ -33,18 +33,12 @@
          <span flex></span>
 
 
-       <!-- <div class="md-button" ng-click="vm.logout()" ng-show="logout"><span class="ng-scope"> -->
-                  <md-menu layout="column">
+                  <md-menu layout="column" md-offset="10 60" ng-show="logout">
                     <md-button aria-label="open" ng-click=openMenu($mdOpenMenu,$event) layout="row">
                         <md-icon class="material-icons">supervisor_account</md-icon>&nbsp;&nbsp;&nbsp;&nbsp;{{message | uppercase}}
                     </md-button>
                     <md-menu-content width="3">
-                        <md-menu-item layout-padding>
-                          <md-button >
-                            <md-icon></md-icon>
-                           About Us
-                          </md-button>
-                            </md-menu-item>
+                      <span>&nbsp;&nbsp;&nbsp;<md-icon>face</md-icon>&nbsp;&nbsp;Role:Coordinator</span>
                               <md-menu-item>
                             <md-button ng-click="vm.logout()">
                              <md-icon>exit_to_app</md-icon>  Logout
