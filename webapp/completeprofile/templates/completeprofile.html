@@ -1,0 +1,122 @@
+<div layout="row" layout-wrap>
+  <div flex="80" layout-padding>
+    <div class="md-display-2">{{candidatename}}</div>
+    <div class="md-padding">
+      <div class="md-title">{{profession}}</div>
+    </div>
+  </div>
+  <div layout="row" flex="20" class="md-padding">
+    <verification-badge candidateid="id">
+    </verification-badge>
+  </div>
+</div>
+<div layout="row" layout-xs="column">
+  <md-link hide-sm hide-xs class=" md-no-ink fulllink " style="color:green;margin-left: 80% " ng-click="showDialog(ev) ">Verification Details</md-link>
+  <md-link hide-gt-sm class=" md-no-ink fulllink" style="color:green;margin-left: 30% "  ng-click="showDialog(ev) ">Verification Details</md-link>
+</div>
+<!-- <div layout="row" layout-xs="column " layout-sm="column " class="md-padding" layout-wrap layout-align="center center"> -->
+<my-skillcard candidateid="id" flex="75">
+  <badges></badges>
+  <buttons>
+    <md-button ui-sref="index.verifyprofile({candidateid:x.candidateid})" class="md-raised md-primary">
+      View Details
+    </md-button>
+    <md-button class="md-raised md-primary" ui-sref="index.jobPlacement({profession:prof,candidateid:x.candidateid})">
+      Suggest
+    </md-button>
+  </buttons>
+  <cardactions>
+    <md-button class="md-raised md-primary" ui-sref="index.appliedJob({candidateid:id})">
+      Applied Jobs
+    </md-button>
+  </cardactions>
+</my-skillcard>
+
+<div layout="column">
+  <div layout="row">
+    <div flex="15" flex-offset="10" hide-xs hide-sm  layout layout-align="center center">
+      <span class="label">Personal Information</span >
+    </div>
+    <div flex="60" flex-xs="100" flex-sm="100">
+      <my-personalinfocard candidateid="id" languagedata="langResourceBundle">
+        <verify>
+          <md-button style=" color:green " ng-click="showAdvanced($event, 'Personal_Information')">Verify</md-button>
+        </verify>
+      </my-personalinfocard>
+    </div>
+  </div>
+</div>
+
+<div layout="column">
+  <div layout="row">
+    <div flex="15" flex-offset="10" hide-xs hide-sm  layout layout-align="center center">
+      <span class="label">Skills</span >
+    </div>
+    <div flex="60" flex-xs="100" flex-sm="100">
+      <mysection-skill-card candidateid="id " flex="75" languagedata="langResourceBundle">
+        <verify>
+          <md-button style="color:green " ng-click="showAdvanced($event, 'Skills') ">Verify</md-button>
+        </verify>
+      </mysection-skill-card>
+    </div>
+  </div>
+</div>
+
+<div layout="column">
+  <div layout="row">
+    <div flex="15" flex-offset="10" hide-xs hide-sm  layout layout-align="center center">
+      <span class="label">Qualification</span >
+    </div>
+    <div flex="60" flex-xs="100" flex-sm="100">
+      <my-educationcard candidateid="id " flex="75" languagedata="langResourceBundle">
+        <verify>
+          <md-button style="color:green " ng-click="showAdvanced($event, 'Qualification') ">Verify</md-button>
+        </verify>
+      </my-educationcard>
+    </div>
+  </div>
+</div>
+
+<div layout="column">
+  <div layout="row">
+    <div flex="15" flex-offset="10" hide-xs hide-sm  layout layout-align="center center">
+      <span class="label">Projects</span >
+    </div>
+    <div flex="60" flex-xs="100" flex-sm="100">
+      <my-projectsectioncard candidateid="id " flex="75" languagedata="langResourceBundle">
+        <verify>
+          <md-button style="color:green " ng-click="showAdvanced($event, 'Project') ">Verify</md-button>
+        </verify>
+      </my-projectsectioncard>
+    </div>
+  </div>
+</div>
+
+<div layout="column">
+  <div layout="row">
+    <div flex="15" flex-offset="10" hide-xs hide-sm layout layout-align="center center">
+      <span class="label">Work Experience</span >
+    </div>
+    <div flex="60" flex-xs="100" flex-sm="100">
+      <my-workexperiencecard candidateid="id " flex="75" languagedata="langResourceBundle">
+        <verify>
+          <md-button style="color:green " ng-click="showAdvanced($event, 'Work_History') ">Verify</md-button>
+        </verify>
+      </my-workexperiencecard>
+    </div>
+  </div>
+</div>
+
+<div layout="column">
+  <div layout="row">
+    <div flex="15" flex-offset="10" hide-xs hide-sm layout layout-align="center center">
+      <span class="label">Job Preferences</span >
+      </div>
+      <div flex="60" flex-xs="100" flex-sm="100">
+        <my-jobpreferencessectioncard candidateid="uname" showheader="true" test="resourceData" languagedata="resourceData">
+          <verify></verify>
+        </my-jobpreferencessectioncard>
+      </div>
+    </div>
+  </div>
+</div>

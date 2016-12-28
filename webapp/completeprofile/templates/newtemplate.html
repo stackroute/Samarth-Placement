@@ -1,0 +1,23 @@
+<md-dialog style="width:1000px; height:500px">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2 layout-align="center center">Verification</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="cancel()">
+                <md-icon aria-label="Close dialog">close</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content>
+        <sm-verification-rubric name="typename" outcome="b" remarks="remarks">
+        </sm-verification-rubric>
+    </md-dialog-content>
+    <span flex></span>
+    <md-dialog-actions layout="row">
+        <md-button ng-click="cancel()">
+            Cancel
+        </md-button>
+        <md-button ng-click=answer(b,id,remarks)>Ok
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>

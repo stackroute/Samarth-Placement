@@ -6,7 +6,7 @@
 			{
 				function roleReq() {
 					let req = {};
-					req.url = '/coordinatorreg/role';
+					req.url = '/sidenavbar';
 					req.method = 'GET';
 					return $http(req);
 				}
@@ -16,3 +16,4 @@
 				return factory;
 			}]);
 }());
+

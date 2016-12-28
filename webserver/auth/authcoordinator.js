@@ -1,4 +1,5 @@
 let request = require('request');
+const logger = require('./../../applogger');
 
 // @TODO take this from config
 let platformURL = 'localhost:8081';
@@ -31,3 +32,4 @@ let getCoordinatorAuthToken = function(user) {
 module.exports = {
     getCoordinatorAuthToken: getCoordinatorAuthToken
 };
+
