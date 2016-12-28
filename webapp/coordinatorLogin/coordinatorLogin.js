@@ -29,8 +29,14 @@ angular
             /*$urlRouterProvider.otherwise('/home');*/ 
    $stateProvider
   .state('index.home',{
-    url: '',
+    url: '/login',
     views: {
+       /*'appbar@': {
+                templateUrl: 'home/template/navbar.html',
+                controller:'navbarCtrl',
+                controllerAs : 'vm',
+                
+      },*/
           
       'content@': {
        templateUrl: 'coordinatorLogin/template/login.html',

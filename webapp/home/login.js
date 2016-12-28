@@ -2,10 +2,11 @@ angular.module('samarth.home',[])
     .config(config);
 
     function config($stateProvider,$urlRouterProvider){
-      $urlRouterProvider.otherwise('/home');
-      $stateProvider
-  
-     .state('index',{
+        $urlRouterProvider.when('/','/home/login');
+        $urlRouterProvider.when('/home','/home/login');
+        $urlRouterProvider.otherwise('/home/login');
+       $stateProvider
+       .state('index',{
         url:'/home',
         views: {
            
@@ -17,7 +18,7 @@ angular.module('samarth.home',[])
       },
       
       'content': {
-          controller:'rootCtrl'
+         
       
      }
    
