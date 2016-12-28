@@ -1,0 +1,58 @@
+<div layout="row" layout-xs="column" md-colors="{background: 'indigo-100'}" layout-align="center center" class=" md-display-2" style="font-size:20;">
+ Showing {{results.length}} Candidates for  {{prof}}
+</div>
+<!-- <span>Showing {{results.length}} results</span> -->
+<div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
+    <!-- <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-sm="50" flex-sm="100"> -->
+
+    <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">
+        <my-skillcard candidateid="x.candidateid" picsize="small" contentsize="small">
+            <!-- {{$candidateid||json}} -->
+            <badges>
+                <verification-badge candidateid="x.candidateid">
+                </verification-badge>
+            </badges>
+            <buttons>
+                <md-button  ui-sref="index.verifyprofile({candidateid:x.candidateid})">
+                  <md-tooltip>
+                    View Details
+                  </md-tooltip>
+                    <md-icon class="material-icons">contacts</md-icon>
+                </md-button>
+                <md-button ui-sref="index.jobPlacement({profession:prof,candidateid:x.candidateid})">
+                  <md-tooltip>
+                  Suggest
+                  </md-tooltip>
+                  <md-icon class="material-icons">call_made</md-icon>
+                </md-button>
+            </buttons>
+            <cardactions>
+                <md-menu>
+                    <md-button aria-label="open" class="md-icon-button" ng-click=openMenu($mdOpenMenu,$event)>
+                        <md-icon class="material-icons">more horiz</md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button ui-sref="index.verifyprofile({candidateid:x.candidateid})">
+                                View profile
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button>
+                                Show Similar profiles
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </cardactions>
+        </my-skillcard>
+   <!--  </div> -->
+</div>
+<div layout class="md-padding" flex>
+    <div layout layout-align="start start" flex="50">
+        <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
+    </div>
+    <div layout layout-align="end end" flex="50">
+        <md-button class="md-raised md-primary" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages">Next</md-button>
+    </div>
+</div>

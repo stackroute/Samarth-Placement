@@ -3,7 +3,7 @@ const extend = require('util')._extend;
 
 function loadEnvVariables() {
   const fs = require('fs');
-  const envFile = path.join(__dirname, 'ENV.json');
+  const envFile = path.join(__dirname, 'env/ENV.json');
 
   let env = {};
 
