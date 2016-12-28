@@ -4,25 +4,25 @@ angular.module('samarth.home',[])
     function config($stateProvider,$urlRouterProvider){
       $urlRouterProvider.otherwise('/home');
       $stateProvider
-  
+
      .state('index',{
         url:'/home',
         views: {
-           
+
                 'appbar': {
                 templateUrl: 'home/template/navbar.html',
                 controller:'navbarCtrl',
                 controllerAs : 'vm',
-                
+
       },
       
       'content': {
           controller:'rootCtrl'
-      
+
      }
-   
+
         }
-    
+
     });
- 
- } 
+
+ }

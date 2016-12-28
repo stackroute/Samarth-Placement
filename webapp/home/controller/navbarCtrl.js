@@ -1,19 +1,19 @@
 (function(){
   'use strict'
   angular
-    .module('samarth.home') 
+    .module('samarth.home')
     .controller('navbarCtrl', navbarCtrl);
-    function navbarCtrl($http,navFactory,$mdSidenav,$rootScope,$state,$auth,$scope) 
+    function navbarCtrl($http,navFactory,$mdSidenav,$rootScope,$state,$auth,$scope)
     {
-          
-      
+
+
       if($auth.isAuthenticated())
     {
       /*console.log("nav");
             $rootScope.$on('$stateChangeStart','$location', function(event, toState, toParams, fromState,$location) {
                 console.log("kumari");
                 //if user is already traversing to index stage, ignore this check
-                //Here ignore all those states, which need not have authentication 
+                //Here ignore all those states, which need not have authentication
                 if (toState.name == 'index') {
                     //index state does not need prior authentication
                     $location.path('/home/dashboard');
@@ -23,7 +23,7 @@
                 });*/
 
       $state.go('index.dashboard');
-   
+
 }
      $scope.message="";
                $rootScope.user=$auth.getPayload();
@@ -35,7 +35,7 @@
        $rootScope.sideicon = false;
        $rootScope.logout = false;
        vm.openSideNavPanel=openSideNavPanel;
-       
+
        vm.closeSideNavPanel=closeSideNavPanel;
        vm.getSidenav=getSidenav;
        vm.logout=logout;
@@ -53,11 +53,11 @@
         function openSideNavPanel() {
         $mdSidenav('left').open();
         };
-       
+
         function closeSideNavPanel() {
         $mdSidenav('left').close();
         };
-     
+
       function logout()
      {
        $rootScope.sideicon = false;
@@ -68,32 +68,3 @@
     }
 
 })();
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

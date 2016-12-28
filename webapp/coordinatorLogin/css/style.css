@@ -1,0 +1,17 @@
+#loginbox
+{
+ background-image: url('../template/images/index.jpg');
+ height: 100%;
+  width: 100%;
+
+}
+#heading
+{
+font-family: 'Assistant', sans-serif;
+
+}
+#logincontent
+{
+border-radius: 6px;
+
+}
