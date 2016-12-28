@@ -2,14 +2,13 @@
   <md-toolbar layout-align="center center">S A M A R T H</md-toolbar>
   </div> -->
 
-  <div >
-<div layout= "row"  layout-align="center center " layout-padding   ng-cloak  flex>
- <md-content  md-whiteframe="6"  layout-margin="" flex="35">
-
+  <div layout="column" flex="100" id="loginbox">
+<div layout= "row"  layout-align="center center " layout-padding   ng-cloak layout-margin="" >
+  <md-content  md-whiteframe="1"  layout-margin="" flex="40" md-colors="{ background:'grey-100'}" id="logincontent" >
   <form  name="myForm"  >
     <div  layout="row" layout-align="center">
       <!--  <h1 >SAMARTH </h1> -->
-      <h2>Samarth</h2>
+      <h1 id="heading" >Member Login</h1>
     </div>
 
     <md-input-container  class="md-block"  >
@@ -40,7 +39,7 @@
   <p >{{vm.err}}</p>
 </div>
 <div layout="row" layout-align="center" >
- <md-button type="submit"  ng-click="vm.login()"  class="md-raised md-primary" > Sign in </md-button>
+ <md-button type="submit"  ng-click="vm.login()"  class="md-raised md-primary" > Login </md-button>
 
    <!-- <a ui-sref=".list" class="btn btn-primary">List</a>
    <a ui-sref="home" type="submit" class="btn btn-primary" > Sign in </a>  -->
@@ -55,7 +54,7 @@
 </form>
 
 </md-content>
-
+</div>
 </div>
 </body>
 </html>
