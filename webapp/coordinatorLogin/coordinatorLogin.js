@@ -50,6 +50,14 @@ angular
      }
    }
   })
+  .state('index.aboutus',{
+    url:'/aboutus',
+    views:{
+      'content@':{
+        templateUrl: 'home/template/aboutus.html'
+      }
+    }
+  });
 
 };
 
