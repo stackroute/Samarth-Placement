@@ -1,9 +1,10 @@
-var assert = require('chai').assert;
-var request = require('supertest');
+const assert = require('chai').assert;
+const request = require('supertest');
 
-var host_url = 'http://localhost:8080'
-var container_url = host_url + '/candidate/';
-var sampelCandidate={"dob": "2016-11-30T18:30:00.000Z",
+const host_url = 'http://localhost:8080'
+const container_url = host_url + '/candidate/';
+
+const sampelCandidate={"dob": "2016-11-30T18:30:00.000Z",
   "email": "hari@hari.com",
   "gender": "Male",
   "location": "Bangalore",

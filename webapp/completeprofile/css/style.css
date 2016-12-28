@@ -1,0 +1,8 @@
+.vis {
+    display: none;
+}
+
+.fulllink {
+    text-decoration: underline;
+    cursor: pointer;
+}

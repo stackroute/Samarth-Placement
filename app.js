@@ -5,7 +5,7 @@ const path=require('path');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
-const logger = require('./webserver/config/appconfig.js');
+const logger = require('./applogger');
 //including environment value using config
 const config = require('./webserver/config/');
 let navItems = require('./webserver/navbar/navigateRouter.js');
@@ -13,16 +13,16 @@ let navItems = require('./webserver/navbar/navigateRouter.js');
 let authRoutes = require('./webserver/auth/authrouter');
 let authByToken = require('./webserver/auth/authbytoken');
   
+let resourcebundle = require('./webserver/resourcebundle/resourcebundlerouter.js');
+  
 function createApp() {
   const app = express();
-
   return app;
 }
 
 function setupStaticRoutes(app) {
   app.use(express.static(path.join(__dirname, 'webapp')));
 	app.use(express.static(path.join(__dirname, 'bower_components')));
-
   return app;
 }
 
@@ -36,16 +36,16 @@ function setupMongooseConnections() {
   mongoose.connect(config.MONGO_URL);
 
   mongoose.connection.on('connected', function() {
-   /* logger.debug('Mongoose is now connected to ', config.MONGO_URL);*/
+  logger.debug('Mongoose is now connected to ', config.MONGO_URL);
   });
 
   mongoose.connection.on('error', function(err) {
-/*    logger.error('Error in Mongoose connection: ', err);
-*/  });
+   logger.error('Error in Mongoose connection: ', err);
+ });
 
   mongoose.connection.on('disconnected', function() {
-/*    logger.debug('Mongoose is now disconnected..!');
-*/  });
+    logger.debug('Mongoose is now disconnected..!');
+  });
 
   process.on('SIGINT', function() {
     mongoose.connection.close(function() {
@@ -62,11 +62,10 @@ function setupRestRoutes(app) {
   app.onAppStart = function(addr) {
   console.error('Samarth-Placement web app is now Running on port:', addr.port);
   };
-
   app.use('/', authRoutes);
   app.use('/', navItems);
+  app.use('/resource', resourcebundle);
   app.use('/', function(req, res) {
-
     let options = {
       target: {
         host: 'localhost',
