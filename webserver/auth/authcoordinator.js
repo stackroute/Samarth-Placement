@@ -1,4 +1,5 @@
 let request = require('request');
+const logger = require('./../../applogger');
 
 // @TODO take this from config
 let platformURL = 'localhost:8081';

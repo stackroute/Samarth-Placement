@@ -3,45 +3,56 @@
    md-component-id="left" flex>
    <md-toolbar layout="row">
      <div class="md-toolbar-tools">
-      <h3>
-        SAMARTH-</h3>
-        <h2>Placement</h2>
-      
+
       <span flex></span>
-      <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="closeSideNavPanel()">
+      <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="vm.closeSideNavPanel()">
         <md-tooltip>Close Side Panel</md-tooltip>
         <md-icon class="md-default-theme" class="material-icons">&#xE5CD;</md-icon>
       </md-button>
     </div>
   </md-toolbar>
-   
+
   <md-content>
     <md-list>
-      <md-list-item ng-repeat="navItem in navItems.sidenavmenuitems track by $index">
-       <div class="md-button md-no-style" ui-sref="{{navItem['traverse']}}" ng-click="closeSideNavPanel()">
-         <md-icon class="material-icons" >{{navItem["icon"]}}</md-icon>
-         <span layout-padding="">{{navItem["navTitle"]}}</span>
+      <md-list-item ng-repeat="navItem in vm.navItems.sidenavmenuitems track by $index">
+       <div class="md-button md-no-style" ui-sref="{{navItem.traverse}}" ng-click="vm.closeSideNavPanel()">
+         <md-icon class="material-icons" >{{navItem.icon}}</md-icon>
+         <span layout-padding="">{{navItem.navTitle}}</span>
        </div>
       </md-list-item>
      </md-list>
-     </md-content>
   </md-sidenav>
   <md-toolbar >
-    <div class="md-toolbar-tools">
-      <md-button class="md-icon-button" aria-label="Side Panel" ng-show="sideicon" ng-click="openSideNavPanel()">
+    <div class="md-toolbar-tools" >
+      <md-button class="md-icon-button" aria-label="Side Panel" ng-show="sideicon" ng-click="vm.openSideNavPanel()">
         <md-tooltip>Side Panel</md-tooltip>
         <md-icon class="md-default-theme" class="material-icons">&#xE5D2;</md-icon>
       </md-button>
-      <h2>
-        <span>SAMARTH
-      </h2>
-      <div layout="row"  flex="" class="layout-align-end-center flex">
-       <div class="md-button" ng-click="logout()" ng-show="logout"><span class="ng-scope">
-       <md-icon class="material-icons">exit_to_app</md-icon>
-  <strong>Logout</strong></span></div>
-      </div>
+
+         SAMARTH-PLACEMENT
+         <span flex></span>
+
+
+       <!-- <div class="md-button" ng-click="vm.logout()" ng-show="logout"><span class="ng-scope"> -->
+                  <md-menu layout="column">
+                    <md-button aria-label="open" ng-click=openMenu($mdOpenMenu,$event) layout="row">
+                        <md-icon class="material-icons">supervisor_account</md-icon>&nbsp;&nbsp;&nbsp;&nbsp;{{message | uppercase}}
+                    </md-button>
+                    <md-menu-content width="3">
+                        <md-menu-item layout-padding>
+                          <md-button >
+                            <md-icon></md-icon>
+                           About Us
+                          </md-button>
+                            </md-menu-item>
+                              <md-menu-item>
+                            <md-button ng-click="vm.logout()">
+                             <md-icon>exit_to_app</md-icon>  Logout
+                            </md-button>
+                        </md-menu-item>
+                        </md-menu-content>
+                        </md-menu>
+
       </div>
   </md-toolbar>
   </div>
-
-

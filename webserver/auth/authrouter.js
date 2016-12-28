@@ -1,7 +1,9 @@
 let authByToken = require('./authbytoken');
+const logger = require('./../../applogger');
 let bodyParser = require('body-parser');
 let apiRoutes = require('express').Router();
 let jsonBodyParser = bodyParser.json();
+let coordinatorprocessor = require('./coordinatorprocessor');
 let urlEncodedParser = bodyParser.urlencoded({
     extended: false
 });
@@ -19,7 +21,7 @@ apiRoutes.post('/signin', jsonBodyParser, urlEncodedParser, function(req, res) {
         authByToken.signin(req.body.email, req.body.pwd,
             function(err, user, jwtToken) {
                 if (err) {
-                    console.log("Called back with error  : ", err);
+                    logger.log("Called back with error  : ", err);
                     return res.status(500).json({
                         error: "Internal error in processing request, please retry later..!"
                     });
@@ -35,16 +37,28 @@ apiRoutes.post('/signin', jsonBodyParser, urlEncodedParser, function(req, res) {
                 
             },
             function(err) {
-                console.log("Signin failed with error : ", err);
+                logger.log("Signin failed with error : ", err);
                 return res.status(403).json(err);
             });
     } catch (err) {
-        console.log("Caught error: ", err);
+        logger.log("Caught error: ", err);
         return res.status(500).json({
             error: "Internal error in processing request, please retry later..!"
         });
     }
 }); 
+
+apiRoutes.post('/insertdata', jsonBodyParser, urlEncodedParser, function(req, res) {    coordinatorprocessor.insertCoordinator(req.body,
+                   function(err, user) {
+                       if (err) {
+                           // return res.status(500).json({
+                           error: 'Internal error in processing request, please retry later..!';
+                       }                        return res.status(200).json(user);
+                   },
+                   function(err) {
+                       return res.status(403).json(err);
+                   }); // insertCoordinator ends
+});
 
 module.exports = apiRoutes;
 

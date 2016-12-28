@@ -3,6 +3,7 @@ let UserModel = require('./users');
 let authCoordinator = require('./authcoordinator');
 let mongoose = require('mongoose');
 let coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
+const logger = require('./../../applogger');
 
 let generateJWTToken = function(user, cb) {
     let payload = user;
@@ -14,36 +15,36 @@ let generateJWTToken = function(user, cb) {
     };
 
     jwt.sign(payload, secretOrPrivateKey, options, function(err, jwtToken) {
-        console.log("Sending token ", user, jwtToken);
+        logger.log("Sending token ", user, jwtToken);
         cb(err, user, jwtToken);
     });
 }
 
 let signin = function(email, pwd, callback, unauthCB) {
-    console.log("Email being searched: ", email);
+    logger.log("Email being searched: ", email);
     coordinatoruser.findOne({
             email: email
         },
         function(err, user) {
             if (err) {
-                console.error("Database error in finding user, error: ", err);
+                logger.error("Database error in finding user, error: ", err);
                 callback({
                     error: "Failed to process request, please try later..!"
                 }, null)
                 return;
             }
 
-            console.log("User signing in is: ", user);
+            logger.log("User signing in is: ", user);
 
             if (!user) {
-                console.error('User ', email, ' not found..!');
+                logger.error('User ', email, ' not found..!');
                 unauthCB({
                     error: "Invalid credentials...!"
                 }, null);
                 return;
             }
 
-            console.log("Validing user password: ", pwd, " vs ", user.password);
+            logger.log("Validing user password: ", pwd, " vs ", user.password);
 
             if (!user.validPassword(pwd)) {
                 unauthCB({
@@ -51,7 +52,7 @@ let signin = function(email, pwd, callback, unauthCB) {
                 });
                 return;
             }
-              console.log("User signing in is: ", user);
+              logger.log("User signing in is: ", user);
 
             authCoordinator.getCoordinatorAuthToken(user).then(
                 function(details) {
@@ -66,7 +67,7 @@ let signin = function(email, pwd, callback, unauthCB) {
                         "sm-token": "TBD"
                     };
 
-                    console.log("Got token successfully ", sessionUser);
+                    logger.log("Got token successfully ", sessionUser);
 
                     generateJWTToken(sessionUser, callback); //generate JWTToken
                 },
