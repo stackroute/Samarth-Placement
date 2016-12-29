@@ -114,8 +114,9 @@
         $scope.message = err;
       })
       $scope.status = '';
-    }, function() {
-      $scope.flag=false;
+    }, 
+    function() {
+      $scope.decide=false;
       $scope.status = '';
     }); 
     }
