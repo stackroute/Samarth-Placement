@@ -1,20 +1,28 @@
+<div layout="row" layout-xs="column" md-colors="{background: 'indigo-100'}" layout-align="center center" class=" md-display-2" style="font-size:20;">
+ Showing {{result.length}} Jobs for  {{result[0].jb.profession[0]}}
+</div>
 <div layout-gt-sm="row" layout-sm="column" layout="column" layout-align="center center" layout-wrap class="md-padding" flex-gt-sm flex-sm>
     <div ng-repeat="data in result | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-xs flex-gt-xs='50' flex-gt-sm='30' flex-gt-md='30' >
 
     <job-card data="data">
       <buttons>
-        <md-button class="md-raised md-primary" aria-label="view Details" ui-sref="index.jobPost({'key':1,'key1':data.jb})">View Details </md-button>
-        <span>
-        <md-button class="md-raised md-primary" aria-label="applyJobs" ui-sref="index.candidatePlacement({profession:data.jb.profession[0],jobcode:data.jb.jobcode})">Suggest</md-button></span>
+        <md-button aria-label="view Details" ui-sref="index.jobPost({'key':1,'key1':data.jb})">
+          <md-icon class="material-icons">contacts</md-icon>
+        </md-button>
+        <md-button aria-label="applyJobs" ui-sref="index.candidatePlacement({profession:data.jb.profession[0],jobcode:data.jb.jobcode})">
+          <md-icon class="material-icons">call_made</md-icon>
+        </md-button>
       </buttons>
     </job-card>
    </div>
-  <div layout class="md-padding" flex>
+  
+
+</div>
+<div layout class="md-padding" flex>
     <div layout layout-align="start start" flex="50">
         <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
     </div>
-    <div layout layout-align="end end" flex="50">
+    <div layout layout-align="end end">
         <md-button class="md-raised md-primary" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages">Next</md-button>
     </div>
   </div>
-</div>

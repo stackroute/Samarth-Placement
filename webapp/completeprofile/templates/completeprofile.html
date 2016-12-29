@@ -49,6 +49,20 @@
 
 <div layout="column">
   <div layout="row">
+    <div flex="15" flex-offset="10" hide-xs hide-sm layout layout-align="center center">
+      <span class="label">Job Preferences</span >
+      </div>
+      <div flex="60" flex-xs="100" flex-sm="100">
+        <my-jobpreferencessectioncard candidateid="id" showheader="true" languagedata="resourceData">
+          <verify></verify>
+        </my-jobpreferencessectioncard>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div layout="column">
+  <div layout="row">
     <div flex="15" flex-offset="10" hide-xs hide-sm  layout layout-align="center center">
       <span class="label">Skills</span >
     </div>
@@ -103,20 +117,6 @@
           <md-button style="color:green " ng-click="showAdvanced($event, 'Work_History') ">Verify</md-button>
         </verify>
       </my-workexperiencecard>
-    </div>
-  </div>
-</div>
-
-<div layout="column">
-  <div layout="row">
-    <div flex="15" flex-offset="10" hide-xs hide-sm layout layout-align="center center">
-      <span class="label">Job Preferences</span >
-      </div>
-      <div flex="60" flex-xs="100" flex-sm="100">
-        <my-jobpreferencessectioncard candidateid="uname" showheader="true" test="resourceData" languagedata="resourceData">
-          <verify></verify>
-        </my-jobpreferencessectioncard>
-      </div>
     </div>
   </div>
 </div>

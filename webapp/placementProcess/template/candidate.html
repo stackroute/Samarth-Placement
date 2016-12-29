@@ -1,3 +1,6 @@
+<div layout="row" layout-xs="column" md-colors="{background: 'indigo-100'}" layout-align="center center" class=" md-display-2" style="font-size:20;">
+ Showing {{results.length}} Candidates for  {{prof}}
+</div>
 <!-- <span>Showing {{results.length}} results</span> -->
 <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
     <!-- <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-sm="50" flex-sm="100"> -->
@@ -10,11 +13,11 @@
                 </verification-badge>
             </badges>
             <buttons>
-                <md-button ui-sref="index.verifyprofile({candidateid:x.candidateid})" class="md-raised md-primary">
-                        view Details
+                <md-button  ui-sref="index.verifyprofile({candidateid:x.candidateid})">
+                        <md-icon class="material-icons">contacts</md-icon>
                 </md-button>
-                <md-button class="md-raised md-primary" ui-sref="index.jobPlacement({profession:prof,candidateid:x.candidateid})">
-                        Suggest
+                <md-button ui-sref="index.jobPlacement({profession:prof,candidateid:x.candidateid})">
+                        <md-icon class="material-icons">call_made</md-icon>
                 </md-button>
             </buttons>
             <cardactions>
@@ -24,7 +27,7 @@
                     </md-button>
                     <md-menu-content width="4">
                         <md-menu-item>
-                            <md-button ui-sref="verifyprofile({candidateid:x.candidateid})">
+                            <md-button ui-sref="index.verifyprofile({candidateid:x.candidateid})">
                                 View profile
                             </md-button>
                         </md-menu-item>

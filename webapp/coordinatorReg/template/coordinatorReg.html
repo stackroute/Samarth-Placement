@@ -13,7 +13,7 @@
           </div>
         </md-input-container>
         <md-radio-group name="gender" ng-model="vm.coordinator.gender" layout="row" ng-required="true">
-           <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender&nbsp;&nbsp;</label>
+          <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender&nbsp;&nbsp;</label>
           <md-radio-button value="Male">Male</md-radio-button>
           <md-radio-button value="Female">Female</md-radio-button>
         </md-radio-group>
@@ -46,7 +46,7 @@
         <md-input-container layout="column">
         <md-icon>layers</md-icon>
           <label>Profession</label>
-          <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
+          <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
             <md-option ng-value="item" ng-repeat="item in vm.items | filter:searchTerm">{{item}}</md-option>
           </md-select>
         </md-input-container>
@@ -54,9 +54,29 @@
         <md-input-container layout="column">
         <md-icon>school</md-icon>
           <label>Role</label>
-          <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
+          <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
             <md-option ng-value="vm.role">{{vm.role}}</md-option>
           </md-select>
+        </md-input-container>
+
+        <md-input-container layout="column" align-layout="left left">
+          <span><md-icon>room</md-icon>
+          </span>
+          <md-autocomplete
+            md-selected-item="vm.coordinator.location"
+            md-search-text-change=""
+            md-search-text="locationInputText"
+            md-selected-item-change=""
+            md-items="item in vm.location | filter: locationInputText"
+            md-item-text="item"
+            md-min-length="0"
+            md-menu-class="autocomplete-custom-template"
+            md-floating-label="Location"
+            ng-required=true >
+            <md-item-template>
+              <span md-highlight-text="locationInputText" md-highlight-flags="^i">{{item}}</span>
+            </md-item-template>
+          </md-autocomplete>
         </md-input-container>
 
         <div layout data-ng-repeat="iteration in vm.selectedLanguage">
