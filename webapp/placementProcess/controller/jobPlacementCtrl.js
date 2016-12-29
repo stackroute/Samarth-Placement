@@ -95,8 +95,14 @@
     $scope.apply=function(jobcode)
     {
 
-      
+      // Appending dialog to document.body to cover sidenav in docs app
+    var confirm = $mdDialog.confirm()
+          .title('Apply')
+          .textContent('Are you want to apply job for the candidate?')
+          .ok('Yes')
+          .cancel('No');
 
+    $mdDialog.show(confirm).then(function() {
       applyFactory.applyJob($stateParams.candidateid,jobcode)
       .then(function successCallbackfun(response){
         console.log(response);
@@ -107,7 +113,11 @@
       {
         $scope.message = err;
       })
-      
+      $scope.status = '';
+    }, function() {
+      $scope.flag=false;
+      $scope.status = '';
+    }); 
     }
   }
   ])
