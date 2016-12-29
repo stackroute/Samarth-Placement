@@ -94,6 +94,17 @@
 
     $scope.apply=function(jobcode)
     {
+
+      $mdDialog.show(
+        $mdDialog.confirm()
+          .title('Apply')
+          .textContent('All of the banks have agreed to forgive you your debts.')
+          .ariaLabel('Lucky day')
+          .targetEvent(ev)
+          .ok('Please do it!')
+          .cancel('Sounds like a scam');
+        );
+
       applyFactory.applyJob($stateParams.candidateid,jobcode)
       .then(function successCallbackfun(response){
         console.log(response);
@@ -104,15 +115,7 @@
       {
         $scope.message = err;
       })
-      $mdDialog.show(
-        $mdDialog.alert()
-        .parent(angular.element(document.querySelector('#popupContainer')))
-        .clickOutsideToClose(true)
-        .title("Message")
-        .textContent(jobcode+"suggested to the candidateid:"+$stateParams.candidateid)
-        .ariaLabel('Alert Dialog Demo')
-        .ok('Got it!')
-        );
+      
     }
   }
   ])

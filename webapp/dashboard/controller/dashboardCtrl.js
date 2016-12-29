@@ -16,7 +16,7 @@ function dashboardCtrl($scope, $mdDialog, $log, circlesGetService,$rootScope,$au
   $rootScope.user=$auth.getPayload();
   console.log($rootScope.user);
   $rootScope.message=" "+$rootScope.user.name+" ";
-
+  
 
   if ($auth.isAuthenticated()) {
    $rootScope.sideicon = true;
@@ -32,6 +32,8 @@ function dashboardCtrl($scope, $mdDialog, $log, circlesGetService,$rootScope,$au
  circlesGetService.getCircle()
  .then(function(response) {
   $scope.profiling = response.data;
+  console.log("profession details");
+  console.log($scope.profiling);
 
   console.log(response.data);
 
