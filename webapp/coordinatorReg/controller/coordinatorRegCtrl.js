@@ -3,6 +3,7 @@
 		angular
 			.module('samarth.cordsignup')
 			.controller('coordinatorRegCtrl', ['languageFact',
+				'locationFact',
 				'professionFac',
 				'roleFact',
 				'submitFormFact',
@@ -11,6 +12,7 @@
 				'$timeout',
 				'$mdDialog',
 				function(languageFact,
+				locationFact,
 				professionFac,
 				roleFact,
 				submitFormFact,
@@ -43,6 +45,19 @@
 					{
 						vm.role = data.data.role;
 					});
+				}
+
+				function locationsFact()
+				{
+					locationFact.locationReq().then(function(data) 
+					{
+						var temp=[];
+						for( var i=0;i<data.data.length;i++)
+						{    
+							temp[i]= data.data[i].location;
+						}
+						vm.location= temp;
+					})
 				}
 
 				function languagesFact()
@@ -203,6 +218,7 @@
 				professionReq();
 				languagesFact();
 				rolesFact();
+				locationsFact();
 				vm.insertLang = insertLang;
 				vm.removeLang = removeLang;
 				vm.clickSubmit = clickSubmit;

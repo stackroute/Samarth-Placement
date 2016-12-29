@@ -6,7 +6,7 @@ angular.module('samarth.jobSearch')
      'Pagination',
      'jobSearchFactory',
      'circlesGetService',
-     function($scope, $stateParams, Pagination,jobSearchFactory,circlesGetService) {
+     function($scope, $stateParams, Pagination, jobSearchFactory, circlesGetService) {
       $scope.subheader="Discover opportunities and connect people who can help you to get jobs!";
 
        console.log("Inside JobSearch Ctrl before indexing");
