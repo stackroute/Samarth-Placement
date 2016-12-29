@@ -9,16 +9,6 @@
 		.config(coorRegConfig);
 
 		function coorRegConfig($stateProvider){
-			let loginRequired = ['$q','$location', '$auth', function($q, $location, $auth) {
-      let deferred = $q.defer();
-      if ($auth.isAuthenticated()) {
-        deferred.resolve();
-      } 
-      else {
-        $location.path('/home');
-      }
-      return deferred.promise;
-    }];
 			$stateProvider
 			.state("index.createaccount",{
 				url:"/createaccount",
@@ -26,10 +16,8 @@
 					'content@': {
 						templateUrl: 'coordinatorReg/template/coordinatorReg.html',
 						controller:"coordinatorRegCtrl",
-						controllerAs:"vm",
-						resolve: {
-            loginRequired: loginRequired
-          }
+						controllerAs:"vm"
+					
 					}
 				}
 			});
