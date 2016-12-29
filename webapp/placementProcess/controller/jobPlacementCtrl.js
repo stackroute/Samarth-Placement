@@ -94,6 +94,9 @@
 
     $scope.apply=function(jobcode)
     {
+
+      
+
       applyFactory.applyJob($stateParams.candidateid,jobcode)
       .then(function successCallbackfun(response){
         console.log(response);
@@ -104,15 +107,7 @@
       {
         $scope.message = err;
       })
-      $mdDialog.show(
-        $mdDialog.alert()
-        .parent(angular.element(document.querySelector('#popupContainer')))
-        .clickOutsideToClose(true)
-        .title("Message")
-        .textContent(jobcode+"suggested to the candidateid:"+$stateParams.candidateid)
-        .ariaLabel('Alert Dialog Demo')
-        .ok('Got it!')
-        );
+      
     }
   }
   ])
