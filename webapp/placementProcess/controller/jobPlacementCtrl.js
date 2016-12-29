@@ -95,15 +95,7 @@
     $scope.apply=function(jobcode)
     {
 
-      $mdDialog.show(
-        $mdDialog.confirm()
-          .title('Apply')
-          .textContent('All of the banks have agreed to forgive you your debts.')
-          .ariaLabel('Lucky day')
-          .targetEvent(ev)
-          .ok('Please do it!')
-          .cancel('Sounds like a scam');
-        );
+      
 
       applyFactory.applyJob($stateParams.candidateid,jobcode)
       .then(function successCallbackfun(response){
