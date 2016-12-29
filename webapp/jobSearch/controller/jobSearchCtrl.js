@@ -6,14 +6,16 @@ angular.module('samarth.jobSearch')
      'Pagination',
      'jobSearchFactory',
      'circlesGetService',
-     function($scope, $stateParams, Pagination,jobSearchFactory,circlesGetService) {
+     function($scope, $stateParams, Pagination, jobSearchFactory, circlesGetService) {
+      $scope.subheader="Discover opportunities and connect people who can help you to get jobs!";
+
        console.log("Inside JobSearch Ctrl before indexing");
       if ($stateParams.searchText !== undefined ) {
             $scope.searchJob($stateParams.searchText);
         }
-        else{
-            // $scope.message = "Enter Text To Search For Jobs";
-        }
+        // else{
+        //     // $scope.message = "Enter Text To Search For Jobs";
+        // }
       console.log("params value after checking "+ $stateParams.searchText);
 
      var profs="";
@@ -40,8 +42,13 @@ angular.module('samarth.jobSearch')
                 $scope.pagination = Pagination.getNew(6);
                 $scope.pagination.numPages = Math.ceil(response.data.length / $scope.pagination.perPage);
                 $scope.message = "";
+                $scope.message1="";
+                  $scope.message2="";
+
                 if (response.data.length == 0) {
-                  $scope.message = "No Result Found for "+" "+"'"+ searchText+"'"+" "+"! Try more general keywords. ";
+                  $scope.message = "No Result Found for "+" "+"'";
+                  $scope.message1 =searchText
+                  $scope.message2="'"+" "+"! Try more general keywords. ";
 
                 }
                 else{
@@ -73,20 +80,22 @@ angular.module('samarth.jobSearch')
 //      'circlesGetService',
 //      '$state',
 //   function($scope, $stateParams, Pagination,jobSearchFactory,circlesGetService,$state) {
-//      var profs="";
+//       $scope.subheader="Discover opportunities and connect people who can help you to get jobs!";
+//       var profs="";
 //      circlesGetService.getCircle()
-//       .then(function(response) {
-//           $scope.profiling = response.data;
-//           for(var i=0;i<response.data.length;i++){
-//             profs+=response.data[i].name+"-";
-//           }
+//         .then(function(response) {
+//            $scope.profiling = response.data;
+//            for(var i=0;i<response.data.length;i++){
+//              profs+=response.data[i].name+"-";
+//            }
 //             console.log("circles arrray "+profs);
-//         }, 
-//         function(err) {
+//          },
+//          function(err) {
 //             console.log("circles array "+err);
-//         });
+//          });
+
 //       console.log("searchText params value after checking  "+ $stateParams.searchText);
-//       console.log("getting profession value from dashboardctrl " + profs);
+//       // console.log("getting profession value from dashboardctrl " + profs);
 
 //       if (($stateParams.searchText !== undefined) && ($stateParams.searchText !== '')) {
 //         // console.log('inside searchJobs')
@@ -95,7 +104,7 @@ angular.module('samarth.jobSearch')
 //         else{
 //            searchJobProfs();
 //         }
-       
+
 //         function searchJobProfs(){
 //           console.log('profs', profs);
 //           jobSearchFactory.searchJobsByProfession(profs).then(function(response) {
@@ -113,7 +122,7 @@ angular.module('samarth.jobSearch')
 //              $scope.message="Showing " + response.data.length + " Results for "+profs+" Profession in Job Search";
 
 //              // $state.go('candidate.jobSearch.results', result);
-//              $state.go('candidate.jobSearch.results', {'obj':'result'});
+//              $state.go('index.jobSearch.results', {'obj':'result'});
 
 //              }
 //            })
@@ -122,7 +131,7 @@ angular.module('samarth.jobSearch')
 //             $scope.message = "Some Error Occured "+err;
 //           });
 //         };
-   
+
 //         function searchJob(searchText) {
 //          //var arr=key.split(/[ ,]+/);
 //          console.log("params inside fun searchJob " + searchText);
@@ -149,8 +158,7 @@ angular.module('samarth.jobSearch')
 //                .catch(function(error) {
 //                  console.log("some error occured "+err);
 //                  $scope.message = "Some Error Occured "+err;
-//               });      
+//               });
 //        };
 //    }]);
 // })();
-

@@ -1,4 +1,4 @@
-<div layout="row" layout-xs="column" md-colors="{background: 'indigo-100'}" layout-align="center center" class=" md-display-2" style="font-size:20;">
+<div layout="row" layout-xs="column" md-colors="{background: 'grey-100'}" layout-align="center center"  id="heading" class="md-headline" style="font-size:20;">
  Showing {{results.length}} Candidates for  {{prof}}
 </div>
 <!-- <span>Showing {{results.length}} results</span> -->
@@ -14,10 +14,16 @@
             </badges>
             <buttons>
                 <md-button  ui-sref="index.verifyprofile({candidateid:x.candidateid})">
-                        <md-icon class="material-icons">contacts</md-icon>
+                  <md-tooltip>
+                    View Details
+                  </md-tooltip>
+                    <md-icon class="material-icons">contacts</md-icon>
                 </md-button>
                 <md-button ui-sref="index.jobPlacement({profession:prof,candidateid:x.candidateid})">
-                        <md-icon class="material-icons">call_made</md-icon>
+                  <md-tooltip>
+                  Suggest
+                  </md-tooltip>
+                  <md-icon class="material-icons">call_made</md-icon>
                 </md-button>
             </buttons>
             <cardactions>

@@ -7,14 +7,14 @@ angular
    obj.searchJobs = function(profs) {
        return $http({
        method: 'GET',
-       url: '/jobProfile/jobsByProfession/'+profs
-       } )
+       url: '/jobProfile/jobsByProfession/' + profs
+       });
    };
    return obj;
 }])
   .factory('applyFactory', ['$http', function($http) {
    let obj = {};
-   obj.applyJob = function(cid, jobcode){
+   obj.applyJob = function(cid, jobcode) {
        return $http({
        method: 'POST',
        url: '/placementprocess/apply/',
@@ -22,52 +22,51 @@ angular
         candidateid: cid,
         jobcode: jobcode
        }
-       })
-   }
+       });
+   };
    return obj;
 }])
   .factory('appliedCandidateFactory', ['$http', function($http) {
    let obj = {};
-   obj.appliedCandidates = function(jobcode){
+   obj.appliedCandidates = function(jobcode) {
        return $http({
-       method : 'GET',
-       url : 'placementprocess/appliedCandidates/'+jobcode
-       })
-   }
+       method: 'GET',
+       url: 'placementprocess/appliedCandidates/' + jobcode
+       });
+   };
    return obj;
 }])
 
   .factory('appliedJobFactory', ['$http', function($http) {
    let obj = {};
-   obj.appliedJobs = function(candidateid){
-        
+   obj.appliedJobs = function(candidateid) {
        return $http({
-       method : 'GET',
-       url : 'placementprocess/appliedJobs/'+candidateid
-       })
-   }
+       method: 'GET',
+       url: 'placementprocess/appliedJobs/' + candidateid
+       });
+   };
    return obj;
 }])
   .factory('acceptFactory', ['$http', function($http) {
    let obj = {};
-   obj.accept = function(cid,jobcode){
+   obj.accept = function(cid, jobcode) {
        return $http({
-       method : 'POST',
-       url : '/placementprocess/offer',
+       method: 'POST',
+       url: '/placementprocess/offer',
        data: {
         candidateid: cid,
         jobcode: jobcode
        }
-       })
-   }
+       });
+   };
    return obj;
 }])
   .factory('rejectFactory', ['$http', function($http) {
    let obj = {};
-   obj.reject = function(cid,jobcode){
+   obj.reject = function(cid, jobcode) {
        return $http({
-       method : 'POST',
-       url : '/placementprocess/reject',
+       method: 'POST',
+       url: '/placementprocess/reject',
        data: {
         candidateid: cid,
         jobcode: jobcode
@@ -79,10 +78,10 @@ angular
 
   .factory('statusFactory', ['$http', function($http) {
    let obj = {};
-   obj.status = function(cid, jobcode){
+   obj.status = function(cid, jobcode) {
        return $http({
-       method : 'POST',
-       url : '/placementprocess/status',
+       method: 'POST',
+       url: '/placementprocess/status',
        data: {
         candidateid: cid,
         jobcode: jobcode
@@ -104,7 +103,7 @@ angular
                     }
                 }).then(function success(response) {
                     return response.data;
-                }, function error(err) {
+                }, function error() {
                     return [];
                 });
             }

@@ -1,9 +1,9 @@
   <div>
    <md-sidenav class="md-sidenav-left md-whiteframe-z2"
    md-component-id="left" flex>
-   <md-toolbar layout="row">
+   <md-toolbar layout="row" class="md-whiteframe-2dp">
      <div class="md-toolbar-tools">
-
+      SAMARTH-PLACEMENT
       <span flex></span>
       <md-button class="md-icon-button" aria-label="Close Side Panel" ng-click="vm.closeSideNavPanel()">
         <md-tooltip>Close Side Panel</md-tooltip>
@@ -22,7 +22,7 @@
       </md-list-item>
      </md-list>
   </md-sidenav>
-  <md-toolbar >
+  <md-toolbar class="md-whiteframe-2dp">
     <div class="md-toolbar-tools" >
       <md-button class="md-icon-button" aria-label="Side Panel" ng-show="sideicon" ng-click="vm.openSideNavPanel()">
         <md-tooltip>Side Panel</md-tooltip>
@@ -30,24 +30,16 @@
       </md-button>
 
          SAMARTH-PLACEMENT
-    <!--      <span flex></span> -->
 
-      <!-- <div> -->
-
-       <!-- <div class="md-button" ng-click="vm.logout()" ng-show="logout"><span class="ng-scope"> -->
-                  <md-menu layout="column">
-                    <md-button aria-label="open" ng-click=openMenu($mdOpenMenu,$event) layout="row">
+                <span flex></span>
+                  <md-menu layout="column" md-offset="10 60" ng-if="logout">
+                   <md-button aria-label="open" ng-click="$mdOpenMenu($event)" layout="row" >
                         <md-icon class="material-icons">supervisor_account</md-icon>&nbsp;&nbsp;&nbsp;&nbsp;{{message | uppercase}}
                     </md-button>
-                    <md-menu-content width="3">
-                        <md-menu-item layout-padding>
-                          <md-button >
-                            <md-icon></md-icon>
-                           About Us
-                          </md-button>
-                            </md-menu-item>
+                    <md-menu-content width="3" >
+                      <span>&nbsp;&nbsp;&nbsp;<md-icon>face</md-icon>&nbsp;&nbsp;Role:Coordinator</span>
                               <md-menu-item>
-                            <md-button ng-click="vm.logout()">
+                            <md-button ng-click="vm.logout()" >
                              <md-icon>exit_to_app</md-icon>  Logout
                             </md-button>
                         </md-menu-item>

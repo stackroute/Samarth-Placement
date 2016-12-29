@@ -1,5 +1,5 @@
-<div layout="row" layout-xs="column" md-colors="{background: 'indigo-100'}" layout-align="center center" class=" md-display-2" style="font-size:20;">
- Showing {{results.length}} Candidates for the Job
+<div layout="row" layout-xs="column" md-colors="{background: 'grey-100'}" layout-align="center center" id="heading" class="md-headline" style="font-size:20;">
+    Showing {{results.length}} Candidates for the Job
 </div>
 <!-- <span>Showing {{results.length}} results</span> -->
 <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
@@ -14,10 +14,15 @@
             </badges>
             <buttons>
                 <md-button ui-sref="index.verifyprofile({candidateid:'{{x.candidateid}}'})">
-                  <md-icon class="material-icons">contacts</md-icon>view
+                    <md-tooltip>
+                        View Details </md-tooltip>
+                    <md-icon class="material-icons">contacts</md-icon>
                 </md-button>
                 <md-button ng-click="apply(x.candidateid)">
-                  <md-icon class="material-icons">done</md-icon>Apply
+                    <md-tooltip>
+                        Apply
+                    </md-tooltip>
+                    <md-icon class="material-icons">done</md-icon>
                 </md-button>
             </buttons>
             <cardactions>
@@ -40,13 +45,13 @@
                 </md-menu>
             </cardactions>
         </my-skillcard>
-   <!--  </div> -->
-</div>
-<div layout class="md-padding" flex>
-    <div layout layout-align="start start" flex="50">
-        <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
+        <!--  </div> -->
     </div>
-    <div layout layout-align="end end" flex="50">
-        <md-button class="md-raised md-primary" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages">Next</md-button>
+    <div layout class="md-padding" flex>
+        <div layout layout-align="start start" flex="50">
+            <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
+        </div>
+        <div layout layout-align="end end" flex="50">
+            <md-button class="md-raised md-primary" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages">Next</md-button>
+        </div>
     </div>
-</div>
