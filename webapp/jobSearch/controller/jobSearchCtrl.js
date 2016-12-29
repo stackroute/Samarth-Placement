@@ -42,8 +42,13 @@ angular.module('samarth.jobSearch')
                 $scope.pagination = Pagination.getNew(6);
                 $scope.pagination.numPages = Math.ceil(response.data.length / $scope.pagination.perPage);
                 $scope.message = "";
+                $scope.message1="";
+                  $scope.message2="";
+
                 if (response.data.length == 0) {
-                  $scope.message = "No Result Found for "+" "+"'"+ searchText+"'"+" "+"! Try more general keywords. ";
+                  $scope.message = "No Result Found for "+" "+"'";
+                  $scope.message1 =searchText
+                  $scope.message2="'"+" "+"! Try more general keywords. ";
 
                 }
                 else{
@@ -88,7 +93,7 @@ angular.module('samarth.jobSearch')
 //          function(err) {
 //             console.log("circles array "+err);
 //          });
-     
+
 //       console.log("searchText params value after checking  "+ $stateParams.searchText);
 //       // console.log("getting profession value from dashboardctrl " + profs);
 
@@ -99,7 +104,7 @@ angular.module('samarth.jobSearch')
 //         else{
 //            searchJobProfs();
 //         }
-       
+
 //         function searchJobProfs(){
 //           console.log('profs', profs);
 //           jobSearchFactory.searchJobsByProfession(profs).then(function(response) {
@@ -126,7 +131,7 @@ angular.module('samarth.jobSearch')
 //             $scope.message = "Some Error Occured "+err;
 //           });
 //         };
-    
+
 //         function searchJob(searchText) {
 //          //var arr=key.split(/[ ,]+/);
 //          console.log("params inside fun searchJob " + searchText);
@@ -153,8 +158,7 @@ angular.module('samarth.jobSearch')
 //                .catch(function(error) {
 //                  console.log("some error occured "+err);
 //                  $scope.message = "Some Error Occured "+err;
-//               });      
+//               });
 //        };
 //    }]);
 // })();
-
