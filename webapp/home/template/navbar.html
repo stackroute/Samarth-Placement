@@ -1,4 +1,4 @@
-  <div>
+<div>
    <md-sidenav class="md-sidenav-left md-whiteframe-z2"
    md-component-id="left" flex>
    <md-toolbar layout="row" class="md-whiteframe-2dp">
@@ -19,33 +19,35 @@
          <md-icon class="material-icons" >{{navItem.icon}}</md-icon>
          <span layout-padding="">{{navItem.navTitle}}</span>
        </div>
-      </md-list-item>
-     </md-list>
-  </md-sidenav>
-  <md-toolbar class="md-whiteframe-2dp">
-    <div class="md-toolbar-tools" >
-      <md-button class="md-icon-button" aria-label="Side Panel" ng-show="sideicon" ng-click="vm.openSideNavPanel()">
-        <md-tooltip>Side Panel</md-tooltip>
-        <md-icon class="md-default-theme" class="material-icons">&#xE5D2;</md-icon>
-      </md-button>
+     </md-list-item>
+   </md-list>
+ </md-sidenav>
+ <md-toolbar class="md-whiteframe-2dp">
+  <div class="md-toolbar-tools" >
+    <md-button class="md-icon-button" aria-label="Side Panel" ng-show="sideicon" ng-click="vm.openSideNavPanel()">
+      <md-tooltip>Side Panel</md-tooltip>
+      <md-icon class="md-default-theme" class="material-icons">&#xE5D2;</md-icon>
+    </md-button>
 
-         SAMARTH-PLACEMENT
+    SAMARTH-PLACEMENT
 
-                <span flex></span>
-                  <md-menu layout="column" md-offset="10 60" ng-if="logout">
-                   <md-button aria-label="open" ng-click="$mdOpenMenu($event)" layout="row" >
-                        <md-icon class="material-icons">supervisor_account</md-icon>&nbsp;&nbsp;&nbsp;&nbsp;{{message | uppercase}}
-                    </md-button>
-                    <md-menu-content width="3" >
-                      <span>&nbsp;&nbsp;&nbsp;<md-icon>face</md-icon>&nbsp;&nbsp;Role:Coordinator</span>
-                              <md-menu-item>
-                            <md-button ng-click="vm.logout()" >
-                             <md-icon>exit_to_app</md-icon>  Logout
-                            </md-button>
-                        </md-menu-item>
-                        </md-menu-content>
-                        </md-menu>
-      </div>
-<!--       </div> -->
-  </md-toolbar>
-  </div>
+    <span flex></span>
+
+    <md-menu layout="column" md-offset="10 60" ng-if="logout">
+     <md-button aria-label="open" ng-click="$mdOpenMenu($event)" layout="row" >
+      <md-icon class="material-icons">supervisor_account</md-icon>&nbsp;&nbsp;&nbsp;&nbsp;{{message | uppercase}}
+    </md-button>
+    <md-menu-content width="3" >
+      <span>&nbsp;&nbsp;&nbsp;<md-icon>face</md-icon>&nbsp;&nbsp;Role:<span ng-repeat="navItem in vm.navItems.role track by $index">{{navItem}}</span>
+      <md-menu-item>
+        <md-button ng-click="vm.logout()" >
+         <md-icon>exit_to_app</md-icon>  Logout
+       </md-button>
+     </md-menu-item>
+   </md-menu-content>
+ </md-menu>
+ 
+
+</div>
+</md-toolbar>
+</div>

@@ -17,6 +17,7 @@
 						templateUrl: 'coordinatorReg/template/coordinatorReg.html',
 						controller:"coordinatorRegCtrl",
 						controllerAs:"vm"
+					
 					}
 				}
 			});

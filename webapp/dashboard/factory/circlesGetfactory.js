@@ -134,3 +134,5 @@ objcircle.getAppliedData=function (datas) {
     return objcircle;
   });
 }());;
+
+

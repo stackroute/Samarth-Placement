@@ -1,13 +1,11 @@
 <div layout="row" layout-xs="column" md-colors="{background: 'grey-100'}" layout-align="center center"  id="heading" class="md-headline" style="font-size:20;">
     Showing {{results.length}} Candidates applied the job
 </div>
-<!-- <span>Showing {{results.length}} results</span> -->
+
 <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
-    <!-- <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-sm="50" flex-sm="100"> -->
 
     <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">
         <my-skillcard candidateid="x.candidates" picsize="small" contentsize="small">
-            <!-- {{$candidateid||json}} -->
             <badges>
                 <verification-badge candidateid="x.candidates">
                 </verification-badge>
@@ -54,7 +52,6 @@
                 </md-menu>
             </cardactions>
         </my-skillcard>
-        <!--  </div> -->
     </div>
     <div layout class="md-padding" flex>
         <div layout layout-align="start start" flex="50">
