@@ -6,16 +6,13 @@
   function navbarCtrl($http,navFactory,$mdSidenav,$rootScope,$state,$auth,$scope) 
   {
 
-   console.log("nav");
    $rootScope.logout=false;
    if($auth.isAuthenticated())
    {
     
      $scope.message="";
      $rootScope.user=$auth.getPayload();
-     console.log($rootScope.user);
      $scope.message=$rootScope.user.name;
-     console.log($scope.message);
      $state.go('index.dashboard');
      
    }
