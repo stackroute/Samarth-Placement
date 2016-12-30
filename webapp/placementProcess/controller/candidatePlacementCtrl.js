@@ -56,9 +56,21 @@
     {
       alert(i++);
     }
-    $scope.apply=function(cid)
+
+
+    $scope.applyToCandidate = function(jobcode,key)
     {
-      applyFactory.applyJob(cid,$stateParams.jobcode)
+
+      // Appending dialog to document.body to cover sidenav in docs app
+    var confirm = $mdDialog.confirm()
+          .title('Apply')
+          .textContent('You are about to apply for job "' + jobcode + '", please confirm..!')
+          .ok('Confirm')
+          .cancel('Cancel');
+
+    $mdDialog.show(confirm).then(function() {
+      $scope.flag[key]=true;
+      applyFactory.applyJob($stateParams.candidateid,jobcode)
       .then(function successCallbackfun(response){
         console.log(response);
       },function errorCallbackfun(error){
@@ -68,15 +80,42 @@
       {
         $scope.message = err;
       })
-      $mdDialog.show(
-        $mdDialog.alert()
-        .parent(angular.element(document.querySelector('#popupContainer')))
-        .clickOutsideToClose(true)
-        .title("Message")
-        .textContent(cid+"Sugested to the job:"+$stateParams.jobcode)
-        .ariaLabel('Alert Dialog Demo')
-        .ok('Got it!')
-        );
+      $scope.status = '';
+    }, 
+    function() {
+      //cancel part
+
+    }); 
+    }
+
+
+    $scope.flag=[];
+    $scope.applyToCandidate=function(cid,key)
+    {
+
+      var confirm = $mdDialog.confirm()
+          .title('Apply')
+          .textContent('You are about to apply candidate to job "' + $stateParams.jobcode + '", please confirm..!')
+          .ok('Confirm')
+          .cancel('Cancel');
+
+
+      $mdDialog.show(confirm).then(function() {
+            $scope.flag[key]=true;
+            applyFactory.applyJob(cid,$stateParams.jobcode)
+            .then(function successCallbackfun(response){
+              console.log(response);
+            },function errorCallbackfun(error){
+              console.log(error);
+            },
+            function(err)
+            {
+              $scope.message = err;
+            })
+        },
+        function(){
+
+        })
     }
 
   }

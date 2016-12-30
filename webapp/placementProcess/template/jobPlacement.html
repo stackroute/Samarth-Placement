@@ -12,13 +12,13 @@
                   </md-tooltip>
                    <md-icon class="material-icons">contacts</md-icon>
                 </md-button>
-                <md-button class="md-primary" aria-label="applyJobs" ng-click="flag=true;apply(data.jb.jobcode);" ng-hide="(flag)||data.jb.applyStatus">
+                <md-button class="md-primary" aria-label="applyJobs" ng-click="applyToJob(data.jb.jobcode,key);" ng-hide="(flag[key])||data.jb.applyStatus">
                   <md-tooltip>
                     Apply
                   </md-tooltip>
                    <md-icon class="material-icons">done</md-icon>
                 </md-button>
-                <md-button class="md-primary" aria-label="applyJobs" ng-disabled="data.jb.applyStatus" ng-show="(flag)||data.jb.applyStatus">
+                <md-button class="md-primary" aria-label="applyJobs" ng-disabled="true" ng-show="(flag[key])||data.jb.applyStatus">
                   <md-tooltip>
                     Apply
                   </md-tooltip>
