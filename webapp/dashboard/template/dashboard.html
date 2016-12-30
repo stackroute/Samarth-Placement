@@ -13,12 +13,19 @@
    <div ng-repeat="prof in profiling" flex-xs=" 25 " flex-gt-xs="25" flex-gt-md="30"  flex-md="40" flex-sm="40">
 
      <circle data='prof'>
-       <circle-stats> 
+       <circle-stats>
+         <md-card-header>
+             <md-card-header-text >
+                 <b>  <span class="md-headline" md-colors="{color: 'indigo'}">{{prof.profession | uppercase}}</span></b>
+             </md-card-header-text>
+         </md-card-header>
+         <md-divider></md-divider>
+         <md-card-content >
+
 
         <div layout="row" >
           <span class="md-subhead " md-colors="{color: 'grey-A700'}">Total Candidates:</span>
-          <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{prof.Candidates}}
-          </div>
+          <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{prof.Candidates}} </div>
           <div layout="row"  >
             <span class="md-subhead " md-colors="{color: 'grey-A700'}" >Candidates looking for jobs:</span>
             <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{prof.Looking}}
@@ -44,11 +51,9 @@
             <span class="md-subhead " md-colors="{color: 'grey-A700'}">Candidates placed:</span>
             <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{prof.placed}}</span>
           </div>
+           </md-card-content>
         </circle-stats>
       </circle>
     </div>
   </div>
 </div>
-
-
-
