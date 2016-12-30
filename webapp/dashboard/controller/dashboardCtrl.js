@@ -68,7 +68,7 @@ function dashboardCtrl($scope, $mdDialog, $log, circlesGetService, $rootScope, $
       console.log(arr[0].Candidates);
        name=arr[0].Candidates;
       $scope.profiling = arr;
-      console.log($scope.profiling);
+      console.log("profiling",$scope.profiling);
 
      }, function(err) {
 

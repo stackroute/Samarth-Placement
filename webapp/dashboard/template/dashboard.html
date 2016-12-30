@@ -53,11 +53,11 @@
           </div>
            </md-card-content>
            <md-card-actions layout="row">
-               <md-button ui-sref="index.job({profession:'{{$ctrl.data.name}}'})">
+               <md-button ui-sref="index.job({profession:'{{prof.profession}}'})">
                    <ng-md-icon icon="layers" md-colors="{color: 'blue-A700'}"> </ng-md-icon>JOBS
                    </md-button>
                    <span flex></span>
-               <md-button ui-sref="index.candidate({profession:'{{$ctrl.data.name}}'})">
+               <md-button ui-sref="index.candidate({profession:'{{prof.profession}}'})">
                    <ng-md-icon icon="people" md-colors="{color: 'blue-A700'}"> </ng-md-icon>CANDIDATES
                </md-button>
            </md-card-actions>
