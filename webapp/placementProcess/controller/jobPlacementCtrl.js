@@ -11,6 +11,8 @@
    '$mdDialog',
    function($scope, $stateParams, Pagination,jobFactory,circlesGetService,applyFactory,statusFactory,$mdDialog) 
    {
+
+    $scope.candidateid = $stateParams.candidateid;
     jobFactory.searchJobs($stateParams.profession)
     .then(function successCallbackfun(response) {
       $scope.result = response.data;
@@ -91,18 +93,19 @@
       })
       alert(jobcode+"status"+$stateParams.candidateid);
     }
-
-    $scope.apply=function(jobcode)
+    $scope.flag=[];
+    $scope.applyToJob = function(jobcode,key)
     {
 
       // Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.confirm()
           .title('Apply')
-          .textContent('Are you want to apply job for the candidate?')
-          .ok('Yes')
-          .cancel('No');
+          .textContent('You are about to apply for job "' + jobcode + '", please confirm..!')
+          .ok('Confirm')
+          .cancel('Cancel');
 
     $mdDialog.show(confirm).then(function() {
+      $scope.flag[key]=true;
       applyFactory.applyJob($stateParams.candidateid,jobcode)
       .then(function successCallbackfun(response){
         console.log(response);
@@ -116,8 +119,8 @@
       $scope.status = '';
     }, 
     function() {
-      $scope.decide=false;
-      $scope.status = '';
+      //cancel part
+
     }); 
     }
   }

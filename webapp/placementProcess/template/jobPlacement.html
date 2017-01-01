@@ -2,6 +2,15 @@
   Showing {{result.length}} jobs for the Candidate
 </div>
 
+<my-skillcard candidateid="candidateid">
+  <badges>
+  </badges>
+  <buttons>
+  </buttons>
+  <cardactions>
+  </cardactions>
+</my-skillcard>
+
 <div layout-gt-sm="row" layout-sm="column" layout="column" layout-align="center center" layout-wrap class="md-padding" flex-gt-sm flex-sm>
     <div ng-repeat="(key,data) in result | startFrom: pagination.page * pagination.perPage | limitTo: 3" flex-xs flex-gt-xs='50' flex-gt-sm='30' flex-gt-md='30'>
         <job-card data="data">
@@ -12,13 +21,13 @@
                   </md-tooltip>
                    <md-icon class="material-icons">contacts</md-icon>
                 </md-button>
-                <md-button class="md-primary" aria-label="applyJobs" ng-click="flag=true;apply(data.jb.jobcode);" ng-hide="(flag)||data.jb.applyStatus">
+                <md-button class="md-primary" aria-label="applyJobs" ng-click="applyToJob(data.jb.jobcode,key);" ng-hide="(flag[key])||data.jb.applyStatus">
                   <md-tooltip>
                     Apply
                   </md-tooltip>
                    <md-icon class="material-icons">done</md-icon>
                 </md-button>
-                <md-button class="md-primary" aria-label="applyJobs" ng-disabled="data.jb.applyStatus" ng-show="(flag)||data.jb.applyStatus">
+                <md-button class="md-primary" aria-label="applyJobs" ng-disabled="true" ng-show="(flag[key])||data.jb.applyStatus">
                   <md-tooltip>
                     Apply
                   </md-tooltip>

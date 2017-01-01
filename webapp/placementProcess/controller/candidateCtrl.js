@@ -28,6 +28,14 @@
       applyFactory.applyJob(cid,$stateParams.jobcode)
       .then(function successCallbackfun(response){
         console.log(response);
+        $mdDialog.show(
+            $mdDialog.alert()
+            .clickOutsideToClose(true)
+            .title("Message")
+            .textContent(cid+"Sugested to the job:"+$stateParams.jobcode)
+            .ariaLabel('Alert Dialog Demo')
+            .ok('Got it!')
+        );
       },function errorCallbackfun(error){
         console.log(error);
       },
@@ -35,15 +43,7 @@
       {
         $scope.message = err;
       })
-      $mdDialog.show(
-            $mdDialog.alert()
-            .parent(angular.element(document.querySelector('#popupContainer')))
-            .clickOutsideToClose(true)
-            .title("Message")
-            .textContent(cid+"Sugested to the job:"+$stateParams.jobcode)
-            .ariaLabel('Alert Dialog Demo')
-            .ok('Got it!')
-        );
+      
     }
 
   }

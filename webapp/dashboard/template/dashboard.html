@@ -15,44 +15,48 @@
      <circle data='prof'>
        <circle-stats>
          <md-card-header>
-             <md-card-header-text >
-                 <b>  <span class="md-headline" md-colors="{color: 'indigo'}">{{prof.profession | uppercase}}</span></b>
-             </md-card-header-text>
+           <md-card-header-text >
+             <b>  <span class="md-headline" md-colors="{color: 'indigo'}">{{prof.profession | uppercase}}</span></b>
+           </md-card-header-text>
          </md-card-header>
          <md-divider></md-divider>
          <md-card-content >
-
-
-        <div layout="row" >
-          <span class="md-subhead " md-colors="{color: 'grey-A700'}">Total Candidates:</span>
-          <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{prof.Candidates}} </div>
-          <div layout="row"  >
-            <span class="md-subhead " md-colors="{color: 'grey-A700'}" >Candidates looking for jobs:</span>
-            <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{prof.Looking}}
-            </span>
-          </div>
-
           <div layout="row" >
-            <span class="md-subhead " md-colors="{color: 'grey-A700'}">Candidates Applied for jobs:</span>
-            <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{prof.applied}}</span>
-          </div>
+            <span class="md-subhead " >Total Candidates:</span>
+            <span class="md-subhead ">{{prof.Candidates}} </div>
+              <div layout="row"  >
+                <span class="md-subhead "  >Candidates looking for jobs:</span>
+                <span class="md-subhead " >{{prof.Looking}}
+                </span>
+              </div>
 
-          <div layout="row" >
-            <span class="md-subhead " md-colors="{color: 'grey-A700'}">Candidates placed:</span>
-            <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{prof.placed}}</span>
-          </div>
-           </md-card-content>
-           <md-card-actions layout="row">
-               <md-button ui-sref="index.job({profession:'{{prof.profession}}'})">
-                   <ng-md-icon icon="layers" md-colors="{color: 'blue-A700'}"> </ng-md-icon>JOBS
-                   </md-button>
-                   <span flex></span>
-               <md-button ui-sref="index.candidate({profession:'{{prof.profession}}'})">
-                   <ng-md-icon icon="people" md-colors="{color: 'blue-A700'}"> </ng-md-icon>CANDIDATES
-               </md-button>
-           </md-card-actions>
-        </circle-stats>
-      </circle>
+              <div layout="row" >
+                <span class="md-subhead ">Candidates Applied for jobs:</span>
+                <span class="md-subhead " >{{prof.applied}}</span>
+              </div>
+
+              <div layout="row" >
+                <span class="md-subhead " md-colors="{color: 'grey-A700'}">Candidates placed:</span>
+                <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{prof.placed}}</span>
+              </div>
+
+              <div layout="row" >
+                <span class="md-subhead " md-colors="{color: 'grey-A700'}">Total Jobs:</span>
+                <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{prof.job}}</span>
+              </div>
+            </md-card-content>
+
+            <md-card-actions layout="row">
+              <md-button ui-sref="index.job({profession:'{{prof.profession}}'})">
+                <ng-md-icon icon="layers" md-colors="{color: 'blue-A700'}"> </ng-md-icon>JOBS
+              </md-button>
+              <span flex></span>
+              <md-button ui-sref="index.candidate({profession:'{{prof.profession}}'})">
+                <ng-md-icon icon="people" md-colors="{color: 'blue-A700'}"> </ng-md-icon>CANDIDATES
+              </md-button>
+            </md-card-actions>
+          </circle-stats>
+        </circle>
+      </div>
     </div>
   </div>
-</div>

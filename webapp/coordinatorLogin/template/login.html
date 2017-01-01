@@ -1,57 +1,51 @@
-<!-- <div layout="column">
-  <md-toolbar layout-align="center center">S A M A R T H</md-toolbar>
-  </div> -->
+  <div layout="column" id="loginbox">
+    <div layout= "row"  layout-align="center center " layout-padding   ng-cloak layout-margin="" >
+      <md-content  md-whiteframe="1"  layout-margin="" flex-sm="66" flex-md="66" flex-gt-md="40" md-colors="{ background:'grey-100'}" id="logincontent" >
+        <form  name="loginForm"  >
+          <div  layout="row" layout-align="center">
+            <!--  <h1 >SAMARTH </h1> -->
+            <h1 id="heading" >Member Login</h1>
+          </div>
 
-  <div layout="column" flex="100" id="loginbox">
-<div layout= "row"  layout-align="center center " layout-padding   ng-cloak layout-margin="" >
-  <md-content  md-whiteframe="1"  layout-margin="" flex="40" md-colors="{ background:'grey-100'}" id="logincontent" >
-  <form  name="myForm"  >
-    <div  layout="row" layout-align="center">
-      <!--  <h1 >SAMARTH </h1> -->
-      <h1 id="heading" >Member Login</h1>
+          <md-input-container  class="md-block"  >
+           <md-icon>email</md-icon>
+
+           <input name="email" id="email" ng-model="vm.user.email" placeholder="Email address" ng-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+           <div ng-messages="loginForm.email.$error"  ng-show="loginForm.email.$dirty || loginForm.email.$touched">
+            <div ng-message="required">Email is required.</div>
+            <div ng-message="pattern"> Enter correct pattern</div>
+          </div>
+
+        </md-input-container>
+
+        <md-input-container  class="md-block"  >
+         <md-icon>https</md-icon>
+
+
+         <input name="password" type="password" id="password" ng-model="vm.user.pwd" placeholder="Password" ng-required="true" minlength="5">
+         <div ng-messages="loginForm.password.$error"  ng-show="loginForm.password.$dirty || loginForm.password.$touched">
+          <div ng-message="required">Password is required.</div>
+          <div ng-message="minlength">password must be more than 5 digits</div>
+        </div>
+
+      </md-input-container>
+
+      <div layout="row" layout-align="center" style="color:red">
+
+        <p >{{vm.err}}</p>
+      </div>
+      <div layout="row" layout-align="center" >
+       <md-button type="submit"  ng-click="vm.login()"  class="md-raised md-primary" > Login </md-button>
+
+     </div>
+     <div layout="row" layout-padding layout-align="center">
+
+      <a ui-sref="index.createaccount" > Register Coordinator </a>
+
     </div>
 
-    <md-input-container  class="md-block"  >
-     <md-icon>email</md-icon>
 
-     <input name="email" id="email" ng-model="vm.user.email" placeholder="Email address" ng-required="true" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
-     <div ng-messages="myForm.email.$error"  ng-show="myForm.email.$dirty || myForm.email.$touched">
-      <div ng-message="required">Email is required.</div>
-      <div ng-message="pattern"> Enter correct pattern</div>
-    </div>
-
-  </md-input-container>
-
-  <md-input-container  class="md-block"  >
-   <md-icon>https</md-icon>
-
-
-   <input name="password" type="password" id="password" ng-model="vm.user.pwd" placeholder="Password" ng-required="true" minlength="5">
-   <div ng-messages="myForm.password.$error"  ng-show="myForm.password.$dirty || myForm.password.$touched">
-    <div ng-message="required">Password is required.</div>
-    <div ng-message="minlength">password must be more than 5 digits</div>
-  </div>
-
-</md-input-container>
-
-<div layout="row" layout-align="center" style="color:red">
-
-  <p >{{vm.err}}</p>
-</div>
-<div layout="row" layout-align="center" >
- <md-button type="submit"  ng-click="vm.login()"  class="md-raised md-primary" > Login </md-button>
-
-   <!-- <a ui-sref=".list" class="btn btn-primary">List</a>
-   <a ui-sref="home" type="submit" class="btn btn-primary" > Sign in </a>  -->
- </div>
- <div layout="row" layout-padding layout-align="center">
-
-  <a ui-sref="index.createaccount" > Register Coordinator </a>
-
-</div>
-
-
-</form>
+  </form>
 
 </md-content>
 </div>
