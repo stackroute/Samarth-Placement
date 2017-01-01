@@ -11,6 +11,7 @@
    'statusFactory',
    function($scope, $stateParams, Pagination,candiPlacement,circlesGetService,applyFactory,$mdDialog,statusFactory) {
     $scope.prof=$stateParams.profession;
+    $scope.job = $stateParams.job;
     candiPlacement.parsetext($stateParams.profession).then(function(results) {
       $scope.results = results;
       $scope.pagination = Pagination.getNew(4);

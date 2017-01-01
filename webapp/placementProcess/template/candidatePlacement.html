@@ -2,6 +2,11 @@
     Showing {{results.length}} Candidates for the Job
 </div>
 
+<job-card data="job">
+<buttons>
+</buttons>
+</job-card>
+
 <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
 
     <div ng-repeat="(key,x) in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">

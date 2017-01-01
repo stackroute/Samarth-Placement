@@ -2,6 +2,15 @@
   Showing {{result.length}} jobs for the Candidate
 </div>
 
+<my-skillcard candidateid="candidateid">
+  <badges>
+  </badges>
+  <buttons>
+  </buttons>
+  <cardactions>
+  </cardactions>
+</my-skillcard>
+
 <div layout-gt-sm="row" layout-sm="column" layout="column" layout-align="center center" layout-wrap class="md-padding" flex-gt-sm flex-sm>
     <div ng-repeat="(key,data) in result | startFrom: pagination.page * pagination.perPage | limitTo: 3" flex-xs flex-gt-xs='50' flex-gt-sm='30' flex-gt-md='30'>
         <job-card data="data">

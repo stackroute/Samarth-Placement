@@ -11,6 +11,8 @@
    '$mdDialog',
    function($scope, $stateParams, Pagination,jobFactory,circlesGetService,applyFactory,statusFactory,$mdDialog) 
    {
+
+    $scope.candidateid = $stateParams.candidateid;
     jobFactory.searchJobs($stateParams.profession)
     .then(function successCallbackfun(response) {
       $scope.result = response.data;
