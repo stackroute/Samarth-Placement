@@ -1,9 +1,19 @@
-(function(){
-  'use strict'
   angular
   .module('samarth.home') 
-  .controller('navbarCtrl', navbarCtrl);
-  function navbarCtrl($http,navFactory,$mdSidenav,$rootScope,$state,$auth,$scope) 
+  .controller('navbarCtrl', ['$http',
+    'navFactory',
+    '$mdSidenav',
+    '$rootScope',
+    '$state',
+    '$auth',
+    '$scope',
+    function($http,
+      navFactory,
+      $mdSidenav,
+      $rootScope,
+      $state,
+      $auth,
+      $scope) 
   {
 
    $rootScope.logout=false;
@@ -20,32 +30,19 @@
     $state.go('index.home');
   }
   
-  var vm=this;
-  var navItems={};
-  
-  vm.openSideNavPanel=openSideNavPanel;
-  
-  vm.closeSideNavPanel=closeSideNavPanel;
-  vm.getSidenav=getSidenav;
-  vm.logout=logout;
-  vm.getSidenav();
-  
+   navFactory.then(function(response) {
+      $scope.navItems=response.data;
+      });
 
-  function getSidenav()
-  {
-    navFactory.getSidenav().then(function(response) {
-      vm.navItems=response.data;
-    });
-  }
-  function openSideNavPanel() {
+  $scope.openSideNavPanel=function() {
     $mdSidenav('left').open();
   };
   
-  function closeSideNavPanel() {
+  $scope.closeSideNavPanel=function() {
     $mdSidenav('left').close();
   };
   
-  function logout()
+  $scope.logout=function()
   {
    $rootScope.sideicon = false;
    $rootScope.logout = false;
@@ -54,4 +51,5 @@
  }
 }
 
-})();
+]);
+  
