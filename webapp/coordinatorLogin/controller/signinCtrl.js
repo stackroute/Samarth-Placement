@@ -10,6 +10,9 @@
     $rootScope.logout = false;
     if($auth.isAuthenticated())
     {
+     $rootScope.user=$auth.getPayload();
+     $rootScope.message=$rootScope.user.name;
+     console.log($rootScope.message+"name");
      $rootScope.sideicon = true;
      $rootScope.logout = true;
      console.log($rootScope.sideicon+$rootScope.logout);

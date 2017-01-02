@@ -10,9 +10,10 @@
    if($auth.isAuthenticated())
    {
     
-     $scope.message="";
+     
      $rootScope.user=$auth.getPayload();
-     $scope.message=$rootScope.user.name;
+     $rootScope.message=$rootScope.user.name;
+     console.log($rootScope.message+"name");
      $state.go('index.dashboard');
      
    }

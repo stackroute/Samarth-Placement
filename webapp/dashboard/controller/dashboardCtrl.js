@@ -8,7 +8,10 @@ angular
         $location.path('/home/dashboard');
       }
     });
-    $rootScope.user = $auth.getPayload();
+    
+    $rootScope.user=$auth.getPayload();
+     $rootScope.message=$rootScope.user.name;
+     console.log($rootScope.message+"namedas");
       if ($auth.isAuthenticated()) {
         $rootScope.sideicon = true;
         $rootScope.logout = true;
