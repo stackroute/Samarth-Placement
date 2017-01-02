@@ -7,6 +7,7 @@
   function signinCtrl($state,$auth,Flash,$rootScope){
     console.log("first");
     $rootScope.flag="ku";
+    $rootScope.logout = false;
     if($auth.isAuthenticated())
     {
      $rootScope.sideicon = true;
@@ -14,6 +15,10 @@
      console.log($rootScope.sideicon+$rootScope.logout);
      $state.go('index.dashboard');
      
+   }
+   else{
+    $rootScope.logout = false;
+    console.log($rootScope.logout);
    }
    var vm =this;
    vm.login=login;
