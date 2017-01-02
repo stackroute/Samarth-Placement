@@ -13,7 +13,7 @@
                     </md-tooltip>
                     <md-icon class="material-icons">contacts</md-icon>
                 </md-button>
-                <md-button class="md-primary" aria-label="applyJobs" ui-sref="index.candidatePlacement({profession:data.jb.profession[0],jobcode:data.jb.jobcode})">
+                <md-button class="md-primary" aria-label="applyJobs" ui-sref="index.candidatePlacement({profession:data.jb.profession[0],jobcode:data.jb.jobcode,job:data})">
                     <md-tooltip>
                         Suggest
                     </md-tooltip>
@@ -25,7 +25,7 @@
 
 
 </div>
-<div layout class="md-padding" flex>
+<div>
     <div layout layout-align="start start" flex="50">
         <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
     </div>

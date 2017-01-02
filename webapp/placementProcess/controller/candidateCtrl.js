@@ -12,7 +12,9 @@
     $scope.prof=$stateParams.profession;
     candiPlacement.parsetext($stateParams.profession).then(function(results) {
       $scope.results = results;
-      $scope.pagination = Pagination.getNew(3);
+      console.log("results of candidate")
+      console.log(results)
+      $scope.pagination = Pagination.getNew(4);
       $scope.pagination.numPages = Math.ceil(results.length / $scope.pagination.perPage);
     }, function err(err) {
       $scope.message = err;
@@ -28,6 +30,14 @@
       applyFactory.applyJob(cid,$stateParams.jobcode)
       .then(function successCallbackfun(response){
         console.log(response);
+        $mdDialog.show(
+            $mdDialog.alert()
+            .clickOutsideToClose(true)
+            .title("Message")
+            .textContent(cid+"Sugested to the job:"+$stateParams.jobcode)
+            .ariaLabel('Alert Dialog Demo')
+            .ok('Got it!')
+        );
       },function errorCallbackfun(error){
         console.log(error);
       },
@@ -35,15 +45,7 @@
       {
         $scope.message = err;
       })
-      $mdDialog.show(
-            $mdDialog.alert()
-            .parent(angular.element(document.querySelector('#popupContainer')))
-            .clickOutsideToClose(true)
-            .title("Message")
-            .textContent(cid+"Sugested to the job:"+$stateParams.jobcode)
-            .ariaLabel('Alert Dialog Demo')
-            .ok('Got it!')
-        );
+      
     }
 
   }

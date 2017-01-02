@@ -40,7 +40,8 @@
 			url:"/candidatePlacement/:profession?",
 			params:{
 				profession:null,
-				jobcode:null
+				jobcode:null,
+				job:null
 			},
 			views: {
 				'content@': {

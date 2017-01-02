@@ -22,8 +22,8 @@
         </md-input-container>
         <md-radio-group name="gender" ng-model="vm.coordinator.gender" layout="row" ng-required="true">
           <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender&nbsp;&nbsp;</label>
-          <md-radio-button value="Male">Male</md-radio-button>
-          <md-radio-button value="Female">Female</md-radio-button>
+          <md-radio-button value="Male" class="md-primary">Male</md-radio-button>
+          <md-radio-button value="Female" class="md-primary">Female</md-radio-button>
         </md-radio-group>
 
         <md-input-container class="md-block">
@@ -113,13 +113,13 @@
         </div>
         <div layout>
           <span flex></span>
-          <md-button  class="md-fab md-mini" ng-click="vm.insertLang()" md-colors="{background:'indigo'}">
+          <md-button  class="md-fab md-mini" ng-click="vm.insertLang()" md-colors="{background: 'grey-400'}">
             <md-tooltip>
               Add a new language
             </md-tooltip>
             <md-icon>add</md-icon>
           </md-button>
-          <md-button  class="md-fab md-mini" ng-click="vm.removeLang()" md-colors="{background:'indigo'}">
+          <md-button  class="md-fab md-mini" ng-click="vm.removeLang()" md-colors="{background: 'grey-400'}">
             <md-tooltip>
               Remove a language
             </md-tooltip>
