@@ -24,6 +24,6 @@
       return $http(req);
     }
    return objcircle;
-   
+
   });
 }());
