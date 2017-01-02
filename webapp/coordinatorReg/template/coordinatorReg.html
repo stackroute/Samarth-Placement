@@ -94,13 +94,13 @@
           md-search-text="languageInputText"
           md-selected-item-change=""
           md-items="item in vm.language | filter: languageInputText"
-          md-item-text="item"
+          md-item-text="item.language"
           md-min-length="0"
           md-menu-class="autocomplete-custom-template"
           md-floating-label="Languages"
           ng-required=true>
             <md-item-template>
-              <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item}}</span>
+              <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item.language}}</span>
             </md-item-template>
           </md-autocomplete >
           <div>
