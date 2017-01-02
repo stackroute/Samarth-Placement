@@ -10,6 +10,7 @@
    '$mdDialog',
    function($scope, $stateParams, Pagination,candiPlacement,circlesGetService,applyFactory,$mdDialog) {
     $scope.prof=$stateParams.profession;
+    console.log("it is calling the controller of candidateCtrl")
     candiPlacement.parsetext($stateParams.profession).then(function(results) {
       $scope.results = results;
       console.log("results of candidate")
