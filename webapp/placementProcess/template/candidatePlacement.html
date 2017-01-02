@@ -2,9 +2,14 @@
     Showing {{results.length}} Candidates for the Job
 </div>
 
+<job-card data="job">
+<buttons>
+</buttons>
+</job-card>
+
 <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
 
-    <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">
+    <div ng-repeat="(key,x) in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">
         <my-skillcard candidateid="x.candidateid" picsize="small" contentsize="small">
             <badges>
                 <verification-badge candidateid="x.candidateid">
@@ -16,14 +21,14 @@
                         View Details </md-tooltip>
                         <md-icon class="material-icons">contacts</md-icon>
                     </md-button>
-                    <md-button class="md-primary" ng-click="flag=true;apply(x.candidateid)" ng-hide="(flag)||x.applyStatus">
+                    <md-button class="md-primary" ng-click="applyToCandidate(x.candidateid,key)" ng-hide="(flag[key])||x.applyStatus">
                         <md-tooltip>
                             Apply
                         </md-tooltip>
                         <md-icon class="material-icons">done</md-icon>
                     </md-button>
 
-                    <md-button class="md-primary" aria-label="AppliedJob" ng-disabled="x.applyStatus" ng-show="(flag)||x.applyStatus">
+                    <md-button class="md-primary" aria-label="AppliedJob" ng-disabled="x.applyStatus" ng-show="(flag[key])||x.applyStatus">
                       <md-tooltip>
                         Apply
                     </md-tooltip>

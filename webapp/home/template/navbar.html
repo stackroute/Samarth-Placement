@@ -31,12 +31,11 @@
 
     SAMARTH-PLACEMENT
 
-    <span flex></span>
 
     <md-menu layout="column" md-offset="10 60" ng-if="logout">
      <md-button aria-label="open" ng-click="$mdOpenMenu($event)" layout="row" >
-      <md-icon class="material-icons">supervisor_account</md-icon>&nbsp;&nbsp;&nbsp;&nbsp;{{message | uppercase}}
-    </md-button>
+     <span> <md-icon class="material-icons">supervisor_account</md-icon>&nbsp;&nbsp;&nbsp;&nbsp;{{message | uppercase}}
+    </md-button></span>
     <md-menu-content width="3" >
       <span>&nbsp;&nbsp;&nbsp;<md-icon>face</md-icon>&nbsp;&nbsp;Role:<span ng-repeat="navItem in vm.navItems.role track by $index">{{navItem}}</span>
       <md-menu-item>
