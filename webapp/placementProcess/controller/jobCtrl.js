@@ -16,7 +16,7 @@
       console.log($stateParams.profession);
       console.log("helloooooooooooooooo",response.data.length);
       $scope.result = response.data;
-      $scope.pagination = Pagination.getNew(4);
+      $scope.pagination = Pagination.getNew(3);
       $scope.pagination.numPages = Math.ceil(response.data.length / $scope.pagination.perPage);
       $scope.message = "";
       if (response.data.length == 0) {
