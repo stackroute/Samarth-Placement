@@ -12,7 +12,9 @@
     $scope.prof=$stateParams.profession;
     candiPlacement.parsetext($stateParams.profession).then(function(results) {
       $scope.results = results;
-      $scope.pagination = Pagination.getNew(3);
+      console.log("results of candidate")
+      console.log(results)
+      $scope.pagination = Pagination.getNew(4);
       $scope.pagination.numPages = Math.ceil(results.length / $scope.pagination.perPage);
     }, function err(err) {
       $scope.message = err;
