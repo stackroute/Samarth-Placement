@@ -9,7 +9,7 @@
 
 	.config(config);
 	function config($stateProvider) {
-		let loginRequired = ['$q','$location', '$auth', function($q, $location, $auth) {
+		let loginRequired = ['$q', '$location', '$auth', function($q, $location, $auth) {
 			let deferred = $q.defer();
 			if ($auth.isAuthenticated()) {
 				deferred.resolve();
@@ -21,32 +21,32 @@
 		}];
 
 		$stateProvider
-		.state("index.job",{
-			url:"/job/:profession",
+		.state('index.job',{
+			url: '/job/:profession',
 			params:{
 				profession:null
 			},
 			views: {
 				'content@': {
-					templateUrl:'./placementProcess/template/job.html',
-					controller:"jobCtrl",
+					templateUrl: './placementProcess/template/job.html',
+					controller: 'jobCtrl',
 					resolve: {
 						loginRequired: loginRequired
 					}
 				}
 			}
 		})
-		.state("index.candidatePlacement",{
-			url:"/candidatePlacement/:profession?",
-			params:{
-				profession:null,
-				jobcode:null,
-				job:null
+		.state('index.candidatePlacement', {
+			url: '/candidatePlacement/:profession?',
+			params: {
+				profession: null,
+				jobcode: null,
+				job: null
 			},
 			views: {
 				'content@': {
-					templateUrl:'./placementProcess/template/candidatePlacement.html',
-					controller:"candidatePlacementCtrl",
+					templateUrl: './placementProcess/template/candidatePlacement.html',
+					controller: 'candidatePlacementCtrl',
 					resolve: {
 						loginRequired: loginRequired
 					}
@@ -54,61 +54,61 @@
 			}
 		})
 		$stateProvider
-		.state("index.jobPlacement",{
-			url:"/jobPlacement/:profession",
-			params:{
-				profession:null,
-				candidateid:null
+		.state('index.jobPlacement', {
+			url: '/jobPlacement/:profession',
+			params: {
+				profession: null,
+				candidateid: null
 			},
 			views: {
 				'content@': {
-					templateUrl:'./placementProcess/template/jobPlacement.html',
-					controller:"jobPlacementCtrl",
+					templateUrl: './placementProcess/template/jobPlacement.html',
+					controller: 'jobPlacementCtrl',
 					resolve: {
 						loginRequired: loginRequired
 					}
 				}
 			}
 		})
-		.state("index.candidate",{
-			url:"/candidate/:profession?",
-			params:{
-				profession:null
+		.state('index.candidate', {
+			url: '/candidate/:profession?',
+			params: {
+				profession: null
 			},
 			views: {
 				'content@': {
-					templateUrl:'./placementProcess/template/candidate.html',
-					controller:"candidateCtrl",
+					templateUrl: './placementProcess/template/candidate.html',
+					controller: 'candidateCtrl',
 					resolve: {
 						loginRequired: loginRequired
 					}
 				}
 			}
 		})
-		.state("index.appliedCandidate",{
-			url:"/appliedCandidate/",
-			params:{
-				jobcode:null
+		.state('index.appliedCandidate', {
+			url: '/appliedCandidate/',
+			params: {
+				jobcode: null
 			},
 			views: {
 				'content@': {
-					templateUrl:'./placementProcess/template/appliedCandidate.html',
-					controller:"appliedCandidateCtrl",
+					templateUrl: './placementProcess/template/appliedCandidate.html',
+					controller: 'appliedCandidateCtrl',
 					resolve: {
 						loginRequired: loginRequired
 					}
 				}
 			}
 		})
-		.state("index.appliedJob",{
-			url:"/appliedJob/",
-			params:{
-				candidateid:null
+		.state('index.appliedJob', {
+			url: '/appliedJob/',
+			params: {
+				candidateid: null
 			},
 			views: {
 				'content@': {
-					templateUrl:'./placementProcess/template/appliedJob.html',
-					controller:"appliedJobCtrl",
+					templateUrl: './placementProcess/template/appliedJob.html',
+					controller: 'appliedJobCtrl',
 					resolve: {
 						loginRequired: loginRequired
 					}
@@ -116,4 +116,4 @@
 			}
 		})
 	}
-})();
+}());
