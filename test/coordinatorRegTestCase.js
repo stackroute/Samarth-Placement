@@ -56,7 +56,7 @@ describe('Post data for coordinator registration', function() {
         .type('form')
         .send(demoCoordinator)
         .set('Accept', /application\/json/)
-        .expect(200, done)
+        .expect(500, done)
 
     });
   
