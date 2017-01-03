@@ -3,19 +3,27 @@
     <!-- <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-sm="50" flex-sm="100"> -->
 
     <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">
-        <my-skillcard candidateid="x.candidateid" picsize="small" contentsize="small">
+        <my-skillcard candidateid="x.candidateid" data="candidate" picsize="small" contentsize="small">
             <!-- {{$candidateid||json}} -->
             <badges>
                 <verification-badge candidateid="x.candidateid">
                 </verification-badge>
             </badges>
             <buttons>
-                <md-button ui-sref="verifyprofile({candidateid:x.candidateid})" class="md-raised md-primary">
-                        view Details
+
+                <md-button class="md-primary" ui-sref="index.verifyprofile({candidateid:x.candidateid})">
+                  <md-tooltip>
+                    View Details
+                  </md-tooltip>
+                    <md-icon class="material-icons">contacts</md-icon>
                 </md-button>
-                <md-button class="md-raised md-primary" ui-sref="index.jobPlacement({profession:'Retail',candidateid:x.candidateid})">
-                        Suggest
+                <md-button class="md-primary" ui-sref="index.jobPlacement({profession:candidate.profession,candidateid:x.candidateid})">
+                  <md-tooltip>
+                  Suggest
+                  </md-tooltip>
+                  <md-icon class="material-icons">call_made</md-icon>
                 </md-button>
+
             </buttons>
             <cardactions>
                 <md-menu>

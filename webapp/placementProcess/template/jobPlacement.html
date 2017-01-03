@@ -1,27 +1,43 @@
-<div layout="row" layout-xs="column" md-colors="{background: 'indigo-100'}" layout-align="center center" class=" md-display-2" style="font-size:20;">
-    Showing {{result.length}} jobs for the Candidate
-</div>
-<div layout-gt-sm="row" layout-sm="column" layout="column" layout-align="center center" layout-wrap class="md-padding" flex-gt-sm flex-sm>
+<my-skillcard candidateid="candidateid">
+  <badges>
+  </badges>
+  <buttons>
+  </buttons>
+  <cardactions>
+  </cardactions>
+</my-skillcard>
 
-    <div ng-repeat="data in result | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-xs flex-gt-xs='50' flex-gt-sm='30' flex-gt-md='30'>
+<div layout="row" layout-xs="column" md-colors="{background:'blue-gray-800'}" layout-align="center center" id="heading" class="md-headline" style="font-size:20;">
+    {{result.length}} suggested jobs for the Candidate
+</div>
+
+<div layout-gt-sm="row" layout-sm="column" layout="column" layout-align="center center" layout-wrap class="md-padding" flex-gt-sm flex-sm>
+    <div ng-repeat="(key,data) in result | startFrom: pagination.page * pagination.perPage | limitTo: 3" flex-xs flex-gt-xs='50' flex-gt-sm='30' flex-gt-md='30'>
         <job-card data="data">
             <buttons>
-                <md-button aria-label="view Details" ui-sref="index.jobPost({'key':1,'key1':data.jb})">
+                <md-button class="md-primary" aria-label="view Details" ui-sref="index.jobPost({'key':1,'key1':data.jb})">
                   <md-tooltip>
                     View Details
                   </md-tooltip>
                    <md-icon class="material-icons">contacts</md-icon>
                 </md-button>
-                <md-button aria-label="applyJobs" ng-click="apply(data.jb.jobcode)">
+                <md-button class="md-primary" aria-label="applyJobs" ng-click="applyToJob(data.jb.jobcode,key);" ng-hide="(flag[key])||data.jb.applyStatus">
                   <md-tooltip>
                     Apply
                   </md-tooltip>
                    <md-icon class="material-icons">done</md-icon>
                 </md-button>
+                <md-button class="md-primary" aria-label="applyJobs" ng-disabled="true" ng-show="(flag[key])||data.jb.applyStatus">
+                  <md-tooltip>
+                    Apply
+                  </md-tooltip>
+                   <md-icon class="material-icons">done_all</md-icon>Applied
+                </md-button>
             </buttons>
         </job-card>
     </div>
 </div>
+
 <div layout class="md-padding" flex>
     <div layout layout-align="start start" flex="50">
         <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>

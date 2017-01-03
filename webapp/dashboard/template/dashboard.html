@@ -1,19 +1,73 @@
-
 <div flex-xs="100" flex-gt-xs="100">
 
-    <div layout="row" layout-align="center center" layout-xs="column" layout-padding md-colors="{background: 'indigo-100'}">
-      <span class="md-headline" >Hii</span>
-      <span class="md-headline">{{message | uppercase}}
+  <div layout="row" layout-align="center center" layout-xs="column" layout-padding md-colors="{background: 'grey-200'}">
+    <span  class=" md-title" id="heading">Hi,&nbsp;</span>
+    <span class=" md-title" id="heading"> {{message | uppercase}}!</span>
+    <span  id="heading" class="md-headline">We create opportunities for Job-Seekers
+    </div>
+    <div layout="row" layout-align="center center" layout-xs="column" >
 
-                <span class="md-headline" > ! We create opportunities for Job-Seekers
-      </div>
-      <div layout="row" layout-align="center center" layout-xs="column" >
-
-          </div>
+    </div>
   </div>
-   <div layout="row" layout-xs="column" >
-       <div ng-repeat="prof in profiling" flex-xs=" 25 " flex-gt-xs="25" flex-gt-md="30"  flex-md="40" flex-sm="40">
-           <circle data='prof' ></circle>
-       </div>
-   </div>
-</div>
+  <div layout="row" layout-xs="column" >
+   <div ng-repeat="prof in profiling" flex-xs=" 25 " flex-gt-xs="25" flex-gt-md="30"  flex-md="40" flex-sm="40">
+
+     <circle data='prof'>
+       <circle-stats>
+         <md-card-header>
+           <md-card-header-text >
+             <b>  <span class="md-headline" md-colors="{color: 'indigo'}">{{prof.profession | uppercase}}</span></b>
+           </md-card-header-text>
+         </md-card-header>
+         <md-divider></md-divider>
+         <md-card-content >
+          <div layout="row" >
+            <span class="md-subhead " >Total Candidates:</span>
+            <span class="md-subhead ">{{prof.Candidates}} </div>
+              <div layout="row"  >
+                <span class="md-subhead "  >Candidates looking for jobs:</span>
+                <span class="md-subhead " >{{prof.Looking}}
+                </span>
+              </div>
+
+              <div layout="row" >
+                <span class="md-subhead ">Candidates Applied for jobs:</span>
+                <span class="md-subhead " >{{prof.applied}}</span>
+              </div>
+
+              <div layout="row" >
+                <span class="md-subhead " >Candidates placed:</span>
+                <span class="md-subhead " >{{prof.placed}}</span>
+              </div>
+
+              <div layout="row" >
+                <span class="md-subhead " >Total Jobs:</span>
+                <span class="md-subhead " >{{prof.job}}</span>
+              </div>
+
+              <div layout="row" >
+                <span class="md-subhead " >Total expiredJobs:</span>
+                <span class="md-subhead " >{{prof.expiredJobs}}</span>
+              </div>
+
+              <div layout="row" >
+                <span class="md-subhead " >Total Available Jobs:</span>
+                <span class="md-subhead " >{{prof.availableJobs}}</span>
+              </div>
+              
+            </md-card-content>
+
+            <md-card-actions layout="row">
+              <md-button ui-sref="index.job({profession:'{{prof.profession}}'})">
+                <ng-md-icon icon="layers" md-colors="{color: 'blue-A700'}"> </ng-md-icon>JOBS
+              </md-button>
+              <span flex></span>
+              <md-button ui-sref="index.candidate({profession:'{{prof.profession}}'})">
+                <ng-md-icon icon="people" md-colors="{color: 'blue-A700'}"> </ng-md-icon>CANDIDATES
+              </md-button>
+            </md-card-actions>
+          </circle-stats>
+        </circle>
+      </div>
+    </div>
+  </div>

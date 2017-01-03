@@ -1,10 +1,8 @@
 (function() {
-    'use strict'
+    'use strict';
     angular
-        .module("samarth-webcomponents")
-        .factory('jobProviderList', jobProviderList);
-
-    function jobProviderList($http) {
+        .module('samarth-webcomponents')
+        .factory('jobProviderList', ['$http', function($http) {
         var service = {
             getJobProvider: getJobProvider
         };
@@ -15,9 +13,7 @@
                 method: 'GET',
                 url: '/employer/getJobProvider',
                 data: job
-
             })
-
         }
-    }
+    }]);
 }());
