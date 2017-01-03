@@ -64,8 +64,13 @@
 				{
 					languageFact.languageReq().then(function(data)
 					{
-						console.log("language",data.data)
-						vm.language = data.data;
+						let arr = [];
+						console.log("language",data.data.length);
+						for( let p = 0; p < data.data.length; p = p + 1)
+						{
+							arr.push(data.data[p].language);
+						}
+							vm.language = arr;
 					});
 				}
 
