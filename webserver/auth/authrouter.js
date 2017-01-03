@@ -50,7 +50,7 @@ apiRoutes.post('/insertdata', jsonBodyParser, urlEncodedParser,
     function(err, user) {
       if (err) {
         return res.status(500).json({
-          error: 'Internal error in processing request, please retry later..!'
+          error: 'User already exists'
         });
       }
       return res.status(200).json(user);

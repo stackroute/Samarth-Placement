@@ -41,27 +41,27 @@ angular.module('samarth.jobSearch')
                 console.log($scope.result);
                 $scope.pagination = Pagination.getNew(6);
                 $scope.pagination.numPages = Math.ceil(response.data.length / $scope.pagination.perPage);
-                $scope.message = "";
+                $scope.message0 = "";
                 $scope.message1="";
                   $scope.message2="";
 
                 if (response.data.length == 0) {
-                  $scope.message = "No Result Found for "+" "+"'";
+                  $scope.message0 = "No Result Found for "+" "+"'";
                   $scope.message1 =searchText
                   $scope.message2="'"+" "+"! Try more general keywords. ";
 
                 }
                 else{
-                  $scope.message="Showing " + response.data.length + " Results for Job Search";
+                  $scope.message0="Showing " + response.data.length + " Results for Job Search";
                 }
                 },
                function errorCallbackfun(response) {
-                 console.log("some error occured");
-                 $scope.message = "Some Error Occured ";
+                 console.log("some error occured"+err);
+                 $scope.message0 = "Some Error Occured " +err;
                },
                function (err)
                 {
-                 $scope.message = err;
+                 $scope.message0 = err;
                  //console.log($scope.message);
                 }
              )
