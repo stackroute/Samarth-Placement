@@ -9,7 +9,8 @@ angular
             parsetext: function(arr) {
                 return $http({
                     method: 'get',
-                    url: 'http://localhost:8081/placementprocess/candidatesOfProfession/'+arr
+                    url: '/placementprocess/candidatesOfProfession/'+arr
+                    
                 }).then(function success(response) {
                     console.log("parsetext", response.data);
                     return response.data;
