@@ -1,4 +1,7 @@
  <!--form for the candidate starts-->
+ <div layout="row" layout-align="center center" layout-xs="column" layout-padding md-colors="{background: 'grey-200'}" id="heading" class="md-headline">
+  "Opportunities are like sunrises. If you wait too long, you miss them." </span>
+  </div>
  <div layout="column" flex-gt-lg="50" flex-offset-gt-lg="25" flex-lg="50" flex-offset-lg="25" flex-md="50" flex-offset-md="25" flex-sm="90" flex-offset-sm="5" flex-xs>
    <div class="md-no-momentum" md-whiteframe="6" layout-margin layout-padding>
     <form name="candidateForm" ng-submit="vm.formSubmit()">
@@ -49,8 +52,8 @@
         <md-input-container >
           <md-radio-group name="gender" ng-model="vm.candidate.gender" layout="row" ng-required="true" flex-offset="40">
             <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender</label>
-            <md-radio-button value="Male"  flex="85">Male</md-radio-button>
-            <md-radio-button value="Female" flex="85">Female</md-radio-button>
+            <md-radio-button value="Male"  flex="85" class="md-primary">Male</md-radio-button>
+            <md-radio-button value="Female" flex="85" class="md-primary">Female</md-radio-button>
           </md-radio-group>
         </md-input-container>
       </div>

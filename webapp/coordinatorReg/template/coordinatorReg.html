@@ -1,7 +1,15 @@
+<div layout="row" layout-align="center center" layout-xs="column" layout-padding md-colors="{background: 'grey-100'}">
+  <span  class="md-headline"  id="heading">"Opportunities are like sunrises. If you wait too long, you miss them." </span>
+        </div>
 <div layout flex>
   <div class="md-no-momentum" layout="column" layout-padding="" flex-gt-lg="50" flex-offset-gt-lg="25" flex-lg="50" flex-offset-lg="25" flex-md="50" flex-offset-md="25" flex-sm="90" flex-offset-sm="5" flex-xs>
+
     <div class="md-no-momentum" md-whiteframe="6" layout-margin="" layout-align="center center">
-      <div layout layout-align="center center"><h2>Coordinator Registration</h2><br></div>
+
+        <div layout="row" layout-align="center center">
+                    <h3 md-title md-colors="{color: 'blue-A700'}">REGISTER COORDINATOR</h3>
+                </div>
+
       <form name="myForm" ng-submit="vm.clickSubmit(vm.coordinator)">
         <md-input-container class="md-block">
           <label>Name</label>
@@ -13,9 +21,9 @@
           </div>
         </md-input-container>
         <md-radio-group name="gender" ng-model="vm.coordinator.gender" layout="row" ng-required="true">
-           <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender&nbsp;&nbsp;</label>
-          <md-radio-button value="Male">Male</md-radio-button>
-          <md-radio-button value="Female">Female</md-radio-button>
+          <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender&nbsp;&nbsp;</label>
+          <md-radio-button value="Male" class="md-primary">Male</md-radio-button>
+          <md-radio-button value="Female" class="md-primary">Female</md-radio-button>
         </md-radio-group>
 
         <md-input-container class="md-block">
@@ -48,7 +56,7 @@
         <md-icon>layers</md-icon>
 
           <label>Profession</label>
-          <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
+          <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
             <md-option ng-value="item" ng-repeat="item in vm.items | filter:searchTerm">{{item}}</md-option>
           </md-select>
         </md-input-container>
@@ -56,9 +64,29 @@
         <md-input-container layout="column">
         <md-icon>school</md-icon>
           <label>Role</label>
-          <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" multiple>
+          <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
             <md-option ng-value="vm.role">{{vm.role}}</md-option>
           </md-select>
+        </md-input-container>
+
+        <md-input-container layout="column" align-layout="left left">
+          <span><md-icon>room</md-icon>
+          </span>
+          <md-autocomplete
+            md-selected-item="vm.coordinator.location"
+            md-search-text-change=""
+            md-search-text="locationInputText"
+            md-selected-item-change=""
+            md-items="item in vm.location | filter: locationInputText"
+            md-item-text="item"
+            md-min-length="0"
+            md-menu-class="autocomplete-custom-template"
+            md-floating-label="Location"
+            ng-required=true >
+            <md-item-template>
+              <span md-highlight-text="locationInputText" md-highlight-flags="^i">{{item}}</span>
+            </md-item-template>
+          </md-autocomplete>
         </md-input-container>
 
         <div layout data-ng-repeat="iteration in vm.selectedLanguage">
@@ -87,13 +115,13 @@
         </div>
         <div layout>
           <span flex></span>
-          <md-button  class="md-fab md-mini" ng-click="vm.insertLang()" md-colors="{background:'indigo'}">
+          <md-button  class="md-fab md-mini" ng-click="vm.insertLang()" md-colors="{background: 'grey-400'}">
             <md-tooltip>
               Add a new language
             </md-tooltip>
             <md-icon>add</md-icon>
           </md-button>
-          <md-button  class="md-fab md-mini" ng-click="vm.removeLang()" md-colors="{background:'indigo'}">
+          <md-button  class="md-fab md-mini" ng-click="vm.removeLang()" md-colors="{background: 'grey-400'}">
             <md-tooltip>
               Remove a language
             </md-tooltip>

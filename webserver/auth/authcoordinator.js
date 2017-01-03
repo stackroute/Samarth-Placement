@@ -1,5 +1,5 @@
 let request = require('request');
-const logger = require('./../../applogger');
+// const logger = require('./../../applogger');
 
 // @TODO take this from config
 let platformURL = 'localhost:8081';
@@ -18,7 +18,7 @@ let getCoordinatorAuthToken = function(user) {
         };
 
         request(options, function(err, res, body) {
-            if (err || res === undefined || res.statusCode === undefined) {
+            if (err || res.isUndefined || res.statusCode.isUndefined) {
                 reject({
                     error: err
                 });
