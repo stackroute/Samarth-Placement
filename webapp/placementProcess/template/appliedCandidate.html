@@ -1,36 +1,38 @@
-<div layout="row" layout-xs="column" md-colors="{background: 'indigo-100'}" layout-align="center center" class=" md-display-2" style="font-size:20;">
+<div layout="row" layout-xs="column" md-colors="{background: 'grey-100'}" layout-align="center center"  id="heading" class="md-headline" style="font-size:20;">
     Showing {{results.length}} Candidates applied the job
 </div>
-<!-- <span>Showing {{results.length}} results</span> -->
+
 <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
-    <!-- <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-sm="50" flex-sm="100"> -->
 
     <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">
         <my-skillcard candidateid="x.candidates" picsize="small" contentsize="small">
-            <!-- {{$candidateid||json}} -->
             <badges>
                 <verification-badge candidateid="x.candidates">
                 </verification-badge>
             </badges>
             <buttons layout="row">
+
               <div>
                 <md-tooltip>
                     View Details
                 </md-tooltip>
                 <md-icon class="material-icons" ui-sref="index.verifyprofile({candidateid:x.candidates})" layout-padding>contacts</md-icon>
               </div>
-              <div>
+              <div >
                 <md-tooltip>
                     Accept
                 </md-tooltip>
-                <md-icon class="material-icons" ng-click="accept(x.candidates)" layout-padding>thumb_up</md-icon>
+                <md-icon ng-hide="flag||x.acceptedDetail" class="material-icons" ng-click="flag=true;accept(x.candidates)" layout-padding>thumb_up</md-icon>
+
+                <md-icon ng-show="flag||x.acceptedDetail" style="color:green;"  class="material-icons" layout-padding>thumb_up</md-icon>
               </div>
               <div>
                 <md-tooltip>
                     Reject
                 </md-tooltip>
 
-                <md-icon class="material-icons" ng-click="reject(x.candidates)" layout-padding>thumb_down</md-icon>
+                <md-icon ng-hide="flag||x.acceptedDetail" class="material-icons" ng-click="reject(x.candidates)" layout-padding>thumb_down</md-icon>
+
               </div>
 
             </buttons>
@@ -54,7 +56,6 @@
                 </md-menu>
             </cardactions>
         </my-skillcard>
-        <!--  </div> -->
     </div>
     <div layout class="md-padding" flex>
         <div layout layout-align="start start" flex="50">
