@@ -1,12 +1,12 @@
-const assert = require('chai').assert;
+/*const assert = require('chai').assert;
 const request = require('supertest');
-const host_url = 'http://localhost:8080'
-const container_url = host_url + '/apply';
+const host_url = 'http://172.23.238:8080'
+const container_url = host_url + 'placementprocess/apply';
 
 applyData={candidateid:"9770885264",jobname:"wipro-2"};
 
 describe('Placement API', function(){
-
+	let container = request(container_url);
 	describe('apply a job', function() {
 		it("should be respond",function(done) {
 			container
@@ -43,3 +43,4 @@ describe('Placement API', function(){
 	});
 
 });
+*/
