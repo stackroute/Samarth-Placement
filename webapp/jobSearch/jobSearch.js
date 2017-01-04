@@ -1,6 +1,4 @@
-(function(){
-  'use strict'
-  angular
+angular
   .module('samarth.jobSearch', [])
   .config(config);
   function config($stateProvider) {
@@ -18,7 +16,7 @@
     .state('index.jobSearch', {
       url:'/jobsearch',
       views: {
-        "content@": {
+        'content@': {
           templateUrl: './jobSearch/template/jobSearch.html',
           controller: 'jobSearchCtrl',
           resolve: {
@@ -30,7 +28,7 @@
     .state('index.jobSearch.results', {
       url: '/jobslist/:searchText?',
       views: {
-        "results": {
+        'results': {
          templateUrl: './jobSearch/template/jobSearchResult.html',
          controller: 'jobSearchCtrl',
          resolve: {
@@ -40,4 +38,3 @@
      }
    });
   } 
-})();
