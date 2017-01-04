@@ -8,32 +8,32 @@ $scope.candStatsClassName = 'candStats' + $scope.index;
 $scope.jobStatsClassName = 'jobStats' + $scope.index;
 
 let candStats = [{
-  value: $scope.data.Candidates/100,
+  value: (($scope.data.placed/$scope.data.Candidates)*100),
   color: 'lime'
 },
 {
-  value: (($scope.data.Looking/$scope.data.Candidates)*100),
+  value: (($scope.data.applied/$scope.data.Candidates)*100),
   color: 'teal'
 },
 {
-  value:(($scope.data.applied/$scope.data.Candidates)*100),
+  value:(($scope.data.Looking/$scope.data.Candidates)*100),
   color: 'orange'
 },
 {
-  value:(($scope.data.applied/$scope.data.Candidates)*100),
+  value:(($scope.data.Candidates/$scope.data.Candidates)*100),
   color: 'blue'
 }];
 
 let jobStats = [{
-  value: $scope.data.job/100,
+  value: (($scope.data.expiredJobs/$scope.data.job)*100),
   color: 'A1887F'
 },{
   value: (($scope.data.availableJobs/$scope.data.job)*100),
   color: '#D7CCC8'
 },
 {
-  value:(($scope.data.expiredJobs/$scope.data.job)*100),
-  color: '#d50000'
+  value: (($scope.data.job/$scope.data.job)*100),
+  color: '#e57373'
 }];
 
 
