@@ -1,9 +1,11 @@
-(function() {
-  'use strict'
-  angular
+angular
   .module('samarth.home') 
-  .controller('navbarCtrl', navbarCtrl);
-  function navbarCtrl(navFactory,
+  .controller('navbarCtrl', ['navFactory',
+    '$auth',
+    '$mdSidenav',
+    '$rootScope',
+    '$state',
+    function(navFactory,
     $auth,
     $mdSidenav,
     $rootScope,
@@ -22,29 +24,22 @@
   }
 
   let vm = this;
-  vm.openSideNavPanel = openSideNavPanel;
-  vm.closeSideNavPanel = closeSideNavPanel;
-  vm.getSidenav = getSidenav;
-  vm.logout = logout;
-  vm.getSidenav();
-
-  function getSidenav()
-  {
+ 
     navFactory.then(function(response)
      {
       vm.navItems = response.data;
     });
-  };
+ 
 
   function openSideNavPanel()
    {
     $mdSidenav('left').open();
-  };
+  }
 
-  function closeSideNavPanel() 
-  {
+  function closeSideNavPanel()
+    {
     $mdSidenav('left').close();
-  };
+  }
 
   function logout()
   {
@@ -52,6 +47,9 @@
    $rootScope.logout = false;
    $state.go('index.home');
    $auth.removeToken();
- };
-}
-})();
+ }
+
+ vm.openSideNavPanel = openSideNavPanel;
+  vm.closeSideNavPanel = closeSideNavPanel;
+  vm.logout = logout;
+}]);
