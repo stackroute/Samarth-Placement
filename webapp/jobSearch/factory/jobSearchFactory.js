@@ -3,8 +3,8 @@
 angular
   .module('samarth.jobSearch')
   .factory('jobSearchFactory', ['$http', function($http) {
-   var obj = {};
-   obj.searchJobDetails = function(){
+  var obj = {};
+  obj.searchJobDetails = function(){
        return $http.get('/jobProfile/getJobs');
    }
   obj.searchJobs = function(searchTxt, profs){
@@ -13,7 +13,7 @@ angular
        url: '/jobProfile/searchJobs/'+searchTxt+'/'+profs,
        })
    }
- obj.searchJobsByProfession = function(profs){
+  obj.searchJobsByProfession = function(profs){
      console.log('in jobs fac by pro');
      console.log(profs+'single val');
          return $http({
@@ -21,6 +21,6 @@ angular
          url : '/jobProfile/jobsByProfession/'+profs,
          })
      }
-   return obj;
+  return obj;
 }]);
 })();

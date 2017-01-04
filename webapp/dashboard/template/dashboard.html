@@ -1,85 +1,46 @@
 <div flex-xs="100" flex-gt-xs="100">
-
-    <div layout="row" layout-align="center center" layout-xs="column" layout-padding md-colors="{background: 'grey-200'}">
-        <span class=" md-title" id="heading">Hi,&nbsp;</span>
-        <span class=" md-title" id="heading"> {{message | uppercase}}!</span>
-        <span id="heading" class="md-headline">We create opportunities for Job-Seekers
+  <div layout="row" layout-align="center center" layout-xs="column" layout-padding md-colors="{background: 'grey-200'}">
+    <span class=" md-title" id="heading">Hi,&nbsp;</span>
+    <span class=" md-title" id="heading"> {{message | uppercase}}!</span>
+    <span id="heading" class="md-headline">We create opportunities for Job-Seekers
     </div>
     <div layout="row" layout-align="center center" layout-xs="column" >
-
     </div>
   </div>
-  <!-- <div class='candidateStats'></div> -->
-
   <div layout="row" layout-xs="column"  >
-
-   <div ng-repeat="prof in profiling" flex-xs=" 25 " flex-gt-xs="25" flex-gt-md="30"  flex-md="40" flex-sm="40">
-     <circle data='prof'  >
-       <circle-stats>
+    <div ng-repeat="prof in profiling" flex-xs=" 25 " flex-gt-xs="25" flex-gt-md="30"  flex-md="40" flex-sm="40">
+      <circle data='prof'  >
+        <circle-stats>
           <coordinator-stat-chart data='prof' index='{{$index}}'></coordinator-stat-chart>
-          <div >
-          <div layout="row"  >
-            <span class="md-subhead " md-colors="{color: 'blue-700'}"  >Total Candidates:</span>
-        <span class="md-subhead " md-colors="{color: 'blue-700'}">{{prof.Candidates}}
-           </span>
-        <span class="md-subhead " flex-offset="30" md-colors="{color: 'purple-700'}"> Total Jobs:</span>
-        <span class="md-subhead " md-colors="{color: 'purple-700'}">{{prof.job}}</span>
-
-    </div>
-
-    <div layout="row">
-        <span class="md-subhead "  md-colors="{color: 'orange-700'}">Available Candidates:</span>
-        <span class="md-subhead "  md-colors="{color: 'orange-700'}">{{prof.Looking}}
-             </span>
-        <span class="md-subhead " flex-offset="20"> Available Jobs:</span>
-        <span class="md-subhead ">{{prof.job}}</span>
-
-    </div>
-    <div layout="row">
-        <span class="md-subhead " md-colors="{color: 'green-700'}">Applied Candidates:</span>
-        <span class="md-subhead " md-colors="{color: 'green-700'}">{{prof.applied}}
-               </span>
-        <span class="md-subhead " flex-offset="25"> Expired Jobs:</span>
-        <span class="md-subhead ">{{prof.job}}</span>
-
-
-    </div>
-    <div layout="row">
-        <span class="md-subhead ">Placed Candidate:</span>
-        <span class="md-subhead ">{{prof.placed}}
-                 </span>
-    </div>
-
-</div>
-<!-- <div layout="row" flex-offset="17" >
-                        <div layout="column">
-                <span class="md-subhead "  >Available:</span>
-                <span class="md-subhead " >{{prof.Looking}}
-                </span>
-              </div>
-
-              <div layout="column">
-                <span class="md-subhead " > Placed Candidates:</span>
-                <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{prof.placed}}</span>
-
-              </div>
-            </div>
-
-              <div layout="row"  flex-offset="17">
-
-                <span class="md-subhead ">Applied Candidates:</span>
-                <span class="md-subhead " >{{prof.applied}}</span>
-              </div>
-
-              <div layout="row"  flex-offset="17">
-
-                <span class="md-subhead " > Placed Candidates:</span>
-                <span class="md-subhead " md-colors="{color: 'grey-A700'}">{{prof.placed}}</span>
-              </div>
- -->
-
-</circle-stats>
-</circle>
-</div>
+          <div layout="row" >
+            <span class="md-title " md-colors="{color: 'blue-700'}"  >Total Candidates:</span>
+            <span class="md-title " md-colors="{color: 'blue-700'}">{{prof.Candidates}}
+            </span>
+            <span class="md-title " flex-offset="25"  md-colors="{color: 'orange-700'}"> Total Jobs:</span>
+            <span class="md-title "  md-colors="{color: 'orange-700'}">{{prof.job}}</span>
+          </div>
+          <div layout="row">
+            <span class="md-title "  md-colors="{color: 'orange-700'}">Available Candidates:</span>
+            <span class="md-title "  md-colors="{color: 'orange-700'}">{{prof.Looking}}
+            </span>
+            <span class="md-title "  flex-offset="15" md-colors="{color: 'cyan-700'}" > Available Jobs:</span>
+            <span class="md-title "  md-colors="{color: 'cyan-700'}">{{prof.availableJobs}}</span>
+          </div>
+          <div layout="row">
+            <span class="md-title " md-colors="{color: 'green-700'}">Applied Candidates:</span>
+            <span class="md-title " md-colors="{color: 'green-700'}">{{prof.applied}}
+            </span>
+            <span class="md-title "  md-colors="{color: 'purple-700'}"  flex-offset="20"> Expired Jobs:</span>
+            <span class="md-title "  md-colors="{color: 'purple-700'}">{{prof.expiredJobs}}</span>
+          </div>
+          <div layout="row">
+            <span class="md-title ">Placed Candidate:</span>
+            <span class="md-title ">{{prof.placed}}
+            </span>
+          </div>
+        </div>
+      </circle-stats>
+    </circle>
+  </div>
 </div>
 </div>

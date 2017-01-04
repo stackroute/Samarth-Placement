@@ -4,7 +4,7 @@
 
 <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
 
-    <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">
+    <div ng-repeat="(key,x) in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">
         <my-skillcard candidateid="x.candidates" picsize="small" contentsize="small">
             <badges>
                 <verification-badge candidateid="x.candidates">
@@ -22,16 +22,17 @@
                 <md-tooltip>
                     Accept
                 </md-tooltip>
-                <md-icon ng-hide="flag||x.acceptedDetail" class="material-icons" ng-click="flag=true;accept(x.candidates)" layout-padding>thumb_up</md-icon>
+                <md-icon ng-hide="(flaga[key]||x.acceptedDetail||flagr[key]||x.rejectedDetail)" class="material-icons" ng-click="accept(x.candidates,key)" layout-padding>thumb_up</md-icon>
 
-                <md-icon ng-show="flag||x.acceptedDetail" style="color:green;"  class="material-icons" layout-padding>thumb_up</md-icon>
+                <md-icon ng-show="(flaga[key]||x.acceptedDetail)&&(!(flagr[key]||x.rejectedDetail))" style="color:green;"  class="material-icons" layout-padding>thumb_up</md-icon>
               </div>
               <div>
                 <md-tooltip>
                     Reject
                 </md-tooltip>
+                <md-icon ng-hide="flagr[key]||x.rejectedDetail" class="material-icons" ng-click="reject(x.candidates,key,flaga[key]||x.acceptedDetail)" layout-padding>thumb_down</md-icon>
 
-                <md-icon ng-hide="flag||x.acceptedDetail" class="material-icons" ng-click="reject(x.candidates)" layout-padding>thumb_down</md-icon>
+                <md-icon ng-show="flagr[key]||x.rejectedDetail" style="color:red;"  class="material-icons" layout-padding>thumb_down</md-icon>
 
               </div>
 
