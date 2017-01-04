@@ -29,11 +29,11 @@ let jobStats = [{
   color: 'A1887F'
 },{
   value: (($scope.data.availableJobs/$scope.data.job)*100),
-  color: '#D7CCC8'
+  color: '#00838F'
 },
 {
   value: (($scope.data.job/$scope.data.job)*100),
-  color: '#e57373'
+  color: '#FFC107'
 }];
 
 
