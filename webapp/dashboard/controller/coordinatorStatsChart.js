@@ -27,6 +27,13 @@ let candStats = [{
 let jobStats = [{
   value: $scope.data.job/100,
   color: '#AB47BC'
+},{
+  value: (($scope.data.availableJobs/$scope.data.job)*100),
+  color: 'cyan'
+},
+{
+  value:(($scope.data.expiredJobs/$scope.data.job)*100),
+  color: 'orange'
 }];
 
 
