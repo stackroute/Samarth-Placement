@@ -87,7 +87,7 @@
         var con = $mdDialog.confirm()
           .title('Reject')
           .textContent('This candidate offered already. you are about to reject the candidate, please confirm..!')
-          .ok('confire')
+          .ok('confirm')
           .cancel('Cancel');
 
           $mdDialog.show(con).then(function() {
