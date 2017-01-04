@@ -1,15 +1,18 @@
-(function(){
- 'use strict'
  angular.module('samarth.placementProcess')
     .controller('jobPlacementCtrl', ['$scope',
    '$stateParams',
    'Pagination',
    'jobFactory',
-   'circlesGetService',
    'applyFactory',
    'statusFactory',
    '$mdDialog',
-   function($scope, $stateParams, Pagination,jobFactory,circlesGetService,applyFactory,statusFactory,$mdDialog) 
+   function($scope, 
+    $stateParams, 
+    Pagination,
+    jobFactory,
+    applyFactory,
+    statusFactory,
+    $mdDialog) 
    {
 
     $scope.candidateid = $stateParams.candidateid;
@@ -64,14 +67,12 @@
       }
     },
     function errorCallbackfun(response) {
-     console.log("some error occured");
      $scope.message = "Some Error Occured ";
    },
    function (err)
    {
      $scope.message = err;
    })
-    console.log("last should display");
     var i=0;
     $scope.check=function()
     {
@@ -125,4 +126,3 @@
     }
   }
   ])
-})();
