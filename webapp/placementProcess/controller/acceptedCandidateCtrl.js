@@ -4,15 +4,10 @@
  .controller('acceptedCandidateCtrl', ['$scope',
    '$stateParams',
    'Pagination',
-   'appliedCandidateFactory',
-   'circlesGetService',
-   'applyFactory',
    'rejectFactory',
-   'acceptFactory',
    'acceptedCandidateFactory',
    '$mdDialog',
-   'rejectedCandidateFactory',
-   function($scope, $stateParams, Pagination,appliedCandidateFactory,circlesGetService,applyFactory,rejectFactory,acceptFactory,acceptedCandidateFactory,$mdDialog,rejectedCandidateFactory) {
+   function($scope, $stateParams, Pagination,rejectFactory,acceptedCandidateFactory,$mdDialog) {
 
     acceptedCandidateFactory.acceptedCandidates($stateParams.jobcode)
     .then(function(results) {

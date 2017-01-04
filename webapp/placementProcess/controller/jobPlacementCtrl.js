@@ -33,7 +33,7 @@
       for(i=0;i<response.data.length;i++)
       {
         statusFactory.status($stateParams.candidateid,response.data[i].jb.jobcode)
-        .then(function successCallbackfun(response){
+        .then(function successCallbackfun(response) {
           console.log("result and status")
           $scope.result.forEach(function(job)
           {
@@ -45,7 +45,7 @@
               {
                 job.jb.applyStatus=true
               }
-              else{
+              else {
                 job.jb.applyStatus=false
               }
               console.log(job.jb.applyStatus)
@@ -85,7 +85,7 @@
       .then(function successCallbackfun(response){
         console.log("the response of the status cand and jobsfdsfdsfsd:");
         console.log(response);
-      },function errorCallbackfun(error){
+      },function errorCallbackfun(error) {
         console.log(error);
       },
       function(err)
@@ -108,9 +108,9 @@
     $mdDialog.show(confirm).then(function() {
       $scope.flag[key]=true;
       applyFactory.applyJob($stateParams.candidateid,jobcode)
-      .then(function successCallbackfun(response){
+      .then(function successCallbackfun(response) {
         console.log(response);
-      },function errorCallbackfun(error){
+      },function errorCallbackfun(error) {
         console.log(error);
       },
       function(err)

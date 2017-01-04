@@ -1,6 +1,7 @@
 angular
   .module('samarth.placementProcess')
-  .factory('jobFactory', ['$http', function($http) {
+  .factory('jobFactory', ['$http',
+    function($http) {
    let obj = {};
    obj.searchJobs = function(profs) {
        return $http({

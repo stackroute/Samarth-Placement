@@ -1,24 +1,26 @@
-(function(){
- 'use strict'
  angular.module('samarth.placementProcess')
  .controller('appliedCandidateCtrl', ['$scope',
    '$stateParams',
    'Pagination',
    'appliedCandidateFactory',
-   'circlesGetService',
-   'applyFactory',
    'rejectFactory',
    'acceptFactory',
    'acceptedCandidateFactory',
    '$mdDialog',
    'rejectedCandidateFactory',
-   function($scope, $stateParams, Pagination,appliedCandidateFactory,circlesGetService,applyFactory,rejectFactory,acceptFactory,acceptedCandidateFactory,$mdDialog,rejectedCandidateFactory) {
+   function($scope, 
+    $stateParams, 
+    Pagination,
+    appliedCandidateFactory,
+    rejectFactory,
+    acceptFactory,
+    acceptedCandidateFactory,
+    $mdDialog,
+    rejectedCandidateFactory) {
 
     appliedCandidateFactory.appliedCandidates($stateParams.jobcode)
     .then(function(results) {
       $scope.results = results.data;
-      console.log("results:values"+$stateParams.jobcode);
-      console.log(results);
       acceptedCandidateFactory.acceptedCandidates($stateParams.jobcode)
       .then(function(acceptedCandit){
         console.log(results.data)
@@ -120,4 +122,3 @@
     }
   }
   ])
-})();

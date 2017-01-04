@@ -1,12 +1,13 @@
 angular
   .module('samarth.placementProcess')
-  .factory("acceptFactory", ['$http',function($http) {
+  .factory('acceptFactory', ['$http',
+    function($http) {
    let obj = {};
-   obj.accept = function(cid,jobcode){
+   obj.accept = function(cid,jobcode) {
        return $http({
-       method : 'POST',
-       url : '/placementprocess/offer',
-       data:{
+       method: 'POST',
+       url: '/placementprocess/offer',
+       data: {
         candidateid:cid,
         jobcode:jobcode
        }

@@ -1,5 +1,5 @@
 angular.module('samarth.placementProcess')
- .controller('rejectedCandidateCtrl', ['$scope',
+ .controller('rejectedCandidateCtrl',['$scope',
    '$stateParams',
    'Pagination',
    'rejectedCandidateFactory',
