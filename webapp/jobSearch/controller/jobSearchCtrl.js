@@ -1,5 +1,3 @@
-(function(){
- 'use strict'
 angular.module('samarth.jobSearch')
   .controller('jobSearchCtrl', ['$scope',
      '$stateParams',
@@ -8,16 +6,9 @@ angular.module('samarth.jobSearch')
      'circlesGetService',
      function($scope, $stateParams, Pagination, jobSearchFactory, circlesGetService) {
       $scope.subheader="Discover opportunities and connect people who can help you to get jobs!";
-
-       console.log("Inside JobSearch Ctrl before indexing");
       if ($stateParams.searchText !== undefined ) {
             $scope.searchJob($stateParams.searchText);
         }
-        // else{
-        //     // $scope.message = "Enter Text To Search For Jobs";
-        // }
-      console.log("params value after checking "+ $stateParams.searchText);
-
      var profs="";
      circlesGetService.getCircle()
         .then(function(response) {
@@ -43,13 +34,11 @@ angular.module('samarth.jobSearch')
                 $scope.pagination.numPages = Math.ceil(response.data.length / $scope.pagination.perPage);
                 $scope.message0 = "";
                 $scope.message1="";
-                  $scope.message2="";
-
+                $scope.message2="";
                 if (response.data.length == 0) {
                   $scope.message0 = "No Result Found for "+" "+"'";
                   $scope.message1 =searchText
                   $scope.message2="'"+" "+"! Try more general keywords. ";
-
                 }
                 else{
                   $scope.message0="Showing " + response.data.length + " Results for Job Search";
@@ -62,13 +51,10 @@ angular.module('samarth.jobSearch')
                function (err)
                 {
                  $scope.message0 = err;
-                 //console.log($scope.message);
                 }
              )
        };
    }]);
-})();
-
 
 // (function(){
 //  'use strict'

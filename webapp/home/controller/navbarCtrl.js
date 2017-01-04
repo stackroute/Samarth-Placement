@@ -1,6 +1,5 @@
 angular
-  .module('samarth.home') 
-  .controller('navbarCtrl', ['navFactory',
+  .module('samarth.home').controller('navbarCtrl', ['navFactory',
     '$auth',
     '$mdSidenav',
     '$rootScope',
@@ -10,8 +9,7 @@ angular
     $mdSidenav,
     $rootScope,
     $state) 
-  {
-   $rootScope.logout = false;
+  { $rootScope.logout = false;
    if($auth.isAuthenticated())
    {
      $rootScope.user = $auth.getPayload();
@@ -26,14 +24,12 @@ angular
   let vm = this;
  
     navFactory.then(function(response)
-     {
-      vm.navItems = response.data;
+     { vm.navItems = response.data;
     });
  
 
   function openSideNavPanel()
-   {
-    $mdSidenav('left').open();
+   { $mdSidenav('left').open();
   }
 
   function closeSideNavPanel()
