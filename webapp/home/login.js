@@ -1,8 +1,6 @@
 angular.module('samarth.home', [])
-.config(config);
-
-function config($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.when('/', '/home/login');
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+ $urlRouterProvider.when('/', '/home/login');
   $urlRouterProvider.when('/home', '/home/login');
   $urlRouterProvider.otherwise('/home/login');
   $stateProvider
@@ -12,7 +10,7 @@ function config($stateProvider, $urlRouterProvider) {
       appbar: {
         templateUrl: 'home/template/navbar.html',
         controller: 'navbarCtrl',
-        controllerAs: 'vm',
+        controllerAs: 'vm'
       },
       content: {
       }
@@ -20,4 +18,4 @@ function config($stateProvider, $urlRouterProvider) {
     }
 
   });
-}
+}]);

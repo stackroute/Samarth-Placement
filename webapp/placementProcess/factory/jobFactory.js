@@ -1,5 +1,3 @@
-(function() {
- 'use strict';
 angular
   .module('samarth.placementProcess')
   .factory('jobFactory', ['$http', function($http) {
@@ -12,4 +10,3 @@ angular
    };
    return obj;
 }])
-})();
