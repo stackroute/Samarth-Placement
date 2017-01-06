@@ -1,73 +1,44 @@
-(function(){
+(function() {
   'use strict';
-    angular
-      .module('samarth.coordinatorLogin')
-      .controller('signinCtrl',signinCtrl);
-       signinCtrl.$inject=['$state','$auth','Flash','$rootScope'];
-      function signinCtrl($state,$auth,Flash,$rootScope){
-        console.log("first");
-          if($auth.isAuthenticated())
-    {
-      /*console.log("nav");
-            $rootScope.$on('$stateChangeStart','$location', function(event, toState, toParams, fromState,$location) {
-                console.log("kumari");
-                //if user is already traversing to index stage, ignore this check
-                //Here ignore all those states, which need not have authentication 
-                if (toState.name == 'index') {
-                    //index state does not need prior authentication
-                    $location.path('/home/dashboard');
-                    console.log("sdggdfgfdhgf");
-                }
-
-                });*/
-
-      $state.go('index.dashboard');
-   
-}
-        /*$rootScope.$on('$stateChangeStart','$location', function(event, toState, toParams, fromState,$location) {
-                console.log("kumari");
-                //if user is already traversing to index stage, ignore this check
-                //Here ignore all those states, which need not have authentication 
-                if (toState.name == 'index') {
-                    //index state does not need prior authentication
-                    $location.path('/home/dashboard');
-                    console.log("sdggdfgfdhgf");
-                }
-
-                });*/
-        var vm =this;
-        vm.login=login;
-        function login(){
-            $auth.login({
-            email: vm.user.email, // username of the user entered in the login form
-            pwd: vm.user.pwd // username of the user entered in the login form
-        }).then(function(res) {
-            $auth.setToken(res.token);
-            $state.go('index.dashboard'); // redirects to a mentioned state if successfull
-
-        }).catch(function(res) {
-            vm.err = 'Login Failed ! UserName or Password doesnot match .';
-            let message = 'Login Failed ! UserName or Password doesnot match .';
-            Flash.create('danger', message);
-  
-        }); 
-
+  angular
+  .module('samarth.coordinatorLogin')
+  .controller('signinCtrl', ['$auth',
+    'Flash',
+    '$rootScope',
+    '$state',
+    function($auth,
+      Flash,
+      $rootScope,
+      $state) {
+      let vm = this;
+      $rootScope.flag = 'ku';
+      $rootScope.logout = false;
+      if($auth.isAuthenticated()) {
+        $rootScope.user = $auth.getPayload();
+        $rootScope.message = $rootScope.user.name;
+        $rootScope.sideicon = true;
+        $rootScope.logout = true;
+        $state.go('index.dashboard');
       }
-       }
+      else {
+        $rootScope.logout = false;
+      }
+
+      function login() {
+        $auth.login({
+          email: vm.user.email,
+          pwd: vm.user.pwd
+        }).then(function(res) {
+          $auth.setToken(res.token);
+          $state.go('index.dashboard');
+        }).catch(function(error) {
+          vm.err = 'Login Failed ! UserName or Password doesnot match .';
+          let message = 'Login Failed ! UserName or Password doesnot match .';
+          Flash.create('danger', message);
+          console.log(error);
+        });
+      }
+      vm.login = login;
+      }
+      ]);
 })();
-angular.module("samarth")
-   .controller("initialCtrl", ['$scope',
-       '$state',
-       function($scope, $state) {
-      
-         $state.go('index');
-           
-       }
-   ]);
-   angular.module("samarth")
-    .controller("rootCtrl", ['$scope',
-        '$state',
-        function($scope, $state) {
-          $state.go('index.home');
-        }
-    ]); 

@@ -13,16 +13,16 @@ let login = mongoose.Schema({
     },
     password: { type: String, required: true },
     role: { type: String, required: true }
-    //functionality: [{ type: String, required: true }]
+    // functionality: [{ type: String, required: true }]
 });
 
 login.virtual('pwd')
     .set(function(pwd) {
-        this._pwd = pwd;
+        this.pwrd = pwd;
         this.password = this.generateHash(pwd);
     })
     .get(function() {
-        return this._pwd;
+        return this.pwrd;
     });
 
 // generating a hash
@@ -32,10 +32,10 @@ login.methods.generateHash = function(password) {
 
 // checking if password is valid
 login.methods.validPassword = function(password) {
-    logger.log("Validating password: ", password, " - vs - ", this.password);
+    logger.log('Validating password: ', password, ' - vs - ', this.password);
     return bCrypt.compareSync(password, this.password);
 };
 
 module.exports = {
-    "login": login
+    login: login
   };

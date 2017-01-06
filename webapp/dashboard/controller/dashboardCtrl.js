@@ -1,41 +1,49 @@
-angular.module('samarth.dashboard')
-  .controller('dashboardCtrl',dashboardCtrl);
+angular
+ .module('samarth.dashboard')
+ .controller('dashboardCtrl', dashboardCtrl);
 
-   function dashboardCtrl($scope, $mdDialog, $log, circlesGetService,$rootScope,$auth,$location,$state) {
-    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState,$scope) {
-               // console.log("kumari");
-                //if user is already traversing to index stage, ignore this check
-                //Here ignore all those states, which need not have authentication
-                if (toState.name == 'index') {
-                    //index state does not need prior authentication
-                    $location.path('/home/dashboard');
-                    console.log("sdggdfgfdhgf");
-                }
-                });
-               $scope.message="";
-               $rootScope.user=$auth.getPayload();
-               console.log($rootScope.user);
-               $scope.message=$rootScope.user.name
+ function dashboardCtrl($scope,
+    $mdDialog,
+     $log,
+   circlesGetService,
+    $rootScope,
+     $auth,
+    $location,
+     $state) {
+   $rootScope.$on('$stateChangeStart', function(event, toState) {
+     if (toState.name == 'index') {
+       $location.path('/home/dashboard');
+     }
+   });
+     $rootScope.user=$auth.getPayload();
+     $rootScope.message=$rootScope.user.name;
+     if ($auth.isAuthenticated()) {
+       $rootScope.sideicon = true;
+       $rootScope.logout = true;
+     }
+     else {
+       $rootScope.logout = false;
+       $rootScope.sideicon = false;
+       $rootScope.err = "invalid username or password";
+       $state.go('index');
+     }
 
-            if ($auth.isAuthenticated()) {
-               $rootScope.sideicon = true;
-               $rootScope.logout = true;
-               console.log("hyhy");
-
-           } else {
-               $rootScope.logout = false;
-               $rootScope.sideicon = false;
-               console.log("noo");
-               $rootScope.err="invalid username or password";
-               $state.go('index');
-           }
-       circlesGetService.getCircle()
-          .then(function(response) {
-              $scope.profiling = response.data;
-
-              console.log(response.data);
-
-          }, function(err) {
-
-          });
-        };
+     circlesGetService.getCircle()
+     .then(function(response) {
+       let profs="";
+       let i=0;
+       for ( i = 0; i < response.data.length; i++) {
+         profs += response.data[i].name + '-';
+       }
+       circlesGetService.getStats(profs)
+       .then(function(response) {
+         $scope.profiling = response.data;
+       },
+        function(err) {
+         return err;
+       });
+     },
+     function(err) {
+      return err;
+     });
+ };

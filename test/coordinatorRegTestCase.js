@@ -15,7 +15,7 @@ var demoCoordinator={
 
 describe('get method', function() {
     hostt = request(container);
-    it('should respond while calling', function(done) {
+    it('should respond while calling coordinator ', function(done) {
       hostt
         .get('/profession')
         .expect(200, done)
@@ -25,7 +25,7 @@ describe('get method', function() {
         .get('/profession')
         .expect('Content-Type', 'application/json; charset=utf-8', done);
     });
-    it('should respond while calling', function(done) {
+    it('should respond while calling coordinator', function(done) {
       hostt
         .get('/role')
         .expect(200, done)
@@ -35,7 +35,7 @@ describe('get method', function() {
         .get('/role')
         .expect('Content-Type', 'application/json; charset=utf-8', done);
     });
-    it('should respond while calling', function(done) {
+    it('should respond while calling coordinator', function(done) {
       hostt
         .get('/language')
         .expect(200, done)
@@ -56,8 +56,7 @@ describe('Post data for coordinator registration', function() {
         .type('form')
         .send(demoCoordinator)
         .set('Accept', /application\/json/)
-        .expect(200, done)
+        .expect(500, done)
 
     });
-  
-  });
+ });
