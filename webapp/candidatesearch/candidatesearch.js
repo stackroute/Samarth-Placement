@@ -1,5 +1,5 @@
 angular
-  .module('samarth.candidatesearch',[])
+  .module('samarth.candidatesearch', [])
   .config(config);
 
   function config($stateProvider) {
@@ -16,9 +16,9 @@ angular
   $stateProvider
   .state('index.candidatesearch', {
     url: 'candidatessearch/:circleDomain?circleName',
-    params:{
-      circleName:null,
-      circleDomain:null
+    params: {
+      circleName: null,
+      circleDomain: null
     },
     views: {
       "content@": {
@@ -29,11 +29,11 @@ angular
         }
       }
     },
-    resolve:{
-      circleDomain:['$stateParams',function($stateParams){
+    resolve: {
+      circleDomain: ['$stateParams', function($stateParams){
         return $stateParams.circleDomain;
       }],
-      circleName:['$stateParams',function($stateParams){
+      circleName: ['$stateParams', function($stateParams){
         return $stateParams.circleName;
       }]
     }
@@ -54,9 +54,3 @@ angular
         }
       })
 }
-
-
-
-
-
-

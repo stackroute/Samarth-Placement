@@ -1,39 +1,29 @@
 <div layout="row" layout-xs="column" md-colors="{background: 'grey-100'}" layout-align="center center"  id="heading" class="md-headline" style="font-size:20;">
-    Showing {{results.length}} Candidates applied the job
+    {{results.length}} Candidates are offered
 </div>
 
 <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
 
     <div ng-repeat="(key,x) in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">
-        <my-skillcard candidateid="x.candidates" picsize="small" contentsize="small">
+        <my-skillcard candidateid="x.candidateid" picsize="small" contentsize="small">
             <badges>
-                <verification-badge candidateid="x.candidates">
+                <verification-badge candidateid="x.candidateid">
                 </verification-badge>
             </badges>
             <buttons layout="row">
-
-              <div>
+                <div>
                 <md-tooltip>
                     View Details
                 </md-tooltip>
-                <md-icon class="material-icons" ui-sref="index.verifyprofile({candidateid:x.candidates})" layout-padding>contacts</md-icon>
+                <md-icon class="material-icons" ui-sref="index.verifyprofile({candidateid:x.candidateid})" layout-padding>contacts</md-icon>
               </div>
-              <div >
-                <md-tooltip>
-                    Accept
-                </md-tooltip>
-                <md-icon ng-hide="(flaga[key]||x.acceptedDetail||flagr[key]||x.rejectedDetail)" class="material-icons" ng-click="accept(x.candidates,key)" layout-padding>thumb_up</md-icon>
 
-                <md-icon ng-show="(flaga[key]||x.acceptedDetail)&&(!(flagr[key]||x.rejectedDetail))" style="color:green;"  class="material-icons" layout-padding>thumb_up</md-icon>
-              </div>
               <div>
                 <md-tooltip>
                     Reject
                 </md-tooltip>
-                <md-icon ng-hide="flagr[key]||x.rejectedDetail" class="material-icons" ng-click="reject(x.candidates,key,flaga[key]||x.acceptedDetail)" layout-padding>thumb_down</md-icon>
-
+                <md-icon ng-hide="flagr[key]" class="material-icons" ng-click="reject(x.candidateid,key)" layout-padding>thumb_down</md-icon>
                 <md-icon ng-show="flagr[key]||x.rejectedDetail" style="color:red;"  class="material-icons" layout-padding>thumb_down</md-icon>
-
               </div>
 
             </buttons>

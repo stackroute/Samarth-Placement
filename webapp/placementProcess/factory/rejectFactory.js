@@ -1,14 +1,12 @@
-(function(){
- 'use strict'
 angular
   .module('samarth.placementProcess')
-  .factory("rejectFactory", ['$http',function($http) {
-   var obj = {};
-   obj.reject = function(cid,jobcode){
-        console.log("it is calling the appliedjobs")
+  .factory('rejectFactory', ['$http',
+    function($http) {
+   let obj = {};
+   obj.reject = function(cid,jobcode) {
        return $http({
-       method : 'POST',
-       url : '/placementprocess/reject',
+       method: 'POST',
+       url: '/placementprocess/reject',
        data:{
         candidateid:cid,
         jobcode:jobcode
@@ -17,4 +15,3 @@ angular
    }
    return obj;
 	}])
-})();

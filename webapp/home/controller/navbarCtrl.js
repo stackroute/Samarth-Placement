@@ -1,15 +1,15 @@
-(function() {
-  'use strict'
-  angular
-  .module('samarth.home') 
-  .controller('navbarCtrl', navbarCtrl);
-  function navbarCtrl(navFactory,
+angular
+  .module('samarth.home').controller('navbarCtrl', ['navFactory',
+    '$auth',
+    '$mdSidenav',
+    '$rootScope',
+    '$state',
+    function(navFactory,
     $auth,
     $mdSidenav,
     $rootScope,
     $state) 
-  {
-   $rootScope.logout = false;
+  { $rootScope.logout = false;
    if($auth.isAuthenticated())
    {
      $rootScope.user = $auth.getPayload();
@@ -22,29 +22,20 @@
   }
 
   let vm = this;
-  vm.openSideNavPanel = openSideNavPanel;
-  vm.closeSideNavPanel = closeSideNavPanel;
-  vm.getSidenav = getSidenav;
-  vm.logout = logout;
-  vm.getSidenav();
-
-  function getSidenav()
-  {
+ 
     navFactory.then(function(response)
-     {
-      vm.navItems = response.data;
+     { vm.navItems = response.data;
     });
-  };
+ 
 
   function openSideNavPanel()
-   {
-    $mdSidenav('left').open();
-  };
+   { $mdSidenav('left').open();
+  }
 
-  function closeSideNavPanel() 
-  {
+  function closeSideNavPanel()
+    {
     $mdSidenav('left').close();
-  };
+  }
 
   function logout()
   {
@@ -52,6 +43,9 @@
    $rootScope.logout = false;
    $state.go('index.home');
    $auth.removeToken();
- };
-}
-})();
+ }
+
+ vm.openSideNavPanel = openSideNavPanel;
+  vm.closeSideNavPanel = closeSideNavPanel;
+  vm.logout = logout;
+}]);
