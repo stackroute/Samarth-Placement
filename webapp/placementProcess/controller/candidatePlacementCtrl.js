@@ -1,27 +1,28 @@
-(function(){
- 'use strict'
  angular.module('samarth.placementProcess')
  	.controller('candidatePlacementCtrl', ['$scope',
    '$stateParams',
    'Pagination',
    'candiPlacement',
-   'circlesGetService',
    'applyFactory',
    '$mdDialog',
    'statusFactory',
-   function($scope, $stateParams, Pagination,candiPlacement,circlesGetService,applyFactory,$mdDialog,statusFactory) {
+   function($scope, 
+    $stateParams, 
+    Pagination,
+    candiPlacement,
+    applyFactory,
+    $mdDialog,
+    statusFactory) {
     $scope.prof=$stateParams.profession;
     $scope.job = $stateParams.job;
     candiPlacement.parsetext($stateParams.profession).then(function(results) {
       $scope.results = results;
       $scope.pagination = Pagination.getNew(4);
       $scope.pagination.numPages = Math.ceil(results.length / $scope.pagination.perPage);
-      console.log(results);
       for(i=0;i<results.length;i++)
       {
         statusFactory.status(results[i].candidateid,$stateParams.jobcode)
         .then(function successCallbackfun(response){
-          console.log(response.data[0].candidateid);
           results.forEach(function(candidate)
           {
             if(candidate.candidateid==response.data[0].candidateid)
@@ -89,7 +90,6 @@
     }); 
     }
 
-
     $scope.flag=[];
     $scope.applyToCandidate=function(cid,key)
     {
@@ -121,4 +121,3 @@
 
   }
   ])
-})()

@@ -51,6 +51,7 @@ angular.module('samarth.candidatesearch')
                 //  arr.push($stateParams.circleName);  
                 // }
                 parseservice.parsetext(text).then(function(results) {
+                    console.log("search results", results);
                     $scope.results = results;
                     $scope.pagination.numPages = Math.ceil(results.length / $scope.pagination.perPage);
                 }, function err(err) {

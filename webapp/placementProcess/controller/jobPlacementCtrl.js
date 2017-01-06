@@ -1,15 +1,18 @@
-(function(){
- 'use strict'
  angular.module('samarth.placementProcess')
     .controller('jobPlacementCtrl', ['$scope',
    '$stateParams',
    'Pagination',
    'jobFactory',
-   'circlesGetService',
    'applyFactory',
    'statusFactory',
    '$mdDialog',
-   function($scope, $stateParams, Pagination,jobFactory,circlesGetService,applyFactory,statusFactory,$mdDialog) 
+   function($scope, 
+    $stateParams, 
+    Pagination,
+    jobFactory,
+    applyFactory,
+    statusFactory,
+    $mdDialog) 
    {
 
     $scope.candidateid = $stateParams.candidateid;
@@ -30,7 +33,7 @@
       for(i=0;i<response.data.length;i++)
       {
         statusFactory.status($stateParams.candidateid,response.data[i].jb.jobcode)
-        .then(function successCallbackfun(response){
+        .then(function successCallbackfun(response) {
           console.log("result and status")
           $scope.result.forEach(function(job)
           {
@@ -42,7 +45,7 @@
               {
                 job.jb.applyStatus=true
               }
-              else{
+              else {
                 job.jb.applyStatus=false
               }
               console.log(job.jb.applyStatus)
@@ -64,14 +67,12 @@
       }
     },
     function errorCallbackfun(response) {
-     console.log("some error occured");
      $scope.message = "Some Error Occured ";
    },
    function (err)
    {
      $scope.message = err;
    })
-    console.log("last should display");
     var i=0;
     $scope.check=function()
     {
@@ -84,7 +85,7 @@
       .then(function successCallbackfun(response){
         console.log("the response of the status cand and jobsfdsfdsfsd:");
         console.log(response);
-      },function errorCallbackfun(error){
+      },function errorCallbackfun(error) {
         console.log(error);
       },
       function(err)
@@ -107,9 +108,9 @@
     $mdDialog.show(confirm).then(function() {
       $scope.flag[key]=true;
       applyFactory.applyJob($stateParams.candidateid,jobcode)
-      .then(function successCallbackfun(response){
+      .then(function successCallbackfun(response) {
         console.log(response);
-      },function errorCallbackfun(error){
+      },function errorCallbackfun(error) {
         console.log(error);
       },
       function(err)
@@ -125,4 +126,3 @@
     }
   }
   ])
-})();
