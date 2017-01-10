@@ -1,13 +1,12 @@
-(function(){
- 'use strict'
  angular.module('samarth.placementProcess')
  	.controller('appliedJobCtrl', ['$scope',
    '$stateParams',
    'Pagination',
    'appliedJobFactory',
-   'circlesGetService',
-   'applyFactory',
-   function($scope, $stateParams, Pagination,appliedJobFactory,circlesGetService,applyFactory) {
+   function($scope, 
+    $stateParams, 
+    Pagination,
+    appliedJobFactory) {
     
     appliedJobFactory.appliedJobs($stateParams.candidateid)
       .then(function(results) {
@@ -22,4 +21,3 @@
       });
   }
   ])
-})()

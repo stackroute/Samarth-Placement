@@ -27,7 +27,10 @@
     "angular-flash-alert": "^2.4.0",
     "angular-local-storage": "^0.5.2",
     "ngstorage": "^0.3.11",
-    "samarth-webcomponents": "https://github.com/stackroute/Samarth-WebComponents.git#dev-wave-11",
+    "samarth-webcomponents": "https://github.com/stackroute/Samarth-WebComponents.git#dev-wave-12",
     "ng-simplePagination": "^1.0.3"
-  }
+  },
+  "resolutions": {
+    "angular": "1.6.1"
+ }
 }

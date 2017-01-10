@@ -1,20 +1,21 @@
-(function(){
- 'use strict'
  angular.module('samarth.placementProcess')
  .controller('jobCtrl', ['$scope',
    '$stateParams',
    'Pagination',
    'jobFactory',
-   'circlesGetService',
    'applyFactory',
    'statusFactory',
    '$mdDialog',
-   function($scope, $stateParams, Pagination,jobFactory,circlesGetService,applyFactory,statusFactory,$mdDialog) 
+   function($scope, 
+    $stateParams, 
+    Pagination,
+    jobFactory,
+    applyFactory,
+    statusFactory,
+    $mdDialog) 
    {
     jobFactory.searchJobs($stateParams.profession)
     .then(function successCallbackfun(response) {
-      console.log($stateParams.profession);
-      console.log("helloooooooooooooooo",response.data.length);
       $scope.result = response.data;
       $scope.pagination = Pagination.getNew(3);
       $scope.pagination.numPages = Math.ceil(response.data.length / $scope.pagination.perPage);
@@ -72,15 +73,6 @@
       {
         $scope.message = err;
       })
-      /*$mdDialog.show(
-            $mdDialog.alert()
-            .parent(angular.element(document.querySelector('#popupContainer')))
-            .clickOutsideToClose(true)
-            .title("Message")
-            .textContent(jobcode+"suggested to the candidateid:"+$stateParams.candidateid)
-            .ariaLabel('Alert Dialog Demo')
-            .ok('Got it!')
-            );*/
           }
 
           $scope.showApplyAlert = function(ev) {
@@ -96,4 +88,3 @@
           };
         }
         ])
-})()
