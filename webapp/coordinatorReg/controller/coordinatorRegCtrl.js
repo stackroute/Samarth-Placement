@@ -3,6 +3,7 @@
 		angular
 			.module('samarth.cordsignup')
 			.controller('coordinatorRegCtrl', ['languageFact',
+				'locationFact',
 				'professionFac',
 				'roleFact',
 				'submitFormFact',
@@ -11,6 +12,7 @@
 				'$timeout',
 				'$mdDialog',
 				function(languageFact,
+				locationFact,
 				professionFac,
 				roleFact,
 				submitFormFact,
@@ -45,38 +47,30 @@
 					});
 				}
 
+				function locationsFact()
+				{
+					locationFact.locationReq().then(function(data)
+					{
+						let temp = [];
+						for( let i = 0;i < data.data.length;i = i + 1)
+						{
+							temp[i] = data.data[i].location;
+						}
+						vm.location = temp;
+					});
+				}
+
 				function languagesFact()
 				{
 					languageFact.languageReq().then(function(data)
 					{
-						// console.log(data);
-						// let temps = [];
-						// let k = 0;
-						// let count = 0;
-						// for(let i = 0; i < data.data.length - 1; i = i + 1)
-						// {
-						// 	for(let j = i + 1; j < data.data.length; j = j + 1)
-						// 	{
-						// 		if(data.data[i].language.trim().toLowerCase() ===
-						// 											data.data[j].language.trim().toLowerCase())
-						// 		{
-						// 			count = 1;
-						// 		}
-						// 	}
-						// 	if(count === 0 && data.data[i].language.trim() !== '')
-						// 	{
-						// 		temps[k] = data.data[i].language.trim().substring(0, 1).toUpperCase()
-						// 													+ data.data[i].language.trim().
-						// 													substring(1, data.data[i].language.length)
-						// 													.toLowerCase();
-						// 		k = k + 1;
-						// 	}
-						// 	count = 0;
-						// }
-						// console.log("fgh");
-						// console.log(temps);
-						console.log(data.data);
-						vm.language = ["hindi","english","punjabi"];
+						let arr = [];
+						console.log('language', data.data.length);
+						for( let p = 0; p < data.data.length; p = p + 1)
+						{
+							arr.push(data.data[p].language);
+						}
+							vm.language = arr;
 					});
 				}
 
@@ -84,36 +78,36 @@
 				{
 					try
 					{
-						console.log("entered submit function");
+						console.log('entered submit function');
 						let count = 0;
-						for(var i = 0; i <= lanIter; i = i + 1)
-						{ console.log("entered for loop");
+						for(let i = 0; i <= lanIter; i = i + 1)
+						{ console.log('entered for loop');
 							if(vm.tempLanguage[lanIter].speak === false && vm.tempLanguage[lanIter].read === false && vm.tempLanguage[lanIter].write === false)
 							{
-								vm.hide=false;
-								vm.msg='Please fill the language details';
+								vm.hide = false;
+								vm.msg = 'Please fill the language details';
 								$timeout(function () { vm.hide = true; }, 3000);
 								break;
 							}
 							else
 							{
-								count++;
+								count = count + 1;
 							}
 						}
 						if(count === lanIter + 1)
 						{
-							for(var i = 0; i <= lanIter; i = i + 1)
+							for(let i = 0; i <= lanIter; i = i + 1)
 							{
-								var temp={};
+								let temp = {};
 								console.log(vm.lang[i]);
-								temp.name=vm.lang[i];
+								temp.name = vm.lang[i];
 								if(vm.tempLanguage[i].speak === undefined)
 								{
 									temp.speak = false;
 								}
 								else
 								{
-									temp.speak=vm.tempLanguage[i].speak;
+									temp.speak = vm.tempLanguage[i].speak;
 								}
 								if(vm.tempLanguage[i].read === undefined)
 								{
@@ -121,7 +115,7 @@
 								}
 								else
 								{
-									temp.read=vm.tempLanguage[i].read;
+									temp.read = vm.tempLanguage[i].read;
 								}
 								if(vm.tempLanguage[i].write === undefined)
 								{
@@ -129,27 +123,27 @@
 								}
 								else
 								{
-									temp.write=vm.tempLanguage[i].write;
+									temp.write = vm.tempLanguage[i].write;
 								}
 								// console.log(temp);
 								arr.push(temp);
 								// console.log(arr);
 							}
-							coordinator.language=arr;
+							coordinator.language = arr;
 							console.log(coordinator);
 							authDataFac.authDataReq(coordinator).then(function success(response)
             	{
 								submitFormFact.submitForm(coordinator).then(function success(response)
 								{
-									console.log("submitted successfully");
-									vm.hide=false; 
-									vm.msg="successfully registered";
+									console.log('response');
+									vm.hide = false;
+									vm.msg = 'successfully registered';
 									$timeout(function () { vm.hide = true; }, 3000);
 									vm.showAlert();
 								},
 								function error(error)
 								{
-									vm.hide=false; 
+									vm.hide = false;
 									vm.msg = error.data.error;
 									$timeout(function () { vm.hide = true; }, 3000);
 								});
@@ -162,47 +156,49 @@
 					}
 					catch(e)
 					{
-						vm.hide=false; 
-						vm.msg="please fill all the details";
+						vm.hide = false;
+						vm.msg = 'please fill all the details';
 						$timeout(function () { vm.hide = true; }, 3000);
 					}
-				};
+				}
 				// insert a language to the selected language
 				function insertLang()
 				{
-					lanIter++;
+					lanIter = lanIter + 1;
 					vm.selectedLanguage.push(lanIter);
-				};
+				}
 
 				function removeLang()
 				{
-					if(lanIter >= 0)
-					lanIter--;
-					vm.selectedLanguage.pop();
+					if(lanIter !== 0)
+					{vm.selectedLanguage.pop();}
+					if(lanIter >= 1)
+					{lanIter = lanIter + 1;}
 					console.log(lanIter);
-				};
+				}
 
-				vm.showAlert = function(ev) 
-		    {
-		      // Appending dialog to document.body to cover sidenav in docs app
-		      // Modal dialogs should fully cover application
-		      // to prevent interaction outside of dialog
-		      $mdDialog.show(
-		        $mdDialog.alert()
-		        .parent(angular.element(document.querySelector('#popupContainer')))
-		        .clickOutsideToClose(true)
-		        // .title('Message')
-		        .textContent('Coordinator successfully registered')
-		        .ariaLabel('Alert Dialog Demo')
-		        .ok('Got it!')
-		        .targetEvent(ev)
-		      );
-		      $state.go('index.home');
-		    };
+				vm.showAlert = function(ev)
+				{
+				// Appending dialog to document.body to cover sidenav in docs app
+				// Modal dialogs should fully cover application
+				// to prevent interaction outside of dialog
+					$mdDialog.show(
+						$mdDialog.alert()
+							.parent(angular.element(document.querySelector('#popupContainer')))
+							.clickOutsideToClose(true)
+							// .title('Message')
+							.textContent('Coordinator successfully registered')
+							.ariaLabel('Alert Dialog Demo')
+							.ok('Got it!')
+							.targetEvent(ev)
+						);
+					$state.go('index.home');
+				};
 
 				professionReq();
 				languagesFact();
 				rolesFact();
+				locationsFact();
 				vm.insertLang = insertLang;
 				vm.removeLang = removeLang;
 				vm.clickSubmit = clickSubmit;

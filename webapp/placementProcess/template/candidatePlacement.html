@@ -1,52 +1,45 @@
-<div layout="row" layout-xs="column" md-colors="{background: 'indigo-100'}" layout-align="center center" class=" md-display-2" style="font-size:20;">
-    Showing {{results.length}} Candidates for the Job
-</div>
-<!-- <span>Showing {{results.length}} results</span> -->
-<div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
-    <!-- <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-sm="50" flex-sm="100"> -->
+<job-card data="job">
+<buttons>
+</buttons>
+</job-card>
 
-    <div ng-repeat="x in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">
+<div layout="row" layout-xs="column" md-colors="{background: 'grey-400'}" layout-align="center center" id="heading" class="md-headline" style="font-size:20;">
+    {{results.length}} Suggested candidates for the Job
+</div>
+
+<div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
+
+    <div ng-repeat="(key,x) in results | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="50" flex-sm="100">
         <my-skillcard candidateid="x.candidateid" picsize="small" contentsize="small">
-            <!-- {{$candidateid||json}} -->
             <badges>
                 <verification-badge candidateid="x.candidateid">
                 </verification-badge>
             </badges>
             <buttons>
-                <md-button ui-sref="index.verifyprofile({candidateid:'{{x.candidateid}}'})">
+                <md-button class="md-primary" ui-sref="index.verifyprofile({candidateid:'{{x.candidateid}}'})">
                     <md-tooltip>
                         View Details </md-tooltip>
-                    <md-icon class="material-icons">contacts</md-icon>
-                </md-button>
-                <md-button ng-click="apply(x.candidateid)">
-                    <md-tooltip>
+                        <md-icon class="material-icons">contacts</md-icon>
+                    </md-button>
+                    <md-button class="md-primary" ng-click="applyToCandidate(x.candidateid,key)" ng-hide="(flag[key])||x.applyStatus">
+                        <md-tooltip>
+                            Apply
+                        </md-tooltip>
+                        <md-icon class="material-icons">done</md-icon>
+                    </md-button>
+
+                    <md-button class="md-primary" aria-label="AppliedJob" ng-disabled="true" ng-show="(flag[key])||x.applyStatus">
+                      <md-tooltip>
                         Apply
                     </md-tooltip>
-                    <md-icon class="material-icons">done</md-icon>
+                    <md-icon class="material-icons">done_all</md-icon>Applied
                 </md-button>
             </buttons>
             <cardactions>
-                <md-menu>
-                    <md-button aria-label="open" class="md-icon-button" ng-click=openMenu($mdOpenMenu,$event)>
-                        <md-icon class="material-icons">more horiz</md-icon>
-                    </md-button>
-                    <md-menu-content width="4">
-                        <md-menu-item>
-                            <md-button ui-sref="index.verifyprofile({candidateid:x.candidateid})">
-                                View profile
-                            </md-button>
-                        </md-menu-item>
-                        <md-menu-item>
-                            <md-button>
-                                Show Similar profiles
-                            </md-button>
-                        </md-menu-item>
-                    </md-menu-content>
-                </md-menu>
             </cardactions>
         </my-skillcard>
-        <!--  </div> -->
     </div>
+
     <div layout class="md-padding" flex>
         <div layout layout-align="start start" flex="50">
             <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>

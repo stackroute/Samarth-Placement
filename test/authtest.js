@@ -2,7 +2,7 @@ var assert = require('chai').assert;
 var request = require('supertest');
 var host_url = 'http://localhost:8080'
 container=request(host_url);
-var msg1={"email":"s@gmail.com","pwd":"shinder123"};
+//var msg1={"email":"s@gmail.com","pwd":"shinder123"};
 var msg2={"email":"ss@gmail.com","pwd":"shinder123"};
 var msg3={"email":"s@gmail.com","pwd":"shinder123@"};
 var msg4={"email":"","pwd":""};
@@ -10,19 +10,19 @@ var msg4={"email":"","pwd":""};
 	var container_url = host_url + '/signin';
 		describe(' checking signin', function(){
 				
-				it("should return status ok",function(done) {
-					 container
-					 .post('/signin')
-					 .send(msg1)
-					 .expect(200, done)
-        });
+				// it("should return status ok",function(done) {
+				// 	 container
+				// 	 .post('/signin')
+				// 	 .send(msg1)
+				// 	 .expect(200, done)
+    //     });
 
-		    it('should be json response', function(done) {
-		      container
-			    .post('/signin')
-			    .send(msg1)
-			    .expect('Content-Type', 'application/json; charset=utf-8', done);
-        });
+		  //   it('should be json response', function(done) {
+		  //     container
+			 //    .post('/signin')
+			 //    .send(msg1)
+			 //    .expect('Content-Type', 'application/json; charset=utf-8', done);
+    //     });
 		
         it('should give status 403', function(done) {
 		      container

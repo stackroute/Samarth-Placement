@@ -1,7 +1,7 @@
 var assert = require('chai').assert;
 var request = require('supertest');
 var host_url = 'http://localhost:8081'
-container=request(host_url+'/jobProfile/');
+var container=request(host_url+'/jobProfile/');
 describe('JobSearch test cases',function(){
 describe('checking API calling',function(){
     describe(' checking job profile', function(){
@@ -17,23 +17,23 @@ describe('checking API calling',function(){
     });
     it('we should get the response', function(done) {
       container
-        .get('/getJobs')
-        .expect(msg, done);
+        .get('/searchJobs')
+        .expect(200, done);
     });
-    it("we making call to wrong api and checking status for 404 status",function(done) {
+    it("we should get the response for jobsByProfession",function(done) {
             container
-        .get('/getJob')
-        .expect(404,done)
+        .get('/jobsByProfession')
+        .expect(200,done)
     });
     });
 });
-describe('Duration ', function(){
-    describe('something slow',function(){
-        this.slow(10000);
+// describe('Duration ', function(){
+//     describe('something slow',function(){
+//         this.slow(100000);
 
-  it('should take less tha 301ms time for me....', function(done) {
-    setTimeout(done, 250);
-  });
-});
-});
+//   it('should take less tha 20000ms time for me....', function(done) {
+//     setTimeout(done, 250000);
+//   });
+// });
+// });
 });

@@ -1,12 +1,12 @@
 let UserModel = require('./users.js');
 let mongoose = require('mongoose');
-let bCrypt = require('bcrypt-nodejs');
-let coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
-let insertCoordinator = function(newUser, callback, unauth) {
-  let hashed_pwd = UserModel.login.methods.generateHash(newUser.pwd);
-  let newUserObj = new coordinatoruser({
+// let bCrypt = require('bcrypt-nodejs');
+let Coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
+let insertCoordinator = function(newUser, callback) {
+  let HASHED_PWD = UserModel.login.methods.generateHash(newUser.pwd);
+  let newUserObj = new Coordinatoruser({
     email: newUser.email,
-    password: hashed_pwd,
+    password: HASHED_PWD,
     role: newUser.role
   });
 
@@ -20,7 +20,9 @@ let insertCoordinator = function(newUser, callback, unauth) {
     }
     callback(err, user);
   });
-}; // end of insertCoordinator
+};
+// end of insertCoordinator
+
 module.exports = {
   insertCoordinator: insertCoordinator
 };
