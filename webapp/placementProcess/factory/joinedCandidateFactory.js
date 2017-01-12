@@ -1,12 +1,12 @@
 angular
   .module('samarth.placementProcess')
-  .factory('appliedCandidateFactory', ['$http',
+  .factory('joinedCandidateFactory', ['$http',
     function($http) {
    let obj = {};
-   obj.appliedCandidates = function(jobcode) {
+   obj.joinedCandidates = function(jobcode){
        return $http({
        method: 'GET',
-       url: 'placementprocess/appliedCandidates/'+jobcode
+       url: 'placementprocess/joinedCandidates/'+jobcode
        })
    }
    return obj;

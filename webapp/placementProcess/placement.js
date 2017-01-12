@@ -85,15 +85,91 @@
 				}
 			}
 		})
-		.state('index.appliedCandidate', {
-			url: '/appliedCandidate/',
+
+		.state('index.applied', {
+			url: '/applied',
 			params: {
 				jobcode: null
 			},
 			views: {
 				'content@': {
+					templateUrl: './placementProcess/template/applied.html',
+					controller: 'appliedCtrl',
+					resolve: {
+						loginRequired: loginRequired
+					}
+				}
+			}
+		})
+		.state('index.applied.appliedCandidate', {
+			url: '/appliedCandidate',
+			params: {
+				jobcode: null
+			},
+			views: {
+				'results@': {
 					templateUrl: './placementProcess/template/appliedCandidate.html',
 					controller: 'appliedCandidateCtrl',
+					resolve: {
+						loginRequired: loginRequired
+					}
+				}
+			}
+		})
+		.state('index.applied.acceptedCandidate', {
+			url: '/acceptedCandidate',
+			params: {
+				jobcode: null
+			},
+			views: {
+				'results@': {
+					templateUrl: './placementProcess/template/acceptedCandidate.html',
+					controller: 'acceptedCandidateCtrl',
+					resolve: {
+						loginRequired: loginRequired
+					}
+				}
+			}
+		})
+		.state('index.applied.rejectedCandidate', {
+			url: '/',
+			params: {
+				jobcode: null
+			},
+			views: {
+				'results@': {
+					templateUrl: './placementProcess/template/rejectedCandidate.html',
+					controller: 'rejectedCandidateCtrl',
+					resolve: {
+						loginRequired: loginRequired
+					}
+				}
+			}
+		})
+		.state('index.applied.joinedCandidate', {
+			url: '/',
+			params: {
+				jobcode: null
+			},
+			views: {
+				'results@': {
+					templateUrl: './placementProcess/template/joinedCandidate.html',
+					controller: 'joinedCandidateCtrl',
+					resolve: {
+						loginRequired: loginRequired
+					}
+				}
+			}
+		})
+		.state('index.applied.declinedCandidate', {
+			url: '/',
+			params: {
+				jobcode: null
+			},
+			views: {
+				'results@': {
+					templateUrl: './placementProcess/template/declinedCandidate.html',
+					controller: 'declinedCandidateCtrl',
 					resolve: {
 						loginRequired: loginRequired
 					}

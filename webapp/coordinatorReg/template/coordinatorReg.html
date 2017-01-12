@@ -51,8 +51,10 @@
           </div>
         </md-input-container>
 
+
         <md-input-container layout="column">
         <md-icon>layers</md-icon>
+
           <label>Profession</label>
           <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
             <md-option ng-value="item" ng-repeat="item in vm.items | filter:searchTerm">{{item}}</md-option>
