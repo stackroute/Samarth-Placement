@@ -1,45 +1,48 @@
 	{
-   "role": "coordinator",
+		"role": "coordinator",
    "sidenavmenuitems":[
-{
-	"icon":"dashboard",
-	"navTitle":"Dashboard",
-	"traverse":"index.dashboard"
-},
-{
-	"icon":"search",
-	"navTitle":"Candidate search",
-	"traverse":"index.candidatesearch"
-},
-{
-	"icon":"person_add",
-	"navTitle":"Candidate register",
-	"traverse":"index.candidateReg"
-},
-{
-	"icon":"add box",
-	"navTitle":"Job post",
-	"traverse":"index.jobPost"
-},
-{
-	"icon":"youtube_searched_for_black",
-	"navTitle":"Job search",
-	"traverse":"index.jobSearch"
-},
+	{
+		"icon":"dashboard",
+		"navTitle":"Dashboard",
+		"traverse":"index.dashboard"
+	},
+	{
+		"icon":"search",
+		"navTitle":"Candidate search",
+		"traverse":"index.candidatesearch"
+	},
+	{
+		"icon":"person_add",
+		"navTitle":"Candidate register",
+		"traverse":"index.candidateReg"
+	},
+	{
+		"icon":"add box",
+		"navTitle":"Job post",
+		"traverse":"index.jobPost"
+	},
+	{
+		"icon":"youtube_searched_for_black",
+		"navTitle":"Job search",
+		"traverse":"index.jobSearch"
+	},
 
-{
-	"icon":"person_pin",
-	"navTitle":"Jobprovider",
-	"traverse":"index.emp"
-},
+	{
+		"icon":"person_pin",
+		"navTitle":"Jobprovider",
+		"traverse":"index.emp"
+	},
+	{
+		"icon":"location_on",
+		"navTitle":"Centerdetails",
+		"traverse":"index.centerdetails"
+	},
 
-{
-	"icon":"local_library",
-	"navTitle":"Aboutus",
-	"traverse":"index.aboutus"
-}
-]
-  }
+	{
+		"icon":"local_library",
+		"navTitle":"Aboutus",
+		"traverse":"index.aboutus"
+	}
+	]
+	      }
 
-          
-      

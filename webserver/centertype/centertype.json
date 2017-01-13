@@ -1,0 +1,13 @@
+{
+	"centertypeitems":[
+		{
+			"centertypeTitle":"Headquarter",
+		},
+		{
+			"centertypeTitle":"Regional",
+		},
+		{
+			"centertypeTitle":"Nodal",
+		}
+	]
+}
