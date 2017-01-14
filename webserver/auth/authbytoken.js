@@ -77,11 +77,5 @@ let signin = function(email, pwd, callback, unauthCB) {
         });
 };
 module.exports = {
-<<<<<<< HEAD
-    "signin": signin
-
-};
-=======
     signin: signin
 };
->>>>>>> 19c16f9134488e2de5b85bfbda8953705f1a0d01
