@@ -4,6 +4,7 @@ let router = require('express').Router();
 
 router.get('/navlanguage', function(req, res) {
 	res.status(200).json(obj.navlanguage);
+
 });
 
 // navbar data showing in English
