@@ -100,4 +100,5 @@ module.exports = function() {
   setupMongooseConnections();
 
   return app;
+
 };

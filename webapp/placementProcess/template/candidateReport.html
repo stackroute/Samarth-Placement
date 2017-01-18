@@ -1,0 +1,55 @@
+<div layout="row" layout-xs="column" md-colors="{background: 'grey-100'}" layout-align="center center"  id="heading" class="md-headline" style="font-size:20;">
+		Showing CANDIDATES for {{prof}}
+</div>
+</br>
+
+<div>
+	<md-radio-group ng-model="candidateContent" layout="row">
+		 <md-radio-button name="candidateContent" value="Available Candidates" class="md-primary">Available Candidates</md-radio-button>
+		 <md-radio-button name="candidateContent" value="Applied Candidates" class="md-primary"> Applied Candidates </md-radio-button>
+		 <md-radio-button name="candidateContent" value="Placed Candidates" class="md-primary">Placed Candidates</md-radio-button>
+	 </md-radio-group>
+
+	 <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding" ng-show="candidateContent == 'Available Candidates'">
+    <div ng-repeat="x in availableCandidates | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="30" flex-sm="100">
+        <my-skillcard candidateid="x.candidateid" picsize="small" contentsize="small">
+            <badges></badges>
+            <buttons></buttons>
+            <cardactions></cardactions>
+        </my-skillcard>
+    </div>
+	</div>	
+
+	<div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding" ng-show="candidateContent == 'Applied Candidates'">
+    <div ng-repeat="x in appliedCandidates | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="30" flex-sm="100">
+        <my-skillcard candidateid="x.candidateid" picsize="small" contentsize="small">
+            <badges></badges>
+            <buttons></buttons>
+            <cardactions></cardactions>
+        </my-skillcard>
+    </div>
+	</div>	
+
+	<div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding" ng-show="candidateContent == 'Placed Candidates'">
+    <div ng-repeat="x in placedCandidates | startFrom: pagination.page * pagination.perPage | limitTo: 4" flex-gt-sm="30" flex-sm="100">
+        <my-skillcard candidateid="x.candidateid" picsize="small" contentsize="small">
+            <badges></badges>
+            <buttons></buttons>
+            <cardactions></cardactions>
+        </my-skillcard>
+    </div>
+	</div>	
+
+</div>
+
+<div layout class="md-padding" flex>
+    <div layout layout-align="start start" flex="50">
+        <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
+    </div>
+    <div layout layout-align="end end" flex="50">
+        <md-button class="md-raised md-primary" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages">Next</md-button>
+    </div>
+</div>
+
+
+
