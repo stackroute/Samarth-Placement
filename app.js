@@ -14,6 +14,7 @@ let authRoutes = require('./webserver/auth/authrouter');
 let authByToken = require('./webserver/auth/authbytoken');
   
 let resourcebundle = require('./webserver/resourcebundle/resourcebundlerouter.js');
+let centertyperoute = require('./webserver/centertype/centertypeRouter.js');
   
 function createApp() {
   const app = express();
@@ -65,6 +66,7 @@ function setupRestRoutes(app) {
   app.use('/', authRoutes);
   app.use('/', navItems);
   app.use('/resource', resourcebundle);
+  app.use('/centertype',centertyperoute);
   app.use('/', function(req, res) {
     let options = {
       target: {
@@ -98,4 +100,5 @@ module.exports = function() {
   setupMongooseConnections();
 
   return app;
+
 };

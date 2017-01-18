@@ -59,4 +59,5 @@ describe('Post data for coordinator registration', function() {
         .expect(500, done)
 
     });
+
  });
