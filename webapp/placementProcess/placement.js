@@ -36,6 +36,39 @@
 				}
 			}
 		})
+
+		.state('index.candidateReport',{
+			url: '/candidateReport/:profession',
+			params:{
+				profession:null
+			},
+			views: {
+				'content@': {
+					templateUrl: './placementProcess/template/candidateReport.html',
+					controller: 'reportCtrl',
+					resolve: {
+						loginRequired: loginRequired
+					}
+				}
+			}
+		})
+
+		.state('index.jobReport',{
+			url: '/jobReport/:profession',
+			params:{
+				profession:null
+			},
+			views: {
+				'content@': {
+					templateUrl: './placementProcess/template/jobReport.html',
+					controller: 'reportCtrl',
+					resolve: {
+						loginRequired: loginRequired
+					}
+				}
+			}
+		})
+		
 		.state('index.candidatePlacement', {
 			url: '/candidatePlacement/:profession?',
 			params: {

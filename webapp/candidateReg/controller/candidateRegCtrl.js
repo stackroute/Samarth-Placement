@@ -16,7 +16,7 @@ function candidateRegCtrl(
     vm.status = '';
 
 
-
+console.log('Candidate ctrl');
 
 
   //server request
@@ -33,6 +33,8 @@ function candidateRegCtrl(
   {
     locationFact.locationReq().then(function(data) 
     {
+      console.log('location--------------');
+      console.log(data);
       var temp=[];
       for( var i=0;i<data.data.length;i++)
       {    

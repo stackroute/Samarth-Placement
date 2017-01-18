@@ -6,7 +6,7 @@
 			{
 				function languageReq() {
 					let req = {};
-					req.url = '/coordinatorreg/language';
+					req.url = '/placement/language';
 					req.method = 'GET';
 					return $http(req);
 				}
@@ -16,4 +16,3 @@
 				return factory;
 			}]);
 }());
-

@@ -53,11 +53,12 @@ angular
 
 		function locationReq() {
 			var req = {};
-			req.url = '/coordinatorreg/location';
+			req.url = '/placement/location';
 			req.method = 'GET';
 			return $http(req);
 		};
 	})
+
 	
 
 	

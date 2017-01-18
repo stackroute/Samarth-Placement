@@ -1,0 +1,29 @@
+<div layout="row" layout-xs="column" md-colors="{background: 'grey-100'}" layout-align="center center"  id="heading" class="md-headline" style="font-size:20;">
+		Showing JOBS for {{prof}}
+</div>
+</br>
+<div>
+	<md-radio-group ng-model="jobContent" layout="row">
+		 <md-radio-button name="jobContent" ng-click="getJobDetails()" value="All Jobs" class="md-primary">All Jobs</md-radio-button>
+		 <md-radio-button name="jobContent"  ng-click="getJobDetails()" value="Available Jobs" class="md-primary"> Available Jobs </md-radio-button>
+		 <md-radio-button name="jobContent" ng-click="getJobDetails()"  value="Expired Jobs" class="md-primary">Expired Jobs</md-radio-button>
+	 </md-radio-group>
+	 
+	 <div layout-gt-sm="row" layout-sm="column" layout-wrap class="md-padding">
+    <div ng-repeat="data in getJobs | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" flex-gt-sm="30" flex-sm="100">
+
+        <job-card data="data">
+            <buttons></buttons>
+        </job-card>
+    </div>
+	</div>
+</div>
+
+<div>
+    <div layout layout-align="start start" flex="50">
+        <md-button class="md-raised md-primary" ng-click="pagination.prevPage()" ng-hide="pagination.page == 0">Previous</md-button>
+    </div>
+    <div layout layout-align="end end">
+        <md-button class="md-raised md-primary" ng-click="pagination.nextPage()" ng-hide="pagination.page + 1 >= pagination.numPages">Next</md-button>
+    </div>
+</div>

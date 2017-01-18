@@ -32,3 +32,4 @@ let getCoordinatorAuthToken = function(user) {
 module.exports = {
     getCoordinatorAuthToken: getCoordinatorAuthToken
 };
+
