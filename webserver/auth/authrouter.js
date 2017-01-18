@@ -1,12 +1,14 @@
 let authByToken = require('./authbytoken');
 const logger = require('./../../applogger');
 let bodyParser = require('body-parser');
+let navbarprocessor =  require('./navbarprocessor');
 let apiRoutes = require('express').Router();
 let jsonBodyParser = bodyParser.json();
 let coordinatorprocessor = require('./coordinatorprocessor');
 let urlEncodedParser = bodyParser.urlencoded({
   extended: false
 });
+
 apiRoutes.post('/signin', jsonBodyParser, urlEncodedParser, function(req, res) {
   if (!req.body.email || !req.body.pwd) {
     res.status(401).json({
@@ -31,6 +33,7 @@ apiRoutes.post('/signin', jsonBodyParser, urlEncodedParser, function(req, res) {
           });
         }
         user.token = jwtToken;
+        user.sidenav = navbarprocessor.sidenav(user.role[0]);
         return res.status(200).json(user);
       },
       function(err) {
@@ -48,6 +51,8 @@ apiRoutes.post('/signin', jsonBodyParser, urlEncodedParser, function(req, res) {
 apiRoutes.post('/insertdata', jsonBodyParser, urlEncodedParser,
   function(req, res) {coordinatorprocessor.insertCoordinator(req.body,
     function(err, user) {
+      // console.log('err');
+      // console.log(err);
       if (err) {
         return res.status(500).json({
           error: 'User already exists'

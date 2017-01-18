@@ -1,7 +1,7 @@
 angular
     .module('samarth.centerdetails', [])
     .config(config);
-    
+
 function config($stateProvider) {
                  let loginRequired = ['$q','$location', '$auth', function($q, $location, $auth) {
                 let deferred = $q.defer();
@@ -12,7 +12,7 @@ function config($stateProvider) {
                 }
                 return deferred.promise;
             }];
-   
+
     $stateProvider
         .state('index.centerdetails', {
             url: '/centerdetails',
@@ -21,10 +21,10 @@ function config($stateProvider) {
                     templateUrl: 'centerdetails/templates/centerdetails.html',
                     resolve: {
                                 loginRequired: loginRequired
-                                   
+
                             }
                 }
             }
         });
-        
+
 }

@@ -65,7 +65,7 @@
         <md-icon>school</md-icon>
           <label>Role</label>
           <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
-            <md-option ng-value="vm.role">{{vm.role}}</md-option>
+            <md-option ng-value="itemm" ng-repeat="itemm in vm.itemm">{{itemm}}</md-option>
           </md-select>
         </md-input-container>
 
@@ -137,10 +137,7 @@
         </section>
 
         </form>
-        <div layout="row" layout-align="center">
-        Already a user:
-      <a ui-sref="index">Signin?</a>
-      </div>
+
     </div>
   </div>
 </div

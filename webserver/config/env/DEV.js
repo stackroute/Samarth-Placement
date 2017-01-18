@@ -8,9 +8,12 @@ const mongo = {
 const mongoURL = ('mongodb://' + mongo.host + ':' + mongo.port + '/' +
   masterMongoDBName);
 
+const secretKey = 'SAMARTH-WEBAPP-SECRET';
+
 module.exports = {
   PORT: process.env.PORT,
   MONGO_MASTER_DB_NAME: masterMongoDBName,
   MONGO_MASTER_SERVER: mongo,
-  MONGO_URL: mongoURL
+  MONGO_URL: mongoURL,
+  SECRETKEY: secretKey
 };

@@ -14,7 +14,7 @@
 
   <md-content>
     <md-list>
-      <md-list-item ng-repeat="navItem in vm.navItems.sidenavmenuitems track by $index">
+      <md-list-item ng-repeat="navItem in vm.navItems track by $index">
        <div class="md-button md-no-style" ui-sref="{{navItem.traverse}}" ng-click="vm.closeSideNavPanel()">
          <md-icon class="material-icons" >{{navItem.icon}}</md-icon>
          <span layout-padding="">{{navItem.navTitle}}</span>
@@ -37,7 +37,7 @@
      <span> <md-icon class="material-icons">supervisor_account</md-icon>&nbsp;&nbsp;&nbsp;&nbsp;{{message | uppercase}}
     </md-button></span>
     <md-menu-content width="3">
-      <span>&nbsp;&nbsp;&nbsp;<md-icon>face</md-icon>&nbsp;&nbsp;Role:<span ng-repeat="navItem in vm.navItems.role track by $index">{{navItem}}</span>
+      <span>&nbsp;&nbsp;&nbsp;<md-icon>face</md-icon>&nbsp;&nbsp;Role:<span ng-repeat="navItem in vm.navItems.jsonData.roles.role track by $index">{{navItem}}</span>
       <md-menu-item>
         <md-button ng-click="vm.logout()">
          <md-icon>exit_to_app</md-icon>  Logout
@@ -45,7 +45,7 @@
      </md-menu-item>
    </md-menu-content>
  </md-menu>
- 
+
 
 </div>
 </md-toolbar>

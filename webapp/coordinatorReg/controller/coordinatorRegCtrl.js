@@ -1,3 +1,4 @@
+
 (function() {
 	'use strict';
 		angular
@@ -39,13 +40,18 @@
 					});
 				}
 
-				function rolesFact()
-				{
-					roleFact.roleReq().then(function(data)
+
+				function roleReq()
 					{
-						vm.role = data.data.role;
-					});
-				}
+						roleFact.rolesReq().then(function(jsonData)
+						{
+							let temp = [];
+							for(let i = 0; i < jsonData.data.roles.length; i++){
+								temp[i] = jsonData.data.roles[i].role;
+								vm.itemm = temp;
+							}
+						});
+					}
 
 				function locationsFact()
 				{
@@ -187,7 +193,7 @@
 							.parent(angular.element(document.querySelector('#popupContainer')))
 							.clickOutsideToClose(true)
 							// .title('Message')
-							.textContent('Coordinator successfully registered')
+							.textContent('Successfully registered')
 							.ariaLabel('Alert Dialog Demo')
 							.ok('Got it!')
 							.targetEvent(ev)
@@ -197,7 +203,7 @@
 
 				professionReq();
 				languagesFact();
-				rolesFact();
+				roleReq();
 				locationsFact();
 				vm.insertLang = insertLang;
 				vm.removeLang = removeLang;

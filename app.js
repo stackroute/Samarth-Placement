@@ -11,11 +11,12 @@ const config = require('./webserver/config/');
 let navItems = require('./webserver/navbar/navigateRouter.js');
 
 let authRoutes = require('./webserver/auth/authrouter');
+let apiRoutes = require('./webserver/auth/apirouter');
 let authByToken = require('./webserver/auth/authbytoken');
-  
+const bearerToken = require('express-bearer-token');
+
 let resourcebundle = require('./webserver/resourcebundle/resourcebundlerouter.js');
-let centertyperoute = require('./webserver/centertype/centertypeRouter.js');
-  
+
 function createApp() {
   const app = express();
   return app;
@@ -58,17 +59,17 @@ function setupMongooseConnections() {
   });
 }
 
-
 function setupRestRoutes(app) {
   app.onAppStart = function(addr) {
   console.error('Samarth-Placement web app is now Running on port:', addr.port);
   };
+  app.use(bearerToken());
   app.use('/', authRoutes);
-  app.use('/', navItems);
+  app.use('/', apiRoutes);
+  app.use('/sidebar', navItems);
   app.use('/resource', resourcebundle);
-  app.use('/centertype',centertyperoute);
   app.use('/', function(req, res) {
-    let options = {
+      let options = {
       target: {
         host: 'localhost',
         port: 8081
@@ -87,7 +88,7 @@ let port = process.env.PORT || 8080;
 let platformProxy = proxy.createProxyServer();
 
 module.exports = function() {
-  
+
   let app = createApp();
 
   app = setupStaticRoutes(app);

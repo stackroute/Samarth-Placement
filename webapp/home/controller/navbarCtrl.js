@@ -1,19 +1,27 @@
 angular
   .module('samarth.home').controller('navbarCtrl', ['navFactory',
     '$auth',
+    '$http',
+    '$localStorage',
     '$mdSidenav',
     '$rootScope',
     '$state',
     function(navFactory,
     $auth,
+    $http,
+    $localStorage,
     $mdSidenav,
     $rootScope,
-    $state) 
+    $state)
   { $rootScope.logout = false;
-   if($auth.isAuthenticated())
-   {
+    let vm = this;
+   if($auth.isAuthenticated()) {
      $rootScope.user = $auth.getPayload();
      $rootScope.message = $rootScope.user.name;
+     navFactory.getMenuData().then(function(response)
+     {
+        vm.navItems = response.sidenavmenuitems;
+    });
      $state.go('index.dashboard');
    }
    else
@@ -21,12 +29,7 @@ angular
     $state.go('index.home');
   }
 
-  let vm = this;
- 
-    navFactory.then(function(response)
-     { vm.navItems = response.data;
-    });
- 
+
 
   function openSideNavPanel()
    { $mdSidenav('left').open();
@@ -43,7 +46,9 @@ angular
    $rootScope.logout = false;
    $state.go('index.home');
    $auth.removeToken();
- }
+   $http.defaults.headers.common['x-access-token']='';
+   delete $localStorage.tokenDetails;
+   }
 
  vm.openSideNavPanel = openSideNavPanel;
   vm.closeSideNavPanel = closeSideNavPanel;

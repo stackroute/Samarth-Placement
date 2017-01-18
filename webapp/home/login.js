@@ -8,9 +8,7 @@ angular.module('samarth.home', [])
     url: '/home',
     views: {
       appbar: {
-        templateUrl: 'home/template/navbar.html',
-        controller: 'navbarCtrl',
-        controllerAs: 'vm'
+
       },
       content: {
       }

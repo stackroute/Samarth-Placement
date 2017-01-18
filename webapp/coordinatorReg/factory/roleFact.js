@@ -4,14 +4,15 @@
 			.module('samarth.cordsignup')
 			.factory('roleFact', ['$http', function($http)
 			{
-				function roleReq() {
-					let req = {};
-					req.url = '/sidenavbar';
+				function rolesReq() {
+
+					let req ={};
+					req.url = '/sidebar/roles';
 					req.method = 'GET';
 					return $http(req);
 				}
 				let factory = {
-					roleReq: roleReq
+					rolesReq: rolesReq
 				};
 				return factory;
 			}]);

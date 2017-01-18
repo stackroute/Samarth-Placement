@@ -16,6 +16,7 @@ angular
      }
    });
      $rootScope.user=$auth.getPayload();
+    //  console.log($rootScope.user);
      $rootScope.message=$rootScope.user.name;
      if ($auth.isAuthenticated()) {
        $rootScope.sideicon = true;

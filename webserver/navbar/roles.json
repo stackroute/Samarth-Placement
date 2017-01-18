@@ -1,0 +1,13 @@
+{
+  "roles":[
+    {
+      "role": "admin"
+    },
+    {
+      "role": "supervisor"
+    },
+    {
+      "role": "coordinator"
+    }
+  ]
+}

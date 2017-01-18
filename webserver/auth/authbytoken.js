@@ -2,20 +2,20 @@ let jwt = require('jsonwebtoken');
 let UserModel = require('./users');
 let authCoordinator = require('./authcoordinator');
 let mongoose = require('mongoose');
+const config = require('../config/');
 let Coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
 const logger = require('./../../applogger');
 
 let generateJWTToken = function(user, cb) {
     let payload = user;
-    let secretOrPrivateKey = 'SAMARTH-WEBAPP-SECRET';
     let options = {
         algorithm: 'HS256',
         expiresIn: 36000,
         issuer: user.email
     };
 
-    jwt.sign(payload, secretOrPrivateKey, options, function(err, jwtToken) {
-        logger.log('Sending token ', user, jwtToken);
+    jwt.sign(payload, config.SECRETKEY, options, function(err, jwtToken) {
+        // logger.log('Sending token ', user, jwtToken);
         cb(err, user, jwtToken);
     });
 };
@@ -52,21 +52,23 @@ let signin = function(email, pwd, callback, unauthCB) {
                 });
                 return;
             }
-              logger.log('User signing in is: ', user);
+              // logger.log('User signing in is: ', user);
 
             authCoordinator.getCoordinatorAuthToken(user).then(
-                function(details) {
+                    function(details) {
+                         // console.log("Returned body");
+                        // console.log(details);
                     let sessionUser = {
                         email: user.email,
                         cid: details.coordinator.coordinatorId,
                         name: details.coordinator.coordinatorName,
                         gender: details.coordinator.coordinatorGender,
                         location: details.coordinator.coordinatorLocation,
-                        role: details.coordinator.coordinatorRole,
-                        'sm-token': 'TBD'
+                        role: details.coordinator.userRole,
+                        'sm-token': details.token
                     };
 
-                    logger.log('Got token successfully ', sessionUser);
+                    // logger.log('Got token successfully ', sessionUser);
 
                     generateJWTToken(sessionUser, callback);
                 },

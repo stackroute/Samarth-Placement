@@ -7,8 +7,6 @@ angular.module('samarth',
  'samarth.home',
  'samarth.coordinatorLogin',
  'samarth.dashboard',
- 'samarth.centerdetails',
- 'samarth.centerdetailsreg',
  'samarth.candidatesearch',
  'samarth-webcomponents',
  'samarth.cordsignup',
@@ -31,4 +29,10 @@ angular.module('samarth',
 	  })
 .config(['$locationProvider', function($locationProvider) {
  $locationProvider.hashPrefix('');
-}]);
+}])
+.run(function($http, $localStorage) {
+        // keep user logged in after page refresh
+        if ($localStorage.tokenDetails) {
+            $http.defaults.headers.common['x-access-token'] = $localStorage.tokenDetails.token;
+        }
+ });
