@@ -6,12 +6,12 @@
 			{
 				function locationReq() {
 					let req = {};
-					req.url = '/coordinatorreg/location';
+					req.url = '/placement/location';
 					req.method = 'GET';
 					return $http(req);
 				}
 				let factory = {
-				locationReq: locationReq
+					locationReq: locationReq
 				};
 				return factory;
 			}]);

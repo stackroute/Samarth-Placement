@@ -1,3 +1,4 @@
+
 {
 	"roles": [{
 		"role": "admin",
@@ -7,21 +8,16 @@
 				"navTitle":"Dashboard",
 				"traverse":"index.dashboard"
 			},
+			{
+				"icon": "supervisor_account",
+				"navTitle": "Coordinators",
+				"traverse": "index.getcoordinator"
+			},
 
 			{
-				"icon":"person_add",
-				"navTitle":"Candidate register",
-				"traverse":"index.candidateReg"
-			},
-			{
-				"icon":"person_add",
-				"navTitle":"Coordinator register",
-				"traverse":"index.createaccount"
-			},
-			{
-				"icon":"location_on",
-				"navTitle":"Centerdetails",
-				"traverse":"index.centerdetails"
+				"icon": "location_on",
+				"navTitle": "Centers",
+				"traverse": "index.centerdetails"
 			},
 			{
 				"icon":"local_library",

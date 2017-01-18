@@ -7,7 +7,9 @@
 				'locationFact',
 				'professionFac',
 				'roleFact',
+				'coordinatorfactory',
 				'submitFormFact',
+				'updateFormFact',
 				'authDataFac',
 				'$state',
 				'$timeout',
@@ -16,16 +18,19 @@
 				locationFact,
 				professionFac,
 				roleFact,
+				coordinatorfactory,
 				submitFormFact,
+				updateFormFact,
 				authDataFac,
 				$state,
 				$timeout,
-				$mdDialog)
-			{
+				$mdDialog){
+
 				let vm = this;
 				vm.selectedLanguage = [0];
 				let lanIter = 0;
 				let arr=[];
+				let state = $state;
 
 				function professionReq()
 				{
@@ -52,6 +57,15 @@
 							}
 						});
 					}
+
+
+				function initialData(coordinatorData){
+          coordinatorfactory.initialData().then(function(result) {
+          	vm.coordinators = result.data;
+          },function(err){
+            console.log(err);
+        	});
+        }
 
 				function locationsFact()
 				{
@@ -80,14 +94,13 @@
 					});
 				}
 
-				function clickSubmit(coordinator)
-				{
+				function clickSubmit(coordinator) {
 					try
 					{
 						console.log('entered submit function');
 						let count = 0;
-						for(let i = 0; i <= lanIter; i = i + 1)
-						{ console.log('entered for loop');
+						for(let i = 0; i <= lanIter; i = i + 1) {
+							console.log('entered for loop');
 							if(vm.tempLanguage[lanIter].speak === false && vm.tempLanguage[lanIter].read === false && vm.tempLanguage[lanIter].write === false)
 							{
 								vm.hide = false;
@@ -100,10 +113,8 @@
 								count = count + 1;
 							}
 						}
-						if(count === lanIter + 1)
-						{
-							for(let i = 0; i <= lanIter; i = i + 1)
-							{
+						if(count === lanIter + 1) {
+							for(let i = 0; i <= lanIter; i = i + 1) {
 								let temp = {};
 								console.log(vm.lang[i]);
 								temp.name = vm.lang[i];
@@ -137,27 +148,22 @@
 							}
 							coordinator.language = arr;
 							console.log(coordinator);
-							authDataFac.authDataReq(coordinator).then(function success(response)
-            	{
-								submitFormFact.submitForm(coordinator).then(function success(response)
-								{
-									console.log('response');
-									vm.hide = false;
-									vm.msg = 'successfully registered';
-									$timeout(function () { vm.hide = true; }, 3000);
-									vm.showAlert();
-								},
-								function error(error)
-								{
-									vm.hide = false;
-									vm.msg = error.data.error;
-									$timeout(function () { vm.hide = true; }, 3000);
-								});
-							},
-							function error(error)
-                    {
-                        vm.msg = error.data.error;
-                    });
+							// authDataFac.authDataReq(coordinator).then(function success(response) {
+
+								console.log(coordinator.coordinatorId);
+
+					 	submitFormFact.submitForm(coordinator).then(function success(response) {
+											console.log('response');
+											vm.hide = false;
+											vm.msg = 'successfully registered';
+											$timeout(function () { vm.hide = true; }, 3000);
+											vm.showAlert();
+										},
+										function error(error) {
+											vm.hide = false;
+											vm.msg = error.data.error;
+											$timeout(function () { vm.hide = true; }, 3000);
+										});
 						}
 					}
 					catch(e)
@@ -167,6 +173,90 @@
 						$timeout(function () { vm.hide = true; }, 3000);
 					}
 				}
+
+				function clickUpdate(coordinator) {
+					try
+					{
+						console.log('entered update function');
+						let count = 0;
+						for(let i = 0; i <= lanIter; i = i + 1) {
+							console.log('entered for loop');
+							if(vm.tempLanguage[lanIter].speak === false && vm.tempLanguage[lanIter].read === false && vm.tempLanguage[lanIter].write === false)
+							{
+								vm.hide = false;
+								vm.msg = 'Please fill the language details';
+								$timeout(function () { vm.hide = true; }, 3000);
+								break;
+							}
+							else
+							{
+								count = count + 1;
+							}
+						}
+						if(count === lanIter + 1) {
+							for(let i = 0; i <= lanIter; i = i + 1) {
+								let temp = {};
+								console.log(vm.lang[i]);
+								temp.name = vm.lang[i];
+								if(vm.tempLanguage[i].speak === undefined)
+								{
+									temp.speak = false;
+								}
+								else
+								{
+									temp.speak = vm.tempLanguage[i].speak;
+								}
+								if(vm.tempLanguage[i].read === undefined)
+								{
+									temp.read = false;
+								}
+								else
+								{
+									temp.read = vm.tempLanguage[i].read;
+								}
+								if(vm.tempLanguage[i].write === undefined)
+								{
+									temp.write = false;
+								}
+								else
+								{
+									temp.write = vm.tempLanguage[i].write;
+								}
+								// console.log(temp);
+								arr.push(temp);
+								// console.log(arr);
+							}
+							coordinator.language = arr;
+							console.log(coordinator);
+							// authDataFac.authDataReq(coordinator).then(function success(response) {
+
+								console.log(coordinator.coordinatorId);
+
+										updateFormFact.updateForm(coordinator).then(function success(response) {
+												console.log(response);
+												//parent: angular.element(vm.coordinator),
+												vm.hide = false;
+												vm.msg = 'successfully updated';
+												$timeout(function () { vm.hide = true; }, 3000);
+												vm.showAlert();
+											},
+											function error(error) {
+												vm.hide = false;
+												vm.msg = error.data.error;
+												$timeout(function () { vm.hide = true; }, 3000);
+											});
+										}
+						}
+
+					catch(e)
+					{
+						vm.hide = false;
+						vm.msg = 'please fill all the details';
+						$timeout(function () { vm.hide = true; }, 3000);
+					}
+				}
+
+
 				// insert a language to the selected language
 				function insertLang()
 				{
@@ -182,9 +272,7 @@
 					{lanIter = lanIter + 1;}
 					console.log(lanIter);
 				}
-
-				vm.showAlert = function(ev)
-				{
+				vm.showAlert = function(ev) {
 				// Appending dialog to document.body to cover sidenav in docs app
 				// Modal dialogs should fully cover application
 				// to prevent interaction outside of dialog
@@ -193,21 +281,37 @@
 							.parent(angular.element(document.querySelector('#popupContainer')))
 							.clickOutsideToClose(true)
 							// .title('Message')
-							.textContent('Successfully registered')
+
+							.textContent('Coordinator Details successfully saved.')
 							.ariaLabel('Alert Dialog Demo')
 							.ok('Got it!')
 							.targetEvent(ev)
 						);
-					$state.go('index.home');
+					$state.go('index.getcoordinator');
 				};
+		// function removeCoordinator()
+		// 		{
+		// 			deleteCoordinatorService.removeCoordinator(vm.coordinatorid).then(function mySucces(response)  {
+  //           console.log('delete res');
+  //           $rootScope.$emit('datachanged', {});
+  //           }, function myError(response) {
+  //             console.log('error in deleting coordinator section');
+  //         });
+
+  //       };
 
 				professionReq();
 				languagesFact();
 				roleReq();
 				locationsFact();
+				initialData();
+			  // removeCoordinator();
+				// vm.removeCoordinator=removeCoordinator;
 				vm.insertLang = insertLang;
 				vm.removeLang = removeLang;
 				vm.clickSubmit = clickSubmit;
+				vm.clickUpdate=clickUpdate;
+				// vm.editCoordi = editCoordi;
 			}
 			]);
 }());

@@ -6,7 +6,7 @@
 			{
 				function profReq() {
 					let req = {};
-					req.url = '/coordinatorreg/profession';
+					req.url = '/placement/profession';
 					req.method = 'GET';
 					return $http(req);
 				}

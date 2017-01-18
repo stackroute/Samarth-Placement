@@ -51,4 +51,5 @@ describe('Candidate registration in Database', function() {
     });
   
   });
+
 });

@@ -2,8 +2,7 @@
   'use strict';
   angular
     .module('samarth.cordsignup')
-    .factory('authDataFac', ['$http', function($http)
-    {
+    .factory('authDataFac', ['$http', function($http) {
       function authDataReq(datas) {
         let req = {};
         req.url = '/insertdata';
