@@ -11,7 +11,7 @@
 					return $http(req);
 				}
 				let factory = {
-				locationReq: locationReq
+					locationReq: locationReq
 				};
 				return factory;
 			}]);
