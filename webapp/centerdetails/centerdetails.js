@@ -3,6 +3,7 @@ angular
     .config(config);
     
 function config($stateProvider) {
+                
                  let loginRequired = ['$q','$location', '$auth', function($q, $location, $auth) {
                 let deferred = $q.defer();
                 if ($auth.isAuthenticated()) {
@@ -19,6 +20,7 @@ function config($stateProvider) {
             views: {
                 'content@': {
                     templateUrl: 'centerdetails/templates/centerdetails.html',
+                    // controller: 'centerdetailCtrl2',
                     resolve: {
                                 loginRequired: loginRequired
                                    

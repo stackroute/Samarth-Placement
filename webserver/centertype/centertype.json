@@ -1,14 +1,14 @@
 {
 	"role": "coordinator",
-	"centertypeitems":[
+	"centerTypeitems":[
 		{
-			"centertypeTitle":"Headquarter"
+			"centerTypeTitle":"Headquarter"
 		},
 		{
-			"centertypeTitle":"Regional"
+			"centerTypeTitle":"Regional"
 		},
 		{
-			"centertypeTitle":"Nodal"
+			"centerTypeTitle":"Nodal"
 		}
 	]
 }
