@@ -1,25 +1,25 @@
 <html>
 <head>
-		<title>Samarth-Placement</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<link rel="stylesheet" href="./angular-material/angular-material.css"/>
-		<link href="./angular-material-icons/angular-material-icons.css" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Carrois+Gothic|Playfair+Display+SC" rel="stylesheet">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<title>Samarth-Placement</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="./angular-material/angular-material.css"/>
+    <link href="./angular-material-icons/angular-material-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Carrois+Gothic|Playfair+Display+SC" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-		<link rel="stylesheet" type="text/css" href="samarth-webcomponents/jobcard/css/style.css">
-		<link rel="stylesheet" type="text/css" href=" coordinatorLogin/css/style.css">
-		<link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="samarth-webcomponents/skillcard/css/skillcard.css">
-		<link rel="stylesheet" type="text/css" href="completeprofile/css/style.css">
-		 <link rel="stylesheet" href="samarth-webcomponents/sectionprojectcard/css/sectionprojectcard.css">
-		<!-- <link rel="stylesheet" href="samarth-webcomponents/sectionseducationcard/css/sectionseducationcard.css"> -->
-		<link rel="stylesheet" href="samarth-webcomponents/sectionskillcard/css/sectionskillcard.css">
-		<link rel="stylesheet" href="samarth-webcomponents/sectionworkexperiencecard/css/workexpriencecard.css">
-		<link rel="stylesheet" href="samarth-webcomponents/sectionpersonalinfocard/css/sectionpersonalinfocard.css">
-		<link rel="stylesheet" href="samarth-webcomponents/verificationbadge/css/style.css">
-		<link rel="stylesheet" href="samarth-webcomponents/sectionjobpreferencescard/css/sectionjobpreferencescard.css">
-
+    <link rel="stylesheet" type="text/css" href="samarth-webcomponents/jobcard/css/style.css">
+    <link rel="stylesheet" type="text/css" href=" coordinatorLogin/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="samarth-webcomponents/skillcard/css/skillcard.css">
+    <link rel="stylesheet" type="text/css" href="completeprofile/css/style.css">
+     <link rel="stylesheet" href="samarth-webcomponents/sectionprojectcard/css/sectionprojectcard.css">
+    <!-- <link rel="stylesheet" href="samarth-webcomponents/sectionseducationcard/css/sectionseducationcard.css"> -->
+    <link rel="stylesheet" href="samarth-webcomponents/sectionskillcard/css/sectionskillcard.css">
+    <link rel="stylesheet" href="samarth-webcomponents/sectionworkexperiencecard/css/workexpriencecard.css">
+    <link rel="stylesheet" href="samarth-webcomponents/sectionpersonalinfocard/css/sectionpersonalinfocard.css">
+    <link rel="stylesheet" href="samarth-webcomponents/verificationbadge/css/style.css">
+    <link rel="stylesheet" href="samarth-webcomponents/sectionjobpreferencescard/css/sectionjobpreferencescard.css">
+    
 </head>
 <body ng-app="samarth">
 	<div ui-view="appbar"></div>
@@ -88,7 +88,8 @@
 			<script src="./placementProcess/factory/rejectedCandidateFactory.js"></script>
 			<script src="./placementProcess/factory/joinedCandidateFactory.js"></script>
 			<script src="./placementProcess/factory/declinedCandidateFactory.js"></script>
-
+			<script src="./placementProcess/factory/candidateReportService.js"></script>
+			<script src="./placementProcess/factory/jobsReportFactory.js"></script>
 
 
 			<script src="./placementProcess/controller/appliedCandidateCtrl.js"></script>
@@ -96,12 +97,14 @@
 			<script src="./placementProcess/controller/candidateCtrl.js"></script>
 			<script src="./placementProcess/controller/candidatePlacementCtrl.js"></script>
 			<script src="./placementProcess/controller/jobCtrl.js"></script>
+			<script src="./placementProcess/controller/reportCtrl.js"></script>
 			<script src="./placementProcess/controller/jobPlacementCtrl.js"></script>
 			<script src="./placementProcess/controller/acceptedCandidateCtrl.js"></script>
 			<script src="./placementProcess/controller/rejectedCandidateCtrl.js"></script>
 			<script src="./placementProcess/controller/joinedCandidateCtrl.js"></script>
 			<script src="./placementProcess/controller/declinedCandidateCtrl.js"></script>
 			<script src="./placementProcess/controller/appliedCtrl.js"></script>
+			
 
 
 
@@ -168,5 +171,15 @@
 			<script src="./jobSearch/factory/jobSearchFactory.js"></script>
 			<script src="./jobSearch/controller/jobSearchCtrl.js"></script>
 
+      <script src="./centerdetailsreg/centerdetailsreg.js"></script>
+      <script src="./centerdetailsreg/controller/centerdetailsregCtrl.js"></script>
+      <script src="./centerdetailsreg/services/centerdetailsregfactory.js"></script>
+      <script type="text/javascript" src="./samarth-webcomponents/sectioncenterdetailsreg/sectioncenterdetailsreg.js"></script>
+      <script type="text/javascript" src="./samarth-webcomponents/sectioncenterdetailsreg/services/sectioncenterdetailsservice.js"></script>
+      <script src="./centerdetails/centerdetails.js"></script>
+      <script type="text/javascript" src="./samarth-webcomponents/sectioncenterdetailscard/services/sectioncenterdetailscardservice.js"></script>
+      <script type="text/javascript" src="./samarth-webcomponents/sectioncenterdetailscard/sectioncenterdetailscard.js"></script>
+      
+      
 
 </html>

@@ -3,28 +3,28 @@ angular
 .config(config);
 
 function config($stateProvider) {
-  let loginRequired = ['$q', '$location', '$auth', function($q, $location, $auth) {
-    let deferred = $q.defer();
-    if ($auth.isAuthenticated()) {
-      deferred.resolve();
-    } else {
-      $location.path('/home');
-    }
-    return deferred.promise;
-  }];
-  
-  $stateProvider
-  .state('index.dashboard', {
-    url: '/dashboard',
-    views: {
-      'content@': {
-        templateUrl: 'dashboard/template/dashboard.html',
-        controller: 'dashboardCtrl',
-        controllerAs: 'vm',
-        resolve: {
-          loginRequired: loginRequired
-        }
-      }
-    }
-  });
-}
+	let loginRequired = ['$q', '$location', '$auth', function($q, $location, $auth) {
+		let deferred = $q.defer();
+		if ($auth.isAuthenticated()) {
+			deferred.resolve();
+		} else {
+			$location.path('/home');
+		}
+		return deferred.promise;
+	}];
+	
+	$stateProvider
+	.state('index.dashboard', {
+		url: '/dashboard',   
+		views: {
+			'content@': {
+				templateUrl: './dashboard/template/dashboard.html',
+				controller: 'dashboardCtrl',
+				controllerAs: 'vm',
+				resolve: {
+					loginRequired: loginRequired
+				}
+			},  
+		}
+	});
+}  
