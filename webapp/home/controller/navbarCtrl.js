@@ -21,6 +21,7 @@ angular
      navFactory.getMenuData().then(function(response)
      {
         vm.navItems = response.sidenavmenuitems;
+        vm.navrole = response.role;
     });
      $state.go('index.dashboard');
    }
