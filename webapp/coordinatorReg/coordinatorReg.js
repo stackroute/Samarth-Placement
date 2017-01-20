@@ -14,7 +14,7 @@
 				url:"/createaccount",
 				views: {
 					'content@': {
-						// templateUrl: 'coordinatorReg/template/coordinatorregistration.html'
+						// templateUrl: 'coordinatorReg/template/coordinatorregistration.html',
 						templateUrl: 'coordinatorReg/template/getcoordinator.html',
 						controller:"coordinatorRegCtrl",
 						controllerAs:"vm"
