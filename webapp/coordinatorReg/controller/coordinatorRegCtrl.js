@@ -148,7 +148,7 @@
 							}
 							coordinator.language = arr;
 							console.log(coordinator);
-							// authDataFac.authDataReq(coordinator).then(function success(response) {
+							authDataFac.authDataReq(coordinator).then(function success(response) {
 
 								console.log(coordinator.coordinatorId);
 
@@ -164,8 +164,12 @@
 											vm.msg = error.data.error;
 											$timeout(function () { vm.hide = true; }, 3000);
 										});
-						}
+						},
+						function error(error) {
+							vm.msg = error.data.error;
+						});
 					}
+				}
 					catch(e)
 					{
 						vm.hide = false;
