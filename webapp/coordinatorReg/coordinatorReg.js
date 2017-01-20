@@ -44,17 +44,6 @@
 					}
 				}
 			})
-			.state("index.importCoordinators",{
-				url:"/importCoordinators",
-				views: {
-					'content@': {
-						templateUrl: 'coordinatorReg/template/import.html',
-						controller:"coordinatorRegCtrl",
-						controllerAs:"vm"
-					
-					}
-				}
-			})
 			// .state("index.deletecoordinator",{
 			// 	url:"/deletecoordinator",
 			// 	views: {
