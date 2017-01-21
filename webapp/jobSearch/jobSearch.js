@@ -11,7 +11,7 @@ angular
         $location.path('/home');
       }
       return deferred.promise;
-    }];   
+    }];
     $stateProvider
     .state('index.jobSearch', {
       url:'/jobsearch',
@@ -37,4 +37,4 @@ angular
        }
      }
    });
-  } 
+  }

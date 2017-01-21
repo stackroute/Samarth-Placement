@@ -18,7 +18,7 @@
       }];
       $stateProvider
       .state('index.emp', {
-        url: 'jobProvider',
+        url: '/jobProvider',
         views: {
           'content@': {
             templateUrl: 'jobProvider/template/jobProvider.html',

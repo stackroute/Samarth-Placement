@@ -19,7 +19,6 @@
       $rootScope.logout = false;
       if($auth.isAuthenticated()) {
         $rootScope.user = $auth.getPayload();
-        // $rootScope.user.sidenav = $rootScope.user.sidenav;
         $rootScope.message = $rootScope.user.name;
         $rootScope.sideicon = true;
         $rootScope.logout = true;
@@ -34,8 +33,6 @@
           email: vm.user.email,
           pwd: vm.user.pwd
         }).then(function(res) {
-          // console.log('res-------');
-          // console.log(res);
           $auth.setToken(res.token);
           $rootScope.sidenav = res.data.sidenav.sidenavmenuitems;
           $localStorage.tokenDetails = { token: $auth.getPayload()['sm-token'] };
@@ -45,6 +42,7 @@
           vm.err = 'Login Failed ! UserName or Password doesnot match .';
           let message = 'Login Failed ! UserName or Password doesnot match .';
           Flash.create('danger', message);
+          console.log('login err-------');
           console.log(error);
         });
       }
