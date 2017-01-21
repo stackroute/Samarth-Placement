@@ -17,7 +17,7 @@
 						templateUrl: 'coordinatorReg/template/getcoordinator.html',
 						controller:"coordinatorRegCtrl",
 						controllerAs:"vm"
-					
+
 					}
 				}
 			})
@@ -28,7 +28,7 @@
 						templateUrl: 'coordinatorReg/template/coordinatorregistration.html',
 						controller:"coordinatorRegCtrl",
 						controllerAs:"vm"
-					
+
 					}
 				}
 			})
@@ -39,21 +39,10 @@
 						templateUrl: 'coordinatorReg/template/coordinatorupdation.html',
 						controller:"coordinatorRegCtrl",
 						controllerAs:"vm"
-					
+
 					}
 				}
 			})
-			// .state("index.deletecoordinator",{
-			// 	url:"/deletecoordinator",
-			// 	views: {
-			// 		'content@': {
-			// 			 templateUrl: 'coordinatorReg/template/getcoordinator.html',
-			// 			controller:"coordinatorRegCtrl",
-			// 			controllerAs:"vm"
-					
-			// 		}
-			// 	}
-			// })
 			.state("index.getcoordinator",{
 				url:"/getcoordinator",
 				views: {
@@ -61,7 +50,7 @@
 						templateUrl: 'coordinatorReg/template/getcoordinator.html',
 						controller:"coordinatorRegCtrl",
 						controllerAs:"vm"
-					
+
 					}
 				}
 			});

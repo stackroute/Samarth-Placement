@@ -20,6 +20,7 @@ angular
      $rootScope.message = $rootScope.user.name;
      navFactory.getMenuData().then(function(response)
      {
+       vm.navrole = response.role;
         vm.navItems = response.sidenavmenuitems;
     });
      $state.go('index.dashboard');
@@ -28,8 +29,6 @@ angular
    {
     $state.go('index.home');
   }
-
-
 
   function openSideNavPanel()
    { $mdSidenav('left').open();
