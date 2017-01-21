@@ -17,12 +17,14 @@ angular.module('samarth',
 'satellizer',
 'ngStorage',
 'simplePagination',
+'ngFileUpload',
 'samarth.jobSearch',
 'samarth.jobProvider',
 'samarth.placementProcess',
 'mm.acl',
 'samarth.accessdenied'
 ])
+
 
 .config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
