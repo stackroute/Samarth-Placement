@@ -15,8 +15,8 @@
 			},
 			{
 				"icon": "import_export",
-				"navTitle": "Import Coordinators",
-				"traverse": "index.importCoordinators"
+				"navTitle": "Import",
+				"traverse": "index.import"
 			},
 			{
 				"icon": "location_on",

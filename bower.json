@@ -28,10 +28,10 @@
     "angular-local-storage": "^0.5.2",
     "ngstorage": "^0.3.11",
     "samarth-webcomponents": "https://github.com/stackroute/Samarth-WebComponents.git#dev-wave-12",
-    "ng-simplePagination": "^1.0.3"
+    "ng-simplePagination": "^1.0.3",
+    "ng-file-upload": "^12.2.13"
   },
   "resolutions": {
     "angular": "1.6.1"
- }
+  }
 }
-
