@@ -1,5 +1,5 @@
 angular
-  .module('samarth.candidateReg',[])
+  .module('samarth.accessdenied',[])
   .config(config);
     function config($stateProvider) {
       let loginRequired = ['$q','$location', '$auth', function($q, $location, $auth) {
@@ -13,17 +13,12 @@ angular
       return deferred.promise;
     }];
     $stateProvider
-    .state('index.candidateReg', {
-      url:'/candidateregistration',
+    .state('index.accessdenied', {
+      url:'/accessdenied',
       views: {
         'content@': {
-          templateUrl: 'candidateReg/template/candidateRegistration.html',
-          controller:'candidateRegCtrl',
-          controllerAs : 'vm',
-          resolve: {
-            loginRequired: loginRequired
+          templateUrl: 'unauth/template/accessdenied.html'
           }
         }
-      }
   });
 }

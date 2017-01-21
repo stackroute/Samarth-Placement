@@ -165,6 +165,7 @@
 											$timeout(function () { vm.hide = true; }, 3000);
 										});
 						},
+
 						function error(error) {
 							vm.msg = error.data.error;
 						});
@@ -183,7 +184,7 @@
 					try
 					{
 						console.log('entered update function');
-						let count = 0;
+						// let count = 0;
 						for(let i = 0; i <= lanIter; i = i + 1) {
 							console.log('entered for loop');
 							if(vm.tempLanguage[lanIter].speak === false && vm.tempLanguage[lanIter].read === false && vm.tempLanguage[lanIter].write === false)

@@ -11,12 +11,12 @@ angular
     $location,
      $state) {
    $rootScope.$on('$stateChangeStart', function(event, toState) {
-     if (toState.name == 'index') {
+    //  console.log(toState.name);
+     if (toState.name == 'index.jobSearch') {
        $location.path('/home/dashboard');
      }
    });
      $rootScope.user=$auth.getPayload();
-    //  console.log($rootScope.user);
      $rootScope.message=$rootScope.user.name;
      if ($auth.isAuthenticated()) {
        $rootScope.sideicon = true;

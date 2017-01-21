@@ -3,7 +3,7 @@ function candidateRegCtrl(
   languageFact,
   $mdDialog,
   professionservice,
-  locationFact) 
+  locationFact)
   {
     let vm = this;
     let lanIter = 0;
@@ -23,7 +23,7 @@ console.log('Candidate ctrl');
 
   function languagesFact()
   {
-    languageFact.languageReq().then(function(data) 
+    languageFact.languageReq().then(function(data)
     {
       vm.language= data.data;
     })
@@ -31,13 +31,13 @@ console.log('Candidate ctrl');
 
   function locationsFact()
   {
-    locationFact.locationReq().then(function(data) 
+    locationFact.locationReq().then(function(data)
     {
       console.log('location--------------');
       console.log(data);
       var temp=[];
       for( var i=0;i<data.data.length;i++)
-      {    
+      {
           temp[i]= data.data[i].location;
       }
       vm.location= temp;
@@ -81,14 +81,14 @@ console.log('Candidate ctrl');
   //submiting the form
   function formSubmit()
   {
-    candidateRegFactory.initialData(vm.candidate).then(function(response) 
+    candidateRegFactory.initialData(vm.candidate).then(function(response)
     {
      vm.result=response.data;
      vm.status="Successfully registered the candidate"
      vm.candidate={};
      console.log(response.data);
    },
-    function(err) 
+    function(err)
    {
       console.log(err);
       var confirm = $mdDialog.confirm()
@@ -97,13 +97,13 @@ console.log('Candidate ctrl');
             .ariaLabel('server error')
             .ok('Report the incident!')
             .cancel('Ignore');
-    
+
         $mdDialog.show(confirm)
-        .then(function() 
+        .then(function()
           {
             vm.status = '';
-          }, 
-          function() 
+          },
+          function()
           {
             vm.status = '';
           }

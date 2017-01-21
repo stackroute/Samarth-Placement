@@ -29,8 +29,6 @@
     let loginRequired = ['$q', '$location', '$auth', function($q, $location, $auth) {
       let deferred = $q.defer();
       if ($auth.isAuthenticated()) {
-        // console.log('Payload');
-        // console.log($auth.getPayload());
         deferred.resolve();
       }
       else {
