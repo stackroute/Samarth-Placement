@@ -12,7 +12,11 @@
 				"navTitle": "Coordinators",
 				"traverse": "index.getcoordinator"
 			},
-
+			{
+				"icon": "import_export",
+				"navTitle": "Import Coordinators",
+				"traverse": "index.importCoordinators"
+			},
 			{
 				"icon": "location_on",
 				"navTitle": "Centers",

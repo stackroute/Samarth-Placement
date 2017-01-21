@@ -22,6 +22,7 @@ angular
      {
        vm.navrole = response.role;
         vm.navItems = response.sidenavmenuitems;
+        vm.navrole = response.role;
     });
      $state.go('index.dashboard');
    }

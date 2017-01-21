@@ -6,10 +6,13 @@
    var objcircle = {};
 
    objcircle.getCircle = function() {
+    console.log('$rootScope.user.email');
+    console.log($rootScope.user.email);
      return $http.get('/circle/'+ $rootScope.user.email)
      .then(function(res) {
 
-      //  console.log(res.data);
+       console.log('res.data');
+       console.log(res.data);
        return res;
      }, function(error) {
           console.log(error);

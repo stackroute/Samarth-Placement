@@ -171,6 +171,7 @@
 					}
 
 					}
+				}
 					catch(e)
 					{
 						vm.hide = false;
