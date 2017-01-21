@@ -165,10 +165,10 @@
 											$timeout(function () { vm.hide = true; }, 3000);
 										});
 						},
-						function  error(error){
-							vm.msg =error.data.error;
+
+						function error(error) {
+							vm.msg = error.data.error;
 						});
-					}
 
 					}
 				}
