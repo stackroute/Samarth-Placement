@@ -15,7 +15,7 @@ angular
   }];
   $stateProvider
   .state('index.candidatesearch', {
-    url: 'candidatessearch/:circleDomain?circleName',
+    url: '/candidatessearch/:circleDomain?circleName',
     params: {
       circleName: null,
       circleDomain: null
@@ -39,7 +39,7 @@ angular
     }
   })
   .state('index.candidatesearch.results', {
-    url: 'searchlist',
+    url: '/searchlist',
     params:{
       jobname:null
     },

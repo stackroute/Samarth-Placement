@@ -54,7 +54,7 @@ angular.module('samarth',
                   'index.applied.rejectedCandidate','index.applied.joinedCandidate','index.applied.declinedCandidate','index.aboutus'],
     supervisor: ['index.dashboard', 'index.aboutus'],
     admin: ['index.dashboard', 'index.getcoordinator','index.createaccount', 'index.centerdetails','index.centerdetailsreg',
-            'index.aboutus','index','index.coordinatorregistration','index.coordinatorupdation','index.importCoordinators']
+            'index.aboutus','index','index.coordinatorregistration','index.coordinatorupdation','index.import']
   }
   AclService.setAbilities(aclData);
 
