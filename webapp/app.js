@@ -53,6 +53,7 @@ angular.module('samarth',
                   'index.applied','index.applied.appliedCandidate','index.applied.acceptedCandidate','index.emp',
                   'index.applied.rejectedCandidate','index.applied.joinedCandidate','index.applied.declinedCandidate','index.aboutus'],
     supervisor: ['index.dashboard', 'index.aboutus'],
+
     admin: ['index.dashboard', 'index.getcoordinator','index.createaccount', 'index.centerdetails','index.centerdetailsreg',
             'index.aboutus','index','index.coordinatorregistration','index.coordinatorupdation','index.import']
   }
