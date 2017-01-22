@@ -5,51 +5,106 @@ var host_url = 'http://localhost:8080'
 
 container=request(host_url);
 var msg={
-  "role": "coordinator",
-   "sidenavmenuitems":[
-{
-  "icon":"dashboard",
-  "navTitle":"Dashboard",
-  "traverse":"index.dashboard"
-},
-{
-  "icon":"search",
-  "navTitle":"Candidate search",
-  "traverse":"index.candidatesearch"
-},
-{
-  "icon":"person_add",
-  "navTitle":"Candidate register",
-  "traverse":"index.candidateReg"
-},
-{
-  "icon":"add box",
-  "navTitle":"Job post",
-  "traverse":"index.jobPost"
-},
-{
-  "icon":"youtube_searched_for_black",
-  "navTitle":"Job search",
-  "traverse":"index.jobSearch"
-},
+	"roles": [{
+		"role": "admin",
+		"sidenavmenuitems":[
+			{
+				"icon":"dashboard",
+				"navTitle":"Dashboard",
+				"traverse":"index.dashboard"
+			},
+			{
+				"icon": "supervisor_account",
+				"navTitle": "Coordinators",
+				"traverse": "index.getcoordinator"
+			},
 
-{
-  "icon":"person_pin",
-  "navTitle":"Jobprovider",
-  "traverse":"index.emp"
-},
+			{
+				"icon": "location_on",
+				"navTitle": "Centers",
+				"traverse": "index.centerdetails"
+			},
+			{
+				"icon":"local_library",
+				"navTitle":"Aboutus",
+				"traverse":"index.aboutus"
+			}
+		]
+	},
 
-{
-  "icon":"local_library",
-  "navTitle":"Aboutus",
-  "traverse":"index.aboutus"
-}
-]
-      };
+
+	{
+		"role": "coordinator",
+		"sidenavmenuitems":[
+			{
+				"icon":"dashboard",
+				"navTitle":"Dashboard",
+				"traverse":"index.dashboard"
+			},
+			{
+				"icon":"search",
+				"navTitle":"Candidate search",
+				"traverse":"index.candidatesearch"
+			},
+			{
+				"icon":"person_add",
+				"navTitle":"Candidate register",
+				"traverse":"index.candidateReg"
+			},
+			{
+				"icon":"add box",
+				"navTitle":"Job post",
+				"traverse":"index.jobPost"
+			},
+			{
+				"icon":"youtube_searched_for_black",
+				"navTitle":"Job search",
+				"traverse":"index.jobSearch"
+			},
+
+			{
+				"icon":"person_pin",
+				"navTitle":"Jobprovider",
+				"traverse":"index.emp"
+			},
+
+			{
+				"icon":"location_on",
+				"navTitle":"Centerdetails",
+				"traverse":"index.centerdetails"
+			},
+
+			{
+				"icon":"local_library",
+				"navTitle":"Aboutus",
+				"traverse":"index.aboutus"
+			}
+		]
+	},
+
+
+
+	{
+		"role": "supervisor",
+		"sidenavmenuitems":[
+			{
+				"icon":"dashboard",
+				"navTitle":"Dashboard",
+				"traverse":"index.dashboard"
+			},
+			{
+				"icon":"local_library",
+				"navTitle":"Aboutus",
+				"traverse":"index.aboutus"
+			}
+		]
+		}]
+	};
+
 
 var container_url = host_url + '/sidenavbar';
 	describe(' checking navbar', function(){
-		
+
 		it("we should get the response while calling",function(done) {
 			console.log(container_url);
       container
@@ -64,7 +119,7 @@ var container_url = host_url + '/sidenavbar';
         .expect('Content-Type', 'application/json; charset=utf-8', done);
 
     });
-	
+
 	it('we should get the response', function(done) {
       container
         .get('/sidenavbar')
@@ -79,6 +134,3 @@ var container_url = host_url + '/sidenavbar';
     setTimeout(done, 250);
   });
 });
-
-
- 

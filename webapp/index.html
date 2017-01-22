@@ -13,7 +13,6 @@
     <link rel="stylesheet" type="text/css" href="samarth-webcomponents/skillcard/css/skillcard.css">
     <link rel="stylesheet" type="text/css" href="completeprofile/css/style.css">
      <link rel="stylesheet" href="samarth-webcomponents/sectionprojectcard/css/sectionprojectcard.css">
-    <!-- <link rel="stylesheet" href="samarth-webcomponents/sectionseducationcard/css/sectionseducationcard.css"> -->
     <link rel="stylesheet" href="samarth-webcomponents/sectionskillcard/css/sectionskillcard.css">
     <link rel="stylesheet" href="samarth-webcomponents/sectionworkexperiencecard/css/workexpriencecard.css">
     <link rel="stylesheet" href="samarth-webcomponents/sectionpersonalinfocard/css/sectionpersonalinfocard.css">
@@ -35,12 +34,15 @@
 			<script type="text/javascript" src="./angular-ui-router/release/angular-ui-router.min.js">
 			</script>
 			<script type="text/javascript" src="./angular-material-icons/angular-material-icons.js"></script>
-
+      <script src="./angular-acl/angular-acl.js"></script>
 			<script src="./satellizer/dist/satellizer.js"></script>
 			<script src="./ngstorage/ngStorage.js"></script>
 			<script src="./angular-local-storage/dist/angular-local-storage.js"></script>
 			<script src="./angular-flash-alert/dist/angular-flash.min.js"></script>
 			<script type="text/javascript" src="./ng-simplePagination/simplePagination.js"></script>
+
+			<script type="text/javascript" src="./ng-file-upload/ng-file-upload.js"></script>
+			
 			<script type="text/javascript" src="./samarth-webcomponents/samarth-webcomponents.js"></script>
 
 			<script type="text/javascript" src="app.js"></script>
@@ -113,8 +115,9 @@
 			<script src="./samarth-webcomponents/jobproviderreg/factory/jobProviderFactory.js"></script>
 			<script src="./samarth-webcomponents/jobproviderreg/component/jobProvider.js"></script>
 
-			<script type="text/javascript" src="importCoordinators/importCoord.js"></script>
-			<script type="text/javascript" src="importCoordinators/controller/coordinatorImportCtrl.js"></script>
+			<script type="text/javascript" src="import/import.js"></script>
+			<script type="text/javascript" src="import/controller/importCtrl.js"></script>
+			<script type="text/javascript" src="import/factory/importFact.js"></script>
 
 			<script type="text/javascript" src="jobProvider/jobProvider.js"></script>
 			<script type="text/javascript" src="jobProvider/factory/jobProviderFactory.js"></script>
@@ -179,5 +182,6 @@
       <script type="text/javascript" src="./samarth-webcomponents/sectioncenterdetailscard/services/sectioncenterdetailscardservice.js"></script>
       <script type="text/javascript" src="./samarth-webcomponents/sectioncenterdetailscard/sectioncenterdetailscard.js"></script>
 
+      <script src="./unauth/accessdenied.js"></script>
       <script src="./centerdetails/centerdetails.js"></script>
 </html>

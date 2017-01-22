@@ -27,9 +27,12 @@ function config($stateProvider) {
         controller: 'dashboardCtrl',
         controllerAs: 'vm',
         resolve: {
+
           loginRequired: loginRequired
+
         }
       }
     }
   });
+
 }
