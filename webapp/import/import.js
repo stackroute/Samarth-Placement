@@ -6,16 +6,16 @@
 			'ui.router',
 			'ngMessages'
 			])
-		.config(coorImportConfig);
+		.config(importConfig);
 
-		function coorImportConfig($stateProvider){
+		function importConfig($stateProvider){
 			$stateProvider
-			.state("index.importCoordinators",{
-				url:"/importCoordinators",
+			.state("index.import",{
+				url:"/import",
 				views: {
 					'content@': {
-						templateUrl: 'importCoordinators/template/import.html',
-						controller:"coordinatorImportCtrl",
+						templateUrl: 'import/template/import.html',
+						controller:"importCtrl",
 						controllerAs:"vm"
 					
 					}
