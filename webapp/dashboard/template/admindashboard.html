@@ -41,27 +41,13 @@
 				</circle-stats>
 				<circle-actions>
 					<div layout="row" layput-margin="">
-					 <md-button ui-sref="index.job({profession:'{{prof.profession}}'})">
-						 <ng-md-icon icon="layers" md-colors="{color: 'blue-A700'}"> </ng-md-icon>JOBS
+					 <md-button ui-sref="index.centerdetails">
+						 <ng-md-icon icon="layers" md-colors="{color: 'blue-A700'}"> </ng-md-icon>CENTERS
 					 </md-button>
 					 <span flex></span>
 					 <md-button ui-sref="index.candidate({profession:'{{prof.profession}}'})">
 						 <ng-md-icon icon="people" md-colors="{color: 'blue-A700'}"> </ng-md-icon>CANDIDATES
 					 </md-button>
-					 <span flex></span>
-					 <md-menu>
-					 		<md-button ng-click="$mdOpenMenu($event)">
-						 		<ng-md-icon icon="description" md-colors="{color: 'blue-A700'}"> </ng-md-icon>REPORT
-					 		</md-button>
-					 		<md-menu-content width="2">
-					 			<md-menu-item ui-sref="index.candidateReport({profession:'{{prof.profession}}'})">
-              		<md-button> <span md-menu-align-target style="color: black;">Candidate</span>  </md-button>
-            		</md-menu-item>
-            		<md-menu-item ui-sref="index.jobReport({profession:'{{prof.profession}}'})">
-              		<md-button> <span md-menu-align-target style="color: black;">Job</span>  </md-button>
-            		</md-menu-item>
-					 		</md-menu-content>
-					 </md-menu>
 				 </div>
 				</circle-actions>
 		</circle>

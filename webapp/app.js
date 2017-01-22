@@ -7,6 +7,7 @@ angular.module('samarth',
 'samarth.home',
 'samarth.coordinatorLogin',
 'samarth.dashboard',
+'samarth.admindashboard',
 'samarth.candidatesearch',
 'samarth-webcomponents',
 'samarth.cordsignup',
@@ -41,9 +42,14 @@ angular.module('samarth',
 
   var aclData = {
     guest :['index.home','index.accessdenied'],
-    coordinator: ['index.dashboard','index.candidatesearch','index.jobSearch','index.candidateReg','index.jobPost','index.emp','index.aboutus'],
+    coordinator: ['index','index.dashboard','index.candidatesearch','index.candidatesearch.results','index.jobSearch',
+                  'index.candidateReg','index.jobSearch.results','index.empreg','index.verifyprofile','index.jobPost',
+                  'index.job','index.jobReport','index.candidateReport','index.candidatePlacement','index.candidate',
+                  'index.applied','index.applied.appliedCandidate','index.applied.acceptedCandidate','index.emp',
+                  'index.applied.rejectedCandidate','index.applied.joinedCandidate','index.applied.declinedCandidate','index.aboutus'],
     supervisor: ['index.dashboard', 'index.aboutus'],
-    admin: ['index.dashboard', 'index.getcoordinator', 'index.centerdetails','index.aboutus']
+    admin: ['index.dashboard', 'index.getcoordinator','index.createaccount', 'index.centerdetails','candidate.centerdetailsreg',
+            'index.aboutus','index','index.coordinatorregistration','index.coordinatorupdation','index.importCoordinators']
   }
   AclService.setAbilities(aclData);
 
