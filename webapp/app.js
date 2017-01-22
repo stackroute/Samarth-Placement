@@ -7,6 +7,7 @@ angular.module('samarth',
 'samarth.home',
 'samarth.coordinatorLogin',
 'samarth.dashboard',
+'samarth.import',
 'samarth.candidatesearch',
 'samarth-webcomponents',
 'samarth.cordsignup',
@@ -45,7 +46,7 @@ angular.module('samarth',
     guest :['index.home','index.accessdenied'],
     coordinator: ['index.dashboard','index.candidatesearch','index.jobSearch','index.candidateReg','index.jobPost','index.emp','index.aboutus'],
     supervisor: ['index.dashboard', 'index.aboutus'],
-    admin: ['index.dashboard', 'index.getcoordinator', 'index.centerdetails','index.aboutus']
+    admin: ['index.dashboard', 'index.getcoordinator', 'index.centerdetails','index.aboutus','index.import']
   }
   AclService.setAbilities(aclData);
 
