@@ -1,9 +1,9 @@
 angular
     .module('samarth.centerdetails', [])
     .config(config);
-
+//
 function config($stateProvider) {
-                
+
                  let loginRequired = ['$q','$location', '$auth', function($q, $location, $auth) {
                 let deferred = $q.defer();
                 if ($auth.isAuthenticated()) {
