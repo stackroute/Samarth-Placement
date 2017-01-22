@@ -1,8 +1,8 @@
 angular
- .module('samarth.dashboard')
- .controller('dashboardCtrl', dashboardCtrl);
+ .module('samarth.admindashboard')
+ .controller('admindashboardCtrl', admindashboardCtrl);
 
- function dashboardCtrl($scope,
+ function admindashboardCtrl($scope,
     $mdDialog,
      $log,
    circlesGetService,
@@ -12,7 +12,7 @@ angular
      $state) {
    $rootScope.$on('$stateChangeStart', function(event, toState) {
      if (toState.name == 'index.jobSearch') {
-       $location.path('/home/dashboard');
+       $location.path('/home/admindashboard');
      }
    });
      $rootScope.user=$auth.getPayload();
