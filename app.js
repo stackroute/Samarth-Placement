@@ -16,6 +16,7 @@ let authByToken = require('./webserver/auth/authbytoken');
 const bearerToken = require('express-bearer-token');
 
 let resourcebundle = require('./webserver/resourcebundle/resourcebundlerouter.js');
+let centertyperouter = require('./webserver/centertype/centertypeRouter.js')
 
 function createApp() {
   const app = express();
@@ -68,6 +69,7 @@ function setupRestRoutes(app) {
   app.use('/', apiRoutes);
   app.use('/sidebar', navItems);
   app.use('/resource', resourcebundle);
+  app.use('/centertype', centertyperouter);
   app.use('/', function(req, res) {
       let options = {
       target: {
