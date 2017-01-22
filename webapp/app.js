@@ -56,6 +56,7 @@ angular.module('samarth',
 
     admin: ['index.dashboard', 'index.getcoordinator','index.createaccount', 'index.centerdetails','index.centerdetailsreg',
             'index.aboutus','index','index.coordinatorregistration','index.coordinatorupdation','index.import']
+
   }
   AclService.setAbilities(aclData);
 
