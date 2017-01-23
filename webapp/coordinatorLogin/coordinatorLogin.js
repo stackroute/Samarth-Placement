@@ -18,7 +18,7 @@
     let skipIfLoggedIn = ['$q', '$auth', '$location', function($q, $auth, $location) {
       let deferred = $q.defer();
       if ($auth.isAuthenticated()) {
-        $location.path('/home/dashboard');
+        $location.path('/home/admindashboard');
         deferred.resolve();
       }
       else {

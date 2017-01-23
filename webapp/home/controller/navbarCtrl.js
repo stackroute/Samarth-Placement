@@ -24,7 +24,14 @@ angular
         vm.navItems = response.sidenavmenuitems;
         vm.navrole = response.role;
     });
-     $state.go('index.dashboard');
+    if($rootScope.user.role[0]=='coordinator'){
+      $state.go('index.dashboard');
+    }else if ($rootScope.user.role[0]=='admin'){
+      $state.go('index.admindashboard');
+    }else {
+      $state.go('index.home');
+    }
+
    }
    else
    {

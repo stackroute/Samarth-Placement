@@ -7,7 +7,7 @@
                 url : '/sidebar/sidenavmenu',
                 method : 'GET'
               }).then(function success(response) {
-                  console.log("from navFactory", response.data);
+                  // console.log("from navFactory", response.data);
                   return response.data;
               }, function error(err) {
                   console.log("error", err);

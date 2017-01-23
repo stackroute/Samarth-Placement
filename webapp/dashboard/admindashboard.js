@@ -23,7 +23,7 @@ function config($stateProvider) {
         controllerAs: 'vm'
       },
       'content@': {
-        templateUrl: 'dashboard/template/dashboard.html',
+        templateUrl: 'dashboard/template/admindashboard.html',
         controller: 'admindashboardCtrl',
         controllerAs: 'vm',
         resolve: {

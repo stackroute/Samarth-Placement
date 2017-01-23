@@ -10,11 +10,11 @@ angular
      $auth,
     $location,
      $state) {
-   $rootScope.$on('$stateChangeStart', function(event, toState) {
-     if (toState.name == 'index.jobSearch') {
-       $location.path('/home/dashboard');
-     }
-   });
+  //  $rootScope.$on('$stateChangeStart', function(event, toState) {
+  //    if (toState.name == 'index.jobSearch') {
+  //      $location.path('/home/dashboard');
+  //    }
+  //  });
      $rootScope.user=$auth.getPayload();
      $rootScope.message=$rootScope.user.name;
      if ($auth.isAuthenticated()) {

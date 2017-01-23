@@ -5,7 +5,7 @@
 			{
 				"icon":"dashboard",
 				"navTitle":"Dashboard",
-				"traverse":"index.dashboard"
+				"traverse":"index.admindashboard"
 			},
 			{
 				"icon": "supervisor_account",
