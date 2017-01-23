@@ -22,12 +22,9 @@
         $rootScope.message = $rootScope.user.name;
         $rootScope.sideicon = true;
         $rootScope.logout = true;
-        console.log("role is ", $rootScope.role)
         if($rootScope.role =='coordinator'){
-          console.log('dashboard');
           $state.go('index.dashboard');
         }else if ($rootScope.role =='admin') {
-          console.log('admindashboard');
           $state.go('index.admindashboard');
         }else{
           $state.go('index.home');
@@ -49,10 +46,8 @@
           $http.defaults.headers.common['x-access-token'] = $auth.getPayload()['sm-token'];
           console.log("The role of the use ris: ", $rootScope.role);
           if($rootScope.role =='coordinator'){
-            console.log("coordinator");
             $state.go('index.dashboard');
           }else if ($rootScope.role =='admin') {
-            console.log('admin');
             $state.go('index.admindashboard');
           }else{
             $state.go('index.home');
@@ -62,7 +57,6 @@
           vm.err = 'Login Failed ! UserName or Password doesnot match .';
           let message = 'Login Failed ! UserName or Password doesnot match .';
           Flash.create('danger', message);
-          console.log(error);
         });
       }
       vm.login = login;
