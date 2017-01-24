@@ -47,5 +47,21 @@ angular.module('samarth.candidateReg')
             }
         }
     }
-    ]);
+    ])
+    .factory('candidateRegFactory', 
+        function($http) {
+        var service = {
+            initialData :initialData
+        };
+        return service;      
+
+        function initialData(candidateData) {
+            var req = {};
+            req.url = '/candidate';
+            req.method = 'POST';    
+            req.data=candidateData;
+            console.log(req.data);
+            return $http(req);
+        };
+    });
 

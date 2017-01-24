@@ -25,14 +25,14 @@ angular
 
      circlesGetService.getCircle()
      .then(function(response) {
-       let name="";
+       let profs="";
        let i=0;
        for ( i = 0; i < response.data.length; i++) {
-         name += response.data[i].name + '-';
+         profs += response.data[i].name + '-';
        }
-       circlesGetService.getStats(name)
+       circlesGetService.getStats(profs)
        .then(function(response) {
-         $scope.centername = response.data;
+         $scope.profiling = response.data;
        },
         function(err) {
          return err;

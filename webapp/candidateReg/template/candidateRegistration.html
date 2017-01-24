@@ -1,5 +1,5 @@
 <div layout="row" layout-align="center center" flex>
-    <form name="signupForm" id="form3" flex flex-sm="66" flex-md="66" flex-gt-md="50">
+    <form name="signupForm" id="form3" ng-submit="vm.formSubmit()" flex flex-sm="66" flex-md="66" flex-gt-md="50">
         <div layout="row" layout-align="center center">
             <h3 md-title>Register Candidate</h3>
         </div>
@@ -7,7 +7,7 @@
             <md-input-container class="md-icon-float" flex>
                 <label>Name</label>
                 <md-icon class="material-icons">person</md-icon>
-                <input type="text" required md-no-asterisk ng-model="register.user.name" name="name">
+                <input type="text" required md-no-asterisk ng-model="vm.user.name" name="name">
                 <div ng-messages="signupForm.name.$error">
                     <div ng-message="required">Enter the name</div>
                 </div>
@@ -15,29 +15,39 @@
         </div>
         <div layout="row" layout-align="center center">
             <md-input-container class="md-icon-float" flex>
+                <label>Candidate id</label>
+                <md-icon class="material-icons">person</md-icon>
+                <input type="text" md-no-asterisk ng-model="vm.user.mobile" name="mobile">
+                <div ng-messages="signupForm.mobile.$error">
+                    <div ng-message="required">Enter candidate id</div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="center center">
+            <md-input-container class="md-icon-float" flex>
                 <label>Adhar card</label>
                 <md-icon class="material-icons">person</md-icon>
-                <input type="text" required md-no-asterisk ng-model="register.user.adharcard" name="adharcard" ng-pattern="/^[0-9]{12}(?:[0-9]{3})?$/">
+                <input type="text" required md-no-asterisk ng-model="vm.user.adharcard" name="adharcard" ng-pattern="/^[0-9]{12}(?:[0-9]{3})?$/">
                 <div ng-messages="signupForm.adharcard.$error">
                     <div ng-message="pattern">Enter correct adhaar card number</div>
                 </div>
             </md-input-container>
         </div>
-        <div layout="row" layout-align="center center">
+        <!-- <div layout="row" layout-align="center center">
             <md-input-container class="md-icon-float" flex>
                 <label>Mobile no</label>
                 <md-icon class="material-icons">phone</md-icon>
-                <input type="tel" name="number" required md-no-asterisk ng-model="register.user.number" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
+                <input type="tel" name="number" required md-no-asterisk ng-model="vm.user.number" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
                 <div ng-messages="signupForm.number.$error">
                     <div ng-message="required">Should be a 10 digit number</div>
                 </div>
             </md-input-container>
-        </div>
+        </div> -->
         <div layout="row" layout-align="center center">
             <md-input-container class="md-icon-float" flex>
                 <label>Email id</label>
                 <md-icon class="material-icons">mail</md-icon>
-                <input type="email" name="email" required md-no-asterisk ng-model="register.user.email" ng-pattern="/^.+@.+\..+$/">
+                <input type="email" name="email" required md-no-asterisk ng-model="vm.user.email" ng-pattern="/^.+@.+\..+$/">
                 <div ng-messages="signupForm.email.$error">
                     <div ng-message="required">Valid email required</div>
                 </div>
@@ -79,40 +89,35 @@
         </div>
 
                     <!-- Password -->
-        <div layout="row" layout-align="center center">
+        <!-- <div layout="row" layout-align="center center">
             <md-input-container class="md-icon-float" flex>
                 <label>Password</label>
                 <md-icon class="material-icons">lock</md-icon>
-                <input ng-model="register.user.password" type="password" name="password" required md-no-asterisk ng-required="true" minlength="8" maxlength="20" ng-pattern="/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^*()_+])[A-Za-z\d][A-Za-z\d!@#$%^*()_+]{7,19}$/">
+                <input ng-model="vm.user.password" type="password" name="password" required md-no-asterisk ng-required="true" minlength="8" maxlength="20" ng-pattern="/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^*()_+])[A-Za-z\d][A-Za-z\d!@#$%^*()_+]{7,19}$/">
                 <div layout-align="right" ng-messages="signupForm.password.$error" class="error" role="alert">
                     <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">Password should be 8-20 characters </div>
                 </div>
             </md-input-container>
-        </div>
-        <div layout="row" layout-align="center center">
+        </div> -->
+        <!-- <div layout="row" layout-align="center center">
             <md-input-container class="md-icon-float" flex>
                 <label>Confirm password</label>
                 <md-icon class="material-icons">lock</md-icon>
-                <input ng-model="register.user.cpwd" type="password" required md-no-asterisk name="Cfpassword" valid-password-c required ng-pattern="{{register.user.password}}">
+                <input ng-model="vm.user.cpwd" type="password" required md-no-asterisk name="Cfpassword" valid-password-c required ng-pattern="{{vm.user.password}}">
                 <div layout-align="right" ng-messages="signupForm.Cfpassword.$error" class="error" role="alert">
                     <div ng-message-exp="required">Place is required </div>
-                    <!-- <div class="msg-error" ng-show="signupForm.Cfpassword.$error.noMatch"> -->
-                    <div ng-show="register.user.password !== register.user.cpwd">
+                    <div ng-show="vm.user.password !== vm.user.cpwd">
                         Passwords do not match</div>
                     </div>
                 </md-input-container>
-            </div>
+            </div> -->
             <flash-message duration="6000"></flash-message>
             <div layout="row" layout-align="center center">
                 <div layout="row" layout-align="center center" layout-wrap flex flex-gt-sm="40">
-                    <md-button type="submit" ng-disabled="signupForm.$invalid" class="md-raised md-primary createAccount" ng-click="register.register()">
-                        CREATE NEW ACCOUNT
+                    <md-button type="submit" ng-disabled="signupForm.$invalid" class="md-raised md-primary">
+                        ADD CANDIDATE
                     </md-button>
                 </div>
-            </div>
-            <div class="clearfix"> </div>
-            <div layout="row" layout-align="center center">
-                <a flex style="text-align:center" ui-sref="candidate.login">Sign in</a>
             </div>
         </form>
     </div>
