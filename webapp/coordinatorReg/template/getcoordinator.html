@@ -1,56 +1,4 @@
-<!-- <div layout-gt-sm="row" layout="column" class="styling">
-  <div flex-gt-sm="100" flex="">
-    <md-toolbar layout="row" class="md-hue-3">
-      <div class="md-toolbar-tools" layout-align="center center">
-        <span>Coordinator details</span>
-      </div>
-    </md-toolbar>
 
-    <md-content>
-      <div layout="row"  layout-align="end">
- <h4><i>Add New Coordinator</i></h4>
-  <a  ui-sref="index.coordinatorregistration">
-    <md-button  class="md-fab md-mini" md-colors="{background:'indigo'}">
-      <md-tooltip>
-        Coordinator
-      </md-tooltip>
-      <md-icon>add</md-icon>
-    </md-button>
-  </a>
-</div>
-      <md-list flex="">
-        <md-list-item class="md-3-line" ng-repeat="coordinator in vm.coordinators">
-          <div class="md-list-item-text" layout="column">
-            <h4><b>Name :</b>{{coordinator.coordinatorName}}</h4>
-            <h4><b>Mobile :</b>{{coordinator.coordinatorId}}</h4>
-            <h4><b>Location :</b>{{coordinator.coordinatorLocation}}</h4>
-            <h4><b>Gender :</b>{{coordinator.coordinatorGender}}</h4>
-            <h4><b>Email :</b>{{coordinator.coordinatorEmail}}</h4>
-            <h4><b>Role :</b>{{coordinator.coordinatorRole[0]}}</h4>
-            <h4><b>Profession:</b> {{coordinator.coordinatorProfession[0]}}</h4>
-            <md-list-item class="md-3-line" ng-repeat="language in coordinator.coordinatorLanguage">
-               <div class="md-list-item-text" layout="column">
-                <h4 style="margin: 4px;"><b>Language:</b> {{language.name}}</h4>
-                <h4 style="margin: 4px;"><b>Speak: </b>{{language.speak}}</h4>
-                <h4 style="margin: 4px;"><b>Read: </b>{{language.read}}</h4>
-                <h4 style="margin: 4px;"><b>Write: </b>{{language.write}}</h4>
-               </div>
-            </md-list-item>
-          </div>
-          <md-divider ></md-divider>
-
-          <div layout="row" layout-align="end center">
-              <a ui-sref="index.coordinatorupdation" ng-click="vm.clickUpdate(coordinator)">
-                <md-button  class="md-fab md-mini" md-colors="{background:'indigo'}">
-                  <md-icon class="">mode_edit</md-icon>
-                </md-button>
-              </a>
-          </div>
-        </md-list-item>
-      </md-list>
-    </md-content>
-  </div>
-  </div> -->
   <div layout-gt-sm="row" layout="column" class="styling">
     <div flex-gt-sm="100" flex="">
       <md-toolbar layout="row" class="md-hue-3">
@@ -85,7 +33,7 @@
             <span class="md-content layout-padding"><strong>Gender</strong>:  {{coordinator.coordinatorGender}}</span>
               <span class="md-content layout-padding"><strong>Location: </strong> {{coordinator.coordinatorLocation}}</span>
 
-            <span class="md-content layout-padding"><strong>Role : </strong>{{coordinator.coordinatorRole}} </span>
+            <!-- <span class="md-content layout-padding"><strong>Role : </strong>{{coordinator.coordinatorRole}} </span> -->
 
             <span class="md-content layout-padding"><strong>Professions : </strong>{{coordinator.coordinatorProfession[0]}} </span>
 
