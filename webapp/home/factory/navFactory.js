@@ -1,25 +1,21 @@
-  angular
+angular
     .module('samarth.home')
-	.factory('navFactory', ['$http', function($http) {
+    .service('navFactory', ['$http', function($http) {
+    let menuData = {};
       return {
           getMenuData: function() {
-            return $http({
+            return menuData;
+          },
+          setMenuData: function(){
+            $http({
                 url : '/sidebar/sidenavmenu',
                 method : 'GET'
               }).then(function success(response) {
-                  console.log("from navFactory", response.data);
-                  return response.data;
+                  // console.log("from navFactory", response.data);
+                  menuData =  response.data;
               }, function error(err) {
                   console.log("error", err);
               });
           }
       }
   }]);
-
-
-
-
-  // let req = {};
-  //   req.url = '/sidebar/sidenavmenu';
-  //   req.method = 'GET';
-  //   return $http(req);

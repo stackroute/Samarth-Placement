@@ -17,13 +17,9 @@ function config($stateProvider) {
   .state('index.admindashboard', {
     url: '/admindashboard',
     views: {
-      'appbar@': {
-        templateUrl: 'home/template/navbar.html',
-        controller: 'navbarCtrl',
-        controllerAs: 'vm'
-      },
+
       'content@': {
-        templateUrl: 'dashboard/template/dashboard.html',
+        templateUrl: 'dashboard/template/admindashboard.html',
         controller: 'admindashboardCtrl',
         controllerAs: 'vm',
         resolve: {

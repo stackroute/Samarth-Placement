@@ -39,14 +39,14 @@ angular
     }
   })
   .state('index.candidatesearch.results', {
-    url: '/searchlist',
+    url: 'searchlist',
     params:{
       jobname:null
     },
     views: {
       'results': {
         templateUrl: 'candidatesearch/templates/candidatesearchresults.html',
-            // controller: 'candidatesearchctrl'
+            // controller: 'candidatesearchctrl',
             resolve: {
               loginRequired: loginRequired
             }

@@ -5,7 +5,7 @@
 			{
 				"icon":"dashboard",
 				"navTitle":"Dashboard",
-				"traverse":"index.dashboard"
+				"traverse":"index.admindashboard"
 			},
 			{
 				"icon": "supervisor_account",
@@ -62,7 +62,7 @@
 
 			{
 				"icon":"person_pin",
-				"navTitle":"Jobprovider",
+				"navTitle":"Employer",
 				"traverse":"index.emp"
 			},
 

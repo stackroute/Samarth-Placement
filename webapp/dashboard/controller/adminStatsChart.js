@@ -1,10 +1,10 @@
-angular.module('samarth.dashboard')
-.controller('coordinatorStatChartCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+angular.module('samarth.admindashboard')
+.controller('adminStatChartCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 let candidateStatChart={};
-let jobStatChart ={};
+let centerStatChart ={};
 // Adding the class name dymanically to avoid multiple charts rendering in same element
 $scope.candStatsClassName = 'candStats' + $scope.index;
-$scope.coordStatsClassName = 'coordStats' + $scope.index;
+$scope.jobStatsClassName = 'centerStats' + $scope.index;
 
 let candStats = [{
   value: (($scope.data.placed/$scope.data.Candidates)*100),
@@ -23,8 +23,8 @@ let candStats = [{
   color: 'blue'
 }];
 
-let coordStats = [{
-  value: (($scope.data.expiredJobs/$scope.data.job)*100),
+let centerStats = [{
+  value: (($scope.data.expiredJobs/$scope.data.center)*100),
   color: 'A1887F'
 },{
   value: (($scope.data.availableJobs/$scope.data.job)*100),
@@ -71,20 +71,20 @@ let jobChartSettings = {
   min: 1,
   max: 100,
   round: false,
-  series: coordStats
+  series: centerStats
 };
 
 // Just to make sure that the RadialProgressChart gets executed in the next execution cycle.
 $timeout(function() {
   candidateStatChart = new RadialProgressChart('.' + $scope.candStatsClassName, candChartSettings);
-  jobStatChart = new RadialProgressChart('.' + $scope.coordStatsClassName, jobChartSettings);
+  centerStatChart = new RadialProgressChart('.' + $scope.centerStatsClassName, centerChartSettings);
 });
 
 }])
-.directive('coordinatorStatChart', function() {
+.directive('adminStatChart', function() {
   return {
-    templateUrl: '../dashboard/template/coordinatorStatsChart.html',
-    controller: 'coordinatorStatChartCtrl',
+    templateUrl: '../dashboard/template/adminStatsChart.html',
+    controller: 'adminStatChartCtrl',
     scope: {
       data: '<',
       index: '@'
