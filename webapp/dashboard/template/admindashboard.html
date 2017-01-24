@@ -2,36 +2,34 @@
 	<div layout="row" layout-align="center center" layout-xs="column" layout-padding md-colors="{background: 'grey-200'}">
 		<span class=" md-subhead" id="heading">Hi,&nbsp;</span>
 		<span class=" md-subhead" id="heading"> {{message | uppercase}}!</span>
-		<span id="heading" class="md-headline">We create opportunities for Job-Seekers
+		<span id="heading" class="md-headline">
 		</div>
 		<div layout="row" layout-align="center center" layout-xs="column" >
 		</div>
 	</div>
 	<div layout="row" layout-xs="column"  >
 		<div ng-repeat="prof in profiling" flex-xs=" 25 " flex-gt-xs="25" flex-gt-md="30"  flex-md="40" flex-sm="40">
-			<circle data='prof'  >
+			<circle data='prof'>
 				<circle-stats>
 					<coordinator-stat-chart data='prof' index='{{$index}}'></coordinator-stat-chart>
 					<div layout="row" >
 						<span class="md-subhead " flex-offset="5" md-colors="{color: 'blue-700'}"  >Total Candidates:</span>
-						<span class="md-title " md-colors="{color: 'blue-700'}">{{prof.Candidates}}
-						</span>
-						<span class="md-subhead " flex-offset="25"  md-colors="{color: 'red-700'}"> Total Jobs:</span>
-						<span class="md-title "  md-colors="{color: 'red-700'}">{{prof.job}}</span>
+						<span class="md-title " md-colors="{color: 'blue-700'}">{{prof.Candidates}}	</span>
+						<!-- <span class="md-subhead " flex-offset="25"  md-colors="{color: 'red-700'}"> Total Coordinators:</span>s
+						<span class="md-title "  md-colors="{color: 'red-700'}">{{prof.job}}</span> -->
 					</div>
 					<div layout="row">
 						<span class="md-subhead " flex-offset="5" md-colors="{color: 'orange-700'}">Available Candidates:</span>
-						<span class="md-title "  md-colors="{color: 'orange-700'}">{{prof.Looking}}
-						</span>
-						<span class="md-subhead "  flex-offset="15" md-colors="{color: 'cyan-700'}" > Available Jobs:</span>
-						<span class="md-title "  md-colors="{color: 'cyan-700'}">{{prof.availableJobs}}</span>
+						<span class="md-title "  md-colors="{color: 'orange-700'}">{{prof.Looking}}</span>
+						<!-- <span class="md-subhead "  flex-offset="15" md-colors="{color: 'cyan-700'}" > Available Jobs:</span>
+						<span class="md-title "  md-colors="{color: 'cyan-700'}">{{prof.availableJobs}}</span> -->
 					</div>
 					<div layout="row">
 						<span class="md-subhead " flex-offset="5" md-colors="{color: 'grey-700'}">Applied Candidates:</span>
 						<span class="md-title " md-colors="{color: 'grey-700'}">{{prof.applied}}
 						</span>
-						<span class="md-subhead "  md-colors="{color: 'purple-700'}"  flex-offset="20"> Expired Jobs:</span>
-						<span class="md-title "  md-colors="{color: 'purple-700'}">{{prof.expiredJobs}}</span>
+						<!-- <span class="md-subhead "  md-colors="{color: 'purple-700'}"  flex-offset="20"> Expired Jobs:</span>
+						<span class="md-title "  md-colors="{color: 'purple-700'}">{{prof.expiredJobs}}</span> -->
 					</div>
 					<div layout="row">
 						<span class="md-subhead " md-colors="{color: 'green-700'}" flex-offset="5">Placed Candidate:</span>
@@ -41,12 +39,12 @@
 				</circle-stats>
 				<circle-actions>
 					<div layout="row" layput-margin="">
-					 <md-button ui-sref="index.centerdetails">
-						 <ng-md-icon icon="layers" md-colors="{color: 'blue-A700'}"> </ng-md-icon>CENTERS
-					 </md-button>
-					 <span flex></span>
 					 <md-button ui-sref="index.candidate({profession:'{{prof.profession}}'})">
 						 <ng-md-icon icon="people" md-colors="{color: 'blue-A700'}"> </ng-md-icon>CANDIDATES
+					 </md-button>
+
+					 <md-button ui-sref="index.getcoordinator">
+						 <ng-md-icon icon="people" md-colors="{color: 'blue-A700'}"> </ng-md-icon>COORDINATORS
 					 </md-button>
 				 </div>
 				</circle-actions>

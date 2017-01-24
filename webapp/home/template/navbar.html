@@ -32,12 +32,13 @@
     <a ui-sref="index.dashboard">SAMARTH-PLACEMENT</a>
 
 
+
     <md-menu layout="column" md-offset="10 60" ng-if="logout">
      <md-button aria-label="open" ng-click="$mdOpenMenu($event)" layout="row" >
      <span> <md-icon class="material-icons">supervisor_account</md-icon>&nbsp;&nbsp;&nbsp;&nbsp;{{message | uppercase}}
     </md-button></span>
     <md-menu-content width="3">
-      <span>&nbsp;&nbsp;&nbsp;<md-icon>face</md-icon>&nbsp;&nbsp;Role:&nbsp;<span ng-repeat="navItem in vm.navrole track by $index">{{navItem}}</span>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span ng-repeat="navItem in vm.navrole track by $index">{{navItem}}</span>
       <md-menu-item>
         <md-button ng-click="vm.logout()">
          <md-icon>exit_to_app</md-icon>  Logout

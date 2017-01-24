@@ -1,7 +1,22 @@
-<div layout="row" layout-align="center center" flex>
-    <form name="signupForm" id="form2" flex flex-sm="66" flex-md="66" flex-gt-md="50">
-        <div layout="row" layout-align="center center">
-            <h3 md-title>{{resourceData.signup}}</h3>
+ <!--form for the candidate starts-->
+ <div layout="row" layout-align="center center" layout-xs="column" layout-padding md-colors="{background: 'grey-200'}" id="heading" class="md-headline"></div>
+ <div layout="column" flex-gt-lg="50" flex-offset-gt-lg="25" flex-lg="50" flex-offset-lg="25" flex-md="50" flex-offset-md="25" flex-sm="90" flex-offset-sm="5" flex-xs>
+   <div class="md-no-momentum" md-whiteframe="6" layout-margin layout-padding>
+    <form name="candidateForm" ng-submit="vm.formSubmit()">
+      <!--name field-->
+      <div layout="row" layout-align="center center">
+        <h3 md-title md-colors="{color: 'blue-A700'}">REGISTER CANDIDATE </h3>
+      </div>
+      <md-input-container class="md-block">
+        <label>Name</label>
+        <md-icon aria-label="person">person</md-icon>
+        <input name="myname" ng-model="vm.candidate.name" type="text" minlength="5" md-maxlength="30" ng-required="true"
+        pattern="[a-zA-Z][a-zA-Z\s]+" md-autofocus>
+        <div ng-messages="candidateForm.myname.$error" role="alert">
+          <div ng-message="required">You should need to fill the name</div>
+          <div ng-message="pattern">characters or spaces after the character only allowed</div>
+          <div ng-message="minlength">Your field is too short</div>
+          <div ng-message="md-maxlength">Your field is too long</div>
         </div>
         <div layout="row" layout-align="center center">
             <md-input-container class="md-icon-float" flex>

@@ -52,10 +52,10 @@ angular.module('samarth',
                   'index.job','index.jobReport','index.candidateReport','index.candidatePlacement','index.candidate',
                   'index.applied','index.applied.appliedCandidate','index.applied.acceptedCandidate','index.emp',
                   'index.applied.rejectedCandidate','index.applied.joinedCandidate','index.applied.declinedCandidate','index.aboutus'],
-    supervisor: ['index.dashboard', 'index.aboutus'],
+    supervisor: ['index.dashboard', 'index.aboutus','index.home'],
 
-    admin: ['index.dashboard', 'index.getcoordinator','index.createaccount', 'index.centerdetails','index.centerdetailsreg',
-            'index.aboutus','index','index.coordinatorregistration','index.coordinatorupdation','index.import']
+    admin: ['index.dashboard','index.admindashboard', 'index.getcoordinator','index.createaccount', 'index.centerdetails','index.centerdetailsreg',
+            'index.aboutus','index','index.coordinatorregistration','index.coordinatorupdation','index.import','index.candidate','index.home']
   }
   AclService.setAbilities(aclData);
 

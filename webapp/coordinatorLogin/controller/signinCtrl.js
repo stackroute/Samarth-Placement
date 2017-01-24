@@ -8,12 +8,14 @@
     'Flash',
     '$rootScope',
     '$state',
+    'navFactory',
     function($auth,
       $http,
       $localStorage,
       Flash,
       $rootScope,
-      $state) {
+      $state,
+      navFactory) {
       let vm = this;
       $rootScope.flag = 'ku';
       $rootScope.logout = false;
@@ -22,12 +24,17 @@
         $rootScope.message = $rootScope.user.name;
         $rootScope.sideicon = true;
         $rootScope.logout = true;
-        $state.go('index.dashboard');
+        if($rootScope.role =='coordinator'){
+          $state.go('index.dashboard');
+        }else if ($rootScope.role =='admin') {
+          $state.go('index.admindashboard');
+        }else{
+          $state.go('index.home');
+        }
       }
       else {
         $rootScope.logout = false;
       }
-
       function login() {
         $auth.login({
           email: vm.user.email,
@@ -35,15 +42,22 @@
         }).then(function(res) {
           $auth.setToken(res.token);
           $rootScope.sidenav = res.data.sidenav.sidenavmenuitems;
+          $rootScope.role = res.data.sidenav.role;
           $localStorage.tokenDetails = { token: $auth.getPayload()['sm-token'] };
           $http.defaults.headers.common['x-access-token'] = $auth.getPayload()['sm-token'];
-          $state.go('index.dashboard');
+          console.log("The role of the use ris: ", $rootScope.role);
+          navFactory.setMenuData();
+          if($rootScope.role =='coordinator'){
+            $state.go('index.dashboard');
+          }else if ($rootScope.role =='admin') {
+            $state.go('index.admindashboard');
+          }else{
+            $state.go('index.home');
+          }
         }).catch(function(error) {
           vm.err = 'Login Failed ! UserName or Password doesnot match .';
           let message = 'Login Failed ! UserName or Password doesnot match .';
           Flash.create('danger', message);
-          console.log('login err-------');
-          console.log(error);
         });
       }
       vm.login = login;
