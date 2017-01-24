@@ -20,7 +20,10 @@ angular
    if($auth.isAuthenticated()) {
      $rootScope.user = $auth.getPayload();
      $rootScope.message = $rootScope.user.name;
-
+     navFactory.setMenuData();
+    let sidenavData =navFactory.getMenuData();
+      vm.navrole = sidenavData.role;
+        vm.navItems = sidenavData.sidenavmenuitems;
     if($rootScope.user.role[0]=='coordinator'){
       $state.go('index.dashboard');
     }else if ($rootScope.user.role[0]=='admin'){

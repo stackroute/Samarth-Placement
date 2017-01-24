@@ -1,11 +1,10 @@
-
 angular.module('samarth.dashboard')
 .controller('coordinatorStatChartCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 let candidateStatChart={};
 let jobStatChart ={};
 // Adding the class name dymanically to avoid multiple charts rendering in same element
 $scope.candStatsClassName = 'candStats' + $scope.index;
-$scope.jobStatsClassName = 'jobStats' + $scope.index;
+$scope.coordStatsClassName = 'coordStats' + $scope.index;
 
 let candStats = [{
   value: (($scope.data.placed/$scope.data.Candidates)*100),
@@ -24,7 +23,7 @@ let candStats = [{
   color: 'blue'
 }];
 
-let jobStats = [{
+let coordStats = [{
   value: (($scope.data.expiredJobs/$scope.data.job)*100),
   color: 'A1887F'
 },{
@@ -72,13 +71,13 @@ let jobChartSettings = {
   min: 1,
   max: 100,
   round: false,
-  series: jobStats
+  series: coordStats
 };
 
 // Just to make sure that the RadialProgressChart gets executed in the next execution cycle.
 $timeout(function() {
   candidateStatChart = new RadialProgressChart('.' + $scope.candStatsClassName, candChartSettings);
-  jobStatChart = new RadialProgressChart('.' + $scope.jobStatsClassName, jobChartSettings);
+  jobStatChart = new RadialProgressChart('.' + $scope.coordStatsClassName, jobChartSettings);
 });
 
 }])
