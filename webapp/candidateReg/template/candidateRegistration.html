@@ -1,133 +1,142 @@
- <!--form for the candidate starts-->
- <div layout="row" layout-align="center center" layout-xs="column" layout-padding md-colors="{background: 'grey-200'}" id="heading" class="md-headline">
-  "Opportunities are like sunrises. If you wait too long, you miss them." </span>
-  </div>
- <div layout="column" flex-gt-lg="50" flex-offset-gt-lg="25" flex-lg="50" flex-offset-lg="25" flex-md="50" flex-offset-md="25" flex-sm="90" flex-offset-sm="5" flex-xs>
-   <div class="md-no-momentum" md-whiteframe="6" layout-margin layout-padding>
-    <form name="candidateForm" ng-submit="vm.formSubmit()">
-      <!--name field-->
-      <div layout="row" layout-align="center center">
-        <h3 md-title md-colors="{color: 'blue-A700'}">REGISTER CANDIDATE </h3>
-      </div>
-      <md-input-container class="md-block">
-        <label>Name</label>
-        <md-icon aria-label="person">person</md-icon>
-        <input name="myname" ng-model="vm.candidate.name" type="text" minlength="5" md-maxlength="30" ng-required="true"
-        pattern="[a-zA-Z][a-zA-Z\s]+" md-autofocus>
-        <div ng-messages="candidateForm.myname.$error" role="alert">
-          <div ng-message="required">You should need to fill the name</div>
-          <div ng-message="pattern">characters or spaces after the character only allowed</div>
-          <div ng-message="minlength">Your field is too short</div>
-          <div ng-message="md-maxlength">Your field is too long</div>
+<div layout="row" layout-align="center center" flex>
+    <form name="signupForm" id="form2" flex flex-sm="66" flex-md="66" flex-gt-md="50">
+        <div layout="row" layout-align="center center">
+            <h3 md-title>{{resourceData.signup}}</h3>
         </div>
-      </md-input-container>
-
-      <!-- Mobile NO field -->
-      <md-input-container class="md-block">
-        <md-icon aria-label="Phone">phone</md-icon>
-        <label>Mobile No</label>
-        <input name="mobile" ng-model="vm.candidate.mobile" type="text" pattern="[0-9]{10}" md-maxlength="10" ng-required="true">
-        <div ng-messages="candidateForm.mobile.$error" role="alert">
-          <div ng-message="required">You should need to fill the mobile no</div>
-          <div ng-message="pattern">The value should have only 10 digits number</div>
+        <div layout="row" layout-align="center center">
+            <md-input-container class="md-icon-float" flex>
+                <label>{{resourceData.name}}</label>
+                <md-icon class="material-icons">person</md-icon>
+                <input type="text" required md-no-asterisk ng-model="register.user.name" name="name">
+                <div ng-messages="signupForm.name.$error">
+                    <div ng-message="required">Enter the name</div>
+                </div>
+            </md-input-container>
         </div>
-      </md-input-container>
-
-      <md-input-container class="md-block">
-        <label>Email Id</label>
-        <md-icon aria-label="email">email</md-icon>
-        <input name="emailId" ng-model="vm.candidate.email" type="email" ng-required="false">
-        <div ng-messages="candidateForm.emailId.$error" ng-show="candidateForm.emailId.$dirty || candidateForm.emailId.$touched" role="alert">
-          <div ng-message="type">You should need to fill the mobile no</div>
+        <div layout="row" layout-align="center center">
+            <md-input-container class="md-icon-float" flex>
+                <label>{{resourceData.adharcard}}</label>
+                <md-icon class="material-icons">person</md-icon>
+                <input type="text" required md-no-asterisk ng-model="register.user.adharcard" name="adharcard" ng-pattern="/^[0-9]{12}(?:[0-9]{3})?$/">
+                <!-- ^\d{4}\s\d{4}\s\d{4}$ 4-4-4 digits comes-->
+                <!-- ^[0-9]{12}(?:[0-9]{3})?$ -->
+                <div ng-messages="signupForm.adharcard.$error">
+                    <div ng-message="pattern">Enter correct adhaar card number</div>
+                </div>
+            </md-input-container>
         </div>
-      </md-input-container>
+        <div layout="row" layout-align="center center">
+            <md-input-container class="md-icon-float" flex>
+                <label>{{resourceData.mobile}}</label>
+                <md-icon class="material-icons">phone</md-icon>
+                <input type="tel" name="number" required md-no-asterisk ng-model="register.user.number" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
+                <div ng-messages="signupForm.number.$error">
+                    <div ng-message="required">Should be a 10 digit number</div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="center center">
+            <md-input-container class="md-icon-float" flex>
+                <label>{{resourceData.email}}</label>
+                <md-icon class="material-icons">mail</md-icon>
+                <input type="email" name="email" required md-no-asterisk ng-model="register.user.email" ng-pattern="/^.+@.+\..+$/">
+                <div ng-messages="signupForm.email.$error">
+                    <div ng-message="required">Valid email required</div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="center center">
+            <md-input-container flex>
+                <label>Profession</label>
+                <md-icon class="material-icons">work</md-icon>
+                <md-select name="profession" ng-model="register.user.profession">
+                    <md-option ng-repeat="(key, value) in register.professions" ng-value="value.professions">{{value.professions}}</md-option>
+                </md-select>
+                <!-- <div ng-messages="signupForm.profession.$error">
+                    <div ng-message="required">Please Select your profession</div>
+                </div> -->
+            </md-input-container>
+        </div>
+       <!--  <div layout="row" layout-align="center center">
+            <md-input-container class=" md-icon-float" flex>
+                <label>{{resourceData.location}}</label>
+                <md-icon class="material-icons">place</md-icon>
+                <input type="text" name="Location" required md-no-asterisk ng-model="register.user.location" />
+                <div ng-messages="signupForm.Location.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container> -->
+            <!-- </div> -->
 
-      <div layout="column" layout-gt-md="row" layout-sm="column">
-        <md-input-container>
-          <label>Date of Birth</label>
-          <md-datepicker name="dateOfBirth" ng-model="vm.candidate.dob" ng-required="flase"></md-datepicker>
-        </md-input-container>
+        <div layout="row" layout-align="center center">
+        <md-input-container flex>
+            <label>Location</label>
+            <md-icon class="material-icons">place</md-icon>
+            <md-select ng-change="register.getPlacCenter(register.user.location)" name="location" ng-model="register.user.location">
+                <md-option ng-repeat="locations in register.location" ng-value="locations">{{locations}}</md-option>
+            </md-select>
+            </md-input-container>
+        </div>
 
-        <!-- Gender radio -->
-        <md-input-container >
-          <md-radio-group name="gender" ng-model="vm.candidate.gender" layout="row" ng-required="true" flex-offset="40">
-            <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender</label>
-            <md-radio-button value="Male"  flex="85" class="md-primary">Male</md-radio-button>
-            <md-radio-button value="Female" flex="85" class="md-primary">Female</md-radio-button>
-          </md-radio-group>
-        </md-input-container>
-      </div>
+                    <!-- Placement center -->
 
-      <div layout="column">
-        <md-autocomplete
-        md-selected-item="vm.candidate.profession"
-        md-search-text-change=""
-        md-search-text="professionInputText"
-        md-selected-item-change=""
-        md-items="item in vm.profession | filter: professionInputText"
-        md-item-text="item"
-        md-min-length="0"
-        md-floating-label="Profession"
-        md-menu-class="autocomplete-custom-template"
-        ng-required="true">
-        <md-item-template>
-         <span md-highlight-text="professionInputText" md-highlight-flags="^i">{{item}}</span>
-       </md-item-template>
-       <div ng-messages="professionInputText.$error" role="alert">
-         <div ng-message="required">You should need to select the profession</div>
-       </div>
-     </md-autocomplete><br>
+      <!-- <div layout="row" layout-align="center center">
+        <md-input-container flex>
+            <label>Placement center</label>
+            <md-icon class="material-icons">business_center</md-icon>
+            <md-select name="placementCenter" ng-model="register.user.placementCenter">
+                <md-option ng-repeat="centers in register.placementCenter" ng-value="centers">{{centers}}</md-option>
+            </md-select>
+            </md-input-container>
+        </div> -->
 
-     <md-autocomplete
-     md-selected-item="vm.candidate.location"
-     md-search-text-change=""
-     md-search-text="locationInputText"
-     md-selected-item-change=""
-     md-items="item in vm.location | filter: locationInputText"
-     md-item-text="item"
-     md-min-length="0"
-     md-floating-label="Location"
-     md-menu-class="autocomplete-custom-template">
-     <md-item-template>
-      <span md-highlight-text="locationInputText" md-highlight-flags="^i">{{item}}</span>
-    </md-item-template>
-  </md-autocomplete><br>
 
-  <div layout ng-repeat="iteration in vm.selectedLanguage">
-    <md-autocomplete
-    ng-model="vm.candidate.language[iteration]"
-    md-selected-item=""
-    md-search-text-change=""
-    md-search-text="vm.languageInputText[iteration]"
-    md-selected-item-change=""
-    md-items="item in vm.language | filter: languageInputText"
-    md-item-text="item['language']"
-    md-min-length="0"
-    md-menu-class="autocomplete-custom-template"
-    md-floating-label="Languages">
-    <md-item-template>
-      <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item['language']}}</span>
-    </md-item-template>
-  </md-autocomplete >
+        <div layout="row" layout-align="center center">
+        <md-input-container flex>
+            <label>Placement center</label>
+            <md-icon class="material-icons">business_center</md-icon>
+            <md-select name="placementCenter" ng-model="register.user.placementCenter">
+                <md-option ng-repeat="centers in register.placementCenter" ng-value="centers['c.name']">{{centers['c.cname']}}</md-option>
+            </md-select>
+            </md-input-container>
+        </div> 
+        
 
-  <div><p>
-    <md-checkbox ng-model="vm.candidate.language[iteration].speak">Speak</md-checkbox>
-    <md-checkbox ng-model="vm.candidate.language[iteration].read">Read</md-checkbox>
-    <md-checkbox ng-model="vm.candidate.language[iteration].write">Write</md-checkbox><p>
-  </div>
-</div>
-<div layout>
-  <span flex></span>
-  <md-button  class="md-fab md-mini" ng-click="vm.insertLang()">
-    <md-icon>add</md-icon>
-  </md-button>
-</div>
-</div>
-<section layout layout-padding="" layout-align="center center">
-  <md-button type="submit" class="md-raised md-primary" ng-disabled=""> &nbsp;Register&nbsp;</md-button>
-</section>
-<div>
-  <p >{{vm.status}}</p>
-</div>
-</form>
-</div>
+                    <!-- Password -->
+        <div layout="row" layout-align="center center">
+            <md-input-container class="md-icon-float" flex>
+                <label>{{resourceData.password}}</label>
+                <md-icon class="material-icons">lock</md-icon>
+                <input ng-model="register.user.password" type="password" name="password" required md-no-asterisk ng-required="true" minlength="8" maxlength="20" ng-pattern="/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^*()_+])[A-Za-z\d][A-Za-z\d!@#$%^*()_+]{7,19}$/">
+                <div layout-align="right" ng-messages="signupForm.password.$error" class="error" role="alert">
+                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">Password should be 8-20 characters </div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="center center">
+            <md-input-container class="md-icon-float" flex>
+                <label>{{resourceData.confirm}}</label>
+                <md-icon class="material-icons">lock</md-icon>
+                <input ng-model="register.user.cpwd" type="password" required md-no-asterisk name="Cfpassword" valid-password-c required ng-pattern="{{register.user.password}}">
+                <div layout-align="right" ng-messages="signupForm.Cfpassword.$error" class="error" role="alert">
+                    <div ng-message-exp="required">Place is required </div>
+                    <!-- <div class="msg-error" ng-show="signupForm.Cfpassword.$error.noMatch"> -->
+                    <div ng-show="register.user.password !== register.user.cpwd">
+                        Passwords do not match</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <flash-message duration="6000"></flash-message>
+            <div layout="row" layout-align="center center">
+                <div layout="row" layout-align="center center" layout-wrap flex flex-gt-sm="40">
+                    <md-button type="submit" ng-disabled="signupForm.$invalid" class="md-raised md-primary createAccount" ng-click="register.register()">
+                        {{resourceData.create}}
+                    </md-button>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+            <div layout="row" layout-align="center center">
+                <a flex style="text-align:center" ui-sref="candidate.login">{{resourceData.havesign}}</a>
+            </div>
+        </form>
+    </div>

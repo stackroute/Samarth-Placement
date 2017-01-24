@@ -9,7 +9,7 @@ angular
 
 		function initialData(candidateData) {
 			var req = {};
-			req.url = '/candidate';
+			req.url = '/register';
 			req.method = 'POST';	
 			req.data=candidateData;
 			return $http(req);
