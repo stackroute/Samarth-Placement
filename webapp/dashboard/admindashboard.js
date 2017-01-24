@@ -17,7 +17,7 @@ function config($stateProvider) {
   .state('index.admindashboard', {
     url: '/admindashboard',
     views: {
-      
+
       'content@': {
         templateUrl: 'dashboard/template/admindashboard.html',
         controller: 'admindashboardCtrl',

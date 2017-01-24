@@ -46,7 +46,7 @@ angular
     views: {
       'results': {
         templateUrl: 'candidatesearch/templates/candidatesearchresults.html',
-            // controller: 'candidatesearchctrl'
+            // controller: 'candidatesearchctrl',
             resolve: {
               loginRequired: loginRequired
             }
