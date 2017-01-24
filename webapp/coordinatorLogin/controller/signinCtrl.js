@@ -8,12 +8,14 @@
     'Flash',
     '$rootScope',
     '$state',
+    'navFactory',
     function($auth,
       $http,
       $localStorage,
       Flash,
       $rootScope,
-      $state) {
+      $state,
+      navFactory) {
       let vm = this;
       $rootScope.flag = 'ku';
       $rootScope.logout = false;
@@ -33,7 +35,6 @@
       else {
         $rootScope.logout = false;
       }
-
       function login() {
         $auth.login({
           email: vm.user.email,
@@ -45,6 +46,7 @@
           $localStorage.tokenDetails = { token: $auth.getPayload()['sm-token'] };
           $http.defaults.headers.common['x-access-token'] = $auth.getPayload()['sm-token'];
           console.log("The role of the use ris: ", $rootScope.role);
+          navFactory.setMenuData();
           if($rootScope.role =='coordinator'){
             $state.go('index.dashboard');
           }else if ($rootScope.role =='admin') {
@@ -52,7 +54,6 @@
           }else{
             $state.go('index.home');
           }
-
         }).catch(function(error) {
           vm.err = 'Login Failed ! UserName or Password doesnot match .';
           let message = 'Login Failed ! UserName or Password doesnot match .';

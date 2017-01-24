@@ -39,7 +39,7 @@ angular
     }
   })
   .state('index.candidatesearch.results', {
-    url: '/searchlist',
+    url: 'searchlist',
     params:{
       jobname:null
     },
