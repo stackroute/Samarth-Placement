@@ -10,11 +10,6 @@ angular
      $auth,
     $location,
      $state) {
-  //  $rootScope.$on('$stateChangeStart', function(event, toState) {
-  //    if (toState.name == 'index.jobSearch') {
-  //      $location.path('/home/admindashboard');
-  //    }
-  //  });
      $rootScope.user=$auth.getPayload();
      $rootScope.message=$rootScope.user.name;
      if ($auth.isAuthenticated()) {
@@ -30,14 +25,14 @@ angular
 
      circlesGetService.getCircle()
      .then(function(response) {
-       let profs="";
+       let name="";
        let i=0;
        for ( i = 0; i < response.data.length; i++) {
-         profs += response.data[i].name + '-';
+         name += response.data[i].name + '-';
        }
-       circlesGetService.getStats(profs)
+       circlesGetService.getStats(name)
        .then(function(response) {
-         $scope.profiling = response.data;
+         $scope.centername = response.data;
        },
         function(err) {
          return err;
