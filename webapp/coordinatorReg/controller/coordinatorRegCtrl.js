@@ -4,6 +4,7 @@
 			.module('samarth.cordsignup')
 			.controller('coordinatorRegCtrl', ['languageFact',
 				'locationFact',
+				'centerFact',
 				'professionFac',
 				'roleFact',
 				'coordinatorfactory',
@@ -15,6 +16,7 @@
 				'$mdDialog',
 				function(languageFact,
 				locationFact,
+				centerFact,
 				professionFac,
 				roleFact,
 				coordinatorfactory,
@@ -78,6 +80,17 @@
 						vm.location = temp;
 					});
 				}
+
+				  vm.getPlacCenter = function(city) {
+            console.log("Value in controller");
+            console.log(city);
+          centerFact.getCenterName(city).then(function(result) {
+            vm.placementCenter=result;
+            console.log(vm.placementCenter);
+        },function(err){
+            console.log(err);
+        });
+        }
 
 				function languagesFact()
 				{
@@ -179,90 +192,92 @@
 					}
 				}
 				function clickUpdate(coordinator) {
-				                    try
-				                    {
-				                        console.log('entered update function');
-				                        let count = 0;
-				                        for(let i = 0; i <= lanIter; i = i + 1) {
-				                            console.log('entered for loop');
-				                            if(vm.tempLanguage[lanIter].speak === false && vm.tempLanguage[lanIter].read === false && vm.tempLanguage[lanIter].write === false)
-				                            {
-				                                vm.hide = false;
-				                                vm.msg = 'Please fill the language details';
-				                                $timeout(function () { vm.hide = true; }, 3000);
-				                                break;
-				                            }
-				                            else
-				                            {
-				                                count = count + 1;
-				                            }
-				                        }
-				                        if(count === lanIter + 1) {
-				                            for(let i = 0; i <= lanIter; i = i + 1) {
-				                                let temp = {};
-				                                console.log(vm.lang[i]);
-				                                temp.name = vm.lang[i];
-				                                if(vm.tempLanguage[i].speak === undefined)
-				                                {
-				                                    temp.speak = false;
-				                                }
-				                                else
-				                                {
-				                                    temp.speak = vm.tempLanguage[i].speak;
-				                                }
-				                                if(vm.tempLanguage[i].read === undefined)
-				                                {
-				                                    temp.read = false;
-				                                }
-				                                else
-				                                {
-				                                    temp.read = vm.tempLanguage[i].read;
-				                                }
-				                                if(vm.tempLanguage[i].write === undefined)
-				                                {
-				                                    temp.write = false;
-				                                }
-				                                else
-				                                {
-				                                    temp.write = vm.tempLanguage[i].write;
-				                                }
-				                                // console.log(temp);
-				                                arr.push(temp);
-				                                // console.log(arr);
-				                            }
-				                            coordinator.language = arr;
-				                            console.log(coordinator);
-				                                        authDataFac.authDataReq(coordinator).then(function success(response) {
 
-				                                console.log(coordinator.coordinatorId);
+					try
+					{
+						console.log('entered update function');
+						let count = 0;
+						for(let i = 0; i <= lanIter; i = i + 1) {
+							console.log('entered for loop');
+							if(vm.tempLanguage[lanIter].speak === false && vm.tempLanguage[lanIter].read === false && vm.tempLanguage[lanIter].write === false)
+							{
+								vm.hide = false;
+								vm.msg = 'Please fill the language details';
+								$timeout(function () { vm.hide = true; }, 3000);
+								break;
+							}
+							else
+							{
+								count = count + 1;
+							}
+						}
+						if(count === lanIter + 1) {
+							for(let i = 0; i <= lanIter; i = i + 1) {
+								let temp = {};
+								console.log(vm.lang[i]);
+								temp.name = vm.lang[i];
+								if(vm.tempLanguage[i].speak === undefined)
+								{
+									temp.speak = false;
+								}
+								else
+								{
+									temp.speak = vm.tempLanguage[i].speak;
+								}
+								if(vm.tempLanguage[i].read === undefined)
+								{
+									temp.read = false;
+								}
+								else
+								{
+									temp.read = vm.tempLanguage[i].read;
+								}
+								if(vm.tempLanguage[i].write === undefined)
+								{
+									temp.write = false;
+								}
+								else
+								{
+									temp.write = vm.tempLanguage[i].write;
+								}
+								// console.log(temp);
+								arr.push(temp);
+								// console.log(arr);
+							}
+							coordinator.language = arr;
+							console.log(coordinator);
+										authDataFac.authDataReq(coordinator).then(function success(response) {
 
-				                         updateFormFact.updateForm(coordinator).then(function success(response) {
-				                                            console.log('response');
-				                                            vm.hide = false;
-				                                            vm.msg = 'successfully registered';
-				                                            $timeout(function () { vm.hide = true; }, 3000);
-				                                            vm.showAlert();
-				                                        },
-				                                        function error(error) {
-				                                            vm.hide = false;
-				                                            vm.msg = error.data.error;
-				                                            $timeout(function () { vm.hide = true; }, 3000);
-				                                        });
-				                        },
+								console.log(coordinator.coordinatorId);
 
-				                        function error(error) {
-				                            vm.msg = error.data.error;
-				                        });
+					 	updateFormFact.updateForm(coordinator).then(function success(response) {
+											console.log('response');
+											vm.hide = false;
+											vm.msg = 'successfully registered';
+											$timeout(function () { vm.hide = true; }, 3000);
+											vm.showAlert();
+										},
+										function error(error) {
+											vm.hide = false;
+											vm.msg = error.data.error;
+											$timeout(function () { vm.hide = true; }, 3000);
+										});
+						},
 
-				                    }
-				                }
-				                    catch(e)
-				                    {
-				                        vm.hide = false;
-				                        vm.msg = 'please fill all the details';
-				                        $timeout(function () { vm.hide = true; }, 3000);
-				                    }
-				                }
+						function error(error) {
+							vm.msg = error.data.error;
+						});
+
+					}
+				}
+					catch(e)
+					{
+						vm.hide = false;
+						vm.msg = 'please fill all the details';
+						$timeout(function () { vm.hide = true; }, 3000);
+					}
+				}
+
 				// insert a language to the selected language
 				function insertLang()
 				{
@@ -295,16 +310,7 @@
 						);
 					$state.go('index.getcoordinator');
 				};
-		// function removeCoordinator()
-		// 		{
-		// 			deleteCoordinatorService.removeCoordinator(vm.coordinatorid).then(function mySucces(response)  {
-  //           console.log('delete res');
-  //           $rootScope.$emit('datachanged', {});
-  //           }, function myError(response) {
-  //             console.log('error in deleting coordinator section');
-  //         });
 
-  //       };
 
 				professionReq();
 				languagesFact();

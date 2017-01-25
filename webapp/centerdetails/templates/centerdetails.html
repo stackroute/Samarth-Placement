@@ -1,6 +1,9 @@
-
-<div id="stylingAdd" layout="row"  layout-align="end start">
- Add new placement center
+<md-toolbar layout="row" md-colors="{background: 'grey-100'}">
+            <div class="md-toolbar-tools" layout-align="center center">
+                <span>Placement Centers</span>
+            </div>
+            <div id="stylingAdd" layout="row"  layout-align="end start">
+ 			<!-- &nbsp;Add new&nbsp; -->
  <a  ui-sref="index.centerdetailsreg">
    <md-button  class="md-fab md-mini" md-colors="{background:'indigo'}">
     <md-tooltip>
@@ -9,8 +12,12 @@
     <md-icon>add</md-icon>
   </md-button></a>
 </div>
+        </md-toolbar>
+
+
 <my-centerdetailscard data='prof' layout-align="center center"></my-centerdetailscard>
 <style> #stylingAdd {
   position: relative;
-  top: 55px;
+  top: 5px;
+  right: 6px;
   }</style>

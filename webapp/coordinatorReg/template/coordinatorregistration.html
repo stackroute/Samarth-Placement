@@ -65,13 +65,13 @@
             <md-option ng-value="itemm" ng-repeat="itemm in vm.itemm">{{itemm}}</md-option>
           </md-select>
         </md-input-container>
-
+<!--
         <md-input-container layout="column" align-layout="left left">
           <span><md-icon>room</md-icon>
           </span>
           <md-autocomplete
             md-selected-item="vm.coordinator.location"
-            md-search-text-change=""
+            md-search-text-change="coordinator.getPlacCenter(coordinator.user.location)"
             md-search-text="locationInputText"
             md-selected-item-change=""
             md-items="item in vm.location | filter: locationInputText"
@@ -81,10 +81,41 @@
             md-floating-label="Location"
             ng-required=true >
             <md-item-template>
-              <span md-highlight-text="locationInputText" md-highlight-flags="^i">{{item}}</span>
+              <span  md-highlight-text="locationInputText" md-highlight-flags="^i">{{item}}</span>
             </md-item-template>
           </md-autocomplete>
         </md-input-container>
+
+         <md-input-container layout="column" align-layout="left left">
+            <label>Placement center</label>
+            <md-icon class="material-icons">business_center</md-icon>
+            <md-select name="placementCenter" ng-model="vm.coordinator.placementCenter">
+                <md-option ng-repeat="centers in vm.coordinator.placementCenter" ng-value="centers.placementCenter">{{centers.placementCenter}}</md-option>
+            </md-select>
+        </md-input-container>  -->
+
+         <div layout="row" layout-align="center center">
+        <md-input-container flex>
+            <label>Location</label>
+            <md-icon class="material-icons">place</md-icon>
+            <md-select ng-change="vm.getPlacCenter(vm.coordinator.location)" name="location" ng-model="vm.coordinator.location">
+                <md-option ng-repeat="locations in vm.location" ng-value="locations">{{locations}}</md-option>
+            </md-select>
+            </md-input-container>
+        </div>
+
+                    <!-- Placement center -->
+
+        <div layout="row" layout-align="center center">
+        <md-input-container flex>
+            <label>Placement center</label>
+            <md-icon class="material-icons">business_center</md-icon>
+            <md-select name="placementCenter" ng-model="vm.coordinator.placementCenter">
+                <md-option ng-repeat="centers in vm.placementCenter" ng-value="centers['c.name']">{{centers['c.cname']}}</md-option>
+            </md-select>
+            </md-input-container>
+        </div>
+
 
         <div layout data-ng-repeat="iteration in vm.selectedLanguage">
           <md-autocomplete

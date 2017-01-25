@@ -17,9 +17,9 @@
             <md-input-container class="md-icon-float" flex>
                 <label>Candidate id</label>
                 <md-icon class="material-icons">person</md-icon>
-                <input type="text" md-no-asterisk ng-model="vm.user.mobile" name="mobile">
-                <div ng-messages="signupForm.mobile.$error">
-                    <div ng-message="required">Enter candidate id</div>
+                <input type="tel" name="number" md-no-asterisk ng-model="vm.user.mobile" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
+                <div ng-messages="signupForm.number.$error">
+                    <div ng-message="required">Should be a 10 digit number</div>
                 </div>
             </md-input-container>
         </div>
@@ -65,7 +65,7 @@
                 </div> -->
             </md-input-container>
         </div>
-       
+
         <div layout="row" layout-align="center center">
         <md-input-container flex>
             <label>Location</label>

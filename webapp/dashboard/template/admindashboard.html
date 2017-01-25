@@ -8,8 +8,18 @@
 		</div>
 	</div>
 	<div layout="row" layout-xs="column"  >
-		<div ng-repeat="prof in profiling" flex-xs=" 25 " flex-gt-xs="25" flex-gt-md="30"  flex-md="40" flex-sm="40">
-			<circle data='prof'>
+		<div ng-repeat="name in centerdetails" flex-xs=" 25 " flex-gt-xs="25" flex-gt-md="30"  flex-md="40" flex-sm="40">
+			<circle data='cname'>
+
+				<circle-stats>
+					<div layout="row" >
+						<span class="md-subhead " flex-offset="5" md-colors="{color: 'blue-700'}"  >Total Candidates:</span>
+						<span class="md-title " md-colors="{color: 'blue-700'}">{{prof.Candidates}}
+						</span>
+						<span class="md-subhead " flex-offset="25"  md-colors="{color: 'red-700'}"> Total Coordinators:</span>
+						<span class="md-title "  md-colors="{color: 'red-700'}">{{cname.coordinator}}</span>
+					</div>
+				</circle-stats>
 
 				<circle-actions>
 					<div layout="row" layput-margin="">

@@ -63,14 +63,15 @@ angular.module('samarth.candidateReg')
     function formSubmit()
     {
         console.log("In form submit");
-        candidateRegFactory.initialData(vm.user).then(function(response) 
+        candidateRegFactory.initialData(vm.user).then(function(response)
     {
      vm.result=response.data;
+     $state.go('index.dashboard');
      vm.status="Successfully registered the candidate"
      vm.user={};
      console.log(response.data);
    },
-    function(err) 
+    function(err)
    {
       console.log(err);
       var confirm = $mdDialog.confirm()
@@ -79,64 +80,17 @@ angular.module('samarth.candidateReg')
             .ariaLabel('server error')
             .ok('Report the incident!')
             .cancel('Ignore');
-    
+
         $mdDialog.show(confirm)
-        .then(function() 
+        .then(function()
           {
             vm.status = '';
-          }, 
-          function() 
+          },
+          function()
           {
             vm.status = '';
           }
         );
       })
     }
-            // vm.register = function (candidateObject) {
-            //     console.log("Hello sweety");
-            //     let centerObj={
-            //         name: vm.user.name,
-            //         adharcard: vm.user.adharcard,
-            //         mobile: vm.user.number,
-            //         email: vm.user.email,
-            //         location: vm.user.location,
-            //         placementCenter: vm.user.placementCenter,
-            //         pwd: vm.user.password,
-            //         profession: vm.user.profession
-            //     }
-
-            //     $http({
-            //             method: 'POST',
-            //             url: '/candidate/',
-            //             data:centerObj
-            //         }).then(function mySucces(response)  {
-            //            console.log("dsds");
-            //         }, function myError(response) {
-            //             console.log(response);
-            //     });
-            //     }
-
-
-                // $http({
-                //     name: vm.user.name,
-                //     adharcard: vm.user.adharcard,
-                //     mobile: vm.user.number,
-                //     email: vm.user.email,
-                //     location: vm.user.location,
-                //     placementCenter: vm.user.placementCenter,
-                //     pwd: vm.user.password,
-                //     profession: vm.user.profession
-                // })
-
-                // .then(function() {
-                //     let message = 'Successfully completed registration..!';
-                //     Flash.create('success', message);
-                //     // redirects to a mentioned state if successfull
-                //     // $state.go('candidate.login');
-                // }).catch(function() {
-                //     let message = 'Some Error ! Please Try Again';
-                //     Flash.create('danger', message);
-                // });
-                // $auth.signup ends
-            
-        }]);
+}]);

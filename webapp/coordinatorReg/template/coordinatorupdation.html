@@ -5,7 +5,7 @@
 
         <div layout="row" layout-align="center center">
                     <h3 md-title md-colors="{color: 'blue-A700'}">Coordinator Registration</h3>
-                    
+
                 </div>
 
       <form name="myForm" ng-submit="vm.clickUpdate(vm.coordinator)">
@@ -67,7 +67,7 @@
           </md-select>
         </md-input-container>
 
-        <md-input-container layout="column" align-layout="left left">
+        <!-- <md-input-container layout="column" align-layout="left left">
           <span><md-icon>room</md-icon>
           </span>
           <md-autocomplete
@@ -85,7 +85,28 @@
               <span md-highlight-text="locationInputText" md-highlight-flags="^i">{{item}}</span>
             </md-item-template>
           </md-autocomplete>
-        </md-input-container>
+        </md-input-container> -->
+        <div layout="row" layout-align="center center">
+       <md-input-container flex>
+           <label>Location</label>
+           <md-icon class="material-icons">place</md-icon>
+           <md-select ng-change="vm.getPlacCenter(vm.coordinator.location)" name="location" ng-model="vm.coordinator.location">
+               <md-option ng-repeat="locations in vm.location" ng-value="locations">{{locations}}</md-option>
+           </md-select>
+           </md-input-container>
+       </div>
+
+                   <!-- Placement center -->
+
+       <div layout="row" layout-align="center center">
+       <md-input-container flex>
+           <label>Placement center</label>
+           <md-icon class="material-icons">business_center</md-icon>
+           <md-select name="placementCenter" ng-model="vm.coordinator.placementCenter">
+               <md-option ng-repeat="centers in vm.placementCenter" ng-value="centers['c.name']">{{centers['c.cname']}}</md-option>
+           </md-select>
+           </md-input-container>
+       </div>
 
         <div layout data-ng-repeat="iteration in vm.selectedLanguage">
           <md-autocomplete
