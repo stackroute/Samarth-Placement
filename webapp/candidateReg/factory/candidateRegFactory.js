@@ -65,3 +65,4 @@ angular.module('samarth.candidateReg')
         };
     });
 
+
