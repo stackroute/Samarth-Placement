@@ -3,11 +3,12 @@
 </div>
 <div layout="column" layout-gt-xs="row" layout-align="center" layout-margin="" >
     <div layout="row"  layout-padding md-colors="{background: 'grey-100'}">
-        <form name="form">
+        <form name="form" >
         	<div layout="row">
         		<md-input-container class="md-icon-float md-block">
 					      <label>Upload File...!</label>
-					      <input ng-model="filename" type="text">
+					      <md-icon>file_upload</md-icon>
+					      <input ng-model="file.name" type="text" disabled>
     				</md-input-container>
         	</div>
         	<md-button class="md-raised" ngf-select ng-model="file" name="file">
