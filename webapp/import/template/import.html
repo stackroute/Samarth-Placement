@@ -2,13 +2,22 @@
       <span class="md-headline" id="heading"  >Profile Import</span>
 </div>
 <div layout="column" layout-gt-xs="row" layout-align="center" layout-margin="" >
-    <div layout="row" class="md-whiteframe-2dp" layout-padding md-colors="{background: 'grey-400'}">
+    <div layout="row"  layout-padding md-colors="{background: 'grey-100'}">
         <form name="form">
-		      <div class="button" ngf-select ng-model="file" name="file">
-		      		<h2>Click here to select file!!!</h2>
-		      </div><br><br>
-		      <h3>Click on SUBMIT after selecting the file...</h3>
-		      <button type="submit" ng-click="submit()">SUBMIT</button>
+        	<div layout="row">
+        		<md-input-container class="md-icon-float md-block">
+					      <label>Upload File...!</label>
+					      <input ng-model="filename" type="text">
+    				</md-input-container>
+        	</div>
+        	<md-button class="md-raised" ngf-select ng-model="file" name="file">
+		      		Browse file
+		      	</md-button>
+		      
+		      <!-- <div layout="row" layout-align="end end" > -->
+		      	<md-button type="submit" class="md-raised md-primary" ng-click="submit($event)">IMPORT</md-button>
+		      <!-- </div> -->
+		      
   </form>
     </div>
 </div>
