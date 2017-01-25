@@ -6,16 +6,20 @@ angular.module('samarth.candidateReg')
     'professionService1',
     'locationServi',
     'centerPlacementServ',
+    'candidateRegFactory',
     function($auth,
         $state,
         Flash,
         professionService1,
         locationServi,
-        centerPlacementServ) {
+        centerPlacementServ,
+        candidateRegFactory) {
         let vm = this;
         vm.location = [];
         vm.placementCenter = [];
         vm.user = {};
+        vm.status = '';
+        vm.formSubmit = formSubmit;
         console.log("In controller");
 
         professionService1.profession()
@@ -56,26 +60,37 @@ angular.module('samarth.candidateReg')
         }
 
 
-            vm.register = function __register() {
-                
-                $auth.signup({
-                    name: vm.user.name,
-                    adharcard: vm.user.adharcard,
-                    mobile: vm.user.number,
-                    email: vm.user.email,
-                    location: vm.user.location,
-                    placementCenter: vm.user.placementCenter,
-                    pwd: vm.user.password,
-                    profession: vm.user.profession
-                }).then(function() {
-                    let message = 'Successfully completed registration..!';
-                    Flash.create('success', message);
-                    // redirects to a mentioned state if successfull
-                    $state.go('candidate.login');
-                }).catch(function() {
-                    let message = 'Some Error ! Please Try Again';
-                    Flash.create('danger', message);
-                });
-                // $auth.signup ends
-            };
-        }]);
+    function formSubmit()
+    {
+        console.log("In form submit");
+        candidateRegFactory.initialData(vm.user).then(function(response)
+    {
+     vm.result=response.data;
+     $state.go('index.dashboard');
+     vm.status="Successfully registered the candidate"
+     vm.user={};
+     console.log(response.data);
+   },
+    function(err)
+   {
+      console.log(err);
+      var confirm = $mdDialog.confirm()
+            .title('Sorry!')
+            .textContent(err.data)
+            .ariaLabel('server error')
+            .ok('Report the incident!')
+            .cancel('Ignore');
+
+        $mdDialog.show(confirm)
+        .then(function()
+          {
+            vm.status = '';
+          },
+          function()
+          {
+            vm.status = '';
+          }
+        );
+      })
+    }
+}]);
