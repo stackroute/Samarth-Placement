@@ -9,7 +9,9 @@ angular
     $rootScope,
      $auth,
     $location,
-     $state) {
+     $state,
+   $http) {
+
      $rootScope.user=$auth.getPayload();
      $rootScope.message=$rootScope.user.name;
      if ($auth.isAuthenticated()) {
@@ -23,22 +25,11 @@ angular
        $state.go('index');
      }
 
-     circlesGetService.getCircle()
+     $http.get('/center/centercircles')
      .then(function(response) {
-       let cname="";
-       let i=0;
-       for ( i = 0; i < response.data.length; i++) {
-         cname += response.data[i].name + '-';
-       }
-       circlesGetService.getStats(cname)
-       .then(function(response) {
-         $scope.centerdetails = response.data;
-       },
-        function(err) {
-         return err;
-       });
-     },
-     function(err) {
+       console.log('Circle data', response);
+       $scope.centerdetails = response.data;
+     }, function(err) {
       return err;
      });
  };
