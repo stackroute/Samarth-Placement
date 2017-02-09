@@ -33,6 +33,6 @@
     "angular-acl": "^0.1.7"
   },
   "resolutions": {
-    "angular": "1.6.1"
+    "angular": "1.6.2"
   }
 }

@@ -14,6 +14,7 @@
 				'$state',
 				'$timeout',
 				'$mdDialog',
+				'$stateParams',
 				function(languageFact,
 				locationFact,
 				centerFact,
@@ -25,13 +26,19 @@
 				authDataFac,
 				$state,
 				$timeout,
-				$mdDialog){
+				$mdDialog,
+				$stateParams){
 
 				let vm = this;
 				vm.selectedLanguage = [0];
 				let lanIter = 0;
 				let arr=[];
 				let state = $state;
+				vm.coordinator = {};
+
+				if($stateParams.coordinatorId !== undefined){
+					getCoordinatorDetails($stateParams.coordinatorId);
+				}
 
 				function professionReq()
 				{
@@ -68,6 +75,14 @@
         	});
         }
 
+        function getCoordinatorDetails(coordinatorId){
+        	coordinatorfactory.getCoordinatorDetails(coordinatorId).then(function(result) {
+           	vm.coordinator = result.data[0];
+          },function(err){
+            console.log(err);
+        	});
+        }
+
 				function locationsFact()
 				{
 					locationFact.locationReq().then(function(data)
@@ -82,11 +97,10 @@
 				}
 
 				  vm.getPlacCenter = function(city) {
-            console.log("Value in controller");
-            console.log(city);
+            
           centerFact.getCenterName(city).then(function(result) {
             vm.placementCenter=result;
-            console.log(vm.placementCenter);
+            
         },function(err){
             console.log(err);
         });
@@ -159,10 +173,10 @@
 								// console.log(arr);
 							}
 							coordinator.language = arr;
-							console.log(coordinator);
+							// console.log(coordinator);
 							authDataFac.authDataReq(coordinator).then(function success(response) {
 
-								console.log(coordinator.coordinatorId);
+								// console.log(coordinator.coordinatorId);
 
 					 	submitFormFact.submitForm(coordinator).then(function success(response) {
 											console.log('response');
@@ -195,10 +209,9 @@
 
 					try
 					{
-						console.log('entered update function');
 						let count = 0;
 						for(let i = 0; i <= lanIter; i = i + 1) {
-							console.log('entered for loop');
+							
 							if(vm.tempLanguage[lanIter].speak === false && vm.tempLanguage[lanIter].read === false && vm.tempLanguage[lanIter].write === false)
 							{
 								vm.hide = false;
@@ -214,7 +227,7 @@
 						if(count === lanIter + 1) {
 							for(let i = 0; i <= lanIter; i = i + 1) {
 								let temp = {};
-								console.log(vm.lang[i]);
+								
 								temp.name = vm.lang[i];
 								if(vm.tempLanguage[i].speak === undefined)
 								{
@@ -245,10 +258,10 @@
 								// console.log(arr);
 							}
 							coordinator.language = arr;
-							console.log(coordinator);
+							
 										authDataFac.authDataReq(coordinator).then(function success(response) {
 
-								console.log(coordinator.coordinatorId);
+								
 
 					 	updateFormFact.updateForm(coordinator).then(function success(response) {
 											console.log('response');

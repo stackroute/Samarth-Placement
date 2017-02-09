@@ -34,7 +34,7 @@
 				}
 			})
 			.state("index.coordinatorupdation",{
-				url:"/coordinatorupdation",
+				url:"/coordinatorupdation/:coordinatorId",
 				views: {
 					'content@': {
 						templateUrl: 'coordinatorReg/template/coordinatorupdation.html',

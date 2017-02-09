@@ -36,87 +36,112 @@
   <div layout="row">
     <div flex="15" flex-offset="10" hide-xs hide-sm  layout layout-align="center center">
       <span class="md-headline" md-colors="{color: 'blue-800'}">Personal Information</span >
-    </div>
-    <div flex="60" flex-xs="100" flex-sm="100">
-      <my-personalinfocard candidateid="id" languagedata="langResourceBundle">
-        <verify>
-          <md-button style=" color:green " ng-click="showAdvanced($event, 'Personal_Information')">Verify</md-button>
-        </verify>
-      </my-personalinfocard>
-    </div>
-  </div>
-</div>
-
-<div layout="column">
-  <div layout="row">
-    <div flex="15" flex-offset="10" hide-xs hide-sm layout layout-align="center center">
-      <span class="md-headline" md-colors="{color: 'blue-800'}">Job Preferences</span >
       </div>
       <div flex="60" flex-xs="100" flex-sm="100">
-        <my-jobpreferencessectioncard candidateid="id" showheader="true" languagedata="resourceData">
-          <verify></verify>
-        </my-jobpreferencessectioncard>
+        <my-personalinfocard candidateid="id" languagedata="langResourceBundle">
+          <verify>
+            <md-button style=" color:green " ng-click="showAdvanced($event, 'Personal_Information')">Verify</md-button>
+          </verify>
+        </my-personalinfocard>
       </div>
     </div>
   </div>
-</div>
 
-<div layout="column">
-  <div layout="row">
-    <div flex="15" flex-offset="10" hide-xs hide-sm  layout layout-align="center center">
-      <span class="md-headline" md-colors="{color: 'blue-800'}">Skills</span >
+  <div layout="column">
+    <div layout="row">
+      <div flex="15" flex-offset="10" hide-xs hide-sm layout layout-align="center center">
+        <span class="md-headline" md-colors="{color: 'blue-800'}">Job Preferences</span >
+        </div>
+        <div flex="60" flex-xs="100" flex-sm="100">
+          <my-jobpreferencessectioncard candidateid="id" showheader="true" languagedata="resourceData">
+            <verify></verify>
+          </my-jobpreferencessectioncard>
+        </div>
+      </div>
     </div>
-    <div flex="60" flex-xs="100" flex-sm="100">
-      <mysection-skill-card candidateid="id " flex="75" languagedata="langResourceBundle">
-        <verify>
-          <md-button style="color:green " ng-click="showAdvanced($event, 'Skills') ">Verify</md-button>
-        </verify>
-      </mysection-skill-card>
-    </div>
-  </div>
-</div>
 
-<div layout="column">
-  <div layout="row">
-    <div flex="15" flex-offset="10" hide-xs hide-sm  layout layout-align="center center">
-      <span class="md-headline" md-colors="{color: 'blue-800'}">Qualification</span >
+  <div layout="column">
+    <div layout="row">
+      <div flex="15" flex-offset="10" hide-xs hide-sm  layout layout-align="center center">
+        <span class="md-headline" md-colors="{color: 'blue-800'}">Skills</span >
+        </div>
+        <div flex="60" flex-xs="100" flex-sm="100">
+          <mysection-skill-card candidateid="id " flex="75" languagedata="langResourceBundle">
+            <verify>
+              <md-button style="color:green " ng-click="showAdvanced($event, 'Skills') ">Verify</md-button>
+            </verify>
+          </mysection-skill-card>
+        </div>
+      </div>
     </div>
-    <div flex="60" flex-xs="100" flex-sm="100">
-      <my-educationcard candidateid="id " flex="75" languagedata="langResourceBundle">
-        <verify>
-          <md-button style="color:green " ng-click="showAdvanced($event, 'Qualification') ">Verify</md-button>
-        </verify>
-      </my-educationcard>
-    </div>
-  </div>
-</div>
 
-<div layout="column">
-  <div layout="row">
-    <div flex="15" flex-offset="10" hide-xs hide-sm  layout layout-align="center center">
-      <span class="md-headline" md-colors="{color: 'blue-800'}">Projects</span >
-    </div>
-    <div flex="60" flex-xs="100" flex-sm="100">
-      <my-projectsectioncard candidateid="id " flex="75" languagedata="langResourceBundle">
-        <verify>
-          <md-button style="color:green " ng-click="showAdvanced($event, 'Project') ">Verify</md-button>
-        </verify>
-      </my-projectsectioncard>
-    </div>
-  </div>
-</div>
+    <div layout="column">
+      <div layout="row">
+        <div flex="15" flex-offset="10" hide-xs hide-sm  layout layout-align="center center">
+          <span class="md-headline" md-colors="{color: 'blue-800'}">Qualification</span >
+          </div>
+          <div flex="60" flex-xs="100" flex-sm="100">
+            <my-educationcard candidateid="id " flex="75" languagedata="langResourceBundle">
+              <verify>
+                <md-button style="color:green " ng-click="showAdvanced($event, 'Qualification') ">Verify</md-button>
+              </verify>
+            </my-educationcard>
+          </div>
+        </div>
+      </div>
 
-<div layout="column">
-  <div layout="row">
-    <div flex="15" flex-offset="10" hide-xs hide-sm layout layout-align="center center">
-      <span class="md-headline" md-colors="{color: 'blue-800'}">Work Experience</span >
-    </div>
-    <div flex="60" flex-xs="100" flex-sm="100">
-      <my-workexperiencecard candidateid="id " flex="75" languagedata="langResourceBundle">
-        <verify>
-          <md-button style="color:green " ng-click="showAdvanced($event, 'Work_History') ">Verify</md-button>
-        </verify>
-      </my-workexperiencecard>
-    </div>
-  </div>
-</div>
+      <div layout="column">
+        <div layout="row">
+          <div flex="15" flex-offset="10" hide-xs hide-sm  layout layout-align="center center">
+            <span class="md-headline" md-colors="{color: 'blue-800'}">Projects</span >
+            </div>
+            <div flex="60" flex-xs="100" flex-sm="100">
+              <my-projectsectioncard candidateid="id " flex="75" languagedata="langResourceBundle">
+                <verify>
+                  <md-button style="color:green " ng-click="showAdvanced($event, 'Project') ">Verify</md-button>
+                </verify>
+              </my-projectsectioncard>
+            </div>
+          </div>
+        </div>
+
+        <div layout="column">
+          <div layout="row">
+            <div flex="15" flex-offset="10" hide-xs hide-sm layout layout-align="center center">
+              <span class="md-headline" md-colors="{color: 'blue-800'}">Work Experience</span >
+              </div>
+              <div flex="60" flex-xs="100" flex-sm="100">
+                <my-workexperiencecard candidateid="id " flex="75" languagedata="langResourceBundle">
+                  <verify>
+                    <md-button style="color:green " ng-click="showAdvanced($event, 'Work_History') ">Verify</md-button>
+                  </verify>
+                </my-workexperiencecard>
+              </div>
+            </div>
+          </div>
+
+          <div layout="column">
+          <div layout="row">
+            <div flex="15" flex-offset="10" hide-xs hide-sm layout layout-align="center center">
+              <span class="md-headline" md-colors="{color: 'blue-800'}">Placement Center</span >
+              </div>
+              <div flex="60" flex-xs="100" flex-sm="100">
+                  <my-centerdetailspersonal candidateid="id" showheader="true">
+                  </my-centerdetailspersonal>
+                </div>
+              </div>
+            </div>
+
+
+            <div layout="column">
+          <div layout="row">
+            <div flex="15" flex-offset="10" hide-xs hide-sm layout layout-align="center center">
+              <span class="md-headline" md-colors="{color: 'blue-800'}">Profile Gallery</span >
+              </div>
+              <div flex="60" flex-xs="100" flex-sm="100">
+                    <my-profilegallerycard candidateid="id" showheader="true" languagedata="resourceData">
+                      <verify></verify>
+                    </my-profilegallerycard>
+                  </div>
+                </div>
+              </div>
