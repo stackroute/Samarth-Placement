@@ -35,9 +35,9 @@
          <md-divider ></md-divider>
 
 
-
+<!-- {{coordinator}} -->
                <div layout="row" layout-align="end end">
-                <a ui-sref="index.coordinatorupdation" ng-click="vm.clickUpdate(coordinator)">
+                <a ui-sref="index.coordinatorupdation({coordinatorId:coordinator._id})" >
                   <md-button id=edit>
                     <md-icon class="">mode_edit</md-icon>
                   </md-button>

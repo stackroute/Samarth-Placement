@@ -12,13 +12,13 @@
         <md-input-container class="md-block">
           <label>Name</label>
           <md-icon>person</md-icon>
-          <input ng-model="vm.coordinator.name" name="name"  type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" ng-required="true" />
+          <input ng-model="vm.coordinator.coordinatorName" name="name"  type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" ng-required="true" />
           <div ng-messages="myForm.Name.$error" ng-show="myForm.Name.$dirty || myForm.Name.$touched">
             <div ng-message="pattern">only character and spaces allowed</div>
             <div ng-message="md-maxlength">Length should not be more than 30 characters</div>
           </div>
         </md-input-container>
-        <md-radio-group name="gender" ng-model="vm.coordinator.gender" layout="row" ng-required="true">
+        <md-radio-group name="gender" ng-model="vm.coordinator.coordinatorGender" layout="row" ng-required="true">
           <label><md-icon>wc</md-icon>&nbsp;&nbsp;Gender&nbsp;&nbsp;</label>
           <md-radio-button value="Male" class="md-primary">Male</md-radio-button>
           <md-radio-button value="Female" class="md-primary">Female</md-radio-button>
@@ -26,7 +26,7 @@
 
         <md-input-container class="md-block">
           <md-icon>phone</md-icon>
-          <input ng-model="vm.coordinator.mobile" name="number" type="text" pattern="[0-9]{10,10}" md-maxlength="10" placeholder="Mobile Number" ng-required="true" />
+          <input ng-model="vm.coordinator.coordinatorId" name="number" type="text" pattern="[0-9]{10,10}" md-maxlength="10" placeholder="Mobile Number" ng-required="true" />
           <div ng-messages="myForm.number.$error" ng-show="myForm.number.$dirty || myForm.Name.$touched">
             <div ng-message="pattern">10 digit number is allowed only </div>
           </div>
@@ -34,27 +34,27 @@
 
         <md-input-container class="md-block">
           <md-icon aria-label="email">email</md-icon>
-          <input name="emailId" ng-model="vm.coordinator.email" type="email" placeholder="Email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b" ng-required="true" />
+          <input name="emailId" ng-model="vm.coordinator.coordinatorEmail" type="email" placeholder="Email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b" ng-required="true" />
           <div ng-messages="myForm.emailId.$error" ng-show="myForm.emailId.$dirty || myForm.emailId.$touched">
             <div ng-message="pattern">Format for email:- abc@xyz.com </div>
             </div>
         </md-input-container>
 
-        <md-input-container  class="md-block"  >
+       <!--  <md-input-container  class="md-block"  >
           <md-icon>https</md-icon>
           <input name="password" type="password" id="password" ng-model="vm.coordinator.pwd" placeholder="Password" ng-required="true" minlength="5" />
           <div ng-messages="myForm.password.$error"  ng-show="myForm.password.$dirty || myForm.password.$touched">
             <div ng-message="required">Password is required.</div>
             <div ng-message="minlength">Password must be more than 5 digits</div>
           </div>
-        </md-input-container>
+        </md-input-container> -->
 
 
         <md-input-container layout="column">
         <md-icon>layers</md-icon>
 
           <label>Profession</label>
-          <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
+          <md-select ng-model="vm.coordinator.coordinatorProfession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
             <md-option ng-value="item" ng-repeat="item in vm.items | filter:searchTerm">{{item}}</md-option>
           </md-select>
         </md-input-container>
@@ -62,8 +62,8 @@
         <md-input-container layout="column">
         <md-icon>school</md-icon>
           <label>Role</label>
-          <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
-            <md-option ng-value="vm.role">{{vm.role}}</md-option>
+          <md-select ng-model="vm.coordinator.userRole" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
+            <md-option ng-value="itemm" ng-repeat="itemm in vm.itemm">{{itemm}}</md-option>
           </md-select>
         </md-input-container>
 
@@ -90,7 +90,7 @@
        <md-input-container flex>
            <label>Location</label>
            <md-icon class="material-icons">place</md-icon>
-           <md-select ng-change="vm.getPlacCenter(vm.coordinator.location)" name="location" ng-model="vm.coordinator.location">
+           <md-select ng-change="vm.getPlacCenter(vm.coordinator.coordinatorLocation)" name="location" ng-model="vm.coordinator.coordinatorLocation">
                <md-option ng-repeat="locations in vm.location" ng-value="locations">{{locations}}</md-option>
            </md-select>
            </md-input-container>
@@ -100,7 +100,7 @@
 
        <div layout="row" layout-align="center center">
        <md-input-container flex>
-           <label>Placement center</label>
+           <label>Placement center</label> 
            <md-icon class="material-icons">business_center</md-icon>
            <md-select name="placementCenter" ng-model="vm.coordinator.placementCenter">
                <md-option ng-repeat="centers in vm.placementCenter" ng-value="centers['c.name']">{{centers['c.cname']}}</md-option>
@@ -119,7 +119,8 @@
           md-min-length="0"
           md-menu-class="autocomplete-custom-template"
           md-floating-label="Languages"
-          ng-required=true>
+          ng-required=true
+          ng-model="vm.coordinator.coordinatorLanguage">
             <md-item-template>
               <span md-highlight-text="languageInputText" md-highlight-flags="^i">{{item}}</span>
             </md-item-template>

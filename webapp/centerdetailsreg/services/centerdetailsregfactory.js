@@ -13,6 +13,6 @@ angular
 			req.method = 'POST';	
 			req.data=centerData;
 			return $http(req);
-			console.log($http(req));
+			
 		};
 	})

@@ -49,11 +49,10 @@ angular.module('samarth.candidateReg')
 
 
         vm.getPlacCenter = function(city) {
-            console.log("Value in controller");
-            console.log(city);
+           
           centerPlacementServ.getCenterName(city).then(function(result) {
             vm.placementCenter=result;
-            console.log(vm.placementCenter);
+           
         },function(err){
             console.log(err);
         });
