@@ -16,7 +16,7 @@ angular.module('samarth.jobSearch')
            for(var i=0;i<response.data.length;i++){
              profs+=response.data[i].name+"-";
            }
-            console.log("circles arrray "+profs);
+            // console.log("circles arrray "+profs);
          },
          function(err) {
             console.log("circles array "+err);
@@ -45,8 +45,8 @@ angular.module('samarth.jobSearch')
                 }
                 },
                function errorCallbackfun(response) {
-                 console.log("some error occured"+err);
-                 $scope.message0 = "Some Error Occured " +err;
+                 console.log("some error occured"+response);
+                 $scope.message0 = "Some Error Occured " +response;
                },
                function (err)
                 {
