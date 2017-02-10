@@ -259,7 +259,7 @@
 							}
 							coordinator.language = arr;
 							
-										authDataFac.authDataReq(coordinator).then(function success(response) {
+										// authDataFac.authDataReq(coordinator).then(function success(response) {
 
 								
 
@@ -275,11 +275,11 @@
 											vm.msg = error.data.error;
 											$timeout(function () { vm.hide = true; }, 3000);
 										});
-						},
+						// },
 
-						function error(error) {
-							vm.msg = error.data.error;
-						});
+						// function error(error) {
+						// 	vm.msg = error.data.error;
+						// });
 
 					}
 				}
