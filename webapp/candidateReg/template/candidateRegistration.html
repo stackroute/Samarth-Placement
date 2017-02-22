@@ -15,11 +15,31 @@
         </div>
         <div layout="row" layout-align="center center">
             <md-input-container class="md-icon-float" flex>
-                <label>Candidate id</label>
+                <label>Registration id</label>
                 <md-icon class="material-icons">person</md-icon>
-                <input type="tel" name="number" md-no-asterisk ng-model="vm.user.mobile" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/">
+                <input type="number" name="regid" md-no-asterisk ng-model="vm.user.regid" required>
+                <div ng-messages="signupForm.regid.$error">
+                    <div ng-message="required">Should be a 6 digit number</div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="center center">
+            <md-input-container class="md-icon-float" flex>
+                <label>Mobile</label>
+               <md-icon class="material-icons">phone</md-icon>
+                <input type="tel" name="number" md-no-asterisk ng-model="vm.user.mobile" ng-pattern="/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/" required>
                 <div ng-messages="signupForm.number.$error">
                     <div ng-message="required">Should be a 10 digit number</div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="center center">
+            <md-input-container class="md-icon-float" flex>
+                <label>Password</label>
+                <md-icon class="material-icons">lock</md-icon>
+                <input type="password" name="password" md-no-asterisk ng-model="vm.user.password">
+                <div ng-messages="signupForm.password.$error" required>
+                    <div ng-message="required">Should be a 8 digit number</div>
                 </div>
             </md-input-container>
         </div>
