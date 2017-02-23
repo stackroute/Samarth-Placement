@@ -17,6 +17,7 @@ angular.module('samarth',
 'samarth.completeprofile',
 'ngFlash',
 'samarth.import',
+'samarth.config',
 'LocalStorageModule',
 'satellizer',
 'ngStorage',
@@ -56,7 +57,7 @@ angular.module('samarth',
     supervisor: ['index.dashboard', 'index.aboutus','index.home'],
 
     admin: ['index.dashboard','index.admindashboard', 'index.getcoordinator','index.createaccount', 'index.centerdetails','index.centerdetailsreg',
-            'index.aboutus','index','index.coordinatorregistration','index.coordinatorupdation','index.import','index.candidate','index.home']
+            'index.aboutus','index','index.coordinatorregistration','index.coordinatorupdation','index.import','index.config','index.candidate','index.home']
   }
   AclService.setAbilities(aclData);
 

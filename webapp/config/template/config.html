@@ -1,0 +1,131 @@
+
+<md-card>
+  
+  <md-card-content>
+    
+    <div ng-cloak>
+    <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Profession">
+        <md-content class="md-padding">
+          <form id="profInput" layout="row" layout-align="center center">
+             <md-input-container class="md-block">
+                <label>Profession</label>
+                <md-icon>layers</md-icon>
+                <input ng-model="vm.professionName" name="prof" type="text"/>
+              </md-input-container>
+              <md-button ng-show="vm.addbtn" ng-click="vm.addProfession()"  class="md-fab md-mini" md-colors="{background:'indigo'}">
+                <md-tooltip>
+                  Add Profession
+                </md-tooltip>
+                <md-icon>add</md-icon>
+              </md-button>
+              <md-button ng-hide="vm.savebtn" ng-click="vm.updateProfession()"  class="md-fab md-mini" md-colors="{background:'indigo'}">
+                <md-tooltip>
+                  Save Profession
+                </md-tooltip>
+                <md-icon>save</md-icon>
+              </md-button>
+          </form>
+          <md-list flex >
+            <md-subheader class="md-no-sticky">Available Professions:</md-subheader>
+            <md-list-item ng-click="null" ng-repeat="profession in vm.professions">           
+              <div class="md-list-item-text" layout="column">                
+                <h4>{{profession}}</h4>                
+              </div>
+              <div flex style="float: left;">
+                <md-button ng-click="vm.editProfession(profession)"><md-icon>mode_edit</md-icon></md-button> 
+                <md-button ng-click="vm.showConfirmProf($event,profession)" title="Click to Delete"><md-icon>cancel</md-icon></md-button> 
+              </div>
+              
+            </md-list-item>
+            
+          </md-list> 
+        </md-content>
+      </md-tab>
+      <md-tab label="Language">
+        <md-content class="md-padding">
+          <form  layout="row" layout-align="center center">
+             <md-input-container class="md-block">
+                <label>Language</label>
+                <md-icon>layers</md-icon>
+                <input ng-model="vm.languageName" name="langName" type="text"/>
+              </md-input-container>
+              <md-button ng-show="vm.addbtn" ng-click="vm.addLanguage()" class="md-fab md-mini" md-colors="{background:'indigo'}">
+                <md-tooltip>
+                  Add Language
+                </md-tooltip>
+                <md-icon>add</md-icon>
+              </md-button>
+              <md-button ng-hide="vm.savebtn" ng-click="vm.updateLanguage()"  class="md-fab md-mini" md-colors="{background:'indigo'}">
+                <md-tooltip>
+                  Save Language
+                </md-tooltip>
+                <md-icon>save</md-icon>
+              </md-button>
+          </form>
+          <md-list flex >
+            <md-subheader class="md-no-sticky">Available Languages:</md-subheader>
+            <md-list-item ng-click="null" ng-repeat="language in vm.languages">           
+              <div class="md-list-item-text" layout="column">                
+                <h4>{{language}}</h4>                
+              </div>
+              <div flex style="float: left;">
+                <md-button ng-click="vm.editLanguage(language)"><md-icon>mode_edit</md-icon></md-button> 
+                <md-button ng-click="vm.showConfirmLang($event,language)" title="Click to Delete"><md-icon>cancel</md-icon></md-button> 
+              </div>
+            </md-list-item>
+            
+          </md-list> 
+        </md-content>
+      </md-tab>
+      <md-tab label="Location">
+        <md-content class="md-padding">
+          <form name="locationForm" ng-submit="vm.addLocation(vm.locationName)" layout="row" layout-align="center center">
+             <md-input-container class="md-block">
+                <label>Location</label>
+                <md-icon>layers</md-icon>
+                <input ng-model="vm.locationName" name="locName" type="text"/>
+              </md-input-container>
+              <md-button ng-show="vm.addbtn" ng-click="vm.addLocation()" class="md-fab md-mini" md-colors="{background:'indigo'}">
+                <md-tooltip>
+                  Add Location
+                </md-tooltip>
+                <md-icon>add</md-icon>
+              </md-button>
+              <md-button ng-hide="vm.savebtn" ng-click="vm.updateLocation()"  class="md-fab md-mini" md-colors="{background:'indigo'}">
+                <md-tooltip>
+                  Save Language
+                </md-tooltip>
+                <md-icon>save</md-icon>
+              </md-button>
+          </form>
+          <md-list flex >
+            <md-subheader class="md-no-sticky">Available Locations:</md-subheader>
+            <md-list-item ng-click="null" ng-repeat="location in vm.locations">           
+              <div class="md-list-item-text" layout="column">                
+                <h4>{{location}}</h4>                
+              </div>
+              <div flex style="float: left;">
+                <md-button ng-click="vm.editLocation(location)"><md-icon>mode_edit</md-icon></md-button> 
+                <md-button ng-click="vm.showConfirmLoc($event,location)" title="Click to Delete"><md-icon>cancel</md-icon></md-button> 
+              </div>
+            </md-list-item>
+            
+          </md-list> 
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>
+
+  </md-card-content>
+  <!-- <md-card-footer>
+  Card footer
+  </md-card-footer>
+  <div class="md-actions" layout="row|column" layout-align="start|end|center start|end|center">
+     <md-button>content</md-button>
+   </div> -->
+</md-card>
+
+

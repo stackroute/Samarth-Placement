@@ -26,6 +26,11 @@
 				"icon":"local_library",
 				"navTitle":"Aboutus",
 				"traverse":"index.aboutus"
+			},
+			{
+				"icon":"settings",
+				"navTitle":"Configuration",
+				"traverse":"index.config"
 			}
 		]
 	},
