@@ -15,23 +15,35 @@ angular
                 let vm = this;
                 let update = "";
                 let updateLang = "";
+                let updateLoc = "";
                 vm.addbtn = true;
                 vm.savebtn = true;
+                vm.cancelbtn = true;
                 vm.professionName="";
                 vm.languageName="";
                 vm.locationName="";
                 vm.professions = [];
                 vm.languages = [];
                 vm.locations = [];
+
+                vm.cancel = cancel;
+
                 vm.addProfession = addProfession;
                 vm.editProfession = editProfession;
                 vm.updateProfession = updateProfession;
                 vm.showConfirmProf = showConfirmProf;
+
                 vm.addLanguage = addLanguage;
                 vm.editLanguage = editLanguage;
                 vm.updateLanguage = updateLanguage;
                 vm.showConfirmLang = showConfirmLang;
-                
+
+                vm.addLocation = addLocation;
+                vm.editLocation = editLocation;
+                vm.updateLocation = updateLocation;
+                vm.showConfirmLoc = showConfirmLoc;
+
+
                 professionsReq();
                 locationsReq();
                 languagesReq();
@@ -131,6 +143,22 @@ angular
                     });
                 }
 
+                function cancel(){
+
+                    vm.savebtn = true;
+                    vm.addbtn = true;
+                    vm.cancelbtn = true;
+
+                    vm.professionName = "";
+                    vm.languageName = "";
+                    vm.locationName = "";
+
+                    $rootScope.$emit('professiondata', {});
+                    $rootScope.$emit('languagedata', {});
+                    $rootScope.$emit('locationdata', {});
+
+                }
+
                 function addProfession(){
                     // alert("clicked!!!");
                     let data = {profName: vm.professionName};
@@ -151,6 +179,7 @@ angular
                     // alert("clicked edit!!!");
                     vm.savebtn = false;
                     vm.addbtn = false;
+                    vm.cancelbtn = false;
                     vm.professionName = profession;
                     update = profession;
 
@@ -170,6 +199,7 @@ angular
                         vm.professionName = "";
                         vm.savebtn = true;
                         vm.addbtn = true;
+                        vm.cancelbtn = true;
                         // vm.professions = temp;
                     });
                     
@@ -201,6 +231,7 @@ angular
                     });
                 };//end showConfirm
 
+                
                 function addLanguage(){
                     // alert("clicked!!!");
                     let data = {langName: vm.languageName};
@@ -221,6 +252,7 @@ angular
                     // alert("clicked edit!!!");
                     vm.savebtn = false;
                     vm.addbtn = false;
+                    vm.cancelbtn = false;
                     vm.languageName = language;
                     updateLang = language;
 
@@ -240,6 +272,7 @@ angular
                         vm.languageName = "";
                         vm.savebtn = true;
                         vm.addbtn = true;
+                        vm.cancelbtn = true;
                         // vm.professions = temp;
                     });
                     
@@ -270,7 +303,81 @@ angular
                         $mdDialog.hide();//Hide the prompt when user clicks CANCEL!
                     });
                 };//end showConfirm
+
+                function addLocation(){
+                    // alert("clicked!!!");
+                    let data = {locName: vm.locationName};
+                    // let profName = vm.professionName;
+                    locationFactory.addLoc(data).then(function(data)
+                    {
+                        
+                        console.log("Added Location to NEO!!!!!");
+                        // alert(data.data.profession + "has been added!!1");
+                        $rootScope.$emit('locationdata', {});
+                        vm.locationName = "";
+                        // vm.professions = temp;
+                    });
+                    
+                }
                 
+                function editLocation(location){
+                    // alert("clicked edit!!!");
+                    vm.savebtn = false;
+                    vm.addbtn = false;
+                    vm.cancelbtn = false;
+                    vm.locationName = location;
+                    updateLoc = location;
+
+                    
+                }
+
+                function updateLocation(){
+                    // alert(update);
+                    let updatedLoc = vm.locationName;
+                    let data = {oldLoc: updateLoc,
+                                newLoc: updatedLoc};
+                    locationFactory.updateLoc(data).then(function(data)
+                    {
+                        
+                        console.log("Updated Location from NEO!!!!!");
+                        $rootScope.$emit('locationdata', {});
+                        vm.locationName = "";
+                        vm.savebtn = true;
+                        vm.addbtn = true;
+                        vm.cancelbtn = true;
+                        // vm.professions = temp;
+                    });
+                    
+                }
+
+                function showConfirmLoc(ev,loc) {
+    
+                    var confirm = $mdDialog.confirm()
+                    .title('Would you like to delete the selected Location?')          
+                    .targetEvent(ev)
+                    .ok('YES!')
+                    .cancel('Not sure, maybe later!');
+
+                    $mdDialog.show(confirm).then(function() { //when user clicks on "YES"
+                        // console.log(object);
+                        // alert("inside confirm event of deletion function");
+                        locationFactory.deleteLoc(loc).then(function()
+                        {
+                            $rootScope.$emit('locationdata', {});
+                            console.log("Deleted Location from NEO!!!!!");
+                            // vm.professions = temp;
+                            
+                        });
+                        // $rootScope.$emit('professiondata', {});
+                        $mdDialog.hide();
+
+                    }, function() { 
+                        $mdDialog.hide();//Hide the prompt when user clicks CANCEL!
+                    });
+                };//end showConfirm
+            
+
             }
+
             ]);
 
