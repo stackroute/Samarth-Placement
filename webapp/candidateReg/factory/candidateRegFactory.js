@@ -60,7 +60,7 @@ angular.module('samarth.candidateReg')
             req.url = '/candidate';
             req.method = 'POST';    
             req.data=candidateData;
-            console.log(req.data);
+            // console.log(req.data);
             return $http(req);
         };
     });

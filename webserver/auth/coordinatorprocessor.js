@@ -3,9 +3,9 @@ let mongoose = require('mongoose');
 // let bCrypt = require('bcrypt-nodejs');
 let Coordinatoruser = mongoose.model('coordinatorusers', UserModel.login);
 let insertCoordinator = function(newUser, callback) {
-  console.log('newUser');
-  console.log(newUser);
-  let HASHED_PWD = UserModel.login.methods.generateHash(newUser.pwd);
+  // console.log('newUser');
+  // console.log(newUser);
+  let HASHED_PWD = UserModel.login.methods.generateHash(newUser.password);
   let newUserObj = new Coordinatoruser({
     email: newUser.email,
     password: HASHED_PWD,
@@ -13,7 +13,7 @@ let insertCoordinator = function(newUser, callback) {
   });
 
   newUserObj.save(function(err, user) {
-    console.log('save err');
+    // console.log('save err');
     console.log(err);
     if (err) {
       callback(err, null);

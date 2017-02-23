@@ -61,7 +61,7 @@ angular.module('samarth.candidateReg')
 
     function formSubmit()
     {
-        console.log("In form submit");
+        // console.log("In form submit");
         candidateRegFactory.initialData(vm.user).then(function(response)
     {
      vm.result=response.data;

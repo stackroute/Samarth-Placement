@@ -41,7 +41,7 @@
 
         <md-input-container  class="md-block"  >
           <md-icon>https</md-icon>
-          <input name="password" type="password" id="password" ng-model="vm.coordinator.pwd" placeholder="Password" ng-required="true" minlength="5" />
+          <input name="password" type="password" id="password" ng-model="vm.coordinator.password" placeholder="Password" ng-required="true" minlength="5" />
           <div ng-messages="myForm.password.$error"  ng-show="myForm.password.$dirty || myForm.password.$touched">
             <div ng-message="required">Password is required.</div>
             <div ng-message="minlength">Password must be more than 5 digits</div>
@@ -61,7 +61,7 @@
         <md-input-container layout="column">
         <md-icon>school</md-icon>
           <label>Role</label>
-          <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
+          <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true>
             <md-option ng-value="itemm" ng-repeat="itemm in vm.itemm">{{itemm}}</md-option>
           </md-select>
         </md-input-container>
@@ -161,7 +161,7 @@
           <p>{{vm.msg}}</p>
         </div>
         <section layout="row" layout-padding="" layout-align="center">
-          <md-button type="submit" class="md-raised md-primary">&nbspRegister&nbsp</md-button>
+          <md-button type="submit" class="md-raised md-primary">&nbspAdd&nbsp</md-button>
         </section>
 
         </form>
