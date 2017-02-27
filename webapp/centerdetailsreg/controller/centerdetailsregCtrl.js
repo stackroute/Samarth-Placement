@@ -16,17 +16,19 @@ function centerdetailsregCtrl($scope,centerdetailsregfactory,$mdDialog,$state) {
 			vm.status="Successfully registered the center";
 			vm.center={};
 
+			$state.go("index.centerdetails" );
+
 			alert = $mdDialog.alert()
             .title('Success')
             .textContent('Center Details Successfully inserted')
             .ok('Close');
 
           $mdDialog
-          .show( alert )
-          .finally(function() {
-            alert = undefined;
-            $state.go("index.centerdetails" );
-          });
+          .show( alert );
+          // .finally(function() {
+          //   alert = undefined;
+          //   $state.go("index.centerdetails" );
+          // });
 		},
 		function(err) 
 		{
