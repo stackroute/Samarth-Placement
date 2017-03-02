@@ -181,12 +181,12 @@
 							}
 							coordinator.language = arr;
 							// console.log(coordinator);
-							authDataFac.authDataReq(coordinator).then(function success(response) {
+							// authDataFac.authDataReq(coordinator).then(function success(response) {
 
 								// console.log(coordinator.coordinatorId);
 
 					 	submitFormFact.submitForm(coordinator).then(function success(response) {
-											console.log('response');
+											// console.log('response');
 											vm.hide = false;
 											vm.msg = 'successfully registered';
 											$timeout(function () { vm.hide = true; }, 3000);
@@ -197,11 +197,11 @@
 											vm.msg = error.data.error;
 											$timeout(function () { vm.hide = true; }, 3000);
 										});
-						},
+						// },
 
-						function error(error) {
-							vm.msg = error.data.error;
-						});
+						// function error(error) {
+						// 	vm.msg = error.data.error;
+						// });
 
 					}
 				}
