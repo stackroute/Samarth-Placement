@@ -35,7 +35,7 @@
 				let arr=[];
 				let state = $state;
 				vm.coordinator = {};
-
+				vm.currentCenter = false;
 				if($stateParams.coordinatorId !== undefined){
 					getCoordinatorDetails($stateParams.coordinatorId);
 				}
@@ -77,6 +77,13 @@
 
         function getCoordinatorDetails(coordinatorId){
         	coordinatorfactory.getCoordinatorDetails(coordinatorId).then(function(result) {
+        		coordinatorfactory.getCenter(result.data[0].placementCenter).then(function(center){
+        			vm.coordinator.placementCenterName = center[0].cname;
+        			vm.currentCenter = true;
+        		},
+        			function(err){
+        				console.log("err ", err);
+        			});
            	vm.coordinator = result.data[0];
           },function(err){
             console.log(err);
@@ -100,7 +107,7 @@
             
           centerFact.getCenterName(city).then(function(result) {
             vm.placementCenter=result;
-            
+            vm.currentCenter = false;
         },function(err){
             console.log(err);
         });
