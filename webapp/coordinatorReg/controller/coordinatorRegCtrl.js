@@ -108,6 +108,7 @@
           centerFact.getCenterName(city).then(function(result) {
             vm.placementCenter=result;
             vm.currentCenter = false;
+            vm.coordinator.placementCenter = '';
         },function(err){
             console.log(err);
         });
