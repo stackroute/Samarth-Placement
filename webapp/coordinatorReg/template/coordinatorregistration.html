@@ -100,7 +100,7 @@
             <label>Location</label>
             <md-icon class="material-icons">place</md-icon>
             <md-select ng-change="vm.getPlacCenter(vm.coordinator.location)" name="location" ng-model="vm.coordinator.location">
-                <md-option ng-repeat="locations in vm.location" ng-value="locations">{{locations}}</md-option>
+                <md-option ng-repeat="locations in vm.location track by $index" ng-value="locations">{{locations}}</md-option>
             </md-select>
             </md-input-container>
         </div>
