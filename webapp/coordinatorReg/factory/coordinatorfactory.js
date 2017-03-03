@@ -5,7 +5,8 @@ angular
         function($http) {
         var service = {
             initialData :initialData,
-            getCoordinatorDetails : getCoordinatorDetails
+            getCoordinatorDetails : getCoordinatorDetails,
+            getCenter : getCenter
         };
         return service;      
 
@@ -22,5 +23,21 @@ angular
             req.url= '/coordinatorregister/getcoordinator/'+coordinatorId;
             req.method = 'GET';
             return $http(req);
-        }
+        };
+
+        function getCenter(centerCode) {
+            let data = {};
+            return $http({
+                method: 'GET',
+                url: '/coordinatorregister/getcenter/' + centerCode,
+                type: 'JSON'
+
+            }).then(function mySucces(response) {
+                data = response.data;
+                // console.log(data);
+                return data;
+            }, function errorCallback(response) {
+                return response.error.message;
+            });
+        };
     })

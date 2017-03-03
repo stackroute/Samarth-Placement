@@ -33,7 +33,7 @@
 
         <md-input-container class="md-block">
           <md-icon aria-label="email">email</md-icon>
-          <input name="emailId" ng-model="vm.coordinator.email" type="email" placeholder="Email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b" ng-required="true" />
+          <input name="emailId" ng-model="vm.coordinator.coordinatorEmail" type="email" placeholder="Email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b" ng-required="true" />
           <div ng-messages="myForm.emailId.$error" ng-show="myForm.emailId.$dirty || myForm.emailId.$touched">
             <div ng-message="pattern">Format for email:- abc@xyz.com </div>
             </div>
@@ -53,7 +53,7 @@
         <md-icon>layers</md-icon>
 
           <label>Profession</label>
-          <md-select ng-model="vm.coordinator.profession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
+          <md-select ng-model="vm.coordinator.coordinatorProfession" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
             <md-option ng-value="item" ng-repeat="item in vm.items | filter:searchTerm">{{item}}</md-option>
           </md-select>
         </md-input-container>
@@ -61,7 +61,7 @@
         <md-input-container layout="column">
         <md-icon>school</md-icon>
           <label>Role</label>
-          <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true>
+          <md-select ng-model="vm.coordinator.role" md-on-close="clearSearchTerm()" data-md-container-class="selectdemoSelectHeader" ng-required=true multiple>
             <md-option ng-value="itemm" ng-repeat="itemm in vm.itemm">{{itemm}}</md-option>
           </md-select>
         </md-input-container>

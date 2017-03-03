@@ -103,7 +103,9 @@
            <label>Placement center</label> 
            <md-icon class="material-icons">business_center</md-icon>
            <md-select name="placementCenter" ng-model="vm.coordinator.placementCenter">
+              <md-option ng-if="vm.currentCenter" ng-value="vm.coordinator.placementCenter">{{vm.coordinator.placementCenterName}} </md-option>
                <md-option ng-repeat="centers in vm.placementCenter" ng-value="centers['c.name']">{{centers['c.cname']}}</md-option>
+             
            </md-select>
            </md-input-container>
        </div>

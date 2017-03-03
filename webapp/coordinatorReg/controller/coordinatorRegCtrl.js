@@ -35,7 +35,7 @@
 				let arr=[];
 				let state = $state;
 				vm.coordinator = {};
-
+				vm.currentCenter = false;
 				if($stateParams.coordinatorId !== undefined){
 					getCoordinatorDetails($stateParams.coordinatorId);
 				}
@@ -77,6 +77,13 @@
 
         function getCoordinatorDetails(coordinatorId){
         	coordinatorfactory.getCoordinatorDetails(coordinatorId).then(function(result) {
+        		coordinatorfactory.getCenter(result.data[0].placementCenter).then(function(center){
+        			vm.coordinator.placementCenterName = center[0].cname;
+        			vm.currentCenter = true;
+        		},
+        			function(err){
+        				console.log("err ", err);
+        			});
            	vm.coordinator = result.data[0];
           },function(err){
             console.log(err);
@@ -100,7 +107,8 @@
             
           centerFact.getCenterName(city).then(function(result) {
             vm.placementCenter=result;
-            
+            vm.currentCenter = false;
+            vm.coordinator.placementCenter = '';
         },function(err){
             console.log(err);
         });
@@ -174,12 +182,12 @@
 							}
 							coordinator.language = arr;
 							// console.log(coordinator);
-							authDataFac.authDataReq(coordinator).then(function success(response) {
+							// authDataFac.authDataReq(coordinator).then(function success(response) {
 
 								// console.log(coordinator.coordinatorId);
 
 					 	submitFormFact.submitForm(coordinator).then(function success(response) {
-											console.log('response');
+											// console.log('response');
 											vm.hide = false;
 											vm.msg = 'successfully registered';
 											$timeout(function () { vm.hide = true; }, 3000);
@@ -190,11 +198,11 @@
 											vm.msg = error.data.error;
 											$timeout(function () { vm.hide = true; }, 3000);
 										});
-						},
+						// },
 
-						function error(error) {
-							vm.msg = error.data.error;
-						});
+						// function error(error) {
+						// 	vm.msg = error.data.error;
+						// });
 
 					}
 				}
