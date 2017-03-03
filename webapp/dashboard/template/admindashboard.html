@@ -7,8 +7,8 @@
 		<div layout="row" layout-align="center center" layout-xs="column" >
 		</div>
 	</div>
-	<div layout="row" layout-xs="column"  >
-		<div ng-repeat="center in centerdetails| filter:{visible: true} | limitTo: 4" flex-xs=" 25 " flex-gt-xs="25" flex-gt-md="30"  flex-md="40" flex-sm="40">
+	<div layout="row" layout-xs="column" layout-wrap layout-align="center center"  >
+		<div ng-repeat="center in centerdetails" flex-xs=" 25 " flex-gt-xs="25" flex-gt-md="30"  flex-md="40" flex-sm="40">
 			<circle data='center'>
 
 				<circle-stats>

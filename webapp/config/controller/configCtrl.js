@@ -43,6 +43,8 @@ angular
                 vm.updateLocation = updateLocation;
                 vm.showConfirmLoc = showConfirmLoc;
 
+                // vm.reqProf = true;
+
 
                 professionsReq();
                 locationsReq();
@@ -160,18 +162,48 @@ angular
                 }
 
                 function addProfession(){
-                    // alert("clicked!!!");
-                    let data = {profName: vm.professionName};
-                    // let profName = vm.professionName;
-                    professionFactory.addProf(data).then(function(data)
-                    {
+                    
+                    // if(vm.professionName!=""){
+                        let checkExisting = vm.professionName.toUpperCase();
+                        let existingAll = vm.professions.map(function(x){ return x.toUpperCase() });
+
+                        // console.log(checkExisting);
+                        // console.log(existingAll);
+
+                        var exists = (existingAll.indexOf(checkExisting) > -1);
+
+                        // alert(exists);
+                        if(exists){
+                            $mdDialog.show(
+                              $mdDialog.alert()
+                                .parent(angular.element(document.querySelector('#profTab')))
+                                .clickOutsideToClose(true)
+                                .title('Hey!!!!')
+                                .textContent('Profession already exists with us. Check the list!!!')
+                                .ariaLabel('Existing Profession Alert')
+                                .ok('Got it!')
+                                // .targetEvent(ev)
+                            );
+                        }
+                        else{
+                            let data = {profName: vm.professionName};
+                    
+                            professionFactory.addProf(data).then(function(data)
+                            {
+                                
+                                console.log("Added Profession to NEO!!!!!");
+                                // alert(data.data.profession + "has been added!!1");
+                                $rootScope.$emit('professiondata', {});
+                                vm.professionName = "";
+                                // vm.professions = temp;
+                            });
+                        }
                         
-                        console.log("Added Profession to NEO!!!!!");
-                        // alert(data.data.profession + "has been added!!1");
-                        $rootScope.$emit('professiondata', {});
-                        vm.professionName = "";
-                        // vm.professions = temp;
-                    });
+                    // }
+                    // else{
+                    //     vm.professionName = "Please enter val"
+                    // }
+                    
                     
                 }
 
@@ -188,20 +220,45 @@ angular
 
                 function updateProfession(){
                     // alert(update);
-                    let updatedProf = vm.professionName;
-                    let data = {oldProf: update,
-                                newProf: updatedProf};
-                    professionFactory.updateProf(data).then(function(data)
-                    {
-                        
-                        console.log("Updated Profession from NEO!!!!!");
-                        $rootScope.$emit('professiondata', {});
-                        vm.professionName = "";
-                        vm.savebtn = true;
-                        vm.addbtn = true;
-                        vm.cancelbtn = true;
-                        // vm.professions = temp;
-                    });
+                    let checkExisting = vm.professionName.toUpperCase();
+                    let existingAll = vm.professions.map(function(x){ return x.toUpperCase() });
+
+                        // console.log(checkExisting);
+                        // console.log(existingAll);
+
+                    var exists = (existingAll.indexOf(checkExisting) > -1);
+
+                        // alert(exists);
+                    if(exists){
+                        $mdDialog.show(
+                            $mdDialog.alert()
+                                .parent(angular.element(document.querySelector('#profTab')))
+                                .clickOutsideToClose(true)
+                                .title('Hey!!!!')
+                                .textContent('Profession already exists with us. Check the list!!!')
+                                .ariaLabel('Existing Profession Alert')
+                                .ok('Got it!')
+                                // .targetEvent(ev)
+                            );
+                    }
+                    else{
+                        let updatedProf = vm.professionName;
+                        let data = {oldProf: update,
+                                    newProf: updatedProf};
+                        professionFactory.updateProf(data).then(function(data)
+                        {
+                            
+                            console.log("Updated Profession from NEO!!!!!");
+                            $rootScope.$emit('professiondata', {});
+                            vm.professionName = "";
+                            vm.savebtn = true;
+                            vm.addbtn = true;
+                            vm.cancelbtn = true;
+                            // vm.professions = temp;
+                        });
+                    }
+
+                    
                     
                 }
 
@@ -234,17 +291,36 @@ angular
                 
                 function addLanguage(){
                     // alert("clicked!!!");
-                    let data = {langName: vm.languageName};
-                    // let profName = vm.professionName;
-                    languageFactory.addLang(data).then(function(data)
-                    {
+                    let checkExisting = vm.languageName.toUpperCase();
+                    let existingAll = vm.languages.map(function(x){ return x.toUpperCase() });                      
+
+                    var exists = (existingAll.indexOf(checkExisting) > -1);
                         
-                        console.log("Added Language to NEO!!!!!");
-                        // alert(data.data.profession + "has been added!!1");
-                        $rootScope.$emit('languagedata', {});
-                        vm.languageName = "";
-                        // vm.professions = temp;
-                    });
+                    if(exists){
+                        $mdDialog.show(
+                            $mdDialog.alert()
+                                .parent(angular.element(document.querySelector('#langTab')))
+                                .clickOutsideToClose(true)
+                                .title('Hey!!!!')
+                                .textContent('Language already exists with us. Check the list!!!')
+                                .ariaLabel('Existing Language Alert')
+                                .ok('Got it!')                                
+                            );
+                    }
+                    else{
+                        let data = {langName: vm.languageName};
+                    // let profName = vm.professionName;
+                        languageFactory.addLang(data).then(function(data)
+                        {
+                            
+                            console.log("Added Language to NEO!!!!!");
+                            // alert(data.data.profession + "has been added!!1");
+                            $rootScope.$emit('languagedata', {});
+                            vm.languageName = "";
+                            // vm.professions = temp;
+                        });
+                    }
+                    
                     
                 }
 
@@ -261,20 +337,39 @@ angular
 
                 function updateLanguage(){
                     // alert(update);
-                    let updatedLang = vm.languageName;
-                    let data = {oldLang: updateLang,
-                                newLang: updatedLang};
-                    languageFactory.updateLang(data).then(function(data)
-                    {
+                    let checkExisting = vm.languageName.toUpperCase();
+                    let existingAll = vm.languages.map(function(x){ return x.toUpperCase() });                      
+
+                    var exists = (existingAll.indexOf(checkExisting) > -1);
                         
-                        console.log("Updated Language from NEO!!!!!");
-                        $rootScope.$emit('languagedata', {});
-                        vm.languageName = "";
-                        vm.savebtn = true;
-                        vm.addbtn = true;
-                        vm.cancelbtn = true;
-                        // vm.professions = temp;
-                    });
+                    if(exists){
+                        $mdDialog.show(
+                            $mdDialog.alert()
+                                .parent(angular.element(document.querySelector('#langTab')))
+                                .clickOutsideToClose(true)
+                                .title('Hey!!!!')
+                                .textContent('Language already exists with us. Check the list!!!')
+                                .ariaLabel('Existing Language Alert')
+                                .ok('Got it!')                                
+                            );
+                    }
+                    else{
+                        let updatedLang = vm.languageName;
+                        let data = {oldLang: updateLang,
+                                    newLang: updatedLang};
+                        languageFactory.updateLang(data).then(function(data)
+                        {
+                            
+                            console.log("Updated Language from NEO!!!!!");
+                            $rootScope.$emit('languagedata', {});
+                            vm.languageName = "";
+                            vm.savebtn = true;
+                            vm.addbtn = true;
+                            vm.cancelbtn = true;
+                            // vm.professions = temp;
+                        });
+                    
+                    }
                     
                 }
 
@@ -306,17 +401,33 @@ angular
 
                 function addLocation(){
                     // alert("clicked!!!");
-                    let data = {locName: vm.locationName};
-                    // let profName = vm.professionName;
-                    locationFactory.addLoc(data).then(function(data)
-                    {
+                    let checkExisting = vm.locationName.toUpperCase();
+                    let existingAll = vm.locations.map(function(x){ return x.toUpperCase() });                      
+
+                    var exists = (existingAll.indexOf(checkExisting) > -1);
                         
-                        console.log("Added Location to NEO!!!!!");
-                        // alert(data.data.profession + "has been added!!1");
-                        $rootScope.$emit('locationdata', {});
-                        vm.locationName = "";
-                        // vm.professions = temp;
-                    });
+                    if(exists){
+                        $mdDialog.show(
+                            $mdDialog.alert()
+                                .parent(angular.element(document.querySelector('#locTab')))
+                                .clickOutsideToClose(true)
+                                .title('Hey!!!!')
+                                .textContent('Location already exists with us. Check the list!!!')
+                                .ariaLabel('Existing Location Alert')
+                                .ok('Got it!')                                
+                            );
+                    }
+                    else{
+                        let data = {locName: vm.locationName};
+                        locationFactory.addLoc(data).then(function(data)
+                        {
+                            
+                            console.log("Added Location to NEO!!!!!");
+                            $rootScope.$emit('locationdata', {});
+                            vm.locationName = "";
+                        });
+                    }
+                    
                     
                 }
                 
@@ -333,20 +444,39 @@ angular
 
                 function updateLocation(){
                     // alert(update);
-                    let updatedLoc = vm.locationName;
-                    let data = {oldLoc: updateLoc,
-                                newLoc: updatedLoc};
-                    locationFactory.updateLoc(data).then(function(data)
-                    {
+                    let checkExisting = vm.locationName.toUpperCase();
+                    let existingAll = vm.locations.map(function(x){ return x.toUpperCase() });                      
+
+                    var exists = (existingAll.indexOf(checkExisting) > -1);
                         
-                        console.log("Updated Location from NEO!!!!!");
-                        $rootScope.$emit('locationdata', {});
-                        vm.locationName = "";
-                        vm.savebtn = true;
-                        vm.addbtn = true;
-                        vm.cancelbtn = true;
-                        // vm.professions = temp;
-                    });
+                    if(exists){
+                        $mdDialog.show(
+                            $mdDialog.alert()
+                                .parent(angular.element(document.querySelector('#locTab')))
+                                .clickOutsideToClose(true)
+                                .title('Hey!!!!')
+                                .textContent('Location already exists with us. Check the list!!!')
+                                .ariaLabel('Existing Location Alert')
+                                .ok('Got it!')                                
+                            );
+                    }
+                    else{
+                        let updatedLoc = vm.locationName;
+                        let data = {oldLoc: updateLoc,
+                                    newLoc: updatedLoc};
+                        locationFactory.updateLoc(data).then(function(data)
+                        {
+                            
+                            console.log("Updated Location from NEO!!!!!");
+                            $rootScope.$emit('locationdata', {});
+                            vm.locationName = "";
+                            vm.savebtn = true;
+                            vm.addbtn = true;
+                            vm.cancelbtn = true;
+                            // vm.professions = temp;
+                        });
+                    }
+                    
                     
                 }
 

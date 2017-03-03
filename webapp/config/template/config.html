@@ -7,20 +7,26 @@
     <md-content>
     <md-tabs md-dynamic-height md-border-bottom>
       <md-tab label="Profession">
-        <md-content class="md-padding">
-          <form id="profInput" layout="row" layout-align="center center">
+        <md-content class="md-padding" id="profTab">
+          <form id="profInput" name="profForm" layout="row" layout-align="center center">
              <md-input-container class="md-block">
                 <label>Profession</label>
                 <md-icon>layers</md-icon>
-                <input ng-model="vm.professionName" name="prof" type="text"/>
+                <input ng-model="vm.professionName" name="prof" type="text" ng-pattern="/^[a-zA-Z ]{2,30}$/" required/>
+                <div ng-messages="profForm.prof.$error">
+                  <div ng-message="required">This field is required</div>
+                  <div ng-message="pattern">Must be a valid Profession</div>
+                  <!-- <div ng-message="minlength">Profession must be over 2 characters</div>
+                  <div ng-message="maxlength">Profession must not exceed 30 characters</div> -->
+                </div>
               </md-input-container>
-              <md-button ng-show="vm.addbtn" ng-click="vm.addProfession()"  class="md-fab md-mini" md-colors="{background:'indigo'}">
+              <md-button ng-show="vm.addbtn" ng-disabled="profForm.$invalid" ng-click="vm.addProfession()"  class="md-fab md-mini" md-colors="{background:'indigo'}">
                 <md-tooltip>
                   Add Profession
                 </md-tooltip>
                 <md-icon>add</md-icon>
               </md-button>
-              <md-button ng-hide="vm.savebtn" ng-click="vm.updateProfession()"  class="md-fab md-mini" md-colors="{background:'indigo'}">
+              <md-button ng-hide="vm.savebtn" ng-click="vm.updateProfession()" ng-disabled="profForm.$invalid"  class="md-fab md-mini" md-colors="{background:'indigo'}">
                 <md-tooltip>
                   Save Profession
                 </md-tooltip>
@@ -35,7 +41,7 @@
           </form>
           <md-list flex >
             <md-subheader class="md-no-sticky">Available Professions:</md-subheader>
-            <md-list-item ng-repeat="profession in vm.professions">           
+            <md-list-item ng-repeat="profession in vm.professions track by $index">           
               <div flex="70" class="md-list-item-text" layout="row" layout-align="start center">                
                 <h4>{{profession}}</h4>                
               </div>
@@ -50,20 +56,24 @@
         </md-content>
       </md-tab>
       <md-tab label="Language">
-        <md-content class="md-padding">
-          <form  layout="row" layout-align="center center">
+        <md-content class="md-padding" id="langTab">
+          <form  name="langForm" layout="row" layout-align="center center">
              <md-input-container class="md-block">
                 <label>Language</label>
                 <md-icon>language</md-icon>
-                <input ng-model="vm.languageName" name="langName" type="text"/>
+                <input ng-model="vm.languageName" name="langName" type="text" ng-pattern="/^[a-zA-Z ]{3,30}$/" required/>
+                <div ng-messages="langForm.langName.$error">
+                  <div ng-message="required">This field is required</div>
+                  <div ng-message="pattern">Must be a valid Language</div>                 
+                </div>
               </md-input-container>
-              <md-button ng-show="vm.addbtn" ng-click="vm.addLanguage()" class="md-fab md-mini" md-colors="{background:'indigo'}">
+              <md-button ng-show="vm.addbtn" ng-disabled="langForm.$invalid" ng-click="vm.addLanguage()" class="md-fab md-mini" md-colors="{background:'indigo'}">
                 <md-tooltip>
                   Add Language
                 </md-tooltip>
                 <md-icon>add</md-icon>
               </md-button>
-              <md-button ng-hide="vm.savebtn" ng-click="vm.updateLanguage()"  class="md-fab md-mini" md-colors="{background:'indigo'}">
+              <md-button ng-hide="vm.savebtn" ng-disabled="langForm.$invalid" ng-click="vm.updateLanguage()"  class="md-fab md-mini" md-colors="{background:'indigo'}">
                 <md-tooltip>
                   Save Language
                 </md-tooltip>
@@ -78,7 +88,7 @@
           </form>
           <md-list flex >
             <md-subheader class="md-no-sticky">Available Languages:</md-subheader>
-            <md-list-item ng-repeat="language in vm.languages">           
+            <md-list-item ng-repeat="language in vm.languages track by $index">           
               <div flex="70" class="md-list-item-text" layout="row" layout-align="start center">                
                 <h4>{{language}}</h4>                
               </div>
@@ -92,20 +102,24 @@
         </md-content>
       </md-tab>
       <md-tab label="Location">
-        <md-content class="md-padding">
-          <form layout="row" layout-align="center center">
+        <md-content class="md-padding" id="locTab">
+          <form name="locForm" layout="row" layout-align="center center">
              <md-input-container class="md-block">
                 <label>Location</label>
                 <md-icon>place</md-icon>
-                <input ng-model="vm.locationName" name="locName" type="text"/>
+                <input ng-model="vm.locationName" name="locName" type="text" ng-pattern="/^[a-zA-Z ]{2,30}$/" required/>
+                <div ng-messages="locForm.locName.$error">
+                  <div ng-message="required">This field is required</div>
+                  <div ng-message="pattern">Must be a valid Location</div>                  
+                </div>
               </md-input-container>
-              <md-button ng-show="vm.addbtn" ng-click="vm.addLocation()" class="md-fab md-mini" md-colors="{background:'indigo'}">
+              <md-button ng-show="vm.addbtn" ng-disabled="locForm.$invalid" ng-click="vm.addLocation()" class="md-fab md-mini" md-colors="{background:'indigo'}">
                 <md-tooltip>
                   Add Location
                 </md-tooltip>
                 <md-icon>add</md-icon>
               </md-button>
-              <md-button ng-hide="vm.savebtn" ng-click="vm.updateLocation()"  class="md-fab md-mini" md-colors="{background:'indigo'}">
+              <md-button ng-hide="vm.savebtn" ng-disabled="locForm.$invalid" ng-click="vm.updateLocation()"  class="md-fab md-mini" md-colors="{background:'indigo'}">
                 <md-tooltip>
                   Save Location
                 </md-tooltip>
