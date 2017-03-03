@@ -11,10 +11,11 @@
         <md-input-container class="md-block">
           <label>Name</label>
           <md-icon>person</md-icon>
-          <input ng-model="vm.coordinator.name" name="name" type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" ng-required="true" />
+          <input ng-model="vm.coordinator.name" name="name" type="text" pattern="[a-zA-Z\s]+" md-maxlength="30" required />
           <div ng-messages="myForm.Name.$error" ng-show="myForm.Name.$dirty || myForm.Name.$touched">
             <div ng-message="pattern">only character and spaces allowed</div>
             <div ng-message="md-maxlength">Length should not be more than 30 characters</div>
+             <div ng-message="required">Name is required.</div>
           </div>
         </md-input-container>
         <md-radio-group name="gender" ng-model="vm.coordinator.gender" layout="row" ng-required="true">
